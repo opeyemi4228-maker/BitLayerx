@@ -167,7 +167,7 @@ export default function InsightsBanner() {
               <div className="mt-7 flex items-center gap-4">
                 <Link
                   href="/blog"
-                  className="group inline-flex items-center gap-0 rounded-full overflow-hidden font-bold text-[15px] text-[#1D4ED8] bg-white hover:bg-white/95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563EB]"
+                  className="group inline-flex items-center gap-0 rounded-full overflow-hidden font-bold text-[17px] text-[#1D4ED8] bg-white hover:bg-white/95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563EB]"
                   style={{
                     boxShadow: "0 4px 20px rgba(0,0,80,0.25)",
                   }}
@@ -186,7 +186,7 @@ export default function InsightsBanner() {
 
                 <Link
                   href="/blog"
-                  className="text-white/70 hover:text-white font-semibold text-[14px] tracking-wide transition-colors underline underline-offset-4"
+                  className="text-white/70 hover:text-white font-semibold text-[16px] tracking-wide transition-colors underline underline-offset-4"
                 >
                   View All Articles
                 </Link>
@@ -268,8 +268,8 @@ export default function InsightsBanner() {
                       style={{ background: "rgba(255,255,255,0.9)" }}
                     />
                     <div>
-                      <p className="text-white font-bold text-[14px]">{item.cat}</p>
-                      <p className="text-white/50 text-[13.5px] font-medium">{item.reads}</p>
+                      <p className="text-white font-bold text-[16px]">{item.cat}</p>
+                      <p className="text-white/50 text-[15px] font-medium">{item.reads}</p>
                     </div>
                   </div>
                 ))}

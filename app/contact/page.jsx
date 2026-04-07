@@ -246,7 +246,7 @@ function Field({ label, required, children, hint }) {
 }
 
 const inputCls =
-  "w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[13.5px] font-medium text-gray-800 placeholder-gray-300 transition-all duration-200 outline-none focus:border-[#0818A8] focus:ring-2 focus:ring-[#0818A8]/10 hover:border-gray-300";
+  "w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[15px] font-medium text-gray-800 placeholder-gray-300 transition-all duration-200 outline-none focus:border-[#0818A8] focus:ring-2 focus:ring-[#0818A8]/10 hover:border-gray-300";
 
 // ─── FAQ accordion ────────────────────────────────────────────────────────────
 function FAQItem({ faq, isOpen, onToggle }) {
@@ -255,7 +255,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
       style={{ boxShadow: "0 1px 4px rgba(0,0,80,0.03)" }}>
       <button onClick={onToggle}
         className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors duration-200 ${isOpen ? "bg-[#000066]" : "bg-white hover:bg-gray-50"}`}>
-        <span className={`font-bold text-[13px] pr-4 ${isOpen ? "text-white" : "text-gray-800"}`}>{faq.q}</span>
+        <span className={`font-bold text-[15px] pr-4 ${isOpen ? "text-white" : "text-gray-800"}`}>{faq.q}</span>
         <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen ? "bg-white/15 rotate-180" : "bg-gray-100"}`}>
           <ChevronDown size={13} strokeWidth={2.5} className={isOpen ? "text-white" : "text-gray-400"} />
         </div>
@@ -265,7 +265,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
           <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}
             transition={{ duration: 0.3, ease }} className="overflow-hidden">
             <div className="px-5 py-4 bg-gray-50 border-t border-gray-100">
-              <p className="text-gray-500 text-[13px] leading-relaxed">{faq.a}</p>
+              <p className="text-gray-500 text-[15px] leading-relaxed">{faq.a}</p>
             </div>
           </motion.div>
         )}
@@ -351,7 +351,7 @@ function ContactHero() {
 
           <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.38, ease }}
-            className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed font-medium max-w-lg mb-10">
+            className="text-gray-500 text-[17px] sm:text-[16px] leading-relaxed font-medium max-w-lg mb-10">
             Ready to transform your digital presence? Get in touch — a senior BitLayerX strategist will respond within 24 hours with a clear, tailored plan.
           </motion.p>
 
@@ -408,7 +408,7 @@ function ContactMethods() {
                   style={{ background: `${m.color}10` }}>
                   <Icon size={18} strokeWidth={2} style={{ color: m.color }} />
                 </div>
-                <p className="font-black text-[#080c20] text-[13px] uppercase tracking-tight mb-0.5">{m.title}</p>
+                <p className="font-black text-[#080c20] text-[15px] uppercase tracking-tight mb-0.5">{m.title}</p>
                 <p className="text-gray-400 text-[11.5px] font-medium mb-2">{m.desc}</p>
                 <p className="font-bold text-[12.5px] mb-3" style={{ color: m.color }}>{m.value}</p>
                 <div className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wide transition-colors"
@@ -475,7 +475,7 @@ function ContactForm() {
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
               }}>Your Project</span>
             </h2>
-            <p className="text-gray-500 text-[13.5px] leading-relaxed mb-9 max-w-md">
+            <p className="text-gray-500 text-[15px] leading-relaxed mb-9 max-w-md">
               Fill in the form below and we'll get back to you within 24 hours with a tailored strategy.
             </p>
 
@@ -486,7 +486,7 @@ function ContactForm() {
                   className="mb-8 p-5 rounded-xl border border-green-200 bg-green-50 flex items-start gap-3">
                   <CheckCircle2 size={18} strokeWidth={2.5} className="text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-black text-green-800 text-[13.5px] uppercase tracking-wide mb-0.5">Message Sent!</p>
+                    <p className="font-black text-green-800 text-[15px] uppercase tracking-wide mb-0.5">Message Sent!</p>
                     <p className="text-green-700 text-[12.5px]">We'll be in touch within 24 hours with a clear plan.</p>
                   </div>
                 </motion.div>
@@ -566,7 +566,7 @@ function ContactForm() {
               <button type="submit" disabled={submitting || !formData.consent}
                 className="group w-full flex items-center overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#000066] focus:ring-offset-2 transition-all duration-200"
                 style={{ background: submitting ? "#000066" : "#000066" }}>
-                <span className="flex-1 text-white font-black text-[13px] tracking-[0.16em] uppercase pl-7 pr-4 py-4 text-left">
+                <span className="flex-1 text-white font-black text-[15px] tracking-[0.16em] uppercase pl-7 pr-4 py-4 text-left">
                   {submitting ? "Sending Your Message…" : "Send Message & Get Started"}
                 </span>
                 <div className="flex items-center justify-center w-14 h-14 flex-shrink-0 border-l group-hover:bg-white/10 transition-colors"

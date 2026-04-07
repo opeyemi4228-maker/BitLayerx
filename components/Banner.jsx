@@ -192,7 +192,7 @@ function TestimonialsSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Star size={13} strokeWidth={2.5} className="fill-[#0818A8]" />
               Client Results & Credibility
             </p>
@@ -213,9 +213,9 @@ function TestimonialsSection() {
                   <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <span className="text-black/80 text-[15px] font-semibold">4.9 / 5.0</span>
+              <span className="text-black/80 text-[17px] font-semibold">4.9 / 5.0</span>
             </div>
-            <p className="text-black/80 text-[15px] leading-relaxed">
+            <p className="text-black/80 text-[17px] leading-relaxed">
               Based on 127 verified client reviews across all service lines.
             </p>
           </FadeIn>
@@ -262,7 +262,7 @@ function TestimonialsSection() {
 
                   {/* Result badge */}
                   <div
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[13.5px] font-black tracking-wide uppercase mb-5 w-fit"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[15px] font-black tracking-wide uppercase mb-5 w-fit"
                     style={{ backgroundColor: t.color + "12", color: t.color }}
                   >
                     <TrendingUp size={11} strokeWidth={2.5} />
@@ -270,27 +270,27 @@ function TestimonialsSection() {
                   </div>
 
                   {/* Quote text */}
-                  <p className="text-black/80 text-[14px] lg:text-[15px] leading-relaxed italic flex-1 mb-8">
+                  <p className="text-black/80 text-[16px] lg:text-[17px] leading-relaxed italic flex-1 mb-8">
                     "{t.quote}"
                   </p>
 
                   {/* Author */}
                   <div className="flex items-center gap-3 pt-6 border-t border-gray-100">
                     <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-[15px] flex-shrink-0"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-[17px] flex-shrink-0"
                       style={{ backgroundColor: t.color }}
                     >
                       {t.avatar}
                     </div>
                     <div>
-                      <p className="text-[#000080] font-black text-[14px]">{t.name}</p>
-                      <p className="text-black/80 text-[14px] font-medium">
+                      <p className="text-[#000080] font-black text-[16px]">{t.name}</p>
+                      <p className="text-black/80 text-[16px] font-medium">
                         {t.role} · {t.company}
                       </p>
                     </div>
                     <div className="ml-auto">
                       <span
-                        className="px-2.5 py-1 text-[13.5px] font-black uppercase tracking-wider rounded-full"
+                        className="px-2.5 py-1 text-[15px] font-black uppercase tracking-wider rounded-full"
                         style={{ backgroundColor: t.color + "10", color: t.color }}
                       >
                         {t.industry}
@@ -325,7 +325,7 @@ function TestimonialsSection() {
                       >
                         {m.val}
                       </p>
-                      <p className="text-black/80 text-[13.5px] font-semibold uppercase tracking-wider">
+                      <p className="text-black/80 text-[15px] font-semibold uppercase tracking-wider">
                         {m.label}
                       </p>
                     </div>
@@ -354,7 +354,7 @@ function TestimonialsSection() {
               <div className="flex gap-3">
                 <button
                   onClick={() => paginate(-1)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[15px] rounded-xl transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[17px] rounded-xl transition-all duration-200"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={16} strokeWidth={2.5} />
@@ -362,7 +362,7 @@ function TestimonialsSection() {
                 </button>
                 <button
                   onClick={() => paginate(1)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[15px] rounded-xl transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[17px] rounded-xl transition-all duration-200"
                   aria-label="Next testimonial"
                 >
                   Next
@@ -373,7 +373,7 @@ function TestimonialsSection() {
               {/* View all link */}
               <Link
                 href="/work/success-stories"
-                className="flex items-center justify-center gap-1.5 text-[#0818A8] hover:text-[#000080] font-black text-[14px] uppercase tracking-wide transition-colors group"
+                className="flex items-center justify-center gap-1.5 text-[#0818A8] hover:text-[#000080] font-black text-[16px] uppercase tracking-wide transition-colors group"
               >
                 Read All Success Stories
                 <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -402,17 +402,17 @@ function TestimonialsSection() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <div
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[13.5px] font-black flex-shrink-0"
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[15px] font-black flex-shrink-0"
                   style={{ backgroundColor: test.color }}
                 >
                   {test.avatar}
                 </div>
                 <div>
-                  <p className="text-[#000080] font-black text-[14px]">{test.name}</p>
-                  <p className="text-black/80 text-[13.5px]">{test.company}</p>
+                  <p className="text-[#000080] font-black text-[16px]">{test.name}</p>
+                  <p className="text-black/80 text-[15px]">{test.company}</p>
                 </div>
               </div>
-              <p className="text-black/80 text-[13.5px] leading-relaxed line-clamp-2 italic">
+              <p className="text-black/80 text-[15px] leading-relaxed line-clamp-2 italic">
                 "{test.quote.slice(0, 90)}…"
               </p>
             </motion.div>
@@ -421,7 +421,7 @@ function TestimonialsSection() {
 
         {/* Client logos strip */}
         <FadeIn className="mt-16" delay={0.15}>
-          <p className="text-center text-gray-300 text-[13.5px] font-black tracking-[0.2em] uppercase mb-8">
+          <p className="text-center text-gray-300 text-[15px] font-black tracking-[0.2em] uppercase mb-8">
             Trusted by leading brands across Nigeria & beyond
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
@@ -433,7 +433,7 @@ function TestimonialsSection() {
                 transition={{ delay: 0.05 * i, duration: 0.5 }}
                 className="px-5 py-2.5 border border-gray-100 bg-gray-50 hover:bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-200 cursor-default"
               >
-                <span className="text-black/80 font-black text-[14px] tracking-wide uppercase">
+                <span className="text-black/80 font-black text-[16px] tracking-wide uppercase">
                   {logo}
                 </span>
               </motion.div>
@@ -499,7 +499,7 @@ function FinalCTA() {
           {/* Left — headline + benefits */}
           <div>
             <FadeIn direction="right">
-              <p className="text-blue-400 text-[13.5px] font-black tracking-[0.22em] uppercase mb-6 flex items-center gap-2">
+              <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-6 flex items-center gap-2">
                 <Layers size={13} strokeWidth={2.5} />
                 Ready to Build in Layers?
               </p>
@@ -526,7 +526,7 @@ function FinalCTA() {
                 </span>
               </h2>
 
-              <p className="text-white/45 text-[15px] leading-relaxed max-w-md mb-10">
+              <p className="text-white/45 text-[17px] leading-relaxed max-w-md mb-10">
                 Your brand. Your technology. Your marketing. Your media. All
                 working as one layered system — built to dominate your market and
                 compound in value every single day.
@@ -539,13 +539,13 @@ function FinalCTA() {
                     <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <CheckCircle2 size={12} strokeWidth={2.5} className="text-blue-400" />
                     </div>
-                    <span className="text-white/60 text-[15px] font-medium">{b}</span>
+                    <span className="text-white/60 text-[17px] font-medium">{b}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Contact info */}
-              <div className="flex items-center gap-2 text-white/25 text-[14px]">
+              <div className="flex items-center gap-2 text-white/25 text-[16px]">
                 <Phone size={13} strokeWidth={2} />
                 <span>+234 802 540 1891</span>
                 <span className="text-white/15 mx-1">·</span>
@@ -578,13 +578,13 @@ function FinalCTA() {
                     <p className="text-[#000080] font-black text-[16px] uppercase tracking-tight mb-1">
                       Start a Project
                     </p>
-                    <p className="text-black/80 text-[15px] leading-relaxed mb-5">
+                    <p className="text-black/80 text-[17px] leading-relaxed mb-5">
                       Tell us what you're building. We'll define the layers, scope the
                       work, and give you a clear plan within 48 hours.
                     </p>
                     <Link
                       href="/contact/project"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group/btn"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group/btn"
                     >
                       Start Your Project
                       <ArrowRight size={14} strokeWidth={3} className="group-hover/btn:translate-x-0.5 transition-transform" />
@@ -607,13 +607,13 @@ function FinalCTA() {
                     <p className="text-white font-black text-[16px] uppercase tracking-tight mb-1">
                       Book a Strategy Call
                     </p>
-                    <p className="text-white/40 text-[15px] leading-relaxed mb-5">
+                    <p className="text-white/40 text-[17px] leading-relaxed mb-5">
                       30 minutes with a senior BitLayerX strategist. No pitch. Just
                       clarity on your biggest digital challenge and how to solve it.
                     </p>
                     <Link
                       href="/contact/call"
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/15 hover:border-blue-400/40 text-white/70 hover:text-white font-bold text-[15px] rounded-xl transition-all duration-200 group/btn"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/15 hover:border-blue-400/40 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-200 group/btn"
                     >
                       Book a Free Call
                       <ArrowRight size={14} strokeWidth={2.5} className="group-hover/btn:translate-x-0.5 transition-transform" />
@@ -636,13 +636,13 @@ function FinalCTA() {
                     <p className="text-white font-black text-[16px] uppercase tracking-tight mb-1">
                       Request a Proposal
                     </p>
-                    <p className="text-white/40 text-[15px] leading-relaxed mb-5">
+                    <p className="text-white/40 text-[17px] leading-relaxed mb-5">
                       Know what you need? Send us the details and we'll come back
                       with a tailored proposal, timeline, and investment breakdown.
                     </p>
                     <Link
                       href="/contact/proposal"
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/25 text-white/50 hover:text-white/80 font-bold text-[15px] rounded-xl transition-all duration-200 group/btn"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/25 text-white/50 hover:text-white/80 font-bold text-[17px] rounded-xl transition-all duration-200 group/btn"
                     >
                       Request Proposal
                       <ArrowRight size={14} strokeWidth={2.5} className="group-hover/btn:translate-x-0.5 transition-transform" />
@@ -665,7 +665,7 @@ function FinalCTA() {
                   return (
                     <div key={i} className="flex items-center gap-1.5 text-white/25">
                       <Icon size={13} strokeWidth={2} />
-                      <span className="text-[13.5px] font-semibold">{t.text}</span>
+                      <span className="text-[15px] font-semibold">{t.text}</span>
                     </div>
                   );
                 })}

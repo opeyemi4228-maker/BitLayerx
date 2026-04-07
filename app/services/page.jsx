@@ -275,7 +275,7 @@ function ServicesHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.52, ease }}
-          className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed max-w-xl mb-10 font-medium"
+          className="text-gray-500 text-[17px] sm:text-[16px] leading-relaxed max-w-xl mb-10 font-medium"
           itemProp="description">
           Every capability we offer is engineered as an interconnected layer — not an isolated service.
           When strategy, design, technology, brand, media, and growth operate as one system, the results compound.
@@ -288,12 +288,12 @@ function ServicesHero() {
           transition={{ duration: 0.65, delay: 0.6, ease }}
           className="flex flex-wrap gap-3 mb-16 sm:mb-20">
           <Link href="/contact/project"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#000066] hover:bg-[#000080] text-white font-black text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20">
+            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#000066] hover:bg-[#000080] text-white font-black text-[15px] uppercase tracking-wide rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20">
             Start a Project
             <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <Link href="#layers"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#000066]/15 hover:border-[#000066]/35 text-[#000066] font-bold text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200 hover:bg-[#000066]/4">
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#000066]/15 hover:border-[#000066]/35 text-[#000066] font-bold text-[15px] uppercase tracking-wide rounded-xl transition-all duration-200 hover:bg-[#000066]/4">
             Explore All Layers
             <ChevronDown size={13} strokeWidth={2.5} />
           </Link>
@@ -406,7 +406,7 @@ function LayerSection({ layer, index }) {
                 </p>
 
                 {/* Intro */}
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-8 max-w-lg"
+                <p className="text-gray-500 text-[16px] leading-relaxed mb-8 max-w-lg"
                   itemProp="description">
                   {layer.intro}
                 </p>
@@ -441,7 +441,7 @@ function LayerSection({ layer, index }) {
                           style={{ background: `${layer.color}15` }}>
                           <CheckCircle2 size={11} strokeWidth={2.5} style={{ color: layer.color }} />
                         </div>
-                        <span className="text-gray-700 text-[13px] font-semibold">{d}</span>
+                        <span className="text-gray-700 text-[15px] font-semibold">{d}</span>
                       </div>
                     ))}
                   </div>
@@ -570,7 +570,7 @@ function EngagementModels() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:max-w-xs">
-            <p className="text-gray-500 text-[13.5px] leading-relaxed">
+            <p className="text-gray-500 text-[15px] leading-relaxed">
               Three flexible ways to engage — each designed for a different stage of growth and scope of ambition.
             </p>
           </Reveal>
@@ -614,7 +614,7 @@ function EngagementModels() {
                     style={{ color: model.color }}>{model.id}</p>
                   <h3 className="font-black text-[#080c20] uppercase tracking-tight text-[18px] mb-1">{model.title}</h3>
                   <p className="text-gray-400 text-[12.5px] font-semibold italic mb-5">{model.tagline}</p>
-                  <p className="text-gray-500 text-[13px] leading-relaxed mb-6">{model.description}</p>
+                  <p className="text-gray-500 text-[15px] leading-relaxed mb-6">{model.description}</p>
 
                   <div className="space-y-2.5 mb-7">
                     {model.includes.map((item, j) => (
@@ -636,11 +636,11 @@ function EngagementModels() {
         </div>
 
         <Reveal className="text-center mt-12" delay={0.2}>
-          <p className="text-gray-400 text-[13.5px] mb-5 font-medium">
+          <p className="text-gray-400 text-[15px] mb-5 font-medium">
             Not sure which model fits? Let's talk it through.
           </p>
           <Link href="/contact/call"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#000066] hover:bg-[#000080] text-white font-black text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20">
+            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#000066] hover:bg-[#000080] text-white font-black text-[15px] uppercase tracking-wide rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20">
             <CalendarCheck size={13} strokeWidth={2} />
             Book a Free Strategy Call
             <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -688,11 +688,11 @@ function ServicesCTA() {
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
                 See Our<br />Packages
               </h2>
-              <p className="text-white/55 text-[13.5px] leading-relaxed mb-8 max-w-sm">
+              <p className="text-white/55 text-[15px] leading-relaxed mb-8 max-w-sm">
                 Explore our Launchpad, Growth Engine, Brand Authority, Tech Powerhouse, and Digital Dominance packages — pre-designed layer stacks for every stage of growth.
               </p>
               <Link href="/packages"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/95 text-[#000066] font-black text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/95 text-[#000066] font-black text-[15px] uppercase tracking-wide rounded-xl transition-all duration-200"
                 style={{ boxShadow: "0 4px 20px rgba(0,0,80,0.25)" }}>
                 View All Packages
                 <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -708,7 +708,7 @@ function ServicesCTA() {
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
                 Custom<br />Project
               </h3>
-              <p className="text-white/50 text-[13.5px] leading-relaxed mb-7 max-w-sm">
+              <p className="text-white/50 text-[15px] leading-relaxed mb-7 max-w-sm">
                 Have a specific vision? Tell us the layers you need, the outcome you're targeting, and the timeline you're working to. We'll scope it and come back in 48 hours.
               </p>
 
@@ -719,7 +719,7 @@ function ServicesCTA() {
                 const Icon = a.icon;
                 return (
                   <Link key={i} href={a.href}
-                    className={`group flex items-center gap-3 px-5 py-4 rounded-xl font-bold text-[13px] uppercase tracking-wide transition-all duration-200 ${i === 0 ? "bg-white text-[#000066] hover:bg-white/95" : "bg-white/10 text-white hover:bg-white/16 border border-white/10"}`}
+                    className={`group flex items-center gap-3 px-5 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide transition-all duration-200 ${i === 0 ? "bg-white text-[#000066] hover:bg-white/95" : "bg-white/10 text-white hover:bg-white/16 border border-white/10"}`}
                     style={i === 0 ? { boxShadow: "0 4px 16px rgba(0,0,80,0.2)" } : {}}>
                     <Icon size={14} strokeWidth={2} />
                     {a.label}

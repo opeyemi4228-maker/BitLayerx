@@ -269,7 +269,7 @@ function AnnouncementBar({ onClose }) {
       <div className="relative max-w-[1600px] mx-auto px-4 sm:px-8 py-2 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2 flex-1 justify-center min-w-0">
           <Sparkles size={13} className="text-amber-300 flex-shrink-0" strokeWidth={2.5} />
-          <p className="text-white text-[14px] sm:text-[15px] font-semibold text-center leading-tight truncate">
+          <p className="text-white text-[16px] sm:text-[17px] font-semibold text-center leading-tight truncate">
             <span className="font-black text-amber-300">Limited Offer:</span>{" "}
             20% off Enterprise packages this month —{" "}
             <Link
@@ -333,7 +333,7 @@ function DropdownPanel({ items, visible, onClose }) {
                   </div>
                 )}
                 <div className="flex flex-col min-w-0">
-                  <span className="font-semibold text-[15px] leading-snug">
+                  <span className="font-semibold text-[17px] leading-snug">
                     {item.label}
                   </span>
                   {item.desc && (
@@ -381,7 +381,7 @@ function NavLink({ item, pathname }) {
       <Link
         href={item.href}
         className={`
-          flex items-center gap-1 px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all duration-150
+          flex items-center gap-1 px-3 py-2 rounded-lg text-[15px] font-semibold transition-all duration-150
           ${isActive
             ? "text-[#000066] bg-[#000066]/8"
             : "text-black/80 hover:text-[#000066] hover:bg-[#000066]/5"
@@ -429,7 +429,7 @@ function MobileNavItem({ item, pathname, onClose }) {
         <>
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="flex items-center justify-between w-full px-4 py-3 rounded-xl font-semibold text-[14px] text-black/80 hover:text-[#000066] hover:bg-[#000066]/5 transition-colors"
+            className="flex items-center justify-between w-full px-4 py-3 rounded-xl font-semibold text-[16px] text-black/80 hover:text-[#000066] hover:bg-[#000066]/5 transition-colors"
             style={{ fontFamily: "'Montserrat',sans-serif" }}
             aria-expanded={expanded}
           >
@@ -463,9 +463,9 @@ function MobileNavItem({ item, pathname, onClose }) {
                       </div>
                     )}
                     <div className="flex flex-col min-w-0">
-                      <span className="text-[15px] font-semibold">{sub.label}</span>
+                      <span className="text-[17px] font-semibold">{sub.label}</span>
                       {sub.desc && (
-                        <span className="text-[13.5px] text-black/80 leading-snug mt-0.5">{sub.desc}</span>
+                        <span className="text-[15px] text-black/80 leading-snug mt-0.5">{sub.desc}</span>
                       )}
                     </div>
                   </Link>
@@ -478,7 +478,7 @@ function MobileNavItem({ item, pathname, onClose }) {
         <Link
           href={item.href}
           onClick={onClose}
-          className={`block px-4 py-3 rounded-xl font-semibold text-[14px] transition-colors ${
+          className={`block px-4 py-3 rounded-xl font-semibold text-[16px] transition-colors ${
             isActive
               ? "text-[#000066] bg-[#000066]/8"
               : "text-black/80 hover:text-[#000066] hover:bg-[#000066]/5"
@@ -560,7 +560,7 @@ function MobileDrawer({ open, onClose, pathname }) {
           <Link
             href="/contact/call"
             onClick={onClose}
-            className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-gray-200 text-black/80 hover:text-[#000066] hover:border-[#000066]/30 font-semibold text-[15px] rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-gray-200 text-black/80 hover:text-[#000066] hover:border-[#000066]/30 font-semibold text-[17px] rounded-xl transition-all"
           >
             <CalendarCheck size={14} strokeWidth={2} />
             Book a Strategy Call
@@ -595,20 +595,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── SEO Structured Data ──────────────────────────────────────── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_SCHEMA) }}
-      />
-
-      {/* ── Skip to content ──────────────────────────────────────────── */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#000066] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
-      >
-        Skip to content
-      </a>
-
       <div className="fixed top-0 left-0 right-0 z-30">
         {/* Announcement bar */}
         {announcementVisible && (
@@ -657,7 +643,7 @@ export default function Navbar() {
                 {/* Book a call — desktop */}
                 <Link
                   href="/contact/call"
-                  className="hidden xl:flex items-center gap-1.5 px-4 py-2 border border-[#000066]/20 text-[#000066] text-[15px] font-semibold rounded-xl hover:bg-[#000066]/5 transition-all duration-150"
+                  className="hidden xl:flex items-center gap-1.5 px-4 py-2 border border-[#000066]/20 text-[#000066] text-[17px] font-semibold rounded-xl hover:bg-[#000066]/5 transition-all duration-150"
                 >
                   <CalendarCheck size={14} strokeWidth={2} />
                   Book a call

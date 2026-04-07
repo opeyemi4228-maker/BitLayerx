@@ -326,7 +326,7 @@ function IndustriesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-blue-400 text-[13.5px] font-black tracking-[0.24em] uppercase mb-5 flex items-center gap-2">
+          <p className="text-blue-400 text-[15px] font-black tracking-[0.24em] uppercase mb-5 flex items-center gap-2">
             <Target size={13} strokeWidth={2.5} />
             Specialists, Not Generalists
           </p>
@@ -348,7 +348,7 @@ function IndustriesHero() {
             </span>
           </h1>
 
-          <p className="text-white/45 text-[15px] lg:text-[17px] leading-relaxed max-w-2xl mb-10">
+          <p className="text-white/45 text-[17px] lg:text-[17px] leading-relaxed max-w-2xl mb-10">
             We don't work with everyone. We go deep in the industries where our
             layered approach creates the most measurable, lasting impact. Deep
             expertise beats broad generalisation — every time.
@@ -356,12 +356,12 @@ function IndustriesHero() {
 
           <div className="flex flex-wrap gap-4">
             <Link href="/contact/project"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg group">
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg group">
               Start a Project
               <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link href="#industries"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[15px] rounded-xl transition-all duration-300">
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-300">
               Explore Industries
             </Link>
           </div>
@@ -380,7 +380,7 @@ function IndustriesHero() {
               <a key={ind.id} href={`#industry-${ind.id}`}
                 className="flex-shrink-0 flex items-center gap-2.5 px-5 py-3 border-b-2 border-white/8 hover:border-blue-400/50 text-white/30 hover:text-white/80 transition-all duration-200 group">
                 <Icon size={13} strokeWidth={2} className="group-hover:text-blue-400 transition-colors" />
-                <span className="text-[14px] font-bold hidden sm:inline whitespace-nowrap">{ind.label}</span>
+                <span className="text-[16px] font-bold hidden sm:inline whitespace-nowrap">{ind.label}</span>
               </a>
             );
           })}
@@ -419,11 +419,11 @@ function IndustrySection({ industry, index }) {
             style={{ backgroundColor: industry.color + "15" }}>
             <Icon size={19} strokeWidth={1.75} style={{ color: industry.color }} />
           </div>
-          <span className="text-[13.5px] font-black tracking-[0.22em] uppercase"
+          <span className="text-[15px] font-black tracking-[0.22em] uppercase"
             style={{ color: industry.color }}>{industry.label}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: industry.color + "20" }} />
           <Link href={industry.href}
-            className="hidden sm:inline-flex items-center gap-1.5 text-[13.5px] font-black uppercase tracking-wide transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide transition-colors"
             style={{ color: industry.color }}>
             View Industry Page <ArrowUpRight size={11} strokeWidth={3} />
           </Link>
@@ -445,16 +445,16 @@ function IndustrySection({ industry, index }) {
             >
               {industry.headline}
             </h2>
-            <p className="text-black/80 text-[15px] font-bold uppercase tracking-widest mb-6">
+            <p className="text-black/80 text-[17px] font-bold uppercase tracking-widest mb-6">
               {industry.subline}
             </p>
-            <p className="text-black/80 text-[15px] leading-relaxed mb-8 max-w-md" itemProp="description">
+            <p className="text-black/80 text-[17px] leading-relaxed mb-8 max-w-md" itemProp="description">
               {industry.intro}
             </p>
 
             {/* Challenges */}
             <div className="mb-8">
-              <p className="text-[13.5px] font-black tracking-[0.2em] text-gray-300 uppercase mb-4">
+              <p className="text-[15px] font-black tracking-[0.2em] text-gray-300 uppercase mb-4">
                 Industry Challenges We Solve
               </p>
               <ul className="space-y-2.5">
@@ -464,7 +464,7 @@ function IndustrySection({ industry, index }) {
                       style={{ backgroundColor: industry.color + "15" }}>
                       <ChevronRight size={11} strokeWidth={3} style={{ color: industry.color }} />
                     </div>
-                    <span className="text-black/80 text-[15px] font-medium">{c}</span>
+                    <span className="text-black/80 text-[17px] font-medium">{c}</span>
                   </li>
                 ))}
               </ul>
@@ -472,7 +472,7 @@ function IndustrySection({ industry, index }) {
 
             {/* Layers activated */}
             <div className="mb-8">
-              <p className="text-[13.5px] font-black tracking-[0.2em] text-gray-300 uppercase mb-3">
+              <p className="text-[15px] font-black tracking-[0.2em] text-gray-300 uppercase mb-3">
                 Layers We Activate
               </p>
               <div className="flex flex-wrap gap-2">
@@ -481,7 +481,7 @@ function IndustrySection({ industry, index }) {
                   const LIcon = layerInfo?.icon;
                   return (
                     <span key={i}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[13.5px] font-black border"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[15px] font-black border"
                       style={{ borderColor: (layerInfo?.color || industry.color) + "30", color: layerInfo?.color || industry.color, backgroundColor: (layerInfo?.color || industry.color) + "08" }}>
                       {LIcon && <LIcon size={10} strokeWidth={2.5} />}
                       {l} Layer
@@ -493,7 +493,7 @@ function IndustrySection({ industry, index }) {
 
             {/* CTA */}
             <Link href={industry.href}
-              className="inline-flex items-center gap-2 px-6 py-3 font-black text-[15px] text-white rounded-xl transition-all duration-200 hover:opacity-90 shadow-lg group"
+              className="inline-flex items-center gap-2 px-6 py-3 font-black text-[17px] text-white rounded-xl transition-all duration-200 hover:opacity-90 shadow-lg group"
               style={{ background: `linear-gradient(135deg, ${industry.color} 0%, ${industry.color}cc 100%)`, boxShadow: `0 8px 24px ${industry.color}28` }}>
               Explore {industry.label} Solutions
               <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -511,13 +511,13 @@ function IndustrySection({ industry, index }) {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-1 h-4 rounded-full" style={{ backgroundColor: industry.color }} />
-                <p className="text-[13.5px] font-black tracking-[0.2em] text-black/80 uppercase">How We Help</p>
+                <p className="text-[15px] font-black tracking-[0.2em] text-black/80 uppercase">How We Help</p>
               </div>
               <div className="grid grid-cols-2 gap-2.5">
                 {industry.howWeHelp.map((h, i) => (
                   <div key={i} className="flex items-start gap-2.5 p-3 bg-gray-50 rounded-xl hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-sm transition-all duration-200">
                     <CheckCircle2 size={13} strokeWidth={2.5} style={{ color: industry.color }} className="flex-shrink-0 mt-0.5" />
-                    <span className="text-black/80 text-[14px] font-semibold leading-tight">{h}</span>
+                    <span className="text-black/80 text-[16px] font-semibold leading-tight">{h}</span>
                   </div>
                 ))}
               </div>
@@ -525,12 +525,12 @@ function IndustrySection({ industry, index }) {
 
             {/* Capabilities */}
             <div className="mb-6 p-5 border border-gray-100 bg-white rounded-xl">
-              <p className="text-[13.5px] font-black tracking-[0.2em] text-black/80 uppercase mb-3">Capabilities</p>
+              <p className="text-[15px] font-black tracking-[0.2em] text-black/80 uppercase mb-3">Capabilities</p>
               <div className="grid grid-cols-2 gap-2">
                 {industry.capabilities.map((c, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: industry.color }} />
-                    <span className="text-black/80 text-[14px] font-semibold">{c}</span>
+                    <span className="text-black/80 text-[16px] font-semibold">{c}</span>
                   </div>
                 ))}
               </div>
@@ -548,7 +548,7 @@ function IndustrySection({ industry, index }) {
                       <MIcon size={14} strokeWidth={2} style={{ color: industry.color }} />
                     </div>
                     <p className="font-black text-[20px] leading-none text-[#000080] mb-1">{m.val}</p>
-                    <p className="text-black/80 text-[13.5px] font-semibold uppercase tracking-wider leading-tight">{m.label}</p>
+                    <p className="text-black/80 text-[15px] font-semibold uppercase tracking-wider leading-tight">{m.label}</p>
                   </div>
                 );
               })}
@@ -558,13 +558,13 @@ function IndustrySection({ industry, index }) {
             <div className="p-5 bg-[#04040e] rounded-xl relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[3px]"
                 style={{ background: `linear-gradient(90deg, ${industry.color} 0%, ${industry.color}88 100%)` }} />
-              <p className="text-[13.5px] font-black tracking-[0.18em] uppercase text-white/30 mb-2">Case Study</p>
-              <p className="text-white font-black text-[14px] uppercase tracking-tight leading-tight mb-2">
+              <p className="text-[15px] font-black tracking-[0.18em] uppercase text-white/30 mb-2">Case Study</p>
+              <p className="text-white font-black text-[16px] uppercase tracking-tight leading-tight mb-2">
                 {industry.caseStudy.title}
               </p>
-              <p className="text-white/40 text-[14px] leading-relaxed mb-4">{industry.caseStudy.result}</p>
+              <p className="text-white/40 text-[16px] leading-relaxed mb-4">{industry.caseStudy.result}</p>
               <Link href="/work/success-stories"
-                className="inline-flex items-center gap-1.5 text-[13.5px] font-black uppercase tracking-wide transition-colors"
+                className="inline-flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide transition-colors"
                 style={{ color: industry.color }}>
                 Read Full Case Study <ArrowRight size={11} strokeWidth={3} />
               </Link>
@@ -621,7 +621,7 @@ function CrossIndustryStats() {
                   <Icon size={16} strokeWidth={2} className="text-white/60" />
                 </div>
                 <p className="text-white font-black text-[26px] lg:text-[30px] leading-none mb-1">{s.val}</p>
-                <p className="text-white/35 text-[13.5px] font-semibold uppercase tracking-widest">{s.label}</p>
+                <p className="text-white/35 text-[15px] font-semibold uppercase tracking-widest">{s.label}</p>
               </motion.div>
             );
           })}
@@ -664,7 +664,7 @@ function IndustriesCTA() {
 
           {/* Left */}
           <FadeIn direction="right">
-            <p className="text-blue-400 text-[13.5px] font-black tracking-[0.22em] uppercase mb-5 flex items-center gap-2">
+            <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-5 flex items-center gap-2">
               <Layers size={13} strokeWidth={2.5} />
               The Layered Approach Adapts
             </p>
@@ -676,19 +676,19 @@ function IndustriesCTA() {
                 YOUR INDUSTRY?
               </span>
             </h2>
-            <p className="text-white/45 text-[15px] leading-relaxed max-w-md mb-8">
+            <p className="text-white/45 text-[17px] leading-relaxed max-w-md mb-8">
               Our layered approach isn't limited to the sectors above. If your
               business has a digital challenge, we have a layer for it. Tell us
               where you're headed and we'll map the system that gets you there.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact/project"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg group">
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg group">
                 Start a Conversation
                 <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link href="/contact/call"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[15px] rounded-xl transition-all duration-300">
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-300">
                 Book a Strategy Call
               </Link>
             </div>
@@ -713,8 +713,8 @@ function IndustriesCTA() {
                       <Icon size={14} strokeWidth={2} className="text-blue-400" />
                     </div>
                     <div>
-                      <p className="text-white font-black text-[14px] uppercase tracking-tight">{l.label}</p>
-                      <p className="text-white/30 text-[13.5px] font-medium">{l.desc}</p>
+                      <p className="text-white font-black text-[16px] uppercase tracking-tight">{l.label}</p>
+                      <p className="text-white/30 text-[15px] font-medium">{l.desc}</p>
                     </div>
                   </div>
                 );

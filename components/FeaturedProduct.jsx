@@ -214,7 +214,7 @@ function FeaturedWork() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-blue-400 text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Award size={13} strokeWidth={2.5} />
               Proof of Execution
             </p>
@@ -238,14 +238,14 @@ function FeaturedWork() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
-            <p className="text-white/35 text-[14px] leading-relaxed mb-5 lg:text-right">
+            <p className="text-white/35 text-[16px] leading-relaxed mb-5 lg:text-right">
               Results over visuals. Every project is measured in business
               impact — not aesthetics.
             </p>
             <div className="lg:flex lg:justify-end">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[14px] uppercase tracking-wide transition-colors group"
+                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[16px] uppercase tracking-wide transition-colors group"
               >
                 View All Projects
                 <ArrowRight
@@ -302,7 +302,7 @@ function FeaturedWork() {
 
                 <div className="relative z-10">
                   {/* Tag */}
-                  <p className="text-white/60 text-[13.5px] font-bold tracking-[0.18em] uppercase mb-6">
+                  <p className="text-white/60 text-[15px] font-bold tracking-[0.18em] uppercase mb-6">
                     {cs.tag}
                   </p>
 
@@ -331,7 +331,7 @@ function FeaturedWork() {
                           <p className="text-white font-black text-[22px] sm:text-[28px] lg:text-[32px] leading-none">
                             {m.value}
                           </p>
-                          <p className="text-white/50 text-[13.5px] sm:text-[13.5px] font-semibold leading-tight">
+                          <p className="text-white/50 text-[15px] sm:text-[15px] font-semibold leading-tight">
                             {m.label}
                           </p>
                         </motion.div>
@@ -345,7 +345,7 @@ function FeaturedWork() {
                   {cs.layers.map((l, j) => (
                     <span
                       key={j}
-                      className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[13.5px] font-bold tracking-wider uppercase rounded-full"
+                      className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[15px] font-bold tracking-wider uppercase rounded-full"
                     >
                       {l} Layer
                     </span>
@@ -363,7 +363,7 @@ function FeaturedWork() {
                   {/* Industry + duration */}
                   <div className="flex items-center gap-3 mb-6">
                     <span
-                      className="px-3 py-1 text-[13.5px] font-black tracking-wider uppercase rounded-full"
+                      className="px-3 py-1 text-[15px] font-black tracking-wider uppercase rounded-full"
                       style={{
                         backgroundColor: cs.accentColor + "12",
                         color: cs.accentColor,
@@ -371,8 +371,8 @@ function FeaturedWork() {
                     >
                       {cs.industry}
                     </span>
-                    <span className="text-gray-200 text-[13.5px]">·</span>
-                    <span className="text-black/80 text-[13.5px] font-semibold">
+                    <span className="text-gray-200 text-[15px]">·</span>
+                    <span className="text-black/80 text-[15px] font-semibold">
                       {cs.duration}
                     </span>
                   </div>
@@ -387,7 +387,7 @@ function FeaturedWork() {
 
                   {/* Description */}
                   <p
-                    className="text-black/80 text-[15px] lg:text-[14px] leading-relaxed"
+                    className="text-black/80 text-[17px] lg:text-[16px] leading-relaxed"
                     itemProp="description"
                   >
                     {cs.description}
@@ -398,7 +398,7 @@ function FeaturedWork() {
                 <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
                   <Link
                     href="/work"
-                    className="inline-flex items-center gap-2 font-black text-[14px] uppercase tracking-wide transition-colors group/link"
+                    className="inline-flex items-center gap-2 font-black text-[16px] uppercase tracking-wide transition-colors group/link"
                     style={{ color: cs.accentColor }}
                   >
                     View Case Study
@@ -423,7 +423,7 @@ function FeaturedWork() {
         <FadeIn className="text-center mt-14" delay={0.2}>
           <Link
             href="/work"
-            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
+            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
           >
             See All Case Studies
             <ArrowRight
@@ -456,7 +456,7 @@ function IndustriesSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Target size={13} strokeWidth={2.5} />
               Specialists, Not Generalists
             </p>
@@ -471,7 +471,7 @@ function IndustriesSection() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
-            <p className="text-black/80 text-[14px] leading-relaxed lg:text-right">
+            <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
               We don't work with everyone — we go deep in the industries where
               our layered approach creates the most measurable impact.
             </p>
@@ -531,7 +531,7 @@ function IndustriesSection() {
 
                   {/* Label */}
                   <p
-                    className="text-[13.5px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
+                    className="text-[15px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
                     style={{ color: ind.color }}
                     itemProp="name"
                   >
@@ -540,7 +540,7 @@ function IndustriesSection() {
 
                   {/* Description */}
                   <p
-                    className="text-black/80 text-[15px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-black/80"
+                    className="text-black/80 text-[17px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-black/80"
                     itemProp="description"
                   >
                     {ind.description}
@@ -554,7 +554,7 @@ function IndustriesSection() {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                           style={{ backgroundColor: ind.color }}
                         />
-                        <span className="text-black/80 text-[14px] font-semibold">
+                        <span className="text-black/80 text-[16px] font-semibold">
                           {s}
                         </span>
                       </li>
@@ -563,7 +563,7 @@ function IndustriesSection() {
 
                   {/* CTA */}
                   <div
-                    className="flex items-center gap-1.5 text-[13.5px] font-black uppercase tracking-wide transition-all duration-300"
+                    className="flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide transition-all duration-300"
                     style={{ color: isHovered ? ind.color : "#D1D5DB" }}
                   >
                     Explore
@@ -590,10 +590,10 @@ function IndustriesSection() {
                   <Layers size={18} strokeWidth={2} className="text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-white font-black text-[15px] lg:text-[17px] uppercase tracking-tight mb-1">
+                  <p className="text-white font-black text-[17px] lg:text-[17px] uppercase tracking-tight mb-1">
                     Don't see your industry?
                   </p>
-                  <p className="text-white/35 text-[15px]">
+                  <p className="text-white/35 text-[17px]">
                     Our layered approach adapts to any sector. Let's talk about
                     yours.
                   </p>
@@ -603,7 +603,7 @@ function IndustriesSection() {
               <div className="flex items-center gap-3 flex-shrink-0">
                 <Link
                   href="/contact/project"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group"
                 >
                   Start a Conversation
                   <ArrowRight

@@ -87,7 +87,7 @@ function AnnouncementBar({ isTransparent }) {
       <div className="max-w-[1600px] mx-auto px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2 flex-1 justify-center">
           <Sparkles size={16} className="text-gray-900 flex-shrink-0" strokeWidth={2.5} />
-          <p className="text-gray-900 text-[15px] font-semibold text-center">
+          <p className="text-gray-900 text-[17px] font-semibold text-center">
             <span className="font-bold">Limited Offer:</span> Get 20% off on all Enterprise packages this month — Transform your business today!
           </p>
         </div>
@@ -128,7 +128,7 @@ function DropdownMenu({ items, isOpen, onClose }) {
                       <Icon size={18} strokeWidth={2} className="text-[#0818A8] group-hover:text-white transition-colors" />
                     </div>
                   )}
-                  <span className="font-medium text-[14px]">{item.label}</span>
+                  <span className="font-medium text-[16px]">{item.label}</span>
                 </Link>
               );
             })}
@@ -171,7 +171,7 @@ function NavLink({ item, pathname, isTransparent }) {
       <Link
         href={item.href}
         className={`
-          flex items-center gap-1.5 px-4 py-2 text-[14px] font-medium rounded-lg transition-all duration-200
+          flex items-center gap-1.5 px-4 py-2 text-[16px] font-medium rounded-lg transition-all duration-200
           ${isActive 
             ? "text-white bg-white/15" 
             : "text-white/90 hover:text-white hover:bg-white/10"
@@ -289,7 +289,7 @@ function MobileMenu({ isOpen, onClose, pathname }) {
                                       className="flex items-center gap-3 px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                                     >
                                       {Icon && <Icon size={16} className="text-[#4682B4]" strokeWidth={2} />}
-                                      <span className="text-[14px]">{sub.label}</span>
+                                      <span className="text-[16px]">{sub.label}</span>
                                     </Link>
                                   );
                                 })}
@@ -410,14 +410,14 @@ function Navbar() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <button className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-[15px] font-medium rounded-lg transition-all backdrop-blur-sm">
+              <button className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-[17px] font-medium rounded-lg transition-all backdrop-blur-sm">
                 <Globe size={16} strokeWidth={2} />
                 <span>EN</span>
               </button>
 
               <Link
                 href="/contact"
-                className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-white/95 text-[#0818A8] text-[14px] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl group"
+                className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-white/95 text-[#0818A8] text-[16px] font-bold rounded-lg transition-all shadow-lg hover:shadow-xl group"
               >
                 Contact Us Now
                 <ArrowRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />

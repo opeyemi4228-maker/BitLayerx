@@ -495,10 +495,10 @@ export default function HeroSection() {
 
           {/* Sub-tagline */}
           <Reveal delay={0.58} className="mt-6 sm:mt-7 max-w-xl text-center">
-            <p className="text-[15px] sm:text-[16px] leading-relaxed text-gray-500 font-medium" itemProp="description">
+            <p className="text-[17px] sm:text-[16px] leading-relaxed text-gray-500 font-medium" itemProp="description">
               Strategy · Design · Technology · Brand · Media · Growth
               <br />
-              <span className="text-gray-400 text-[13.5px]">
+              <span className="text-gray-400 text-[15px]">
                 End-to-end digital ecosystems that compound over time.
               </span>
             </p>
@@ -509,7 +509,7 @@ export default function HeroSection() {
             <Link href="/contact/project" aria-label="Start your project with BitLayerX"
               className="group relative flex items-center overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#000066] focus:ring-offset-2"
               style={{ background: "#000066", minWidth: 260 }}>
-              <span className="flex-1 text-white font-black text-[13.5px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
+              <span className="flex-1 text-white font-black text-[15px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
                 Start Your Project
               </span>
               <div className="flex items-center justify-center w-14 h-14 flex-shrink-0 border-l transition-colors duration-300 group-hover:bg-white/10"
@@ -519,7 +519,7 @@ export default function HeroSection() {
               </div>
             </Link>
             <Link href="/work" aria-label="View BitLayerX portfolio"
-              className="group flex items-center gap-2.5 px-7 py-4 font-semibold text-[13.5px] text-gray-600 hover:text-[#000066] transition-all duration-200 tracking-wide uppercase backdrop-blur-sm"
+              className="group flex items-center gap-2.5 px-7 py-4 font-semibold text-[15px] text-gray-600 hover:text-[#000066] transition-all duration-200 tracking-wide uppercase backdrop-blur-sm"
               style={{ border: "1px solid rgba(0,0,102,0.12)", minWidth: 200, justifyContent: "center", background: "rgba(255,255,255,0.72)" }}>
               <Play size={13} strokeWidth={2.5} className="fill-current" />
               View Our Work
@@ -578,7 +578,7 @@ export default function HeroSection() {
             <div className="backdrop-blur-sm px-5 py-3"
               style={{ background: "rgba(255,255,255,0.88)", border: "1px solid rgba(0,0,102,0.09)" }}>
               <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-[0.2em] mb-0.5">Powering</p>
-              <p className="text-[13px] text-[#000066] font-black uppercase tracking-wide">Digital Innovation</p>
+              <p className="text-[15px] text-[#000066] font-black uppercase tracking-wide">Digital Innovation</p>
             </div>
             {/* Scroll indicator */}
             <div className="flex flex-col items-center gap-2 pb-1">

@@ -357,7 +357,7 @@ function AboutHero() {
         {/* Sub */}
         <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.6, ease }}
-          className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed max-w-xl font-medium mb-10">
+          className="text-gray-500 text-[17px] sm:text-[16px] leading-relaxed max-w-xl font-medium mb-10">
           We're not just a digital agency — we're your growth partner. From Lagos to London, we help businesses{" "}
           <span className="text-[#000066] font-black">transform</span>, scale, and dominate their markets.
         </motion.p>
@@ -369,7 +369,7 @@ function AboutHero() {
           <Link href="/contact/project"
             className="group flex items-center overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#000066] focus:ring-offset-2"
             style={{ background: "#000066", minWidth: 240 }}>
-            <span className="flex-1 text-white font-black text-[13px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
+            <span className="flex-1 text-white font-black text-[15px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
               Start Your Project
             </span>
             <div className="flex items-center justify-center w-14 h-14 flex-shrink-0 border-l group-hover:bg-white/10 transition-colors"
@@ -378,7 +378,7 @@ function AboutHero() {
             </div>
           </Link>
           <Link href="/packages"
-            className="flex items-center gap-2 px-7 py-4 font-semibold text-[13px] text-gray-600 hover:text-[#000066] transition-colors tracking-wide uppercase backdrop-blur-sm"
+            className="flex items-center gap-2 px-7 py-4 font-semibold text-[15px] text-gray-600 hover:text-[#000066] transition-colors tracking-wide uppercase backdrop-blur-sm"
             style={{ border: "1px solid rgba(0,0,102,0.12)", minWidth: 190, justifyContent: "center", background: "rgba(255,255,255,0.72)" }}>
             View Packages
             <ArrowRight size={12} strokeWidth={2.5} />
@@ -446,7 +446,7 @@ function OurStory() {
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
               }}>Industry Leader</span>
             </h2>
-            <div className="space-y-4 text-gray-500 text-[14px] leading-relaxed">
+            <div className="space-y-4 text-gray-500 text-[16px] leading-relaxed">
               <p>BitLayerX started in 2020 with a simple observation: African businesses had world-class ambitions but lacked access to world-class digital solutions.</p>
               <p>We set out to change that. From a small office in Lagos, we began building websites, automating processes, and running marketing campaigns that actually drove revenue — not just vanity metrics.</p>
               <p>Today, we're proud to serve over 500 businesses across 24 countries, from ambitious startups to Fortune 500 companies. We've helped generate over ₦50 billion in client revenue.</p>
@@ -480,7 +480,7 @@ function OurStory() {
                 <Rocket size={100} strokeWidth={1.2} className="text-white/20 mb-4" />
                 <p className="text-white/40 text-[11px] font-black tracking-[0.3em] uppercase mb-1">Founded</p>
                 <p className="font-black text-white leading-none" style={{ fontSize: "clamp(3rem,8vw,5rem)" }}>2020</p>
-                <p className="text-white/60 font-semibold text-[14px] mt-2">Lagos, Nigeria</p>
+                <p className="text-white/60 font-semibold text-[16px] mt-2">Lagos, Nigeria</p>
               </div>
 
               {/* Radial glow inside card */}
@@ -531,7 +531,7 @@ function CoreValues() {
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>Stand For</span>
           </h2>
-          <p className="text-gray-500 text-[14px] leading-relaxed max-w-xl mx-auto">
+          <p className="text-gray-500 text-[16px] leading-relaxed max-w-xl mx-auto">
             These aren't just words on a wall — they're the principles that guide every decision, every project, every client relationship.
           </p>
         </Reveal>
@@ -559,7 +559,7 @@ function CoreValues() {
                   <div>
                     <h3 className="font-black text-[#080c20] uppercase tracking-tight text-[16px] mb-0.5">{v.title}</h3>
                     <p className="text-[12px] font-bold italic mb-3" style={{ color: v.color }}>{v.subtitle}</p>
-                    <p className="text-gray-500 text-[13.5px] leading-relaxed">{v.description}</p>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">{v.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -618,8 +618,8 @@ function Timeline() {
                       style={{ background: "rgba(8,24,168,0.08)" }}>
                       <span className="text-[#0818A8] text-[10px] font-black tracking-[0.2em]">{item.year}</span>
                     </div>
-                    <h3 className="font-black text-[#080c20] uppercase tracking-tight text-[15px] mb-2">{item.title}</h3>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">{item.description}</p>
+                    <h3 className="font-black text-[#080c20] uppercase tracking-tight text-[17px] mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">{item.description}</p>
                   </div>
 
                   {/* Center icon */}
@@ -665,7 +665,7 @@ function TeamSection() {
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>Visionaries</span>
           </h2>
-          <p className="text-gray-500 text-[14px] max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-500 text-[16px] max-w-xl mx-auto leading-relaxed">
             World-class talent from Google, Forbes, and leading tech companies — united by one mission: your success.
           </p>
         </Reveal>
@@ -689,7 +689,7 @@ function TeamSection() {
                   {m.initials}
                 </div>
 
-                <h3 className="font-black text-[#080c20] text-[14px] uppercase tracking-tight mb-0.5">{m.name}</h3>
+                <h3 className="font-black text-[#080c20] text-[16px] uppercase tracking-tight mb-0.5">{m.name}</h3>
                 <p className="text-[12px] font-bold mb-3" style={{ color: m.hue }}>{m.role}</p>
                 <p className="text-gray-400 text-[12px] leading-relaxed mb-4">{m.bio}</p>
 
@@ -750,7 +750,7 @@ function WhyUs() {
                   <Icon size={18} strokeWidth={2} className="text-[#0818A8]" />
                 </div>
                 <div>
-                  <h3 className="font-black text-[#080c20] text-[13px] uppercase tracking-wide mb-1">{r.title}</h3>
+                  <h3 className="font-black text-[#080c20] text-[15px] uppercase tracking-wide mb-1">{r.title}</h3>
                   <p className="text-gray-500 text-[12.5px] leading-snug">{r.desc}</p>
                 </div>
               </motion.div>
@@ -786,7 +786,7 @@ function Testimonials() {
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>Clients Say</span>
           </h2>
-          <p className="text-gray-400 text-[13.5px]">Real results. Real businesses. Real impact.</p>
+          <p className="text-gray-400 text-[15px]">Real results. Real businesses. Real impact.</p>
         </Reveal>
 
         <div ref={ref} className="grid md:grid-cols-3 gap-4">
@@ -807,7 +807,7 @@ function Testimonials() {
                 <Quote size={14} strokeWidth={2} style={{ color: COLORS[i] }} />
               </div>
 
-              <p className="text-gray-600 text-[13.5px] leading-relaxed mb-6 italic">"{t.quote}"</p>
+              <p className="text-gray-600 text-[15px] leading-relaxed mb-6 italic">"{t.quote}"</p>
 
               <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center font-black text-[12px] text-white"
@@ -815,7 +815,7 @@ function Testimonials() {
                   {t.author.split(" ").map(n => n[0]).join("")}
                 </div>
                 <div>
-                  <p className="font-bold text-[#080c20] text-[13px]">{t.author}</p>
+                  <p className="font-bold text-[#080c20] text-[15px]">{t.author}</p>
                   <p className="text-gray-400 text-[11.5px]">{t.role}</p>
                 </div>
               </div>
@@ -864,7 +864,7 @@ function AboutCTA() {
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
                 Ready to<br />Transform<br />Your Business?
               </h2>
-              <p className="text-white/55 text-[13.5px] leading-relaxed mb-8 max-w-sm">
+              <p className="text-white/55 text-[15px] leading-relaxed mb-8 max-w-sm">
                 Join 500+ businesses that trust BitLayerX to power their digital growth. Let's build something extraordinary together.
               </p>
               <div className="flex items-center gap-2 text-white/25 text-[11.5px]">
@@ -892,7 +892,7 @@ function AboutCTA() {
                         <Icon size={18} strokeWidth={2} className={a.primary ? "text-[#000066]" : "text-white"} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className={`font-black text-[13px] uppercase tracking-wide mb-0.5 ${a.primary ? "text-[#000066]" : "text-white"}`}>{a.label}</p>
+                        <p className={`font-black text-[15px] uppercase tracking-wide mb-0.5 ${a.primary ? "text-[#000066]" : "text-white"}`}>{a.label}</p>
                         <p className={`text-[11.5px] leading-snug ${a.primary ? "text-gray-500" : "text-white/40"}`}>{a.sub}</p>
                       </div>
                       <ArrowRight size={14} strokeWidth={2.5}

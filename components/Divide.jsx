@@ -195,7 +195,7 @@ function WhyBitLayerX() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Target size={13} strokeWidth={2.5} />
               The BitLayerX Difference
             </p>
@@ -209,7 +209,7 @@ function WhyBitLayerX() {
             </h2>
           </FadeIn>
           <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
-            <p className="text-black/80 text-[14px] leading-relaxed lg:text-right">
+            <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
               Most agencies operate in silos. BitLayerX operates in layers —
               every discipline integrated, every outcome compounding.
             </p>
@@ -239,13 +239,13 @@ function WhyBitLayerX() {
                     <Icon size={20} strokeWidth={2} className="text-[#0818A8]" />
                   </div>
                   <div>
-                    <h3 className="text-[15px] lg:text-[16px] font-black text-[#000080] uppercase tracking-tight mb-2">
+                    <h3 className="text-[17px] lg:text-[16px] font-black text-[#000080] uppercase tracking-tight mb-2">
                       {d.title}
                     </h3>
-                    <p className="text-black/80 text-[15px] leading-relaxed mb-3">
+                    <p className="text-black/80 text-[17px] leading-relaxed mb-3">
                       {d.description}
                     </p>
-                    <p className="text-[13.5px] font-black tracking-wide text-[#0818A8] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-[15px] font-black tracking-wide text-[#0818A8] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       → {d.highlight}
                     </p>
                   </div>
@@ -262,10 +262,10 @@ function WhyBitLayerX() {
               <div className="border border-gray-100 overflow-hidden shadow-lg shadow-gray-100/80">
                 <div className="grid grid-cols-3 bg-[#000080] px-6 py-4">
                   <div />
-                  <p className="text-center text-white font-black text-[14px] uppercase tracking-widest">
+                  <p className="text-center text-white font-black text-[16px] uppercase tracking-widest">
                     BitLayerX
                   </p>
-                  <p className="text-center text-white/40 font-bold text-[14px] uppercase tracking-widest">
+                  <p className="text-center text-white/40 font-bold text-[16px] uppercase tracking-widest">
                     Typical Agency
                   </p>
                 </div>
@@ -276,7 +276,7 @@ function WhyBitLayerX() {
                       i % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                     }`}
                   >
-                    <p className="text-black/80 text-[14px] font-semibold pr-4">{row.label}</p>
+                    <p className="text-black/80 text-[16px] font-semibold pr-4">{row.label}</p>
                     <div className="flex justify-center">
                       <div className="w-6 h-6 rounded-full bg-[#000080]/10 flex items-center justify-center">
                         <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#000080]" />
@@ -284,7 +284,7 @@ function WhyBitLayerX() {
                     </div>
                     <div className="flex justify-center">
                       <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
-                        <span className="text-gray-300 text-[15px] font-black leading-none">✕</span>
+                        <span className="text-gray-300 text-[17px] font-black leading-none">✕</span>
                       </div>
                     </div>
                   </div>
@@ -307,7 +307,7 @@ function WhyBitLayerX() {
                 >
                   "
                 </div>
-                <p className="text-white/80 text-[15px] lg:text-[16px] leading-relaxed font-medium mb-6 relative z-10">
+                <p className="text-white/80 text-[17px] lg:text-[16px] leading-relaxed font-medium mb-6 relative z-10">
                   "Everything is a layer, and every layer must work perfectly
                   together. We don't build websites, apps, or campaigns — we
                   build the digital systems that power modern business success."
@@ -317,8 +317,8 @@ function WhyBitLayerX() {
                     <Layers size={16} strokeWidth={2} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-white font-black text-[15px]">BitLayerX</p>
-                    <p className="text-white/30 text-[13.5px] font-medium">Digital Innovation Company</p>
+                    <p className="text-white font-black text-[17px]">BitLayerX</p>
+                    <p className="text-white/30 text-[15px] font-medium">Digital Innovation Company</p>
                   </div>
                 </div>
               </div>
@@ -329,14 +329,14 @@ function WhyBitLayerX() {
               <div className="flex items-center gap-3 flex-wrap">
                 <Link
                   href="/about/why"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group"
                 >
                   Why Clients Choose Us
                   <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
                   href="/contact/project"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#000080]/20 text-[#000080] font-bold text-[15px] rounded-xl hover:border-[#000080]/40 hover:bg-[#000080]/4 transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#000080]/20 text-[#000080] font-bold text-[17px] rounded-xl hover:border-[#000080]/40 hover:bg-[#000080]/4 transition-all duration-200"
                 >
                   Start a Project
                 </Link>
@@ -360,7 +360,7 @@ function WhyBitLayerX() {
                   </div>
                   <div>
                     <p className="text-[#000080] font-black text-[28px] leading-none">{s.val}</p>
-                    <p className="text-black/80 text-[13.5px] font-semibold mt-1 uppercase tracking-wider">{s.label}</p>
+                    <p className="text-black/80 text-[15px] font-semibold mt-1 uppercase tracking-wider">{s.label}</p>
                   </div>
                 </div>
               );
@@ -411,12 +411,12 @@ function VideoCard({ item }) {
         {/* Category badge */}
         <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-3 py-1.5 bg-black/40 backdrop-blur-sm border border-white/10 rounded-full">
           <Icon size={10} strokeWidth={2.5} className="text-white/80" />
-          <span className="text-white/80 text-[13.5px] font-black tracking-widest uppercase">{item.category}</span>
+          <span className="text-white/80 text-[15px] font-black tracking-widest uppercase">{item.category}</span>
         </div>
 
         {/* Duration */}
         <div className="absolute top-3 right-3 z-10 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
-          <span className="text-white/60 text-[13.5px] font-bold">{item.duration}</span>
+          <span className="text-white/60 text-[15px] font-bold">{item.duration}</span>
         </div>
 
         {/* Play button */}
@@ -442,8 +442,8 @@ function VideoCard({ item }) {
           <div className="flex items-center gap-5">
             {item.stats.map((s, j) => (
               <div key={j} className="flex items-baseline gap-1">
-                <span className="text-white font-black text-[15px]">{s.value}</span>
-                <span className="text-white/45 text-[13.5px] font-semibold">{s.label}</span>
+                <span className="text-white font-black text-[17px]">{s.value}</span>
+                <span className="text-white/45 text-[15px] font-semibold">{s.label}</span>
               </div>
             ))}
           </div>
@@ -452,12 +452,12 @@ function VideoCard({ item }) {
 
       {/* Card footer */}
       <div className="p-5 bg-white border-t border-gray-50 group-hover:bg-gray-50/80 transition-colors duration-200">
-        <h3 className="text-[15px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-1.5">
+        <h3 className="text-[17px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-1.5">
           {item.title}
         </h3>
-        <p className="text-black/80 text-[14px] leading-relaxed mb-3">{item.description}</p>
+        <p className="text-black/80 text-[16px] leading-relaxed mb-3">{item.description}</p>
         <div
-          className="flex items-center gap-1.5 text-[13.5px] font-black uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          className="flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           style={{ color: item.color }}
         >
           View Project <ChevronRight size={12} strokeWidth={3} />
@@ -511,7 +511,7 @@ function MediaShowcase() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-blue-400 text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Film size={13} strokeWidth={2.5} />
               Media Layer in Action
             </p>
@@ -535,14 +535,14 @@ function MediaShowcase() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
-            <p className="text-white/35 text-[14px] leading-relaxed mb-5 lg:text-right">
+            <p className="text-white/35 text-[16px] leading-relaxed mb-5 lg:text-right">
               Nothing builds trust and drives action faster than great video.
               Every frame is engineered for impact.
             </p>
             <div className="lg:flex lg:justify-end">
               <Link
                 href="/services/video"
-                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[14px] uppercase tracking-wide transition-colors group"
+                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[16px] uppercase tracking-wide transition-colors group"
               >
                 Explore Media Services
                 <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -578,8 +578,8 @@ function MediaShowcase() {
                     <Icon size={16} strokeWidth={2} className="text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-white font-black text-[15px] uppercase tracking-tight mb-1">{cap.label}</p>
-                    <p className="text-white/35 text-[14px] leading-relaxed">{cap.desc}</p>
+                    <p className="text-white font-black text-[17px] uppercase tracking-tight mb-1">{cap.label}</p>
+                    <p className="text-white/35 text-[16px] leading-relaxed">{cap.desc}</p>
                   </div>
                 </div>
               );
@@ -592,7 +592,7 @@ function MediaShowcase() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/services/video"
-              className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
+              className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
             >
               <Play size={13} fill="currentColor" strokeWidth={0} />
               Start Your Video Project
@@ -600,7 +600,7 @@ function MediaShowcase() {
             </Link>
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 px-9 py-4 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[15px] rounded-xl transition-all duration-300"
+              className="inline-flex items-center gap-2 px-9 py-4 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-300"
             >
               See All Production Work
             </Link>

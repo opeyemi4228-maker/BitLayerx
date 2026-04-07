@@ -236,7 +236,7 @@ function VideoCard() {
       {/* Top label */}
       <div className="px-6 pt-6 pb-4">
         <p
-          className="text-[13.5px] font-semibold tracking-[0.22em] text-black/80 uppercase mb-3"
+          className="text-[15px] font-semibold tracking-[0.22em] text-black/80 uppercase mb-3"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           The BitLayerX Method
@@ -275,7 +275,7 @@ function VideoCard() {
         {/* Overlay text — matches "Fully automated system" from reference */}
         <div className="absolute inset-0 flex flex-col justify-end p-5">
           <p
-            className="text-white/60 text-[13.5px] font-semibold uppercase tracking-widest mb-1"
+            className="text-white/60 text-[15px] font-semibold uppercase tracking-widest mb-1"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Six Precision
@@ -350,7 +350,7 @@ function TextCard() {
           </h2>
 
           <p
-            className="text-black/80 text-[13.5px] sm:text-[14px] leading-relaxed mb-6 max-w-sm"
+            className="text-black/80 text-[15px] sm:text-[16px] leading-relaxed mb-6 max-w-sm"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             We combine strategy, design, technology, brand, media and growth —
@@ -360,7 +360,7 @@ function TextCard() {
           {/* Partner-style credential strip — matches "From those who built: Binance, Morgan Stanley, Revolut" */}
           <div className="mb-8">
             <p
-              className="text-[13.5px] text-black/80 font-semibold uppercase tracking-[0.18em] mb-3"
+              className="text-[15px] text-black/80 font-semibold uppercase tracking-[0.18em] mb-3"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Six service layers:
@@ -372,7 +372,7 @@ function TextCard() {
                   <div key={layer.id} className="flex items-center gap-1.5">
                     <Icon size={11} strokeWidth={2.5} style={{ color: layer.color }} />
                     <span
-                      className="text-[14px] font-bold text-black/80"
+                      className="text-[16px] font-bold text-black/80"
                       style={{ fontFamily: "'Montserrat', sans-serif" }}
                     >
                       {layer.title.split(" ")[0]}
@@ -388,7 +388,7 @@ function TextCard() {
         <div>
           <Link
             href="/layered-approach"
-            className="group inline-flex items-center justify-between w-full max-w-[280px] sm:max-w-[320px] rounded-full font-bold text-[14px] text-white overflow-hidden transition-all duration-200 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0818A8] focus:ring-offset-2"
+            className="group inline-flex items-center justify-between w-full max-w-[280px] sm:max-w-[320px] rounded-full font-bold text-[16px] text-white overflow-hidden transition-all duration-200 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0818A8] focus:ring-offset-2"
             style={{
               background: "linear-gradient(90deg, #1D4ED8 0%, #2563EB 100%)",
               boxShadow: "0 4px 20px rgba(29,78,216,0.35)",
@@ -396,7 +396,7 @@ function TextCard() {
             }}
             aria-label="Explore the BitLayerX layered approach"
           >
-            <span className="flex-1 text-center pl-7 pr-2 py-4 text-[14px] font-semibold tracking-wide">
+            <span className="flex-1 text-center pl-7 pr-2 py-4 text-[16px] font-semibold tracking-wide">
               Explore Our Approach
             </span>
             <span
@@ -552,7 +552,7 @@ export default function LayeredApproachShowcase() {
                     {layer.title}
                   </span>
                   <span
-                    className="text-[13.5px] font-black text-gray-300 group-hover:text-[#0818A8]/40 transition-colors"
+                    className="text-[15px] font-black text-gray-300 group-hover:text-[#0818A8]/40 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   >
                     {layer.number}
