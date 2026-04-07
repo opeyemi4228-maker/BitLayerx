@@ -562,7 +562,7 @@ export default function SolutionsPage() {
                     className={`flex items-center gap-2 px-6 py-3 font-semibold transition-all rounded-lg ${
                       activeSolution === category.id
                         ? 'bg-[#0818A8] text-white shadow-lg'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                        : 'bg-white text-black/80 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     <Icon size={20} strokeWidth={2} />
@@ -589,7 +589,7 @@ export default function SolutionsPage() {
                 {activeSolutionData.title}
               </h2>
               <p className="text-2xl text-[#4682B4] font-bold mb-4">{activeSolutionData.subtitle}</p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{activeSolutionData.description}</p>
+              <p className="text-xl text-black/80 max-w-3xl mx-auto">{activeSolutionData.description}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -608,12 +608,12 @@ export default function SolutionsPage() {
                       <Icon size={32} className="text-white" strokeWidth={2} />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-gray-700 mb-6 leading-relaxed">{feature.description}</p>
+                    <p className="text-black/80 mb-6 leading-relaxed">{feature.description}</p>
                     <div>
                       <p className="text-sm font-bold text-gray-900 mb-3">Key Deliverables:</p>
                       <ul className="space-y-2">
                         {feature.deliverables.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-gray-700">
+                          <li key={idx} className="flex items-center gap-2 text-black/80">
                             <CheckCircle size={16} className="text-[#00A651] flex-shrink-0" strokeWidth={2.5} />
                             <span>{item}</span>
                           </li>
@@ -633,13 +633,13 @@ export default function SolutionsPage() {
             >
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div>
-                  <p className="text-sm font-bold text-gray-600 mb-2">Investment Range</p>
+                  <p className="text-sm font-bold text-black/80 mb-2">Investment Range</p>
                   <p className="text-3xl font-black text-[#0818A8]">
                     {activeSolutionData.pricing.from} - {activeSolutionData.pricing.to}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-600 mb-2">Timeline</p>
+                  <p className="text-sm font-bold text-black/80 mb-2">Timeline</p>
                   <p className="text-3xl font-black text-gray-900">{activeSolutionData.pricing.timeline}</p>
                 </div>
                 <div>
@@ -675,7 +675,7 @@ export default function SolutionsPage() {
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
                 Solutions by <span className="text-[#0818A8]">Industry</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-black/80 max-w-3xl mx-auto">
                 Pre-built solutions tailored to your industry's unique challenges and opportunities
               </p>
             </motion.div>
@@ -699,7 +699,7 @@ export default function SolutionsPage() {
                       <p className="text-white/90 text-lg font-semibold">{industry.tagline}</p>
                     </div>
                     <div className="p-8">
-                      <p className="text-gray-700 mb-6">{industry.description}</p>
+                      <p className="text-black/80 mb-6">{industry.description}</p>
                       
                       <div className="mb-6">
                         <p className="text-sm font-bold text-gray-900 mb-3">Key Results:</p>
@@ -707,7 +707,7 @@ export default function SolutionsPage() {
                           {Object.entries(industry.results).map(([key, value]) => (
                             <div key={key} className="text-center p-3 bg-gray-50 rounded-lg">
                               <div className="text-2xl font-black text-[#0818A8]">{value}</div>
-                              <div className="text-xs text-gray-600 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
+                              <div className="text-xs text-black/80 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
                             </div>
                           ))}
                         </div>
@@ -748,7 +748,7 @@ export default function SolutionsPage() {
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
                 Real Clients. <span className="text-[#0818A8]">Real Results.</span>
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-black/80">
                 See how we've helped businesses transform and grow
               </p>
             </motion.div>
@@ -770,29 +770,29 @@ export default function SolutionsPage() {
                   
                   <div className="mb-6">
                     <p className="text-sm font-bold text-gray-900 mb-2">Challenge:</p>
-                    <p className="text-gray-700 text-sm mb-4">{story.challenge}</p>
+                    <p className="text-black/80 text-sm mb-4">{story.challenge}</p>
                     
                     <p className="text-sm font-bold text-gray-900 mb-2">Solution:</p>
-                    <p className="text-gray-700 text-sm mb-4">{story.solution}</p>
+                    <p className="text-black/80 text-sm mb-4">{story.solution}</p>
                     
                     <p className="text-sm font-bold text-gray-900 mb-3">Results:</p>
                     <ul className="space-y-2 mb-6">
                       {story.results.map((result, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm">
                           <CheckCircle size={16} className="text-[#00A651] flex-shrink-0" strokeWidth={2.5} />
-                          <span className="text-gray-700">{result}</span>
+                          <span className="text-black/80">{result}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   <div className="pt-6 border-t border-gray-200">
-                    <p className="text-gray-700 italic mb-4">"{story.quote}"</p>
+                    <p className="text-black/80 italic mb-4">"{story.quote}"</p>
                     <div className="flex items-center gap-3">
                       <div className="text-3xl">{story.image}</div>
                       <div>
                         <div className="font-bold text-gray-900">{story.name}</div>
-                        <div className="text-sm text-gray-600">{story.role}</div>
+                        <div className="text-sm text-black/80">{story.role}</div>
                       </div>
                     </div>
                   </div>
@@ -836,7 +836,7 @@ export default function SolutionsPage() {
                     {openFaq === index ? (
                       <ChevronUp size={24} className="text-[#0818A8] flex-shrink-0" strokeWidth={2.5} />
                     ) : (
-                      <ChevronDown size={24} className="text-gray-400 flex-shrink-0" strokeWidth={2.5} />
+                      <ChevronDown size={24} className="text-black/80 flex-shrink-0" strokeWidth={2.5} />
                     )}
                   </button>
                   <AnimatePresence>
@@ -848,7 +848,7 @@ export default function SolutionsPage() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-8 pb-6 text-gray-700 leading-relaxed">
+                        <div className="px-8 pb-6 text-black/80 leading-relaxed">
                           {faq.answer}
                         </div>
                       </motion.div>

@@ -87,7 +87,7 @@ function AnnouncementBar({ isTransparent }) {
       <div className="max-w-[1600px] mx-auto px-8 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2 flex-1 justify-center">
           <Sparkles size={16} className="text-gray-900 flex-shrink-0" strokeWidth={2.5} />
-          <p className="text-gray-900 text-[13px] font-semibold text-center">
+          <p className="text-gray-900 text-[15px] font-semibold text-center">
             <span className="font-bold">Limited Offer:</span> Get 20% off on all Enterprise packages this month — Transform your business today!
           </p>
         </div>
@@ -410,7 +410,7 @@ function Navbar() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <button className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-[13px] font-medium rounded-lg transition-all backdrop-blur-sm">
+              <button className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-[15px] font-medium rounded-lg transition-all backdrop-blur-sm">
                 <Globe size={16} strokeWidth={2} />
                 <span>EN</span>
               </button>
@@ -1026,7 +1026,7 @@ export default function BitLayerxHomePage() {
       <HeaderSlider />
       <Overlay />
       <HomeProducts />
-      <FeaturedProduct />
+     
       <Divide />
       <Corporate />
       <Banner />

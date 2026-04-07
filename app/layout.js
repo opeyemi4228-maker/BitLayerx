@@ -6,88 +6,101 @@ import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
 import Script from "next/script";
 
-const montserrat = Montserrat({ 
-  subsets: ['latin'], 
+// ─── Font ──────────────────────────────────────────────────────────────────────
+const montserrat = Montserrat({
+  subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  display: 'swap',
-  variable: '--font-montserrat',
+  display: "swap",
+  variable: "--font-montserrat",
   preload: true,
   adjustFontFallback: true,
-})
+});
 
 const HOTJAR_ID = process.env.NEXT_PUBLIC_HOTJAR_ID;
 
+// ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL('https://bitlayerx.com'),
-  
+  metadataBase: new URL("https://bitlayerx.com"),
+
   title: {
-    default: "BitLayerx - Digital Growth Partner | Web Development, AI & Marketing in Nigeria",
-    template: "%s | BitLayerx - Digital Growth Partner"
+    default:
+      "BitLayerX — Digital Innovation Company | Web, Brand, Video & Growth in Nigeria",
+    template: "%s | BitLayerX — Digital Innovation Company",
   },
-  
-  description: "Transform your business with BitLayerx. Expert web development, AI automation, brand identity & performance marketing. Trusted by 500+ businesses in Nigeria, UK & globally. Get 20% off Enterprise packages.",
-  
+
+  description:
+    "BitLayerX architects layered digital ecosystems — strategy, design, technology, brand, media & growth — working as one unified system. Trusted by 500+ businesses across Nigeria and beyond. Build. Scale. Dominate.",
+
   keywords: [
+    "digital innovation company Nigeria",
     "web development Nigeria",
-    "AI automation services",
-    "performance marketing agency",
-    "digital agency Nigeria",
-    "BitLayerx",
-    "enterprise web solutions",
-    "startup MVP development",
-    "brand identity design Nigeria",
-    "video production Lagos",
-    "SEO services Nigeria",
-    "e-commerce development",
-    "mobile app development",
-    "digital transformation",
-    "Lagos web developers",
-    "Abuja digital agency"
+    "UI UX design agency Nigeria",
+    "branding agency Abuja",
+    "commercial video production Nigeria",
+    "performance marketing Nigeria",
+    "software engineering Nigeria",
+    "mobile app development Nigeria",
+    "digital marketing agency Abuja",
+    "BitLayerX",
+    "layered digital ecosystem",
+    "enterprise web solutions Nigeria",
+    "fintech app development",
+    "e-commerce development Nigeria",
+    "startup MVP Nigeria",
+    "brand identity Lagos",
+    "SEO agency Nigeria",
+    "digital transformation Nigeria",
+    "Abuja web developers",
+    "Lagos digital agency",
   ],
-  
-  authors: [{ name: "BitLayerx Digital Solutions", url: "https://bitlayerx.com" }],
-  creator: "BitLayerx Digital Solutions",
-  publisher: "BitLayerx Digital Solutions",
-  
-  applicationName: "BitLayerx",
-  
+
+  authors: [
+    { name: "BitLayerX", url: "https://bitlayerx.com" },
+  ],
+  creator: "BitLayerX",
+  publisher: "BitLayerX",
+
+  applicationName: "BitLayerX",
   category: "Technology",
   classification: "Business Services",
-  
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://bitlayerx.com",
-    siteName: "BitLayerx - Digital Growth Partner",
-    title: "BitLayerx - Web Development, AI Automation & Marketing in Nigeria",
-    description: "Expert web development, AI automation & performance marketing. Trusted by 500+ businesses. Transform your digital presence today.",
+    siteName: "BitLayerX — Digital Innovation Company",
+    title:
+      "BitLayerX — Web Development, Branding, Video & Digital Marketing in Nigeria",
+    description:
+      "We architect layered digital ecosystems — strategy, design, technology, brand, media & growth — as one unified system. Trusted by 500+ businesses.",
     images: [
       {
         url: "https://bitlayerx.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BitLayerx - Digital Growth Partner",
+        alt: "BitLayerX — Digital Innovation Company",
         type: "image/png",
       },
       {
         url: "https://bitlayerx.com/og-image-square.png",
         width: 800,
         height: 800,
-        alt: "BitLayerx Logo",
+        alt: "BitLayerX Logo",
         type: "image/png",
-      }
+      },
     ],
   },
-  
+
   twitter: {
     card: "summary_large_image",
-    title: "BitLayerx - Digital Growth Partner",
-    description: "Expert web development, AI automation & performance marketing. Trusted by 500+ businesses.",
+    title: "BitLayerX — Digital Innovation Company",
+    description:
+      "Strategy, design, technology, brand, media & growth — working as one layered system. Trusted by 500+ businesses.",
     images: ["https://bitlayerx.com/twitter-image.png"],
     creator: "@bitlayerx",
     site: "@bitlayerx",
   },
-  
+
   robots: {
     index: true,
     follow: true,
@@ -96,79 +109,85 @@ export const metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-  
+
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: "/favicon.ico",
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
     other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#0818A8' },
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000080" },
     ],
   },
-  
-  manifest: '/site.webmanifest',
-  
+
+  manifest: "/site.webmanifest",
+
   verification: {
-    google: 'your-google-site-verification-code',
-    yandex: 'your-yandex-verification-code',
-    bing: 'your-bing-verification-code',
+    google: "your-google-site-verification-code",
+    yandex: "your-yandex-verification-code",
+    bing: "your-bing-verification-code",
   },
-  
+
   alternates: {
-    canonical: 'https://bitlayerx.com',
+    canonical: "https://bitlayerx.com",
     languages: {
-      'en-US': 'https://bitlayerx.com',
-      'en-GB': 'https://bitlayerx.com/en-gb',
+      "en-US": "https://bitlayerx.com",
+      "en-GB": "https://bitlayerx.com/en-gb",
     },
   },
-  
+
   other: {
-    'mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-capable': 'yes',
-    'apple-mobile-web-app-status-bar-style': 'black-translucent',
-    'format-detection': 'telephone=no',
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "format-detection": "telephone=no",
   },
 };
 
+// ─── Viewport ─────────────────────────────────────────────────────────────────
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   minimumScale: 1,
   userScalable: true,
-  viewportFit: 'cover',
+  viewportFit: "cover",
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#0818A8' },
-    { media: '(prefers-color-scheme: dark)', color: '#000080' },
+    { media: "(prefers-color-scheme: light)", color: "#0818A8" },
+    { media: "(prefers-color-scheme: dark)", color: "#000080" },
   ],
-}
+};
 
+// ─── Root Layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({ children }) {
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={montserrat.variable}
       suppressHydrationWarning
     >
       <head>
-        {/* Performance Optimization - Resource Hints */}
+        {/* ── Performance — Resource Hints ──────────────────────────────── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
-        {/* SEO - Rich Snippets & Structured Data */}
+
+        {/* ── Primary SEO Schema — Organization + WebSite + Service ─────── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -178,165 +197,235 @@ export default function RootLayout({ children }) {
                 {
                   "@type": "Organization",
                   "@id": "https://bitlayerx.com/#organization",
-                  "name": "BitLayerx",
-                  "url": "https://bitlayerx.com",
-                  "logo": {
+                  name: "BitLayerX",
+                  alternateName: "BitLayerX Digital Innovation",
+                  url: "https://bitlayerx.com",
+                  logo: {
                     "@type": "ImageObject",
-                    "url": "https://bitlayerx.com/logo.png",
-                    "width": 512,
-                    "height": 512
+                    url: "https://bitlayerx.com/logo.png",
+                    width: 512,
+                    height: 512,
                   },
-                  "description": "Digital growth partner specializing in web development, AI automation, and performance marketing for businesses in Nigeria and globally.",
-                  "foundingDate": "2020",
-                  "founders": [
-                    {
-                      "@type": "Person",
-                      "name": "BitLayerx Founders"
-                    }
-                  ],
-                  "address": {
+                  description:
+                    "BitLayerX is a forward-thinking digital innovation company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth — as one unified system.",
+                  foundingDate: "2020",
+                  address: {
                     "@type": "PostalAddress",
-                    "addressLocality": "Lagos",
-                    "addressRegion": "Lagos State",
-                    "addressCountry": "NG"
+                    streetAddress: "6th Avenue, Gwarinpa",
+                    addressLocality: "Abuja",
+                    addressRegion: "FCT",
+                    addressCountry: "NG",
                   },
-                  "contactPoint": [
+                  contactPoint: [
                     {
                       "@type": "ContactPoint",
-                      "telephone": "+234-803-456-7890",
-                      "contactType": "customer service",
-                      "email": "info@bitlayerx.com",
-                      "areaServed": ["NG", "GB", "US"],
-                      "availableLanguage": ["en"],
-                      "contactOption": "TollFree"
+                      telephone: "+234-802-540-1891",
+                      contactType: "customer service",
+                      email: "hello@bitlayerx.com",
+                      areaServed: ["NG", "GB", "US"],
+                      availableLanguage: ["en"],
                     },
                     {
                       "@type": "ContactPoint",
-                      "telephone": "+234-803-456-7890",
-                      "contactType": "sales",
-                      "areaServed": ["NG", "GB", "US"],
-                      "availableLanguage": ["en"]
-                    }
+                      telephone: "+234-802-540-1891",
+                      contactType: "sales",
+                      areaServed: ["NG", "GB", "US"],
+                      availableLanguage: ["en"],
+                    },
                   ],
-                  "sameAs": [
+                  sameAs: [
                     "https://twitter.com/bitlayerx",
                     "https://linkedin.com/company/bitlayerx",
                     "https://facebook.com/bitlayerx",
                     "https://instagram.com/bitlayerx",
-                    "https://github.com/bitlayerx"
                   ],
-                  "aggregateRating": {
+                  aggregateRating: {
                     "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "reviewCount": "127",
-                    "bestRating": "5",
-                    "worstRating": "1"
+                    ratingValue: "4.9",
+                    reviewCount: "127",
+                    bestRating: "5",
+                    worstRating: "1",
                   },
-                  "numberOfEmployees": {
+                  numberOfEmployees: {
                     "@type": "QuantitativeValue",
-                    "value": "50"
+                    value: "50",
                   },
-                  "areaServed": {
-                    "@type": "GeoCircle",
-                    "geoMidpoint": {
-                      "@type": "GeoCoordinates",
-                      "latitude": "6.5244",
-                      "longitude": "3.3792"
-                    },
-                    "geoRadius": "100000"
-                  }
                 },
                 {
                   "@type": "WebSite",
                   "@id": "https://bitlayerx.com/#website",
-                  "url": "https://bitlayerx.com",
-                  "name": "BitLayerx",
-                  "description": "Digital Growth Partner",
-                  "publisher": {
-                    "@id": "https://bitlayerx.com/#organization"
+                  url: "https://bitlayerx.com",
+                  name: "BitLayerX",
+                  description:
+                    "Digital Innovation Company — Layered Digital Ecosystems",
+                  publisher: {
+                    "@id": "https://bitlayerx.com/#organization",
                   },
-                  "potentialAction": {
+                  potentialAction: {
                     "@type": "SearchAction",
-                    "target": {
+                    target: {
                       "@type": "EntryPoint",
-                      "urlTemplate": "https://bitlayerx.com/search?q={search_term_string}"
+                      urlTemplate:
+                        "https://bitlayerx.com/search?q={search_term_string}",
                     },
-                    "query-input": "required name=search_term_string"
-                  }
+                    "query-input": "required name=search_term_string",
+                  },
                 },
                 {
                   "@type": "ProfessionalService",
                   "@id": "https://bitlayerx.com/#service",
-                  "name": "BitLayerx Digital Solutions",
-                  "image": "https://bitlayerx.com/logo.png",
-                  "priceRange": "₦₦₦",
-                  "telephone": "+234-803-456-7890",
-                  "address": {
+                  name: "BitLayerX Digital Innovation",
+                  image: "https://bitlayerx.com/logo.png",
+                  priceRange: "₦₦₦",
+                  telephone: "+234-802-540-1891",
+                  address: {
                     "@type": "PostalAddress",
-                    "addressLocality": "Lagos",
-                    "addressCountry": "NG"
+                    streetAddress: "6th Avenue, Gwarinpa",
+                    addressLocality: "Abuja",
+                    addressRegion: "FCT",
+                    addressCountry: "NG",
                   },
-                  "hasOfferCatalog": {
+                  hasOfferCatalog: {
                     "@type": "OfferCatalog",
-                    "name": "Digital Services",
-                    "itemListElement": [
+                    name: "BitLayerX Digital Services",
+                    itemListElement: [
                       {
                         "@type": "Offer",
-                        "itemOffered": {
+                        itemOffered: {
                           "@type": "Service",
-                          "name": "Web Development",
-                          "description": "Custom web application development"
-                        }
+                          name: "Web & Mobile Development",
+                          description:
+                            "Custom web applications, mobile apps, and digital platforms",
+                        },
                       },
                       {
                         "@type": "Offer",
-                        "itemOffered": {
+                        itemOffered: {
                           "@type": "Service",
-                          "name": "AI Automation",
-                          "description": "Intelligent business automation solutions"
-                        }
+                          name: "UI/UX & Product Design",
+                          description:
+                            "User-centred interface design and digital product strategy",
+                        },
                       },
                       {
                         "@type": "Offer",
-                        "itemOffered": {
+                        itemOffered: {
                           "@type": "Service",
-                          "name": "Performance Marketing",
-                          "description": "ROI-driven digital marketing campaigns"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            })
+                          name: "Branding & Digital Identity",
+                          description:
+                            "Brand identity systems, logo design, and visual communication",
+                        },
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Commercials & Video Production",
+                          description:
+                            "High-impact commercial videos, brand films, and ad creatives",
+                        },
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Digital Marketing & Growth",
+                          description:
+                            "SEO, paid advertising, email marketing, and performance campaigns",
+                        },
+                      },
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Software Engineering & Architecture",
+                          description:
+                            "Scalable system architecture, APIs, and enterprise software",
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            }),
           }}
         />
 
-        {/* Breadcrumb Schema */}
+        {/* ── Breadcrumb Schema ─────────────────────────────────────────── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              "itemListElement": [
+              itemListElement: [
                 {
                   "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://bitlayerx.com"
-                }
-              ]
-            })
+                  position: 1,
+                  name: "Home",
+                  item: "https://bitlayerx.com",
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* ── Local Business Schema ─────────────────────────────────────── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "BitLayerX",
+              image: "https://bitlayerx.com/logo.png",
+              "@id": "https://bitlayerx.com/#localbusiness",
+              url: "https://bitlayerx.com",
+              telephone: "+234-802-540-1891",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "6th Avenue, Gwarinpa",
+                addressLocality: "Abuja",
+                addressRegion: "FCT",
+                postalCode: "900108",
+                addressCountry: "NG",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 9.0765,
+                longitude: 7.3986,
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  opens: "08:00",
+                  closes: "18:00",
+                },
+              ],
+              priceRange: "₦₦₦",
+              servesCuisine: null,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "127",
+              },
+            }),
           }}
         />
       </head>
-      
-      <body 
+
+      <body
         className={`${montserrat.className} antialiased`}
         suppressHydrationWarning
       >
-        {/* Google Analytics - Replace with your GA4 ID */}
+        {/* ── Google Analytics — Replace G-XXXXXXXXXX with your GA4 ID ──── */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
@@ -354,7 +443,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Facebook Pixel - Replace with your Pixel ID */}
+        {/* ── Facebook Pixel — Replace YOUR_PIXEL_ID ────────────────────── */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -370,7 +459,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Microsoft Clarity - Replace with your Project ID */}
+        {/* ── Microsoft Clarity — Replace YOUR_CLARITY_ID ──────────────── */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -381,7 +470,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Hotjar - Replace with your Hotjar ID (set NEXT_PUBLIC_HOTJAR_ID) */}
+        {/* ── Hotjar — Set NEXT_PUBLIC_HOTJAR_ID in .env ───────────────── */}
         {HOTJAR_ID && (
           <Script id="hotjar" strategy="afterInteractive">
             {`
@@ -397,147 +486,75 @@ export default function RootLayout({ children }) {
           </Script>
         )}
 
-        {/* Toast Notifications (client-only) */}
+        {/* ── Toast Notifications ───────────────────────────────────────── */}
         <ToastProvider />
 
-        {/* Main App Wrapper - Overflow Prevention */}
+        {/* ── App Shell ─────────────────────────────────────────────────── */}
         <AppContextProvider>
-          <div 
+          <div
             id="root-wrapper"
+            suppressHydrationWarning
             style={{
-              width: '100%',
-              maxWidth: '100vw',
-              overflowX: 'hidden',
-              position: 'relative',
-              minHeight: '100vh',
-              display: 'flex',
-              flexDirection: 'column',
+              width: "100%",
+              maxWidth: "100vw",
+              overflowX: "hidden",
+              position: "relative",
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            {/* Skip to main content - Accessibility */}
-            <a 
-              href="#main-content" 
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#0818A8] focus:text-white focus:rounded-lg"
-            >
-              Skip to main content
-            </a>
-
-            {/* Navigation */}
+            {/* Navbar */}
             <Navbar />
-            
+
             {/* Main Content */}
-            <main 
+            <main
               id="main-content"
               className="flex-1"
               style={{
-                width: '100%',
-                maxWidth: '100vw',
-                overflowX: 'hidden',
-                position: 'relative',
-                minHeight: 'calc(100vh - 200px)',
+                width: "100%",
+                maxWidth: "100vw",
+                overflowX: "hidden",
+                position: "relative",
+                minHeight: "calc(100vh - 200px)",
               }}
               role="main"
+              aria-label="Main content"
             >
               {children}
             </main>
-            
+
             {/* Footer */}
             <Footer />
           </div>
         </AppContextProvider>
 
-        {/* Anti-Scroll Protection Script */}
-        <Script id="prevent-horizontal-scroll" strategy="beforeInteractive">
-          {`
-            (function() {
-              'use strict';
-              
-              function preventHorizontalScroll() {
-                const html = document.documentElement;
-                const body = document.body;
-                
-                // Force overflow hidden on html and body
-                html.style.overflowX = 'hidden';
-                html.style.width = '100%';
-                html.style.maxWidth = '100vw';
-                
-                body.style.overflowX = 'hidden';
-                body.style.width = '100%';
-                body.style.maxWidth = '100vw';
-                body.style.position = 'relative';
-                
-                // Check for overflow and fix
-                const checkOverflow = () => {
-                  if (body.scrollWidth > window.innerWidth) {
-                    console.warn('Horizontal overflow detected');
-                    const allElements = document.querySelectorAll('*');
-                    allElements.forEach(el => {
-                      if (el.scrollWidth > window.innerWidth) {
-                        el.style.maxWidth = '100%';
-                        el.style.overflowX = 'hidden';
-                      }
-                    });
-                  }
-                };
-                
-                // Run checks
-                setTimeout(checkOverflow, 100);
-                setTimeout(checkOverflow, 500);
-                setTimeout(checkOverflow, 1000);
-              }
-              
-              // Execute on different load states
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', preventHorizontalScroll);
-              } else {
-                preventHorizontalScroll();
-              }
-              
-              // Re-run on resize (debounced)
-              let resizeTimer;
-              window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(preventHorizontalScroll, 250);
-              }, { passive: true });
-              
-              // Re-run on route changes
-              window.addEventListener('popstate', preventHorizontalScroll);
-            })();
-          `}
-        </Script>
-
-        {/* Performance Monitoring */}
-        <Script id="performance-monitoring" strategy="afterInteractive">
+        {/* ── Core Web Vitals Monitor (dev/analytics) ───────────────────── */}
+        <Script id="web-vitals-monitor" strategy="afterInteractive">
           {`
             if ('PerformanceObserver' in window) {
-              // Monitor Largest Contentful Paint
-              const lcpObserver = new PerformanceObserver((list) => {
-                const entries = list.getEntries();
-                const lastEntry = entries[entries.length - 1];
-                console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
-              });
-              lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+              try {
+                new PerformanceObserver((list) => {
+                  const last = list.getEntries().slice(-1)[0];
+                  if (last) console.log('[BitLayerX] LCP:', last.renderTime || last.loadTime, 'ms');
+                }).observe({ entryTypes: ['largest-contentful-paint'] });
 
-              // Monitor First Input Delay
-              const fidObserver = new PerformanceObserver((list) => {
-                const entries = list.getEntries();
-                entries.forEach((entry) => {
-                  console.log('FID:', entry.processingStart - entry.startTime);
-                });
-              });
-              fidObserver.observe({ entryTypes: ['first-input'] });
+                new PerformanceObserver((list) => {
+                  list.getEntries().forEach(e => {
+                    console.log('[BitLayerX] FID:', e.processingStart - e.startTime, 'ms');
+                  });
+                }).observe({ entryTypes: ['first-input'] });
 
-              // Monitor Cumulative Layout Shift
-              let clsValue = 0;
-              const clsObserver = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                  if (!entry.hadRecentInput) {
-                    clsValue += entry.value;
-                    console.log('CLS:', clsValue);
-                  }
-                }
-              });
-              clsObserver.observe({ entryTypes: ['layout-shift'] });
+                let cls = 0;
+                new PerformanceObserver((list) => {
+                  list.getEntries().forEach(e => {
+                    if (!e.hadRecentInput) {
+                      cls += e.value;
+                      console.log('[BitLayerX] CLS:', cls.toFixed(4));
+                    }
+                  });
+                }).observe({ entryTypes: ['layout-shift'] });
+              } catch(e) {}
             }
           `}
         </Script>

@@ -305,7 +305,7 @@ export default function BitLayerxEnterprisePage() {
                   {stat.value}
                 </div>
                 <div className="text-white font-semibold mb-1">{stat.label}</div>
-                <div className="text-sm text-gray-400">{stat.sublabel}</div>
+                <div className="text-sm text-black/80">{stat.sublabel}</div>
               </motion.div>
             ))}
           </div>
@@ -324,7 +324,7 @@ export default function BitLayerxEnterprisePage() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
               Why <span className="font-bold text-[#0818A8]">Enterprise</span> Clients Choose Us
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
               We're not just vendors—we're strategic partners built for enterprise complexity
             </p>
           </motion.div>
@@ -341,7 +341,7 @@ export default function BitLayerxEnterprisePage() {
                 className="p-8 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:border-[#0818A8] transition-all duration-300"
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                <p className="text-black/80 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -360,7 +360,7 @@ export default function BitLayerxEnterprisePage() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
               Enterprise-Grade <span className="font-bold text-[#0818A8]">Features</span>
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
               Everything your organization needs to succeed at scale
             </p>
           </motion.div>
@@ -379,7 +379,7 @@ export default function BitLayerxEnterprisePage() {
                   {feature.icon}
                 </svg>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+                <p className="text-black/80 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -413,7 +413,7 @@ export default function BitLayerxEnterprisePage() {
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">{solution.title}</h3>
-                  <p className="text-lg text-gray-700 mb-8">{solution.description}</p>
+                  <p className="text-lg text-black/80 mb-8">{solution.description}</p>
                   
                   <ul className="space-y-3">
                     {solution.features.map((feature, idx) => (
@@ -421,7 +421,7 @@ export default function BitLayerxEnterprisePage() {
                         <svg className="w-6 h-6 text-[#4682B4] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                         </svg>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-black/80">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -453,7 +453,7 @@ export default function BitLayerxEnterprisePage() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
               Enterprise <span className="font-bold text-[#0818A8]">Success Stories</span>
             </h2>
-            <p className="text-lg text-gray-700">Real results from real enterprise clients</p>
+            <p className="text-lg text-black/80">Real results from real enterprise clients</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -483,12 +483,12 @@ export default function BitLayerxEnterprisePage() {
                   
                   <div className="mb-4">
                     <div className="text-sm font-semibold text-gray-900 mb-1">Challenge:</div>
-                    <p className="text-sm text-gray-700">{study.challenge}</p>
+                    <p className="text-sm text-black/80">{study.challenge}</p>
                   </div>
                   
                   <div className="mb-4">
                     <div className="text-sm font-semibold text-gray-900 mb-1">Solution:</div>
-                    <p className="text-sm text-gray-700">{study.solution}</p>
+                    <p className="text-sm text-black/80">{study.solution}</p>
                   </div>
                   
                   <div>
@@ -499,7 +499,7 @@ export default function BitLayerxEnterprisePage() {
                           <svg className="w-4 h-4 text-[#4682B4] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                           </svg>
-                          <span className="text-gray-700">{result}</span>
+                          <span className="text-black/80">{result}</span>
                         </li>
                       ))}
                     </ul>
@@ -523,7 +523,7 @@ export default function BitLayerxEnterprisePage() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
               Enterprise <span className="font-bold text-[#0818A8]">Investment</span>
             </h2>
-            <p className="text-lg text-gray-700">Flexible plans designed for enterprise needs</p>
+            <p className="text-lg text-black/80">Flexible plans designed for enterprise needs</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -546,8 +546,8 @@ export default function BitLayerxEnterprisePage() {
 
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
                 <div className="text-3xl font-bold text-[#0818A8] mb-1">{plan.price}</div>
-                <div className="text-sm text-gray-600 mb-4">{plan.priceUK}</div>
-                <p className="text-gray-700 mb-8">{plan.description}</p>
+                <div className="text-sm text-black/80 mb-4">{plan.priceUK}</div>
+                <p className="text-black/80 mb-8">{plan.description}</p>
 
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
@@ -555,7 +555,7 @@ export default function BitLayerxEnterprisePage() {
                       <svg className="w-5 h-5 text-[#4682B4] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
-                      <span className="text-gray-700 text-sm">{feature}</span>
+                      <span className="text-black/80 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>

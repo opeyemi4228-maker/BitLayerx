@@ -572,7 +572,7 @@ export default function PortfolioPage() {
                   <div className="text-4xl md:text-5xl font-black text-[#0818A8] mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm md:text-base text-gray-600 font-medium">
+                  <div className="text-sm md:text-base text-black/80 font-medium">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -585,7 +585,7 @@ export default function PortfolioPage() {
         <section id="projects" className="py-8 bg-white sticky top-0 z-40 border-b border-gray-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
             <div className="flex items-center gap-4 mb-4">
-              <Filter size={20} className="text-gray-600" />
+              <Filter size={20} className="text-black/80" />
               <span className="text-sm font-bold text-gray-900 uppercase tracking-wider">
                 Filter by Industry
               </span>
@@ -600,7 +600,7 @@ export default function PortfolioPage() {
                   className={`flex items-center gap-2 px-5 py-3 font-semibold rounded-lg transition-all ${
                     activeFilter === category.id
                       ? 'bg-[#0818A8] text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-100 text-black/80 hover:bg-gray-200'
                   }`}
                 >
                   {category.label}
@@ -654,7 +654,7 @@ export default function PortfolioPage() {
                         {project.results.slice(0, 2).map((result, idx) => (
                           <div key={idx} className="text-center p-3 bg-gray-50 rounded-lg">
                             <div className="text-2xl font-black text-[#0818A8]">{result.metric}</div>
-                            <div className="text-xs text-gray-600">{result.label}</div>
+                            <div className="text-xs text-black/80">{result.label}</div>
                           </div>
                         ))}
                       </div>
@@ -662,12 +662,12 @@ export default function PortfolioPage() {
                       {/* Services */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.services.slice(0, 2).map((service, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
+                          <span key={idx} className="px-3 py-1 bg-gray-100 text-black/80 text-xs font-semibold rounded-full">
                             {service}
                           </span>
                         ))}
                         {project.services.length > 2 && (
-                          <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">
+                          <span className="px-3 py-1 bg-gray-100 text-black/80 text-xs font-semibold rounded-full">
                             +{project.services.length - 2} more
                           </span>
                         )}
@@ -793,16 +793,16 @@ export default function PortfolioPage() {
                 {/* Challenge */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">The Challenge</h3>
-                  <p className="text-gray-700 leading-relaxed">{selectedProject.challenge}</p>
+                  <p className="text-black/80 leading-relaxed">{selectedProject.challenge}</p>
                 </div>
 
                 {/* Solution */}
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Our Solution</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">{selectedProject.solution}</p>
+                  <p className="text-black/80 leading-relaxed mb-4">{selectedProject.solution}</p>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.services.map((service, idx) => (
-                      <span key={idx} className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-semibold rounded-lg">
+                      <span key={idx} className="px-4 py-2 bg-gray-100 text-black/80 text-sm font-semibold rounded-lg">
                         {service}
                       </span>
                     ))}
@@ -816,7 +816,7 @@ export default function PortfolioPage() {
                     {selectedProject.results.map((result, idx) => (
                       <div key={idx} className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border-2 border-gray-100">
                         <div className="text-4xl font-black text-[#0818A8] mb-2">{result.metric}</div>
-                        <div className="text-sm text-gray-600 font-medium">{result.label}</div>
+                        <div className="text-sm text-black/80 font-medium">{result.label}</div>
                       </div>
                     ))}
                   </div>
@@ -829,7 +829,7 @@ export default function PortfolioPage() {
                     {selectedProject.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <CheckCircle size={20} className="text-[#00A651] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-black/80">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -853,15 +853,15 @@ export default function PortfolioPage() {
                 {/* Project Details */}
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center p-6 bg-gray-50 rounded-xl">
-                    <div className="text-sm font-bold text-gray-600 uppercase tracking-wider mb-2">Timeline</div>
+                    <div className="text-sm font-bold text-black/80 uppercase tracking-wider mb-2">Timeline</div>
                     <div className="text-2xl font-black text-gray-900">{selectedProject.timeline}</div>
                   </div>
                   <div className="text-center p-6 bg-gray-50 rounded-xl">
-                    <div className="text-sm font-bold text-gray-600 uppercase tracking-wider mb-2">Investment</div>
+                    <div className="text-sm font-bold text-black/80 uppercase tracking-wider mb-2">Investment</div>
                     <div className="text-2xl font-black text-gray-900">{selectedProject.investment}</div>
                   </div>
                   <div className="text-center p-6 bg-gray-50 rounded-xl">
-                    <div className="text-sm font-bold text-gray-600 uppercase tracking-wider mb-2">Website</div>
+                    <div className="text-sm font-bold text-black/80 uppercase tracking-wider mb-2">Website</div>
                     <a href={selectedProject.website} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-[#0818A8] hover:underline flex items-center justify-center gap-2">
                       Visit Site
                       <ExternalLink size={18} strokeWidth={2.5} />

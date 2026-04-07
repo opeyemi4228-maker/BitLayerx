@@ -144,7 +144,7 @@ export default function BitLayerxAboutPage() {
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{stat.label}</h3>
-                <p className="text-gray-600">{stat.sublabel}</p>
+                <p className="text-black/80">{stat.sublabel}</p>
               </motion.div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function BitLayerxAboutPage() {
               <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-8 leading-tight">
                 To be <span className="font-bold text-[#0818A8]">Nigeria's most trusted</span> digital growth partner
               </h2>
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-lg text-black/80 leading-relaxed">
                 <p>
                   We're working to become the most trusted digital growth partner by transforming how Nigerian and UK businesses approach their digital infrastructure.
                 </p>
@@ -229,7 +229,7 @@ export default function BitLayerxAboutPage() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
               Meet Our <span className="font-bold text-[#0818A8]">Leadership</span>
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg text-black/80 max-w-3xl mx-auto">
               Experienced leaders driving digital transformation across Africa and beyond
             </p>
           </motion.div>
@@ -256,7 +256,7 @@ export default function BitLayerxAboutPage() {
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
                   <p className="text-[#0818A8] font-semibold mb-4">{member.title}</p>
-                  <p className="text-gray-700 leading-relaxed">{member.description}</p>
+                  <p className="text-black/80 leading-relaxed">{member.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -293,7 +293,7 @@ export default function BitLayerxAboutPage() {
                   {value.icon}
                 </svg>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{value.description}</p>
+                <p className="text-black/80 leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </div>

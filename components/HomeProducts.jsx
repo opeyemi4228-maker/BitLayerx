@@ -244,7 +244,7 @@ function AdvantagesSection() {
 
           {/* Sticky header */}
           <FadeIn direction="right" className="lg:sticky lg:top-28 lg:self-start">
-            <p className="text-[#0818A8] text-[12px] font-black tracking-[0.2em] uppercase mb-4">
+            <p className="text-[#0818A8] text-[14px] font-black tracking-[0.2em] uppercase mb-4">
               Why BitLayerX
             </p>
             <h2
@@ -255,7 +255,7 @@ function AdvantagesSection() {
               <br />
               <span className="text-[#0818A8]">ADVANTAGES</span>
             </h2>
-            <p className="text-gray-500 text-[15px] leading-relaxed max-w-sm">
+            <p className="text-black/80 text-[15px] leading-relaxed max-w-sm">
               Most agencies deliver parts. We deliver the whole system — and the
               results prove it.
             </p>
@@ -264,7 +264,7 @@ function AdvantagesSection() {
                 {['#1d4ed8','#2563eb','#3b82f6','#60a5fa'].map((c, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-[10px] font-bold"
+                    className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-white text-[13.5px] font-bold"
                     style={{ backgroundColor: c }}
                   >
                     {String.fromCharCode(65 + i)}
@@ -277,7 +277,7 @@ function AdvantagesSection() {
                     <Star key={i} size={12} className="text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-400 text-[11px] font-medium">500+ brands transformed</p>
+                <p className="text-black/80 text-[13.5px] font-medium">500+ brands transformed</p>
               </div>
             </div>
           </FadeIn>
@@ -316,7 +316,7 @@ function AdvantagesSection() {
                     >
                       {adv.title}
                     </h3>
-                    <p className="text-gray-600 text-[14px] leading-relaxed" itemProp="description">
+                    <p className="text-black/80 text-[14px] leading-relaxed" itemProp="description">
                       {adv.description}
                     </p>
                   </div>
@@ -373,7 +373,7 @@ function ServicesSnapshot() {
 
         {/* Header */}
         <FadeIn className="text-center mb-20">
-          <p className="text-blue-400 text-[12px] font-black tracking-[0.2em] uppercase mb-4">
+          <p className="text-blue-400 text-[14px] font-black tracking-[0.2em] uppercase mb-4">
             Structured by Layers
           </p>
           <h2
@@ -443,7 +443,7 @@ function ServicesSnapshot() {
 
                 {/* Layer tag */}
                 <p
-                  className="text-[10px] font-black tracking-[0.18em] uppercase mb-2"
+                  className="text-[13.5px] font-black tracking-[0.18em] uppercase mb-2"
                   style={{ color: layer.color }}
                 >
                   {layer.label}
@@ -455,7 +455,7 @@ function ServicesSnapshot() {
                 </h3>
 
                 {/* Benefit */}
-                <p className="text-white/45 text-[13px] leading-relaxed mb-5 group-hover:text-white/60 transition-colors">
+                <p className="text-white/45 text-[15px] leading-relaxed mb-5 group-hover:text-white/60 transition-colors">
                   {layer.benefit}
                 </p>
 
@@ -469,7 +469,7 @@ function ServicesSnapshot() {
                         style={{ color: layer.color }}
                         className="flex-shrink-0"
                       />
-                      <span className="text-white/50 text-[12px] font-medium">{o}</span>
+                      <span className="text-white/50 text-[14px] font-medium">{o}</span>
                     </li>
                   ))}
                 </ul>
@@ -477,7 +477,7 @@ function ServicesSnapshot() {
                 {/* CTA */}
                 <Link
                   href={layer.href}
-                  className="inline-flex items-center gap-1.5 text-[12px] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0"
+                  className="inline-flex items-center gap-1.5 text-[14px] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0"
                   style={{ color: layer.color }}
                   aria-label={`Learn more about ${layer.title}`}
                 >
@@ -527,7 +527,7 @@ function FeaturedWork() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[12px] font-black tracking-[0.2em] uppercase mb-4">
+            <p className="text-[#0818A8] text-[14px] font-black tracking-[0.2em] uppercase mb-4">
               Proof of Execution
             </p>
             <h2
@@ -540,7 +540,7 @@ function FeaturedWork() {
             </h2>
           </FadeIn>
           <FadeIn direction="left" delay={0.1}>
-            <p className="text-gray-400 text-[14px] max-w-xs leading-relaxed lg:text-right">
+            <p className="text-black/80 text-[14px] max-w-xs leading-relaxed lg:text-right">
               Results over visuals. Every project below is measured in impact, not aesthetics.
             </p>
           </FadeIn>
@@ -583,7 +583,7 @@ function FeaturedWork() {
 
                 <div className="relative z-10">
                   {/* Tag */}
-                  <p className="text-blue-300/70 text-[11px] font-bold tracking-[0.15em] uppercase mb-5">
+                  <p className="text-blue-300/70 text-[13.5px] font-bold tracking-[0.15em] uppercase mb-5">
                     {cs.tag}
                   </p>
 
@@ -608,7 +608,7 @@ function FeaturedWork() {
                             <p className="text-white font-black text-[22px] lg:text-[28px] leading-none">
                               {m.value}
                             </p>
-                            <p className="text-white/40 text-[11px] font-semibold leading-tight mt-0.5">
+                            <p className="text-white/40 text-[13.5px] font-semibold leading-tight mt-0.5">
                               {m.label}
                             </p>
                           </div>
@@ -623,7 +623,7 @@ function FeaturedWork() {
                   {cs.layers.map((l, j) => (
                     <span
                       key={j}
-                      className="px-3 py-1 border border-blue-400/20 text-blue-300/70 text-[10px] font-bold tracking-wider uppercase rounded-full"
+                      className="px-3 py-1 border border-blue-400/20 text-blue-300/70 text-[13.5px] font-bold tracking-wider uppercase rounded-full"
                     >
                       {l} Layer
                     </span>
@@ -640,11 +640,11 @@ function FeaturedWork() {
                 <div>
                   {/* Industry + duration */}
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="px-3 py-1 bg-[#000080]/8 text-[#000080] text-[11px] font-black tracking-wider uppercase rounded-full">
+                    <span className="px-3 py-1 bg-[#000080]/8 text-[#000080] text-[13.5px] font-black tracking-wider uppercase rounded-full">
                       {cs.industry}
                     </span>
-                    <span className="text-gray-300 text-[11px]">·</span>
-                    <span className="text-gray-400 text-[11px] font-semibold">{cs.duration}</span>
+                    <span className="text-gray-300 text-[13.5px]">·</span>
+                    <span className="text-black/80 text-[13.5px] font-semibold">{cs.duration}</span>
                   </div>
 
                   {/* Title */}
@@ -657,7 +657,7 @@ function FeaturedWork() {
 
                   {/* Description */}
                   <p
-                    className="text-gray-500 text-[14px] leading-relaxed mb-8"
+                    className="text-black/80 text-[14px] leading-relaxed mb-8"
                     itemProp="description"
                   >
                     {cs.description}
@@ -668,7 +668,7 @@ function FeaturedWork() {
                 <div className="flex items-center justify-between pt-6 border-t border-gray-100">
                   <Link
                     href="/work"
-                    className="inline-flex items-center gap-2 text-[#000080] font-black text-[13px] uppercase tracking-wide hover:text-[#0818A8] transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-[#000080] font-black text-[15px] uppercase tracking-wide hover:text-[#0818A8] transition-colors group/link"
                   >
                     View Case Study
                     <ArrowRight

@@ -93,7 +93,7 @@ export default function TrustedBrandsSection() {
             </span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-black/80 max-w-3xl mx-auto leading-relaxed">
             From startups to Fortune 500 companies, we deliver digital solutions that drive measurable growth across Africa and beyond.
           </p>
         </motion.div>
@@ -135,7 +135,7 @@ export default function TrustedBrandsSection() {
                   </div>
                   
                   {/* Label */}
-                  <div className="relative text-sm md:text-base text-gray-600 font-medium">
+                  <div className="relative text-sm md:text-base text-black/80 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function TrustedBrandsSection() {
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Trusted by Leading African Brands
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-black/80">
               Join 500+ companies transforming their digital presence
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function TrustedBrandsSection() {
                     <div className="text-xl md:text-2xl font-black text-gray-900 mb-2 group-hover:text-[#0818A8] transition-colors">
                       {brand.name}
                     </div>
-                    <div className="text-xs md:text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    <div className="text-xs md:text-sm text-black/80 font-medium uppercase tracking-wider">
                       {brand.industry}
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export default function TrustedBrandsSection() {
                 <Award size={32} className="text-[#0818A8]" strokeWidth={2} />
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">ISO Certified</h4>
-              <p className="text-gray-600">Quality management systems meeting international standards</p>
+              <p className="text-black/80">Quality management systems meeting international standards</p>
             </div>
             
             <div className="text-center">
@@ -211,7 +211,7 @@ export default function TrustedBrandsSection() {
                 <Zap size={32} className="text-[#00A651]" strokeWidth={2} />
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">99.9% Uptime</h4>
-              <p className="text-gray-600">Enterprise-grade infrastructure with guaranteed reliability</p>
+              <p className="text-black/80">Enterprise-grade infrastructure with guaranteed reliability</p>
             </div>
             
             <div className="text-center">
@@ -219,7 +219,7 @@ export default function TrustedBrandsSection() {
                 <Users size={32} className="text-[#fbbf24]" strokeWidth={2} />
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">24/7 Support</h4>
-              <p className="text-gray-600">Dedicated team ready to assist you anytime, anywhere</p>
+              <p className="text-black/80">Dedicated team ready to assist you anytime, anywhere</p>
             </div>
           </div>
         </motion.div>

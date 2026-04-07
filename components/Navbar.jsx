@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { Montserrat } from "next/font/google";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
@@ -12,7 +11,6 @@ import {
   Code2,
   Palette,
   Zap,
-  TrendingUp,
   Rocket,
   Building2,
   Users,
@@ -39,26 +37,35 @@ import {
   Monitor,
   Globe2,
   Hammer,
+  BarChart2,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "@/assets/assets";
 
-// ─── Font ─────────────────────────────────────────────────────────────────────
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
+// ─── SEO Schema ───────────────────────────────────────────────────────────────
+const ORG_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "BitLayerX",
+  url: "https://bitlayerx.com",
+  logo: "https://bitlayerx.com/logo.png",
+  description:
+    "BitLayerX is a forward-thinking digital innovation company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth.",
+  sameAs: [
+    "https://twitter.com/bitlayerx",
+    "https://linkedin.com/company/bitlayerx",
+    "https://instagram.com/bitlayerx",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+234-802-540-1891",
+    contactType: "customer service",
+    availableLanguage: "English",
+  },
+};
 
 // ─── Navigation Data ──────────────────────────────────────────────────────────
 const NAV_ITEMS = [
-  {
-    label: "Home",
-    href: "/",
-  },
-
-  // ── Packages ──────────────────────────────────────────────────────────────
+  { label: "Home", href: "/" },
   {
     label: "Packages",
     href: "/packages",
@@ -95,8 +102,6 @@ const NAV_ITEMS = [
       },
     ],
   },
-
-  // ── Services ──────────────────────────────────────────────────────────────
   {
     label: "Services",
     href: "/services",
@@ -139,8 +144,6 @@ const NAV_ITEMS = [
       },
     ],
   },
-
-  // ── Work ──────────────────────────────────────────────────────────────────
   {
     label: "Work",
     href: "/work",
@@ -165,46 +168,6 @@ const NAV_ITEMS = [
       },
     ],
   },
-
-  // ── Industries ────────────────────────────────────────────────────────────
-  {
-    label: "Industries",
-    href: "/industries",
-    dropdown: [
-      {
-        label: "Fintech",
-        href: "/industries/fintech",
-        icon: Landmark,
-        desc: "Finance-grade digital products",
-      },
-      {
-        label: "Logistics",
-        href: "/industries/logistics",
-        icon: Truck,
-        desc: "Operations-optimised platforms",
-      },
-      {
-        label: "Real Estate",
-        href: "/industries/real-estate",
-        icon: Home,
-        desc: "Property tech & digital presence",
-      },
-      {
-        label: "E-commerce",
-        href: "/industries/ecommerce",
-        icon: ShoppingCart,
-        desc: "Conversion-optimised storefronts",
-      },
-      {
-        label: "Corporate & Enterprise",
-        href: "/industries/enterprise",
-        icon: Factory,
-        desc: "Scalable enterprise ecosystems",
-      },
-    ],
-  },
-
-  // ── About ─────────────────────────────────────────────────────────────────
   {
     label: "About",
     href: "/about",
@@ -235,8 +198,6 @@ const NAV_ITEMS = [
       },
     ],
   },
-
-  // ── Contact ───────────────────────────────────────────────────────────────
   {
     label: "Contact",
     href: "/contact",
@@ -263,525 +224,464 @@ const NAV_ITEMS = [
   },
 ];
 
-// ─── Announcement Bar — Yellow Gradient ───────────────────────────────────────
-function AnnouncementBar() {
-  const [isVisible, setIsVisible] = useState(true);
-  if (!isVisible) return null;
-
+// ─── Wordmark / Logo ──────────────────────────────────────────────────────────
+function BitLayerXLogo({ className = "" }) {
   return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: "auto", opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
-      transition={{ duration: 0.3 }}
+    <div className={`flex items-center gap-3 select-none ${className}`}>
+      <Image
+        src={assets.logo}
+        alt="BitLayerX"
+        width={60}
+        height={45}
+        className="h-13 w-auto object-contain"
+        priority
+      />
+      <span
+        className="font-black text-[22px] text-[#000066] tracking-tight hidden sm:block"
+        style={{ letterSpacing: "-0.03em", fontFamily: "'Montserrat', sans-serif" }}
+      >
+        BitLayerX
+      </span>
+    </div>
+  );
+}
+
+// ─── Announcement Bar ─────────────────────────────────────────────────────────
+function AnnouncementBar({ onClose }) {
+  return (
+    <div
       className="relative overflow-hidden"
-      style={{
-        background: "linear-gradient(90deg, #f59e0b 0%, #fbbf24 30%, #fde68a 50%, #fbbf24 70%, #f59e0b 100%)",
-      }}
+      style={{ background: "linear-gradient(90deg,#000066,#0818A8 50%,#000066)" }}
     >
-      {/* Subtle shimmer overlay */}
+      {/* Animated shimmer */}
       <div
-        className="absolute inset-0 opacity-30"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.45) 50%, transparent 60%)",
+            "linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.08) 50%,transparent 60%)",
           backgroundSize: "200% 100%",
-          animation: "shimmer 3s infinite linear",
+          animation: "blx-shimmer 3.5s linear infinite",
         }}
       />
       <style>{`
-        @keyframes shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
+        @keyframes blx-shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
       `}</style>
-
-      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-8 py-2.5 flex items-center justify-between">
-        <div className="flex items-center gap-2 flex-1 justify-center">
-          <Sparkles size={14} className="text-amber-900/80 flex-shrink-0" strokeWidth={2.5} />
-          <p className="text-amber-950 text-[12px] sm:text-[13px] font-semibold text-center leading-tight">
-            <span className="font-black">Limited Offer:</span> Get 20% off on all Enterprise
-            packages this month —{" "}
+      <div className="relative max-w-[1600px] mx-auto px-4 sm:px-8 py-2 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2 flex-1 justify-center min-w-0">
+          <Sparkles size={13} className="text-amber-300 flex-shrink-0" strokeWidth={2.5} />
+          <p className="text-white text-[14px] sm:text-[15px] font-semibold text-center leading-tight truncate">
+            <span className="font-black text-amber-300">Limited Offer:</span>{" "}
+            20% off Enterprise packages this month —{" "}
             <Link
               href="/packages"
-              className="font-black underline underline-offset-2 hover:text-amber-800 transition-colors"
+              className="font-black underline underline-offset-2 hover:text-amber-300 transition-colors"
             >
-              Transform your business today!
+              Transform your business
             </Link>
           </p>
         </div>
         <button
-          onClick={() => setIsVisible(false)}
-          className="p-1 hover:bg-black/10 rounded transition-colors ml-3 flex-shrink-0"
+          onClick={onClose}
+          className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
           aria-label="Close announcement"
         >
-          <X size={14} className="text-amber-900/70" strokeWidth={2.5} />
+          <X size={13} className="text-white/60" strokeWidth={2.5} />
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-// ─── Standard Dropdown ────────────────────────────────────────────────────────
-function DropdownMenu({ items, isOpen, onClose }) {
+// ─── Dropdown Menu ────────────────────────────────────────────────────────────
+function DropdownPanel({ items, visible, onClose }) {
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute left-0 top-full mt-3 min-w-[285px] bg-white rounded-2xl shadow-[0_24px_60px_rgba(0,0,80,0.18)] border border-blue-50 overflow-hidden z-50"
-          onMouseLeave={onClose}
-        >
-          <div className="p-2">
-            {items.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center gap-3 px-3 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#000066] hover:to-[#0818A8] hover:text-white transition-all duration-200 group"
-                  onClick={onClose}
-                >
-                  {Icon && (
-                    <div className="w-9 h-9 rounded-xl bg-[#000080]/8 group-hover:bg-white/15 flex items-center justify-center flex-shrink-0 transition-all duration-200">
-                      <Icon
-                        size={17}
-                        strokeWidth={2}
-                        className="text-[#000080] group-hover:text-white transition-colors duration-200"
-                      />
-                    </div>
-                  )}
-                  <div className="flex flex-col min-w-0">
-                    <span className="font-semibold text-[13px] leading-snug">
-                      {item.label}
-                    </span>
-                    {item.desc && (
-                      <span className="text-[11px] text-gray-400 group-hover:text-white/60 font-medium leading-snug mt-0.5 transition-colors truncate">
-                        {item.desc}
-                      </span>
-                    )}
+    <div
+      aria-hidden={!visible}
+      className="absolute left-0 top-full pt-2 z-50"
+      style={{
+        pointerEvents: visible ? "auto" : "none",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(-6px)",
+        transition: "opacity 0.18s ease, transform 0.18s ease",
+      }}
+    >
+      <div
+        className="min-w-[272px] bg-white rounded-2xl overflow-hidden"
+        style={{
+          boxShadow:
+            "0 4px 6px -1px rgba(0,0,102,0.06),0 20px 48px -8px rgba(0,0,102,0.16)",
+          border: "1px solid rgba(0,0,102,0.08)",
+        }}
+      >
+        <div className="p-2">
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onClose}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-all duration-150 hover:bg-[#000066] text-black/80 hover:text-white"
+              >
+                {Icon && (
+                  <div className="w-8 h-8 rounded-lg bg-[#000066]/6 group-hover:bg-white/15 flex items-center justify-center flex-shrink-0 transition-colors">
+                    <Icon
+                      size={15}
+                      strokeWidth={2}
+                      className="text-[#000066] group-hover:text-white transition-colors"
+                    />
                   </div>
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={2.5}
-                    className="ml-auto flex-shrink-0 text-gray-300 group-hover:text-white/80 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"
-                  />
-                </Link>
-              );
-            })}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+                )}
+                <div className="flex flex-col min-w-0">
+                  <span className="font-semibold text-[15px] leading-snug">
+                    {item.label}
+                  </span>
+                  {item.desc && (
+                    <span className="text-[11.5px] text-black/80 group-hover:text-white/60 leading-snug mt-0.5 transition-colors">
+                      {item.desc}
+                    </span>
+                  )}
+                </div>
+                <ArrowRight
+                  size={12}
+                  strokeWidth={2.5}
+                  className="ml-auto flex-shrink-0 text-gray-300 group-hover:text-white/70 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-150"
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
 // ─── Desktop Nav Link ─────────────────────────────────────────────────────────
 function NavLink({ item, pathname }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef(null);
+  const [open, setOpen] = useState(false);
+  const timerRef = useRef(null);
 
   const isActive =
-    pathname === item.href || pathname.startsWith(item.href + "/");
+    item.href === "/"
+      ? pathname === "/"
+      : pathname === item.href || pathname.startsWith(item.href + "/");
 
-  const open = () => {
-    if (item.dropdown) {
-      clearTimeout(timeoutRef.current);
-      setIsOpen(true);
-    }
+  const show = () => {
+    clearTimeout(timerRef.current);
+    if (item.dropdown) setOpen(true);
+  };
+  const hide = () => {
+    timerRef.current = setTimeout(() => setOpen(false), 100);
   };
 
-  const close = () => {
-    if (item.dropdown) {
-      timeoutRef.current = setTimeout(() => setIsOpen(false), 120);
-    }
-  };
-
-  useEffect(() => () => clearTimeout(timeoutRef.current), []);
+  useEffect(() => () => clearTimeout(timerRef.current), []);
 
   return (
-    <div className="relative" onMouseEnter={open} onMouseLeave={close}>
+    <div className="relative" onMouseEnter={show} onMouseLeave={hide}>
       <Link
         href={item.href}
         className={`
-          flex items-center gap-1 px-3.5 py-2 text-[13.5px] font-semibold rounded-lg
-          transition-all duration-200 tracking-wide
-          ${
-            isActive
-              ? "text-white bg-white/20"
-              : "text-white/85 hover:text-white hover:bg-white/10"
+          flex items-center gap-1 px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all duration-150
+          ${isActive
+            ? "text-[#000066] bg-[#000066]/8"
+            : "text-black/80 hover:text-[#000066] hover:bg-[#000066]/5"
           }
         `}
+        style={{ fontFamily: "'Montserrat',sans-serif", letterSpacing: "-0.01em" }}
       >
         {item.label}
         {item.dropdown && (
           <ChevronDown
             size={13}
             strokeWidth={2.5}
-            className={`transition-transform duration-200 ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={`text-black/80 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           />
         )}
       </Link>
 
-      {item.dropdown && (
-        <DropdownMenu
-          items={item.dropdown}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
+      {/* Active underline */}
+      {isActive && (
+        <div
+          className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#000066]"
+          style={{ transform: "translateY(1px)" }}
         />
+      )}
+
+      {item.dropdown && (
+        <DropdownPanel items={item.dropdown} visible={open} onClose={() => setOpen(false)} />
       )}
     </div>
   );
 }
 
-// ─── Mobile Menu ──────────────────────────────────────────────────────────────
-function MobileMenu({ isOpen, onClose, pathname }) {
-  const [expanded, setExpanded] = useState(null);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  const toggle = (label) =>
-    setExpanded((prev) => (prev === label ? null : label));
+// ─── Mobile Accordion Item ────────────────────────────────────────────────────
+function MobileNavItem({ item, pathname, onClose }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMenu = !!item.dropdown;
+  const isActive =
+    item.href === "/"
+      ? pathname === "/"
+      : pathname === item.href || pathname.startsWith(item.href + "/");
 
   return (
-    <AnimatePresence>
-      {isOpen && (
+    <div>
+      {hasMenu ? (
         <>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-          />
-
-          {/* Drawer */}
-          <motion.div
-            className={`
-              ${montserrat.variable} font-[family-name:var(--font-montserrat)]
-              fixed top-0 right-0 bottom-0 w-full max-w-[360px]
-              flex flex-col z-50 lg:hidden shadow-2xl
-            `}
-            style={{
-              background:
-                "linear-gradient(160deg, #00003a 0%, #000066 40%, #00008a 70%, #000050 100%)",
-            }}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="flex items-center justify-between w-full px-4 py-3 rounded-xl font-semibold text-[14px] text-black/80 hover:text-[#000066] hover:bg-[#000066]/5 transition-colors"
+            style={{ fontFamily: "'Montserrat',sans-serif" }}
+            aria-expanded={expanded}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-              <Link
-                href="/"
-                onClick={onClose}
-                className="flex items-center gap-2.5"
-              >
-                <Image
-                  src={assets.logo}
-                  alt="BitLayerX logo"
-                  width={34}
-                  height={34}
-                />
-                <span className="font-black text-white text-[17px] tracking-wide">
-                  BitLayerX
-                </span>
-              </Link>
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-white/10 rounded-xl transition-colors"
-                aria-label="Close menu"
-              >
-                <X size={22} className="text-white/80" strokeWidth={2} />
-              </button>
-            </div>
-
-            {/* Nav Items */}
-            <nav
-              className="flex-1 overflow-y-auto px-4 py-5 space-y-1"
-              aria-label="Mobile navigation"
-            >
-              {NAV_ITEMS.map((item) => {
-                const hasMenu = !!item.dropdown;
-                const subItems = item.dropdown || [];
-                const isExp = expanded === item.label;
-                const isActive =
-                  pathname === item.href ||
-                  pathname.startsWith(item.href + "/");
-
+            <span>{item.label}</span>
+            <ChevronDown
+              size={14}
+              strokeWidth={2.5}
+              className={`text-black/80 transition-transform duration-250 ${expanded ? "rotate-180" : ""}`}
+            />
+          </button>
+          <div
+            style={{
+              maxHeight: expanded ? "600px" : "0",
+              overflow: "hidden",
+              transition: "max-height 0.28s ease",
+            }}
+          >
+            <div className="pl-3 pr-1 pb-2 pt-1 space-y-0.5">
+              {item.dropdown.map((sub) => {
+                const Icon = sub.icon;
                 return (
-                  <div key={item.label}>
-                    {hasMenu ? (
-                      <>
-                        <button
-                          onClick={() => toggle(item.label)}
-                          className="flex items-center justify-between w-full px-4 py-3 rounded-xl font-semibold text-[14px] text-white/80 hover:text-white hover:bg-white/8 transition-colors"
-                        >
-                          <span>{item.label}</span>
-                          <ChevronDown
-                            size={15}
-                            strokeWidth={2.5}
-                            className={`transition-transform duration-300 text-white/40 ${
-                              isExp ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-
-                        <AnimatePresence>
-                          {isExp && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-3 pr-1 pb-2 pt-1 space-y-0.5">
-                                {subItems.map((sub) => {
-                                  const Icon = sub.icon;
-                                  return (
-                                    <Link
-                                      key={sub.href}
-                                      href={sub.href}
-                                      onClick={onClose}
-                                      className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/60 hover:text-white hover:bg-white/8 transition-all group"
-                                    >
-                                      {Icon && (
-                                        <div className="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 transition-colors">
-                                          <Icon
-                                            size={14}
-                                            strokeWidth={2}
-                                            className="text-white/60 group-hover:text-white transition-colors"
-                                          />
-                                        </div>
-                                      )}
-                                      <span className="text-[13px] font-medium">
-                                        {sub.label}
-                                      </span>
-                                    </Link>
-                                  );
-                                })}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className={`
-                          block px-4 py-3 rounded-xl font-semibold text-[14px] transition-colors
-                          ${
-                            isActive
-                              ? "text-white bg-white/15"
-                              : "text-white/80 hover:text-white hover:bg-white/8"
-                          }
-                        `}
-                      >
-                        {item.label}
-                      </Link>
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    onClick={onClose}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-black/80 hover:text-[#000066] hover:bg-[#000066]/5 transition-all group"
+                  >
+                    {Icon && (
+                      <div className="w-7 h-7 rounded-lg bg-gray-100 group-hover:bg-[#000066]/8 flex items-center justify-center flex-shrink-0 transition-colors">
+                        <Icon size={14} strokeWidth={2} className="text-black/80 group-hover:text-[#000066] transition-colors" />
+                      </div>
                     )}
-                  </div>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[15px] font-semibold">{sub.label}</span>
+                      {sub.desc && (
+                        <span className="text-[13.5px] text-black/80 leading-snug mt-0.5">{sub.desc}</span>
+                      )}
+                    </div>
+                  </Link>
                 );
               })}
-            </nav>
-
-            {/* Footer CTAs */}
-            <div className="px-5 py-5 border-t border-white/10 space-y-3">
-              <Link
-                href="/contact/project"
-                onClick={onClose}
-                className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-white hover:bg-white/90 text-[#000066] font-black text-[14px] rounded-xl transition-all shadow-lg shadow-white/10"
-              >
-                Build With Us
-                <Hammer size={16} strokeWidth={2.5} />
-              </Link>
-              <Link
-                href="/contact/call"
-                onClick={onClose}
-                className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-white/15 text-white/70 hover:text-white hover:border-white/30 font-semibold text-[13px] rounded-xl transition-all"
-              >
-                <CalendarCheck size={15} strokeWidth={2} />
-                Book a Strategy Call
-              </Link>
-              <div className="flex items-center justify-center gap-2 text-white/30 text-[12px]">
-                <Phone size={12} strokeWidth={2} />
-                <span>+234 802 540 1891</span>
-              </div>
             </div>
-          </motion.div>
+          </div>
         </>
+      ) : (
+        <Link
+          href={item.href}
+          onClick={onClose}
+          className={`block px-4 py-3 rounded-xl font-semibold text-[14px] transition-colors ${
+            isActive
+              ? "text-[#000066] bg-[#000066]/8"
+              : "text-black/80 hover:text-[#000066] hover:bg-[#000066]/5"
+          }`}
+          style={{ fontFamily: "'Montserrat',sans-serif" }}
+        >
+          {item.label}
+        </Link>
       )}
-    </AnimatePresence>
+    </div>
   );
 }
 
-// ─── Main Navbar Export ───────────────────────────────────────────────────────
-export default function Navbar() {
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [hasHero, setHasHero] = useState(false);
-
-  const isHome = pathname === "/";
-
+// ─── Mobile Drawer ────────────────────────────────────────────────────────────
+function MobileDrawer({ open, onClose, pathname }) {
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const check = () =>
-      setHasHero(!!document.querySelector(".hero-section"));
-    check();
-    const obs = new MutationObserver(check);
-    obs.observe(document.body, { childList: true, subtree: true });
-    return () => obs.disconnect();
-  }, [pathname]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const isTransparent = (isHome || hasHero) && !scrolled;
-
-  // Scrolled: deep dark navy-to-midnight gradient — richer than plain navy
-  const scrolledBg =
-    "linear-gradient(135deg, #00002e 0%, #000055 35%, #00007a 65%, #000044 100%)";
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <>
-      {/* ── SEO Schema ────────────────────────────────────────────────── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "BitLayerX",
-            url: "https://bitlayerx.com",
-            logo: "https://bitlayerx.com/logo.png",
-            description:
-              "BitLayerX is a forward-thinking digital innovation company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth.",
-            sameAs: [
-              "https://twitter.com/bitlayerx",
-              "https://linkedin.com/company/bitlayerx",
-              "https://instagram.com/bitlayerx",
-            ],
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+234-802-540-1891",
-              contactType: "customer service",
-              availableLanguage: "English",
-            },
-          }),
+      {/* Backdrop */}
+      <div
+        aria-hidden={!open}
+        onClick={onClose}
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm xl:hidden"
+        style={{
+          opacity: open ? 1 : 0,
+          pointerEvents: open ? "auto" : "none",
+          transition: "opacity 0.25s ease",
         }}
       />
 
-      <div className="fixed top-0 left-0 right-0 z-30 w-full">
-        {/* Announcement Bar */}
-        <AnimatePresence>
-          <AnnouncementBar />
-        </AnimatePresence>
+      {/* Drawer */}
+      <div
+        id="mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[360px] flex flex-col bg-white xl:hidden"
+        style={{
+          transform: open ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94)",
+          boxShadow: "-4px 0 40px rgba(0,0,80,0.12)",
+        }}
+      >
+        {/* Drawer header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <Link href="/" onClick={onClose} aria-label="BitLayerX home">
+            <BitLayerXLogo />
+          </Link>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-xl transition-colors"
+            aria-label="Close navigation"
+          >
+            <X size={20} className="text-black/80" strokeWidth={2} />
+          </button>
+        </div>
 
-        {/* ── Main Header ───────────────────────────────────────────── */}
-        <motion.header
-          className={`${montserrat.variable} font-[family-name:var(--font-montserrat)]`}
-          animate={{
-            background: isTransparent ? "rgba(0,0,0,0)" : scrolledBg,
-            backdropFilter: isTransparent ? "blur(0px)" : "blur(18px)",
-            borderBottom: isTransparent
-              ? "1px solid rgba(255,255,255,0)"
-              : "1px solid rgba(100,130,255,0.12)",
-            boxShadow: isTransparent
-              ? "none"
-              : "0 8px 48px rgba(0, 0, 60, 0.65), 0 2px 0px rgba(80,120,255,0.15)",
+        {/* Nav items */}
+        <nav
+          className="flex-1 overflow-y-auto px-4 py-4 space-y-0.5"
+          aria-label="Mobile navigation"
+        >
+          {NAV_ITEMS.map((item) => (
+            <MobileNavItem
+              key={item.label}
+              item={item}
+              pathname={pathname}
+              onClose={onClose}
+            />
+          ))}
+        </nav>
+
+        {/* Footer CTAs */}
+        <div className="px-5 py-5 border-t border-gray-100 space-y-3">
+          <Link
+            href="/contact/call"
+            onClick={onClose}
+            className="flex items-center justify-center gap-2 w-full px-6 py-3 border border-gray-200 text-black/80 hover:text-[#000066] hover:border-[#000066]/30 font-semibold text-[15px] rounded-xl transition-all"
+          >
+            <CalendarCheck size={14} strokeWidth={2} />
+            Book a Strategy Call
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+function NavDivider() {
+  return <div className="w-px h-4 bg-gray-200 mx-1" aria-hidden="true" />;
+}
+
+// ─── Main Navbar ──────────────────────────────────────────────────────────────
+export default function Navbar() {
+  const pathname = usePathname();
+  const [announcementVisible, setAnnouncementVisible] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", handler, { passive: true });
+    handler();
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  // Close mobile on route change
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  return (
+    <>
+      {/* ── SEO Structured Data ──────────────────────────────────────── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_SCHEMA) }}
+      />
+
+      {/* ── Skip to content ──────────────────────────────────────────── */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#000066] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+      >
+        Skip to content
+      </a>
+
+      <div className="fixed top-0 left-0 right-0 z-30">
+        {/* Announcement bar */}
+        {announcementVisible && (
+          <AnnouncementBar onClose={() => setAnnouncementVisible(false)} />
+        )}
+
+        {/* Main header */}
+        <header
+          className="bg-white"
+          style={{
+            borderBottom: scrolled
+              ? "1px solid rgba(0,0,102,0.08)"
+              : "1px solid transparent",
+            boxShadow: scrolled
+              ? "0 1px 0 0 rgba(0,0,102,0.04), 0 4px 20px -4px rgba(0,0,102,0.08)"
+              : "none",
+            transition: "border-color 0.25s ease, box-shadow 0.25s ease",
           }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          role="banner"
         >
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="flex items-center justify-between h-[72px] lg:h-[78px]">
+            <div className="flex items-center justify-between h-[68px] lg:h-[72px]">
 
-              {/* ── Logo ────────────────────────────────────────────── */}
+              {/* Logo */}
               <Link
                 href="/"
-                className="flex items-center gap-2.5 flex-shrink-0"
-                aria-label="BitLayerX Home"
+                className="flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#000066] focus-visible:ring-offset-2 rounded-lg"
+                aria-label="BitLayerX – back to homepage"
               >
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.55, ease: "easeInOut" }}
-                  className="flex-shrink-0"
-                >
-                  <Image
-                    src={assets.logo}
-                    alt="BitLayerX logo"
-                    width={40}
-                    height={40}
-                    priority
-                  />
-                </motion.div>
-                <span className="font-black text-white text-[18px] tracking-wide hidden sm:block">
-                  BitLayerX
-                </span>
+                <BitLayerXLogo />
               </Link>
 
-              {/* ── Desktop Navigation ──────────────────────────────── */}
+              {/* Desktop nav */}
               <nav
                 className="hidden xl:flex items-center gap-0.5 flex-1 justify-center"
                 aria-label="Primary navigation"
               >
-                {NAV_ITEMS.map((item) => (
+                {NAV_ITEMS.map((item, i) => (
                   <NavLink key={item.label} item={item} pathname={pathname} />
                 ))}
               </nav>
 
-              {/* ── Right CTA ───────────────────────────────────────── */}
-              <div className="flex items-center gap-2.5">
-                {/* Desktop CTA */}
+              {/* Right actions */}
+              <div className="flex items-center gap-2">
+
+                {/* Book a call — desktop */}
                 <Link
-                  href="/contact/project"
-                  className="hidden xl:flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-white/90 text-[#000055] text-[13px] font-black rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group"
+                  href="/contact/call"
+                  className="hidden xl:flex items-center gap-1.5 px-4 py-2 border border-[#000066]/20 text-[#000066] text-[15px] font-semibold rounded-xl hover:bg-[#000066]/5 transition-all duration-150"
                 >
-                  Build With Us
-                  <Hammer
-                    size={14}
-                    strokeWidth={2.5}
-                    className="group-hover:rotate-12 transition-transform duration-200"
-                  />
+                  <CalendarCheck size={14} strokeWidth={2} />
+                  Book a call
                 </Link>
 
                 {/* Mobile hamburger */}
                 <button
                   onClick={() => setMobileOpen(true)}
-                  className="xl:hidden p-2.5 hover:bg-white/10 rounded-xl transition-colors"
-                  aria-label="Open menu"
+                  className="xl:hidden p-2.5 hover:bg-gray-100 rounded-xl transition-colors"
+                  aria-label="Open navigation menu"
                   aria-expanded={mobileOpen}
+                  aria-controls="mobile-nav"
                 >
-                  <Menu size={24} className="text-white" strokeWidth={2} />
+                  <Menu size={22} className="text-black/80" strokeWidth={2} />
                 </button>
               </div>
-
             </div>
           </div>
-        </motion.header>
+        </header>
       </div>
 
-      {/* ── Mobile Drawer ─────────────────────────────────────────────── */}
-      <MobileMenu
-        isOpen={mobileOpen}
+      {/* Mobile drawer */}
+      <MobileDrawer
+        open={mobileOpen}
         onClose={() => setMobileOpen(false)}
         pathname={pathname}
       />

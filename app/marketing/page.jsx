@@ -299,7 +299,7 @@ export default function BitLayerxMarketingPage() {
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="px-6 py-3 bg-white text-gray-700 font-semibold hover:bg-[#0818A8] hover:text-white transition-all duration-300 text-sm"
+                className="px-6 py-3 bg-white text-black/80 font-semibold hover:bg-[#0818A8] hover:text-white transition-all duration-300 text-sm"
               >
                 {service.title}
               </a>
@@ -335,15 +335,15 @@ export default function BitLayerxMarketingPage() {
                 </h2>
                 <p className="text-xl text-[#4682B4] font-semibold mb-6">{service.subtitle}</p>
                 
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                <p className="text-lg text-black/80 leading-relaxed mb-8">
                   {service.longDescription}
                 </p>
 
                 {/* Pricing */}
                 <div className="mb-8 p-6 bg-gradient-to-r from-[#0818A8]/10 to-[#4682B4]/10 border-l-4 border-[#0818A8]">
-                  <div className="text-sm text-gray-600 mb-2">Investment</div>
+                  <div className="text-sm text-black/80 mb-2">Investment</div>
                   <div className="text-3xl font-bold text-[#0818A8] mb-2">{service.pricing.nigeria}</div>
-                  <div className="text-sm text-gray-600">{service.pricing.uk} (UK pricing)</div>
+                  <div className="text-sm text-black/80">{service.pricing.uk} (UK pricing)</div>
                 </div>
 
                 {/* Results */}
@@ -354,10 +354,10 @@ export default function BitLayerxMarketingPage() {
                     </svg>
                     <div>
                       <div className="font-bold text-gray-900 mb-1">Expected Results:</div>
-                      <p className="text-gray-700">{service.results}</p>
+                      <p className="text-black/80">{service.results}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-black/80">
                     <svg className="w-5 h-5 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                     </svg>
@@ -409,11 +409,11 @@ export default function BitLayerxMarketingPage() {
                         <svg className="w-5 h-5 text-[#4682B4] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                         </svg>
-                        <span className="text-sm text-gray-700">{feature}</span>
+                        <span className="text-sm text-black/80">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs text-gray-600 mt-3">+ {service.features.length - 4} more features</div>
+                  <div className="text-xs text-black/80 mt-3">+ {service.features.length - 4} more features</div>
                 </motion.div>
               </motion.div>
             </div>
@@ -433,7 +433,7 @@ export default function BitLayerxMarketingPage() {
                       <svg className="w-5 h-5 text-[#4682B4] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-black/80">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -453,7 +453,7 @@ export default function BitLayerxMarketingPage() {
                       <svg className="w-5 h-5 text-[#0818A8] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                       </svg>
-                      <span className="text-gray-700">{benefit}</span>
+                      <span className="text-black/80">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -507,7 +507,7 @@ export default function BitLayerxMarketingPage() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mt-4 text-gray-700 leading-relaxed"
+                    className="mt-4 text-black/80 leading-relaxed"
                   >
                     {faq.answer}
                   </motion.p>

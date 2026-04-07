@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -19,7 +19,6 @@ import {
   ShoppingCart,
   Factory,
   ChevronRight,
-  Star,
   Award,
   Target,
   Layers,
@@ -51,11 +50,7 @@ function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
         y: direction === "up" ? 28 : direction === "down" ? -28 : 0,
         x: direction === "left" ? 28 : direction === "right" ? -28 : 0,
       }}
-      animate={
-        inView
-          ? { opacity: 1, y: 0, x: 0 }
-          : {}
-      }
+      animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
@@ -76,9 +71,9 @@ const CASE_STUDIES = [
       "A homegrown fashion brand had exceptional products but zero digital authority. We rebuilt their brand identity, launched a custom e-commerce platform, and executed a 6-month performance marketing campaign — turning them into one of Lagos's most recognised online labels.",
     layers: ["Brand", "Technology", "Growth"],
     metrics: [
-      { value: "₦120M", label: "Revenue Generated", icon: BarChart3 },
-      { value: "340%",  label: "Organic Traffic Increase", icon: TrendingUp },
-      { value: "4.2×",  label: "Return on Ad Spend", icon: Zap },
+      { value: "₦120M", label: "Revenue Generated",        icon: BarChart3  },
+      { value: "340%",  label: "Organic Traffic Increase",  icon: TrendingUp },
+      { value: "4.2×",  label: "Return on Ad Spend",        icon: Zap        },
     ],
     accentColor: "#0818A8",
   },
@@ -92,9 +87,9 @@ const CASE_STUDIES = [
       "A Nigerian fintech startup needed a scalable, regulation-compliant payments infrastructure and consumer mobile app — built from scratch and shipped to production in under four months, handling thousands of daily transactions.",
     layers: ["Strategy", "Experience", "Technology"],
     metrics: [
-      { value: "50K+",  label: "Active Users at Launch", icon: Users },
-      { value: "99.9%", label: "Platform Uptime", icon: ShieldCheck },
-      { value: "14 Days", label: "MVP to Live", icon: Zap },
+      { value: "50K+",    label: "Active Users at Launch", icon: Users      },
+      { value: "99.9%",   label: "Platform Uptime",        icon: ShieldCheck },
+      { value: "14 Days", label: "MVP to Live",            icon: Zap        },
     ],
     accentColor: "#1D4ED8",
   },
@@ -108,9 +103,9 @@ const CASE_STUDIES = [
       "A real estate developer wanted to move upmarket and command premium pricing. We delivered a complete rebrand, three cinematic property films, and a luxury digital presence — resulting in a dramatic surge in high-value property enquiries.",
     layers: ["Brand", "Media", "Experience"],
     metrics: [
-      { value: "65%",   label: "Increase in Enquiries", icon: TrendingUp },
-      { value: "₦2.1B", label: "Properties Sold Post-Launch", icon: BarChart3 },
-      { value: "3",     label: "Cinematic Brand Films", icon: Video },
+      { value: "65%",   label: "Increase in Enquiries",       icon: TrendingUp },
+      { value: "₦2.1B", label: "Properties Sold Post-Launch", icon: BarChart3  },
+      { value: "3",     label: "Cinematic Brand Films",       icon: Video      },
     ],
     accentColor: "#000080",
   },
@@ -124,9 +119,9 @@ const CASE_STUDIES = [
       "A logistics firm was drowning in manual coordination. We engineered a custom fleet management system with real-time GPS tracking, automated dispatch, client-facing portals, and AI-powered route optimisation — cutting costs nearly in half.",
     layers: ["Strategy", "Technology", "Growth"],
     metrics: [
-      { value: "47%",  label: "Operational Cost Reduction", icon: BarChart3 },
-      { value: "200+", label: "Vehicles Managed in Real-Time", icon: Globe },
-      { value: "30 hrs", label: "Saved Per Week", icon: Zap },
+      { value: "47%",   label: "Operational Cost Reduction",  icon: BarChart3 },
+      { value: "200+",  label: "Vehicles Managed Real-Time",  icon: Globe     },
+      { value: "30 hrs", label: "Saved Per Week",             icon: Zap       },
     ],
     accentColor: "#0369A1",
   },
@@ -142,7 +137,6 @@ const INDUSTRIES = [
       "CBN-compliant platforms, payment infrastructure, investment apps, and digital banking experiences built for scale and security.",
     stats: ["Payment platforms", "Investment apps", "KYC & compliance systems"],
     color: "#0818A8",
-    featured: true,
   },
   {
     icon: Truck,
@@ -152,7 +146,6 @@ const INDUSTRIES = [
       "Fleet management systems, real-time tracking platforms, dispatch automation, and supply chain visibility tools.",
     stats: ["Fleet management", "Route optimisation", "Client portals"],
     color: "#1D4ED8",
-    featured: false,
   },
   {
     icon: Home,
@@ -162,7 +155,6 @@ const INDUSTRIES = [
       "Property listing platforms, developer brand identities, cinematic project videos, and lead-generation marketing systems.",
     stats: ["Property platforms", "Brand & video", "Lead generation"],
     color: "#000080",
-    featured: false,
   },
   {
     icon: ShoppingCart,
@@ -172,7 +164,6 @@ const INDUSTRIES = [
       "High-conversion online stores, marketplace platforms, performance marketing campaigns, and abandoned cart automation.",
     stats: ["Custom storefronts", "Performance ads", "Cart automation"],
     color: "#2563EB",
-    featured: false,
   },
   {
     icon: Factory,
@@ -182,11 +173,10 @@ const INDUSTRIES = [
       "Enterprise web platforms, internal systems, ERP integrations, brand governance, and long-term digital transformation partnerships.",
     stats: ["Enterprise platforms", "ERP integrations", "Brand governance"],
     color: "#0369A1",
-    featured: false,
   },
 ];
 
-// ─── FEATURED WORK SECTION ────────────────────────────────────────────────────
+// ─── FEATURED WORK ────────────────────────────────────────────────────────────
 function FeaturedWork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -198,7 +188,7 @@ function FeaturedWork() {
       itemScope
       itemType="https://schema.org/CreativeWork"
     >
-      {/* Background grid */}
+      {/* Grid texture */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
         <svg width="100%" height="100%" aria-hidden="true">
           <defs>
@@ -224,7 +214,7 @@ function FeaturedWork() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-blue-400 text-[11px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-blue-400 text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Award size={13} strokeWidth={2.5} />
               Proof of Execution
             </p>
@@ -249,21 +239,26 @@ function FeaturedWork() {
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
             <p className="text-white/35 text-[14px] leading-relaxed mb-5 lg:text-right">
-              Results over visuals. Every project is measured in business impact — not aesthetics.
+              Results over visuals. Every project is measured in business
+              impact — not aesthetics.
             </p>
             <div className="lg:flex lg:justify-end">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[12px] uppercase tracking-wide transition-colors group"
+                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[14px] uppercase tracking-wide transition-colors group"
               >
                 View All Projects
-                <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight
+                  size={13}
+                  strokeWidth={3}
+                  className="group-hover:translate-x-0.5 transition-transform"
+                />
               </Link>
             </div>
           </FadeIn>
         </div>
 
-        {/* Case Studies */}
+        {/* Case studies */}
         <motion.div
           ref={ref}
           variants={stagger(0.13)}
@@ -275,10 +270,10 @@ function FeaturedWork() {
             <motion.article
               key={i}
               variants={fadeUp}
-              className={`group grid lg:grid-cols-2 min-h-[380px] lg:min-h-[420px]`}
+              className="group grid lg:grid-cols-2 min-h-[380px] lg:min-h-[420px]"
               itemProp="workExample"
             >
-              {/* ── Metrics panel ── */}
+              {/* Metrics panel */}
               <div
                 className={`relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden ${
                   i % 2 === 1 ? "lg:order-2" : ""
@@ -287,11 +282,12 @@ function FeaturedWork() {
                   background: `linear-gradient(135deg, ${cs.accentColor}f0 0%, ${cs.accentColor}cc 100%)`,
                 }}
               >
-                {/* Subtle dot pattern */}
+                {/* Dot pattern */}
                 <div
                   className="absolute inset-0 opacity-[0.08] pointer-events-none"
                   style={{
-                    backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+                    backgroundImage:
+                      "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
                     backgroundSize: "28px 28px",
                   }}
                 />
@@ -306,11 +302,11 @@ function FeaturedWork() {
 
                 <div className="relative z-10">
                   {/* Tag */}
-                  <p className="text-white/60 text-[10px] font-bold tracking-[0.18em] uppercase mb-6">
+                  <p className="text-white/60 text-[13.5px] font-bold tracking-[0.18em] uppercase mb-6">
                     {cs.tag}
                   </p>
 
-                  {/* Metrics grid */}
+                  {/* Metrics */}
                   <div className="grid grid-cols-3 gap-3 sm:gap-5">
                     {cs.metrics.map((m, j) => {
                       const Icon = m.icon;
@@ -319,16 +315,23 @@ function FeaturedWork() {
                           key={j}
                           initial={{ opacity: 0, y: 16 }}
                           animate={inView ? { opacity: 1, y: 0 } : {}}
-                          transition={{ delay: 0.2 + i * 0.1 + j * 0.08, duration: 0.5 }}
+                          transition={{
+                            delay: 0.2 + i * 0.1 + j * 0.08,
+                            duration: 0.5,
+                          }}
                           className="flex flex-col gap-2"
                         >
                           <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                            <Icon size={14} strokeWidth={2} className="text-white/80" />
+                            <Icon
+                              size={14}
+                              strokeWidth={2}
+                              className="text-white/80"
+                            />
                           </div>
                           <p className="text-white font-black text-[22px] sm:text-[28px] lg:text-[32px] leading-none">
                             {m.value}
                           </p>
-                          <p className="text-white/50 text-[10px] sm:text-[11px] font-semibold leading-tight">
+                          <p className="text-white/50 text-[13.5px] sm:text-[13.5px] font-semibold leading-tight">
                             {m.label}
                           </p>
                         </motion.div>
@@ -342,7 +345,7 @@ function FeaturedWork() {
                   {cs.layers.map((l, j) => (
                     <span
                       key={j}
-                      className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[10px] font-bold tracking-wider uppercase rounded-full"
+                      className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[13.5px] font-bold tracking-wider uppercase rounded-full"
                     >
                       {l} Layer
                     </span>
@@ -350,7 +353,7 @@ function FeaturedWork() {
                 </div>
               </div>
 
-              {/* ── Content panel ── */}
+              {/* Content panel */}
               <div
                 className={`flex flex-col justify-between p-8 lg:p-12 bg-white group-hover:bg-gray-50/80 transition-colors duration-300 border-t lg:border-t-0 border-white/5 ${
                   i % 2 === 1 ? "lg:order-1" : ""
@@ -360,7 +363,7 @@ function FeaturedWork() {
                   {/* Industry + duration */}
                   <div className="flex items-center gap-3 mb-6">
                     <span
-                      className="px-3 py-1 text-[10px] font-black tracking-wider uppercase rounded-full"
+                      className="px-3 py-1 text-[13.5px] font-black tracking-wider uppercase rounded-full"
                       style={{
                         backgroundColor: cs.accentColor + "12",
                         color: cs.accentColor,
@@ -368,8 +371,10 @@ function FeaturedWork() {
                     >
                       {cs.industry}
                     </span>
-                    <span className="text-gray-200 text-[11px]">·</span>
-                    <span className="text-gray-400 text-[11px] font-semibold">{cs.duration}</span>
+                    <span className="text-gray-200 text-[13.5px]">·</span>
+                    <span className="text-black/80 text-[13.5px] font-semibold">
+                      {cs.duration}
+                    </span>
                   </div>
 
                   {/* Title */}
@@ -382,18 +387,18 @@ function FeaturedWork() {
 
                   {/* Description */}
                   <p
-                    className="text-gray-500 text-[13px] lg:text-[14px] leading-relaxed"
+                    className="text-black/80 text-[15px] lg:text-[14px] leading-relaxed"
                     itemProp="description"
                   >
                     {cs.description}
                   </p>
                 </div>
 
-                {/* CTA row */}
+                {/* CTA */}
                 <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
                   <Link
                     href="/work"
-                    className="inline-flex items-center gap-2 font-black text-[12px] uppercase tracking-wide transition-colors group/link"
+                    className="inline-flex items-center gap-2 font-black text-[14px] uppercase tracking-wide transition-colors group/link"
                     style={{ color: cs.accentColor }}
                   >
                     View Case Study
@@ -403,7 +408,11 @@ function FeaturedWork() {
                       className="group-hover/link:translate-x-0.5 transition-transform"
                     />
                   </Link>
-                  <ExternalLink size={15} strokeWidth={1.5} className="text-gray-200" />
+                  <ExternalLink
+                    size={15}
+                    strokeWidth={1.5}
+                    className="text-gray-200"
+                  />
                 </div>
               </div>
             </motion.article>
@@ -414,7 +423,7 @@ function FeaturedWork() {
         <FadeIn className="text-center mt-14" delay={0.2}>
           <Link
             href="/work"
-            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[13px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
+            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
           >
             See All Case Studies
             <ArrowRight
@@ -424,7 +433,6 @@ function FeaturedWork() {
             />
           </Link>
         </FadeIn>
-
       </div>
     </section>
   );
@@ -448,7 +456,7 @@ function IndustriesSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[11px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-[#0818A8] text-[13.5px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
               <Target size={13} strokeWidth={2.5} />
               Specialists, Not Generalists
             </p>
@@ -463,7 +471,7 @@ function IndustriesSection() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
-            <p className="text-gray-400 text-[14px] leading-relaxed lg:text-right">
+            <p className="text-black/80 text-[14px] leading-relaxed lg:text-right">
               We don't work with everyone — we go deep in the industries where
               our layered approach creates the most measurable impact.
             </p>
@@ -523,7 +531,7 @@ function IndustriesSection() {
 
                   {/* Label */}
                   <p
-                    className="text-[11px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
+                    className="text-[13.5px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
                     style={{ color: ind.color }}
                     itemProp="name"
                   >
@@ -532,7 +540,7 @@ function IndustriesSection() {
 
                   {/* Description */}
                   <p
-                    className="text-gray-500 text-[13px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-gray-700"
+                    className="text-black/80 text-[15px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-black/80"
                     itemProp="description"
                   >
                     {ind.description}
@@ -546,23 +554,25 @@ function IndustriesSection() {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                           style={{ backgroundColor: ind.color }}
                         />
-                        <span className="text-gray-400 text-[12px] font-semibold">{s}</span>
+                        <span className="text-black/80 text-[14px] font-semibold">
+                          {s}
+                        </span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* CTA link */}
+                  {/* CTA */}
                   <div
-                    className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wide transition-all duration-300"
-                    style={{
-                      color: isHovered ? ind.color : "#D1D5DB",
-                    }}
+                    className="flex items-center gap-1.5 text-[13.5px] font-black uppercase tracking-wide transition-all duration-300"
+                    style={{ color: isHovered ? ind.color : "#D1D5DB" }}
                   >
                     Explore
                     <ChevronRight
                       size={13}
                       strokeWidth={3}
-                      className={`transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`}
+                      className={`transition-transform duration-300 ${
+                        isHovered ? "translate-x-1" : ""
+                      }`}
                     />
                   </div>
                 </Link>
@@ -575,7 +585,6 @@ function IndustriesSection() {
         <FadeIn delay={0.2}>
           <div className="mt-px bg-gray-100 p-px">
             <div className="bg-[#04040e] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-              {/* Left */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Layers size={18} strokeWidth={2} className="text-blue-400" />
@@ -584,17 +593,17 @@ function IndustriesSection() {
                   <p className="text-white font-black text-[15px] lg:text-[17px] uppercase tracking-tight mb-1">
                     Don't see your industry?
                   </p>
-                  <p className="text-white/35 text-[13px]">
-                    Our layered approach adapts to any sector. Let's talk about yours.
+                  <p className="text-white/35 text-[15px]">
+                    Our layered approach adapts to any sector. Let's talk about
+                    yours.
                   </p>
                 </div>
               </div>
 
-              {/* Right */}
               <div className="flex items-center gap-3 flex-shrink-0">
                 <Link
                   href="/contact/project"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[13px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[15px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group"
                 >
                   Start a Conversation
                   <ArrowRight

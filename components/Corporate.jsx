@@ -1,242 +1,302 @@
-'use client';
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
 
-export default function BitLayerxInsightsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollContainerRef = useRef(null);
+import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-  const insights = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
-      category: "Digital Growth",
-      date: "14 February 2026",
-      title: "How to Turn Your Website Into a Revenue-Generating Machine in 2026",
-      type: "Article",
-      duration: "5 minutes",
-      link: "/blog/website-revenue"
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&q=80",
-      category: "AI Automation",
-      date: "10 February 2026",
-      title: "AI Chatbots: How to Reduce Customer Service Costs by 30-50%",
-      type: "Guide",
-      duration: "7 minutes",
-      link: "/blog/ai-chatbots"
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop&q=80",
-      category: "Marketing Strategy",
-      date: "5 February 2026",
-      title: "The Complete Guide to Performance Marketing for SMEs",
-      type: "Article",
-      duration: "6 minutes",
-      link: "/blog/performance-marketing"
-    },
-    {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80",
-      category: "Brand Building",
-      date: "1 February 2026",
-      title: "Why Commercial Video Production is Essential for Brand Authority",
-      type: "Case Study",
-      duration: "4 minutes",
-      link: "/blog/video-production"
-    }
-  ];
+// ─── Feature boxes — pulled from insights section content ──────────────────
+const FEATURES = [
+  {
+    label: "Digital Growth",
+    title: "Expert strategies to turn your website into a revenue machine",
+  },
+  {
+    label: "AI Automation",
+    title: "Reduce customer service costs by 30–50% with AI solutions",
+  },
+  {
+    label: "Marketing Strategy",
+    title: "Performance marketing systems that compound every month",
+  },
+  {
+    label: "Brand Authority",
+    title: "Video production and content that makes your brand unmissable",
+  },
+];
 
-  const handlePrevious = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
-    }
-    setCurrentIndex(Math.max(0, currentIndex - 1));
-  };
+// ─── SEO Schema ────────────────────────────────────────────────────────────
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPageElement",
+  name: "BitLayerX Insights — The Engine of Growth",
+  description:
+    "Expert strategies, actionable tips, and real-world case studies to help you dominate your market through web development, marketing automation, and AI-powered solutions.",
+};
 
-  const handleNext = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
-    }
-    setCurrentIndex(Math.min(insights.length - 1, currentIndex + 1));
-  };
+export default function InsightsBanner() {
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.08 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section className="bg-white py-20 lg:py-24 border-l-4 border-[#0818A8]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
+    <>
+      {/* Montserrat font */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      />
+
+      {/* SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+      />
+
+      {/* ── Outer wrapper — light gray page bg ────────────────────────────── */}
+      <section
+        className="bg-[#F3F4F6] py-8 sm:py-10 px-4 sm:px-6 lg:px-10"
+        aria-labelledby="insights-banner-heading"
+        style={{ fontFamily: "'Montserrat', sans-serif" }}
+      >
+        {/* ── The blue card ──────────────────────────────────────────────────── */}
+        <div
+          ref={ref}
+          className="relative w-full overflow-hidden"
+          style={{
+            borderRadius: 24,
+            background:
+              "linear-gradient(130deg, #3B82F6 0%, #2563EB 30%, #1D4ED8 55%, #1E40AF 80%, #1a3ab8 100%)",
+            minHeight: 320,
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(28px)",
+            transition:
+              "opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)",
+          }}
         >
-          <h2 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4 leading-tight">
-            Latest Digital Growth Insights
-          </h2>
-          <p className="text-base text-gray-700 leading-relaxed max-w-3xl">
-            Expert strategies, actionable tips, and real-world case studies to help you dominate your market through web development, marketing automation, and AI-powered solutions.
-          </p>
-        </motion.div>
+          {/* Subtle radial glow — top-left lightness */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "radial-gradient(ellipse 65% 80% at 10% 20%, rgba(147,197,253,0.35) 0%, transparent 70%)",
+              pointerEvents: "none",
+            }}
+          />
 
-        {/* Header Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12"
-        >
-          <Link href="/blog">
-            <motion.button
-              whileHover={{ backgroundColor: '#0818A8', color: '#ffffff' }}
-              whileTap={{ scale: 0.98 }}
-              className="px-6 py-3 bg-transparent text-gray-900 text-base font-medium border-2 border-gray-900 transition-all duration-300"
-            >
-              Browse All Insights
-            </motion.button>
-          </Link>
+          {/* ── Inner content grid ────────────────────────────────────────── */}
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-stretch w-full h-full">
 
-          {/* Navigation Controls */}
-          <div className="flex gap-3 self-end sm:self-auto">
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: '#0818A8', color: '#ffffff' }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-              className="w-12 h-12 rounded-full bg-gray-200 text-gray-900 flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300"
-              aria-label="Previous"
+            {/* ── LEFT: Text content ──────────────────────────────────────── */}
+            <div
+              className="flex flex-col justify-between px-8 sm:px-10 lg:px-12 pt-10 pb-8 lg:pb-10"
+              style={{ flex: "0 0 auto", width: "100%", maxWidth: 660 }}
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-              </svg>
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: '#0818A8', color: '#ffffff' }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleNext}
-              disabled={currentIndex >= insights.length - 1}
-              className="w-12 h-12 rounded-full bg-gray-200 text-gray-900 flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300"
-              aria-label="Next"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </motion.button>
-          </div>
-        </motion.div>
-
-        {/* Cards Container */}
-        <div 
-          ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
-        >
-          {insights.map((insight, index) => (
-            <motion.div
-              key={insight.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex-none w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] min-w-[320px] snap-start"
-            >
-              <Link href={insight.link}>
-                <motion.div
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(8, 24, 168, 0.15)' }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white border border-gray-200 h-full flex flex-col group cursor-pointer"
+              {/* Headline */}
+              <div>
+                <h2
+                  id="insights-banner-heading"
+                  className="text-white font-black uppercase leading-[0.92] tracking-tight mb-5"
+                  style={{
+                    fontSize: "clamp(1.9rem, 4.5vw, 3.6rem)",
+                    letterSpacing: "-0.02em",
+                  }}
+                  itemProp="headline"
                 >
-                  {/* Image */}
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={insight.image}
-                      alt={insight.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1.5 bg-[#0818A8] text-white text-xs font-semibold uppercase tracking-wide">
-                      {insight.category}
-                    </div>
+                  BitLayerX Insights —<br />
+                  The Engine of<br />
+                  Your Growth
+                </h2>
+
+                <p
+                  className="text-white/75 font-normal leading-relaxed mb-8"
+                  style={{ fontSize: "clamp(12px, 1.4vw, 14px)", maxWidth: 480 }}
+                  itemProp="description"
+                >
+                  Expert strategies, actionable tips, and real-world case studies to help you
+                  dominate your market through web development, marketing automation, and AI-powered solutions.
+                </p>
+              </div>
+
+              {/* ── Four feature boxes ─────────────────────────────────── */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 w-full">
+                {FEATURES.map((f, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col gap-2 p-4 rounded-xl"
+                    style={{
+                      background: "rgba(255,255,255,0.1)",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      backdropFilter: "blur(8px)",
+                      opacity: visible ? 1 : 0,
+                      transform: visible ? "translateY(0)" : "translateY(12px)",
+                      transition: `opacity 0.6s ${0.15 + i * 0.08}s cubic-bezier(0.22,1,0.36,1), transform 0.6s ${0.15 + i * 0.08}s cubic-bezier(0.22,1,0.36,1)`,
+                    }}
+                  >
+                    {/* Small all-caps label — exactly as in reference */}
+                    <span
+                      className="text-white/55 font-semibold uppercase tracking-[0.16em]"
+                      style={{ fontSize: 9 }}
+                    >
+                      {f.label}
+                    </span>
+
+                    {/* Description text */}
+                    <p
+                      className="text-white font-medium leading-snug"
+                      style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
+                    >
+                      {f.title}
+                    </p>
                   </div>
+                ))}
+              </div>
 
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="text-sm text-gray-600 mb-3">{insight.date}</div>
-                    
-                    <h3 className="text-xl font-normal text-gray-900 leading-tight mb-auto group-hover:text-[#0818A8] transition-colors">
-                      {insight.title}
-                    </h3>
+              {/* CTA */}
+              <div className="mt-7 flex items-center gap-4">
+                <Link
+                  href="/blog"
+                  className="group inline-flex items-center gap-0 rounded-full overflow-hidden font-bold text-[15px] text-[#1D4ED8] bg-white hover:bg-white/95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#2563EB]"
+                  style={{
+                    boxShadow: "0 4px 20px rgba(0,0,80,0.25)",
+                  }}
+                  aria-label="Browse all BitLayerX insights and articles"
+                >
+                  <span className="pl-6 pr-3 py-3.5 tracking-wide">
+                    Browse All Insights
+                  </span>
+                  <span
+                    className="flex items-center justify-center w-11 h-11 rounded-full flex-shrink-0 mr-0.5 my-0.5 bg-[#1D4ED8] group-hover:bg-[#1E40AF] transition-colors duration-200"
+                    aria-hidden="true"
+                  >
+                    <ArrowRight size={15} strokeWidth={2.5} className="text-white group-hover:translate-x-0.5 transition-transform duration-200" />
+                  </span>
+                </Link>
 
-                    {/* Footer */}
-                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-200">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
-                        </svg>
-                        <span>{insight.type}</span>
-                        {insight.duration && (
-                          <>
-                            <span className="text-gray-400">•</span>
-                            <span>{insight.duration}</span>
-                          </>
-                        )}
-                      </div>
+                <Link
+                  href="/blog"
+                  className="text-white/70 hover:text-white font-semibold text-[14px] tracking-wide transition-colors underline underline-offset-4"
+                >
+                  View All Articles
+                </Link>
+              </div>
+            </div>
 
-                      <motion.div
-                        whileHover={{ x: 4 }}
-                        className="text-[#0818A8]"
-                      >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                        </svg>
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* View All CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
-        >
-          <Link href="/blog">
-            <motion.button
-              whileHover={{ scale: 1.02, backgroundColor: '#0818A8' }}
-              whileTap={{ scale: 0.98 }}
-              className="px-10 py-4 bg-gradient-to-r from-[#0818A8] to-[#4682B4] text-white text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2"
+            {/* ── RIGHT: 3D visual — bleeds to right edge ─────────────────── */}
+            <div
+              className="hidden lg:block relative flex-1 overflow-hidden"
+              aria-hidden="true"
+              style={{ minHeight: 320 }}
             >
-              <span>View All Insights</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </motion.button>
-          </Link>
-        </motion.div>
-      </div>
+              {/* Main image — globe/tech visual */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-8%",
+                  right: "-5%",
+                  width: "115%",
+                  height: "116%",
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateX(0)" : "translateX(40px)",
+                  transition: "opacity 0.9s 0.2s cubic-bezier(0.22,1,0.36,1), transform 0.9s 0.2s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=900&h=700&fit=crop&q=90"
+                  alt="Digital growth network — global reach and technology"
+                  fill
+                  className="object-cover object-center"
+                  sizes="50vw"
+                  priority
+                />
+                {/* Left-side gradient fade to merge with blue card */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(to right, #1D4ED8 0%, rgba(29,78,216,0.7) 15%, rgba(29,78,216,0.1) 40%, transparent 65%)",
+                  }}
+                />
+                {/* Top-fade */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(to bottom, rgba(29,78,216,0.5) 0%, transparent 30%, transparent 70%, rgba(29,78,216,0.4) 100%)",
+                  }}
+                />
+              </div>
 
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-    </section>
+              {/* Floating insight cards — overlaid on the image, matching reference */}
+              <div
+                className="absolute bottom-8 right-6 flex flex-col gap-2.5 z-10"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(16px)",
+                  transition: "opacity 0.7s 0.4s ease, transform 0.7s 0.4s ease",
+                }}
+              >
+                {[
+                  { cat: "Digital Growth", reads: "5 min read" },
+                  { cat: "AI Automation", reads: "7 min read" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                    style={{
+                      background: "rgba(255,255,255,0.14)",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      backdropFilter: "blur(12px)",
+                      minWidth: 200,
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ background: "rgba(255,255,255,0.9)" }}
+                    />
+                    <div>
+                      <p className="text-white font-bold text-[14px]">{item.cat}</p>
+                      <p className="text-white/50 text-[13.5px] font-medium">{item.reads}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── Mobile image strip ────────────────────────────────────────── */}
+          <div className="lg:hidden relative h-44 w-full overflow-hidden" aria-hidden="true">
+            <Image
+              src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=400&fit=crop&q=85"
+              alt=""
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to bottom, #2563EB 0%, rgba(37,99,235,0.4) 40%, transparent 100%)",
+              }}
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

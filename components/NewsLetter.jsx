@@ -39,7 +39,7 @@ export default function NewsletterSubscription() {
             <h2 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4 leading-tight">
               Subscribe, be inspired, <span className="text-[#0818A8] font-normal">grow your business</span>
             </h2>
-            <p className="text-base text-gray-600 leading-relaxed">
+            <p className="text-base text-black/80 leading-relaxed">
               Subscribe to our newsletter to receive exclusive insights about digital growth strategies, web development, marketing automation, and business transformation delivered to your inbox.
             </p>
           </motion.div>
@@ -129,7 +129,7 @@ export default function NewsletterSubscription() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-500"
+              className="mt-4 flex flex-wrap items-center gap-3 text-xs text-black/80"
             >
               <div className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">
