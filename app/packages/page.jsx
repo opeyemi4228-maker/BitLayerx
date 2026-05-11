@@ -383,7 +383,7 @@ function WebsitePromo() {
                   <span className="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" style={{ animation: "blx-pulse-ring 1.4s cubic-bezier(0,0,0.2,1) infinite" }} />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-400" />
                 </span>
-                <span className="text-amber-300 text-[13px] font-black tracking-[0.22em] uppercase">Limited Offer · New Businesses</span>
+                <span className="text-amber-300 text-[14px] font-black tracking-[0.22em] uppercase">Limited Offer · New Businesses</span>
               </motion.div>
 
               <motion.h2
@@ -427,7 +427,7 @@ function WebsitePromo() {
                     <div key={i} className="flex items-center gap-2 px-3.5 py-2 rounded-full"
                       style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
                       <Icon size={12} strokeWidth={2.5} className="text-blue-300" />
-                      <span className="text-white/80 text-[13px] font-semibold">{item.label}</span>
+                      <span className="text-white/80 text-[14px] font-semibold">{item.label}</span>
                     </div>
                   );
                 })}
@@ -469,11 +469,11 @@ function WebsitePromo() {
                 <div className="absolute top-0 left-0 right-0 h-[3px]"
                   style={{ background: "linear-gradient(90deg, #fbbf24, #f59e0b)" }} />
                 <div className="p-7">
-                  <p className="text-white/40 text-[12px] font-black tracking-[0.3em] uppercase mb-2">Starting From</p>
+                  <p className="text-white/40 text-[14px] font-black tracking-[0.3em] uppercase mb-2">Starting From</p>
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="font-black text-white" style={{ fontSize: "clamp(2.8rem, 5vw, 3.8rem)", lineHeight: 1 }}>₦500k</span>
                   </div>
-                  <p className="text-white/40 text-[13px] font-medium mb-6">Final price scoped to your needs</p>
+                  <p className="text-white/40 text-[14px] font-medium mb-6">Final price scoped to your needs</p>
 
                   <div className="space-y-3">
                     {[
@@ -488,7 +488,7 @@ function WebsitePromo() {
                           style={{ background: "rgba(251,191,36,0.2)" }}>
                           <CheckCircle2 size={10} strokeWidth={2.5} className="text-amber-300" />
                         </div>
-                        <span className="text-white/70 text-[13px] font-medium leading-snug">{item}</span>
+                        <span className="text-white/70 text-[14px] font-medium leading-snug">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -527,9 +527,9 @@ function ComparisonStrip() {
                 <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors"><Icon size={18} strokeWidth={2} className="text-white" /></div>
                 <div>
                   <p className="text-white font-black text-[14px] uppercase tracking-wide">{pkg.name}</p>
-                  <p className="text-white/40 text-[11px] font-medium mt-0.5">{pkg.timeline}</p>
+                  <p className="text-white/40 text-[14px] font-medium mt-0.5">{pkg.timeline}</p>
                 </div>
-                {pkg.popular && <span className="px-2.5 py-0.5 bg-white text-[#000066] text-[11px] font-black uppercase tracking-widest rounded-full">Popular</span>}
+                {pkg.popular && <span className="px-2.5 py-0.5 bg-white text-[#000066] text-[14px] font-black uppercase tracking-widest rounded-full">Popular</span>}
               </motion.a>
             );
           })}
@@ -557,7 +557,7 @@ function PackageSection({ pkg, index }) {
             {pkg.popular && (
               <div className="absolute top-4 right-6 flex items-center gap-1.5 px-3 py-1.5 rounded-full z-10" style={{ background: pkg.color }}>
                 <Star size={10} strokeWidth={2.5} className="fill-white text-white" />
-                <span className="text-white text-[11px] font-black uppercase tracking-widest">Most Popular</span>
+                <span className="text-white text-[14px] font-black uppercase tracking-widest">Most Popular</span>
               </div>
             )}
             <div className="grid lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px] gap-0">
@@ -582,7 +582,7 @@ function PackageSection({ pkg, index }) {
                 <div className="flex items-start gap-3 p-4 rounded-xl border-l-[3px]" style={{ background: `${pkg.color}06`, borderLeftColor: pkg.color }}>
                   <Target size={14} strokeWidth={2.5} style={{ color: pkg.color }} className="flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 mb-0.5">Best For</p>
+                    <p className="text-[14px] font-black uppercase tracking-[0.2em] text-gray-400 mb-0.5">Best For</p>
                     <p className="text-gray-800 text-[14px] font-bold">{pkg.bestFor}</p>
                   </div>
                 </div>
@@ -595,7 +595,7 @@ function PackageSection({ pkg, index }) {
                   <span className="text-gray-600 text-[14px] font-semibold">Timeline: <span className="font-black text-[#000080]">{pkg.timeline}</span></span>
                 </div>
                 <div>
-                  <p className="text-[11px] font-black tracking-[0.22em] uppercase text-gray-300 mb-3">Expected Outcomes</p>
+                  <p className="text-[14px] font-black tracking-[0.22em] uppercase text-gray-300 mb-3">Expected Outcomes</p>
                   <div className="space-y-2">
                     {pkg.outcomes.map((o, i) => (
                       <div key={i} className="flex items-start gap-2.5">
@@ -606,11 +606,11 @@ function PackageSection({ pkg, index }) {
                   </div>
                 </div>
                 <div className="space-y-2.5 mt-auto pt-2">
-                  <Link href={pkg.isEnterprise ? "/contact/proposal" : "/contact/project"} className="group flex items-center justify-between w-full px-5 py-4 text-white font-black text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200" style={{ background: `linear-gradient(135deg,${pkg.color} 0%,${pkg.color}dd 100%)`, boxShadow: `0 6px 20px ${pkg.color}28` }}>
+                  <Link href={pkg.isEnterprise ? "/contact/proposal" : "/contact/project"} className="group flex items-center justify-between w-full px-5 py-4 text-white font-black text-[14px] uppercase tracking-wide rounded-xl transition-all duration-200" style={{ background: `linear-gradient(135deg,${pkg.color} 0%,${pkg.color}dd 100%)`, boxShadow: `0 6px 20px ${pkg.color}28` }}>
                     <span>{pkg.isEnterprise ? "Request a Proposal" : "Get Started"}</span>
                     <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0"><ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" /></span>
                   </Link>
-                  <Link href="/contact/call" className="flex items-center justify-center gap-2 w-full py-3 border border-gray-200 hover:border-[#000066]/25 bg-white hover:bg-[#000066]/3 text-gray-600 hover:text-[#000066] font-bold text-[12px] uppercase tracking-wide rounded-xl transition-all duration-200">
+                  <Link href="/contact/call" className="flex items-center justify-center gap-2 w-full py-3 border border-gray-200 hover:border-[#000066]/25 bg-white hover:bg-[#000066]/3 text-gray-600 hover:text-[#000066] font-bold text-[14px] uppercase tracking-wide rounded-xl transition-all duration-200">
                     <CalendarCheck size={13} strokeWidth={2} />Book a Strategy Call
                   </Link>
                 </div>
@@ -625,7 +625,7 @@ function PackageSection({ pkg, index }) {
                   <p className="text-[11.5px] font-black uppercase tracking-[0.18em] text-gray-700 group-hover:text-[#000080] transition-colors">What's Included <span className="ml-2 font-semibold text-gray-400 normal-case tracking-normal">({pkg.features.length} deliverables)</span></p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[13px] font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{featuresOpen ? "Collapse" : "Expand all"}</span>
+                  <span className="text-[14px] font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{featuresOpen ? "Collapse" : "Expand all"}</span>
                   <ChevronDown size={15} strokeWidth={2.5} className={`text-gray-300 group-hover:text-gray-500 transition-all duration-300 ${featuresOpen ? "rotate-180" : ""}`} />
                 </div>
               </button>
@@ -637,7 +637,7 @@ function PackageSection({ pkg, index }) {
                         <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05, duration: 0.4, ease }} className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200">
                           <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${pkg.color}15` }}><CheckCircle2 size={12} strokeWidth={2.5} style={{ color: pkg.color }} /></div>
                           <div>
-                            <p className="text-gray-800 text-[13px] font-bold leading-snug">{f.label}</p>
+                            <p className="text-gray-800 text-[14px] font-bold leading-snug">{f.label}</p>
                             {f.note && <p className="text-gray-400 text-[11.5px] mt-0.5 leading-snug font-medium">{f.note}</p>}
                           </div>
                         </motion.div>
@@ -680,7 +680,7 @@ function FAQSection() {
               Frequently<br /><span style={{ background: "linear-gradient(135deg,#0818A8,#2563EB)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Asked</span>
             </h2>
             <p className="text-gray-500 text-[15px] leading-relaxed mb-7">Everything you need to know before getting started.</p>
-            <Link href="/contact" className="inline-flex items-center gap-2 text-[#0818A8] font-black text-[13px] uppercase tracking-wide hover:opacity-70 transition-opacity">Ask us directly <ArrowRight size={12} strokeWidth={3} /></Link>
+            <Link href="/contact" className="inline-flex items-center gap-2 text-[#0818A8] font-black text-[14px] uppercase tracking-wide hover:opacity-70 transition-opacity">Ask us directly <ArrowRight size={12} strokeWidth={3} /></Link>
           </Reveal>
           <motion.div ref={ref} className="space-y-2">
             {FAQS.map((faq, i) => (
@@ -721,7 +721,7 @@ function PackagesCTA() {
               <p className="text-blue-300 text-[14px] font-black tracking-[0.28em] uppercase mb-6 flex items-center gap-2"><Layers size={11} strokeWidth={2.5} /> Ready to Build in Layers?</p>
               <h2 id="pkg-cta-heading" className="font-black text-white uppercase leading-[0.9] tracking-tight mb-6" style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}>Not Sure<br />Which<br />Package?</h2>
               <p className="text-white/50 text-[15px] leading-relaxed max-w-xs mb-8">Book a free 30-minute strategy call. No pitch. Just clarity on your biggest digital challenge and which layers to activate.</p>
-              <div className="flex items-center gap-2 text-white/25 text-[13px]"><Phone size={12} strokeWidth={2} /><span>+234 802 540 1891 · Gwarinpa, Abuja</span></div>
+              <div className="flex items-center gap-2 text-white/25 text-[14px]"><Phone size={12} strokeWidth={2} /><span>+234 802 540 1891 · Gwarinpa, Abuja</span></div>
             </div>
             <div className="p-10 sm:p-12 lg:p-16 flex flex-col gap-4">
               {[
@@ -736,7 +736,7 @@ function PackagesCTA() {
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${action.primary ? "bg-[#000066]/8" : "bg-white/10"}`}><Icon size={18} strokeWidth={2} className={action.primary ? "text-[#000066]" : "text-white"} /></div>
                       <div className="flex-1 min-w-0">
                         <p className={`font-black text-[14px] uppercase tracking-wide mb-0.5 ${action.primary ? "text-[#000066]" : "text-white"}`}>{action.label}</p>
-                        <p className={`text-[12px] leading-snug ${action.primary ? "text-gray-500" : "text-white/40"}`}>{action.desc}</p>
+                        <p className={`text-[14px] leading-snug ${action.primary ? "text-gray-500" : "text-white/40"}`}>{action.desc}</p>
                       </div>
                       <ArrowRight size={14} strokeWidth={2.5} className={`flex-shrink-0 group-hover:translate-x-0.5 transition-transform ${action.primary ? "text-[#000066]" : "text-white/40"}`} />
                     </Link>

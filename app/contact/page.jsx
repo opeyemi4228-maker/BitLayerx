@@ -22,8 +22,8 @@ const CONTACT_METHODS = [
   {
     icon: Mail, title: "Email Us",
     desc: "Response within 24 hours",
-    value: "hello@bitlayerx.org",
-    href: "mailto:hello@bitlayerx.org",
+    value: "hello@bitlayerx.com",
+    href: "mailto:hello@bitlayerx.com",
     cta: "Send Email",
     color: "#0818A8",
   },
@@ -81,7 +81,7 @@ const OFFICES = [
     city: "Abuja", country: "Nigeria", flag: "🇳🇬",
     address: "6th Avenue, Gwarinpa, Abuja, FCT",
     phone: "+234 802 540 1891",
-    email: "hello@bitlayerx.org",
+    email: "hello@bitlayerx.com",
     hours: "Mon–Fri: 9:00 AM – 6:00 PM WAT",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop&q=85",
     color: "#0818A8",
@@ -350,7 +350,7 @@ function ContactHero() {
             transition={{ duration: 0.65, delay: 0.5, ease }}
             className="flex flex-wrap gap-3">
             {[
-              { href: "mailto:hello@bitlayerx.org", label: "hello@bitlayerx.org", icon: Mail },
+              { href: "mailto:hello@bitlayerx.com", label: "hello@bitlayerx.com", icon: Mail },
               { href: "tel:+2348025401891",           label: "+234 802 540 1891",  icon: Phone },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -359,7 +359,7 @@ function ContactHero() {
                   className="group flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-sm transition-all duration-200 hover:border-[#000066]/30"
                   style={{ background: "rgba(255,255,255,0.82)", border: "1px solid rgba(0,0,102,0.1)", boxShadow: "0 2px 8px rgba(0,0,102,0.06)" }}>
                   <Icon size={13} strokeWidth={2.5} className="text-[#0818A8]" />
-                  <span className="text-[12.5px] font-bold text-gray-700 group-hover:text-[#000066] transition-colors">{item.label}</span>
+                  <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#000066] transition-colors">{item.label}</span>
                 </a>
               );
             })}
@@ -398,8 +398,8 @@ function ContactMethods() {
                   <Icon size={18} strokeWidth={2} style={{ color: m.color }} />
                 </div>
                 <p className="font-black text-[#080c20] text-[15px] uppercase tracking-tight mb-0.5">{m.title}</p>
-                <p className="text-gray-400 text-[11.5px] font-medium mb-2">{m.desc}</p>
-                <p className="font-bold text-[12.5px] mb-3" style={{ color: m.color }}>{m.value}</p>
+                    <p className="text-gray-400 text-[14px] font-medium mb-2">{m.desc}</p>
+                <p className="font-bold text-[14px] mb-3" style={{ color: m.color }}>{m.value}</p>
                 <div className="flex items-center gap-1.5 text-[14px] font-black uppercase tracking-wide transition-colors"
                   style={{ color: m.color }}>
                   {m.cta}
@@ -475,7 +475,7 @@ function ContactForm() {
                   <CheckCircle2 size={18} strokeWidth={2.5} className="text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-black text-green-800 text-[15px] uppercase tracking-wide mb-0.5">Message Sent!</p>
-                    <p className="text-green-700 text-[12.5px]">We'll be in touch within 24 hours with a clear plan.</p>
+                    <p className="text-green-700 text-[14px]">We'll be in touch within 24 hours with a clear plan.</p>
                   </div>
                 </motion.div>
               )}
@@ -539,7 +539,7 @@ function ContactForm() {
                     {formData.consent && <CheckCircle2 size={12} strokeWidth={3} className="text-white" />}
                   </div>
                 </div>
-                <span className="text-[12.5px] text-gray-500 leading-relaxed">
+                <span className="text-[14px] text-gray-500 leading-relaxed">
                   I agree to BitLayerX storing my information and contacting me about my enquiry. View our{" "}
                   <Link href="/privacy" className="text-[#0818A8] font-semibold hover:underline">Privacy Policy</Link>.
                 </span>
@@ -560,7 +560,7 @@ function ContactForm() {
                 </div>
               </button>
 
-              <p className="text-gray-400 text-[11.5px] text-center font-medium">
+              <p className="text-gray-400 text-[14px] text-center font-medium">
                 🔒 Your information is kept 100% confidential. No spam, ever.
               </p>
             </form>
@@ -597,7 +597,7 @@ function ContactForm() {
                       <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-black text-[14px] text-[#000066] bg-white">
                         {i + 1}
                       </div>
-                      <p className="text-white/70 text-[12.5px] font-medium leading-snug">{step}</p>
+                      <p className="text-white/70 text-[14px] font-medium leading-snug">{step}</p>
                     </div>
                   ))}
                 </div>
@@ -612,7 +612,7 @@ function ContactForm() {
                 {TRUST_POINTS.map((t, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <CheckCircle2 size={13} strokeWidth={2.5} className="text-[#0818A8] flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600 text-[12.5px] font-semibold">{t.label}</span>
+                    <span className="text-gray-600 text-[14px] font-semibold">{t.label}</span>
                   </div>
                 ))}
               </div>
@@ -696,7 +696,7 @@ function Offices() {
                           style={{ background: `${o.color}10` }}>
                           <Icon size={12} strokeWidth={2.5} style={{ color: o.color }} />
                         </div>
-                        <span className="text-gray-600 text-[12.5px] font-medium leading-snug">{row.value}</span>
+                        <span className="text-gray-600 text-[14px] font-semibold">{row.value}</span>
                       </div>
                     );
                   })}

@@ -64,19 +64,7 @@ const ORG_SCHEMA = {
 // ─── Navigation Data ──────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  {
-    label: "Packages",
-    href: "/packages",
-  },
-  {
-    label: "Services",
-    href: "/services",
-  },
-  {
-    label: "Project",
-    href: "/portfolio",
-  },
-  {
+    {
     label: "About",
     href: "/about",
     dropdown: [
@@ -106,6 +94,19 @@ const NAV_ITEMS = [
       },
     ],
   },
+  {
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "Packages",
+    href: "/packages",
+  },
+  {
+    label: "Project",
+    href: "/portfolio",
+  },
+
   {
     label: "Contact",
     href: "/contact",
