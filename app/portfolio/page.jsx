@@ -604,7 +604,7 @@ export default function PortfolioPage() {
                   }`}
                 >
                   {category.label}
-                  <span className="text-xs opacity-75">({category.count})</span>
+                  <span className="text-sm opacity-75">({category.count})</span>
                 </motion.button>
               ))}
             </div>
@@ -637,7 +637,7 @@ export default function PortfolioPage() {
                     {/* Thumbnail */}
                     <div className={`relative h-48 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
                       <div className="text-7xl">{project.thumbnail}</div>
-                      <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-gray-900">
+                      <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-sm font-bold text-gray-900">
                         {project.industry}
                       </div>
                     </div>
@@ -654,7 +654,7 @@ export default function PortfolioPage() {
                         {project.results.slice(0, 2).map((result, idx) => (
                           <div key={idx} className="text-center p-3 bg-gray-50 rounded-lg">
                             <div className="text-2xl font-black text-[#0818A8]">{result.metric}</div>
-                            <div className="text-xs text-black/80">{result.label}</div>
+                            <div className="text-sm text-black/80">{result.label}</div>
                           </div>
                         ))}
                       </div>
@@ -662,12 +662,12 @@ export default function PortfolioPage() {
                       {/* Services */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.services.slice(0, 2).map((service, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-gray-100 text-black/80 text-xs font-semibold rounded-full">
+                          <span key={idx} className="px-3 py-1 bg-gray-100 text-black/80 text-sm font-semibold rounded-full">
                             {service}
                           </span>
                         ))}
                         {project.services.length > 2 && (
-                          <span className="px-3 py-1 bg-gray-100 text-black/80 text-xs font-semibold rounded-full">
+                          <span className="px-3 py-1 bg-gray-100 text-black/80 text-sm font-semibold rounded-full">
                             +{project.services.length - 2} more
                           </span>
                         )}

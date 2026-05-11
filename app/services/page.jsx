@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import {
@@ -184,7 +184,6 @@ function ServicesHero() {
   const typed = useTypewriter(TYPED_WORDS, 105, 55, 1800);
   const [activeLayer, setActiveLayer] = useState(0);
 
-  // Cycle active layer for the animated strip
   useEffect(() => {
     const iv = setInterval(() => setActiveLayer(i => (i + 1) % LAYERS.length), 2000);
     return () => clearInterval(iv);
@@ -195,24 +194,19 @@ function ServicesHero() {
       aria-labelledby="services-hero-heading"
       style={{ fontFamily: "'Montserrat', sans-serif" }}>
 
-      {/* ── Grid background ──────────────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
         style={{
           backgroundImage: "linear-gradient(rgba(0,0,102,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,102,0.045) 1px, transparent 1px)",
           backgroundSize: "52px 52px",
         }} />
-      {/* Radial white wipe over grid */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 90% 70% at 50% -10%, white 35%, transparent 100%)" }} />
 
-      {/* ── Navy top accent bar ───────────────────────────────────────────── */}
       <div className="absolute top-0 left-0 right-0 h-[3px]"
         style={{ background: "linear-gradient(90deg, transparent 0%, #0818A8 25%, #2563EB 50%, #0818A8 75%, transparent 100%)" }} />
 
-      {/* ── Hero content ─────────────────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-36 sm:pt-44 pb-0">
 
-        {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -221,14 +215,12 @@ function ServicesHero() {
           <div className="w-8 h-8 rounded-lg bg-[#000080]/8 flex items-center justify-center">
             <Layers size={15} strokeWidth={2.5} className="text-[#0818A8]" />
           </div>
-          <p className="text-[#0818A8] text-[11px] font-black tracking-[0.28em] uppercase">
+          <p className="text-[#0818A8] text-[14px] font-black tracking-[0.28em] uppercase">
             Six Layers · One Unified System
           </p>
         </motion.div>
 
-        {/* ── Giant headline with typewriter ────────────────────────────── */}
         <div className="mb-8">
-          {/* Static lines */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -238,7 +230,6 @@ function ServicesHero() {
             We Don't Offer
           </motion.p>
 
-          {/* Typed line */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -270,7 +261,6 @@ function ServicesHero() {
           </motion.p>
         </div>
 
-        {/* Sub-copy */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -281,7 +271,6 @@ function ServicesHero() {
           When strategy, design, technology, brand, media, and growth operate as one system, the results compound.
         </motion.p>
 
-        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -299,7 +288,7 @@ function ServicesHero() {
           </Link>
         </motion.div>
 
-        {/* ── Animated layer strip ──────────────────────────────────────── */}
+        {/* Animated layer strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -317,14 +306,13 @@ function ServicesHero() {
                   <Icon size={13} strokeWidth={2.5}
                     style={{ color: isActive ? l.color : undefined }}
                     className={isActive ? "" : "text-gray-300 group-hover:text-gray-500 transition-colors"} />
-                  <span className={`text-[12px] font-black uppercase tracking-wide whitespace-nowrap transition-colors ${isActive ? "text-[#000080]" : "text-gray-300 group-hover:text-gray-600"}`}>
+                  <span className={`text-[14px] font-black uppercase tracking-wide whitespace-nowrap transition-colors ${isActive ? "text-[#000080]" : "text-gray-300 group-hover:text-gray-600"}`}>
                     {l.layer}
                   </span>
                 </div>
-                <span className={`text-[10px] font-semibold tracking-wide transition-colors hidden sm:block ${isActive ? "text-gray-500" : "text-gray-200"}`}>
+                <span className={`text-[14px] font-semibold tracking-wide transition-colors hidden sm:block ${isActive ? "text-gray-500" : "text-gray-200"}`}>
                   {l.tagline}
                 </span>
-                {/* Active bottom pulse */}
                 {isActive && (
                   <motion.div
                     layoutId="layer-indicator"
@@ -360,7 +348,6 @@ function LayerSection({ layer, index }) {
       <div className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
-          {/* ── CARD ────────────────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -368,30 +355,26 @@ function LayerSection({ layer, index }) {
             className="relative bg-white border border-gray-100 rounded-2xl overflow-hidden"
             style={{ boxShadow: "0 4px 32px rgba(0,0,80,0.06), 0 1px 4px rgba(0,0,80,0.04)" }}>
 
-            {/* Colored top bar */}
             <div className="absolute top-0 left-0 right-0 h-[4px]"
               style={{ background: `linear-gradient(90deg, ${layer.color} 0%, ${layer.color}aa 100%)` }} />
 
-            {/* ── TOP GRID ────────────────────────────────────────────── */}
             <div className="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px]">
 
-              {/* LEFT: Identity */}
+              {/* LEFT */}
               <div className="p-8 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-gray-100">
 
-                {/* Number tag */}
                 <div className="flex items-center gap-3 mb-7">
-                  <span className="font-mono font-black text-[11px] tracking-[0.25em]"
+                  <span className="font-mono font-black text-[14px] tracking-[0.25em]"
                     style={{ color: layer.color }}>{layer.number}</span>
                   <div className="h-px w-8" style={{ background: `${layer.color}40` }} />
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center"
                     style={{ background: `${layer.color}12` }}>
                     <Icon size={16} strokeWidth={2} style={{ color: layer.color }} />
                   </div>
-                  <span className="text-[10px] font-black tracking-[0.22em] uppercase"
+                  <span className="text-[14px] font-black tracking-[0.22em] uppercase"
                     style={{ color: layer.color }}>{layer.layer}</span>
                 </div>
 
-                {/* Heading */}
                 <h2 id={`layer-${layer.id}-heading`}
                   className="font-black text-[#080c20] uppercase leading-[0.9] tracking-tight mb-3"
                   style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}
@@ -399,19 +382,16 @@ function LayerSection({ layer, index }) {
                   {layer.title}
                 </h2>
 
-                {/* Tagline */}
                 <p className="text-[12.5px] font-black uppercase tracking-[0.18em] mb-5"
                   style={{ color: layer.color }}>
                   {layer.tagline}
                 </p>
 
-                {/* Intro */}
                 <p className="text-gray-500 text-[16px] leading-relaxed mb-8 max-w-lg"
                   itemProp="description">
                   {layer.intro}
                 </p>
 
-                {/* CTA */}
                 <Link href={layer.href}
                   className="group inline-flex items-center gap-2.5 px-6 py-3.5 font-black text-[12.5px] uppercase tracking-wide text-white rounded-xl transition-all duration-200"
                   style={{
@@ -426,12 +406,11 @@ function LayerSection({ layer, index }) {
                 </Link>
               </div>
 
-              {/* RIGHT: Deliverables + Tools */}
+              {/* RIGHT */}
               <div className="p-8 sm:p-10 bg-[#fafbff] flex flex-col gap-7">
 
-                {/* Deliverables */}
                 <div>
-                  <p className="text-[10px] font-black tracking-[0.24em] uppercase text-gray-300 mb-3">
+                  <p className="text-[14px] font-black tracking-[0.24em] uppercase text-gray-300 mb-3">
                     What You Receive
                   </p>
                   <div className="space-y-2.5">
@@ -447,9 +426,8 @@ function LayerSection({ layer, index }) {
                   </div>
                 </div>
 
-                {/* Tools */}
                 <div>
-                  <p className="text-[10px] font-black tracking-[0.24em] uppercase text-gray-300 mb-3">
+                  <p className="text-[14px] font-black tracking-[0.24em] uppercase text-gray-300 mb-3">
                     Tools & Technology
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -463,17 +441,16 @@ function LayerSection({ layer, index }) {
                   </div>
                 </div>
 
-                {/* Timeline hint */}
                 <div className="mt-auto pt-5 border-t border-gray-100 flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full" style={{ background: layer.color }} />
-                  <p className="text-gray-400 text-[12px] font-semibold">
+                  <p className="text-gray-400 text-[14px] font-semibold">
                     Integrated with {layer.number === "01" ? "all layers" : "preceding layers"} for maximum impact
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* ── CAPABILITIES GRID ────────────────────────────────────── */}
+            {/* CAPABILITIES */}
             <div className="border-t border-gray-100">
               <button
                 onClick={() => setToolsExpanded(v => !v)}
@@ -488,7 +465,7 @@ function LayerSection({ layer, index }) {
                   </p>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[11px] font-semibold text-gray-300 group-hover:text-gray-500 transition-colors">
+                  <span className="text-[14px] font-semibold text-gray-300 group-hover:text-gray-500 transition-colors">
                     {toolsExpanded ? "Collapse" : "View all"}
                   </span>
                   <ChevronDown size={14} strokeWidth={2.5}
@@ -520,7 +497,6 @@ function LayerSection({ layer, index }) {
                 )}
               </AnimatePresence>
 
-              {/* Collapsed preview pills */}
               {!toolsExpanded && (
                 <div className="px-8 sm:px-10 lg:px-12 pb-6 flex flex-wrap gap-2">
                   {layer.capabilities.slice(0, 3).map((c, i) => (
@@ -553,10 +529,9 @@ function EngagementModels() {
       style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
-        {/* Header */}
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end mb-14">
           <Reveal>
-            <p className="text-[#0818A8] text-[10px] font-black tracking-[0.28em] uppercase mb-4 flex items-center gap-2">
+            <p className="text-[#0818A8] text-[14px] font-black tracking-[0.28em] uppercase mb-4 flex items-center gap-2">
               <Layers size={11} strokeWidth={2.5} /> How We Work Together
             </p>
             <h2 id="engagement-heading"
@@ -576,7 +551,6 @@ function EngagementModels() {
           </Reveal>
         </div>
 
-        {/* Cards */}
         <div ref={ref} className="grid md:grid-cols-3 gap-4">
           {ENGAGEMENT_MODELS.map((model, i) => {
             const Icon = model.icon;
@@ -588,17 +562,15 @@ function EngagementModels() {
                 className="relative bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-gray-100 transition-all duration-300 group"
                 style={{ boxShadow: "0 2px 12px rgba(0,0,80,0.04)" }}>
 
-                {/* Colored top bar */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: model.color }} />
-                {/* Always show for popular */}
                 {model.popular && (
                   <div className="absolute top-0 left-0 right-0 h-[3px]"
                     style={{ background: model.color }} />
                 )}
 
                 {model.popular && (
-                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest text-white"
+                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[14px] font-black uppercase tracking-widest text-white"
                     style={{ background: model.color }}>
                     Most Popular
                   </div>
@@ -610,7 +582,7 @@ function EngagementModels() {
                     <Icon size={20} strokeWidth={1.75} style={{ color: model.color }} />
                   </div>
 
-                  <p className="text-[10px] font-black tracking-[0.22em] uppercase mb-2"
+                  <p className="text-[14px] font-black tracking-[0.22em] uppercase mb-2"
                     style={{ color: model.color }}>{model.id}</p>
                   <h3 className="font-black text-[#080c20] uppercase tracking-tight text-[18px] mb-1">{model.title}</h3>
                   <p className="text-gray-400 text-[12.5px] font-semibold italic mb-5">{model.tagline}</p>
@@ -661,7 +633,6 @@ function ServicesCTA() {
       style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
-        {/* Blue banner card */}
         <motion.div ref={ref}
           initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -669,10 +640,8 @@ function ServicesCTA() {
           className="relative rounded-2xl overflow-hidden"
           style={{ background: "linear-gradient(135deg, #000055 0%, #000080 35%, #0818A8 65%, #1D4ED8 100%)" }}>
 
-          {/* Dot texture */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
             style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-          {/* Radial glow */}
           <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
             style={{ background: "radial-gradient(circle at top right, rgba(147,197,253,0.18) 0%, transparent 60%)" }} />
 
@@ -680,7 +649,7 @@ function ServicesCTA() {
 
             {/* Left */}
             <div className="p-10 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/10">
-              <p className="text-blue-300 text-[10px] font-black tracking-[0.28em] uppercase mb-5 flex items-center gap-2">
+              <p className="text-blue-300 text-[14px] font-black tracking-[0.28em] uppercase mb-5 flex items-center gap-2">
                 <Package size={11} strokeWidth={2.5} /> Pre-Built Bundles
               </p>
               <h2 id="services-cta-heading"
@@ -701,7 +670,7 @@ function ServicesCTA() {
 
             {/* Right */}
             <div className="p-10 sm:p-12 lg:p-16 flex flex-col gap-4">
-              <p className="text-blue-300 text-[10px] font-black tracking-[0.28em] uppercase mb-1 flex items-center gap-2">
+              <p className="text-blue-300 text-[14px] font-black tracking-[0.28em] uppercase mb-1 flex items-center gap-2">
                 <Layers size={11} strokeWidth={2.5} /> Bespoke Build
               </p>
               <h3 className="font-black text-white uppercase leading-[0.9] tracking-tight mb-3"
@@ -753,14 +722,14 @@ export default function ServicesPage() {
           "@type": "WebPage",
           name: "Services — BitLayerX",
           description: "BitLayerX builds layered digital ecosystems across strategy, UI/UX, web & mobile development, branding, video production, and digital marketing.",
-          url: "https://bitlayerx.com/services",
-          provider: { "@type": "Organization", name: "BitLayerX", url: "https://bitlayerx.com" },
+          url: "https://bitlayerx.org/services",
+          provider: { "@type": "Organization", name: "BitLayerX", url: "https://bitlayerx.org" },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "BitLayerX Services",
             itemListElement: LAYERS.map((l, i) => ({
               "@type": "Offer", position: i + 1, name: l.title,
-              description: l.intro, url: `https://bitlayerx.com${l.href}`,
+              description: l.intro, url: `https://bitlayerx.org${l.href}`,
             })),
           },
         }),

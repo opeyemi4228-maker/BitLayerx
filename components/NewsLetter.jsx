@@ -129,7 +129,7 @@ export default function NewsletterSubscription() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-4 flex flex-wrap items-center gap-3 text-xs text-black/80"
+              className="mt-4 flex flex-wrap items-center gap-3 text-sm text-black/80"
             >
               <div className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">

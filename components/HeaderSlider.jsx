@@ -369,7 +369,7 @@ function TrustBadge() {
         <div className="flex gap-0.5 mb-0.5">
           {[...Array(5)].map((_, i) => <Star key={i} size={9} className="text-amber-400 fill-amber-400" />)}
         </div>
-        <p className="text-[11px] text-gray-500 font-medium leading-none">
+        <p className="text-[14px] text-gray-500 font-medium leading-none">
           <span className="text-[#000066] font-black">500+</span> businesses trust us
         </p>
       </div>
@@ -535,7 +535,7 @@ export default function HeroSection() {
                   <span className="font-black text-[#000066] leading-none" style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)" }}>
                     {s.value}
                   </span>
-                  <span className="text-[10px] sm:text-[11px] text-gray-400 font-semibold uppercase tracking-widest mt-1 text-center">
+                  <span className="text-[14px] sm:text-[14px] text-gray-400 font-semibold uppercase tracking-widest mt-1 text-center">
                     {s.label}
                   </span>
                 </div>
@@ -577,7 +577,7 @@ export default function HeroSection() {
           <div className="absolute bottom-5 left-0 right-0 z-20 hidden md:flex items-end justify-between px-10 lg:px-16">
             <div className="backdrop-blur-sm px-5 py-3"
               style={{ background: "rgba(255,255,255,0.88)", border: "1px solid rgba(0,0,102,0.09)" }}>
-              <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-[0.2em] mb-0.5">Powering</p>
+              <p className="text-[14px] text-gray-400 font-semibold uppercase tracking-[0.2em] mb-0.5">Powering</p>
               <p className="text-[15px] text-[#000066] font-black uppercase tracking-wide">Digital Innovation</p>
             </div>
             {/* Scroll indicator */}
@@ -592,7 +592,7 @@ export default function HeroSection() {
         <div className="flex md:hidden justify-center pb-6 pt-2 z-10" aria-hidden="true">
           <div className="flex flex-col items-center gap-1">
             <ChevronDown size={16} className="text-gray-300" strokeWidth={2} />
-            <span className="text-[9px] text-gray-300 font-semibold uppercase tracking-[0.2em]">Scroll</span>
+            <span className="text-[14px] text-gray-300 font-semibold uppercase tracking-[0.2em]">Scroll</span>
           </div>
         </div>
 

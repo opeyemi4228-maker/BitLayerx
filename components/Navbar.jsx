@@ -5,9 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  ChevronDown,
-  Menu,
-  X,
+  ChevronDown,Menu,X,
   Code2,
   Palette,
   Zap,
@@ -69,104 +67,14 @@ const NAV_ITEMS = [
   {
     label: "Packages",
     href: "/packages",
-    dropdown: [
-      {
-        label: "Launchpad",
-        href: "/packages/launchpad",
-        icon: Rocket,
-        desc: "Your first step into the digital world — done right",
-      },
-      {
-        label: "Growth Engine",
-        href: "/packages/growth-engine",
-        icon: Zap,
-        desc: "Stop being the best-kept secret in your industry",
-      },
-      {
-        label: "Brand Authority",
-        href: "/packages/brand-authority",
-        icon: Crown,
-        desc: "Become the brand everyone recognises and chooses first",
-      },
-      {
-        label: "Tech Powerhouse",
-        href: "/packages/tech-powerhouse",
-        icon: Monitor,
-        desc: "Digital infrastructure that scales without limits",
-      },
-      {
-        label: "Digital Dominance",
-        href: "/packages/digital-dominance",
-        icon: Globe2,
-        desc: "Enterprise partnership for total market leadership",
-      },
-    ],
   },
   {
     label: "Services",
     href: "/services",
-    dropdown: [
-      {
-        label: "Web & Mobile Development",
-        href: "/services/web-mobile",
-        icon: Code2,
-        desc: "Fast, scalable digital platforms",
-      },
-      {
-        label: "UI/UX & Product Design",
-        href: "/services/ui-ux",
-        icon: PenTool,
-        desc: "User-centred digital experiences",
-      },
-      {
-        label: "Branding & Identity",
-        href: "/services/branding",
-        icon: Palette,
-        desc: "Identities that command attention",
-      },
-      {
-        label: "Software Engineering",
-        href: "/services/software",
-        icon: BrainCircuit,
-        desc: "Scalable, secure architectures",
-      },
-      {
-        label: "Commercials & Video",
-        href: "/services/video",
-        icon: Video,
-        desc: "High-impact brand films & ads",
-      },
-      {
-        label: "Digital Marketing & Growth",
-        href: "/services/marketing",
-        icon: Megaphone,
-        desc: "Performance-driven campaigns",
-      },
-    ],
   },
   {
-    label: "Work",
-    href: "/work",
-    dropdown: [
-      {
-        label: "Featured Projects",
-        href: "/work/featured",
-        icon: Briefcase,
-        desc: "Our finest executions",
-      },
-      {
-        label: "Success Stories",
-        href: "/work/success-stories",
-        icon: Award,
-        desc: "Real results, real brands",
-      },
-      {
-        label: "Before & After",
-        href: "/work/transformations",
-        icon: Layers,
-        desc: "Proof of transformation",
-      },
-    ],
+    label: "Project",
+    href: "/portfolio",
   },
   {
     label: "About",
@@ -321,7 +229,7 @@ function DropdownPanel({ items, visible, onClose }) {
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-all duration-150 hover:bg-[#000066] text-black/80 hover:text-white"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-all duration-150 hover:bg-[#000066] text-black hover:text-white"
               >
                 {Icon && (
                   <div className="w-8 h-8 rounded-lg bg-[#000066]/6 group-hover:bg-white/15 flex items-center justify-center flex-shrink-0 transition-colors">

@@ -413,7 +413,7 @@ export default function BitLayerxMarketingPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs text-black/80 mt-3">+ {service.features.length - 4} more features</div>
+                  <div className="text-sm text-black/80 mt-3">+ {service.features.length - 4} more features</div>
                 </motion.div>
               </motion.div>
             </div>

@@ -639,7 +639,7 @@ function HeroSection() {
           transition={{ delay: 1.8 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-xs font-bold text-white/60 uppercase tracking-wider">
+          <span className="text-sm font-bold text-white/60 uppercase tracking-wider">
             Scroll
           </span>
           <motion.div
@@ -821,7 +821,7 @@ function TrustedBrandsSection() {
                     <div className="text-xl md:text-2xl font-black text-gray-900 mb-2 group-hover:text-[#0818A8] transition-colors">
                       {brand.name}
                     </div>
-                    <div className="text-xs md:text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    <div className="text-sm md:text-base text-gray-500 font-medium uppercase tracking-wider">
                       {brand.industry}
                     </div>
                   </div>

@@ -707,7 +707,7 @@ export default function SolutionsPage() {
                           {Object.entries(industry.results).map(([key, value]) => (
                             <div key={key} className="text-center p-3 bg-gray-50 rounded-lg">
                               <div className="text-2xl font-black text-[#0818A8]">{value}</div>
-                              <div className="text-xs text-black/80 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
+                              <div className="text-sm text-black/80 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
                             </div>
                           ))}
                         </div>
@@ -763,7 +763,7 @@ export default function SolutionsPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100"
                 >
-                  <div className="inline-block px-3 py-1 bg-[#0818A8]/10 text-[#0818A8] text-xs font-bold rounded-full mb-4">
+                  <div className="inline-block px-3 py-1 bg-[#0818A8]/10 text-[#0818A8] text-sm font-bold rounded-full mb-4">
                     {story.industry}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{story.company}</h3>

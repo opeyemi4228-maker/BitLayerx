@@ -135,7 +135,7 @@ export default function TrustedBrandsSection() {
                   </div>
                   
                   {/* Label */}
-                  <div className="relative text-sm md:text-base text-black/80 font-medium">
+                  <div className="relative text-[14px] md:text-base text-black/80 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function TrustedBrandsSection() {
                     <div className="text-xl md:text-2xl font-black text-gray-900 mb-2 group-hover:text-[#0818A8] transition-colors">
                       {brand.name}
                     </div>
-                    <div className="text-xs md:text-sm text-black/80 font-medium uppercase tracking-wider">
+                    <div className="text-sm md:text-base text-black/80 font-medium uppercase tracking-wider">
                       {brand.industry}
                     </div>
                   </div>

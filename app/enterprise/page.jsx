@@ -473,7 +473,7 @@ export default function BitLayerxEnterprisePage() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-[#0818A8] text-white text-xs font-semibold">
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-[#0818A8] text-white text-sm font-semibold">
                     {study.industry}
                   </div>
                 </div>
