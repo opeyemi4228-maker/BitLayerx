@@ -222,7 +222,7 @@ export default function BitLayerxFooterBottom() {
                   Secure & Compliant
                 </span>
                 <span>•</span>
-                <span>Available in Nigeria & UK</span>
+                <span>Available in Nigeria, Operating Globally</span>
               </div>
 
               <div className="flex items-center gap-4">

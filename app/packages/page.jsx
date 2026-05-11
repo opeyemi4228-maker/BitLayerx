@@ -6,7 +6,8 @@ import Link from "next/link";
 import {
   ArrowRight, Rocket, Zap, Crown, Monitor, Globe2,
   CheckCircle2, ChevronDown, Layers, Target, CalendarCheck,
-  Send, Phone, Package, Star, Clock,
+  Send, Phone, Package, Star, Clock, Sparkles, ArrowUpRight,
+  Globe, Wifi, MousePointer, TrendingUp,
 } from "lucide-react";
 
 const FONT_URL = "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap";
@@ -16,14 +17,13 @@ const PACKAGES = [
   {
     id: "launchpad", icon: Rocket, name: "Launchpad",
     tagline: "Your First Step Into the Digital World — Done Right",
-    price: "₦350,000", priceNote: "Website priced separately",
     timeline: "2–3 weeks", bestFor: "Startups, New Businesses, First Digital Presence",
     color: "#0818A8", popular: false,
     intro: "Every great digital brand starts with a solid foundation. The Launchpad package establishes your digital identity, builds your online presence from the ground up, and ensures your business gets found from day one.",
     layers: ["Brand Layer", "Technology Layer", "Growth Layer"],
     features: [
       { label: "Brand Identity & Logo Design", note: "Colours, typography, visual language" },
-      { label: "Website Development", note: "WordPress from ₦750k · Coded from ₦1M" },
+      { label: "Website Development", note: "WordPress or fully coded — scoped to your needs" },
       { label: "Basic SEO Setup & Google Indexing", note: "Found from day one" },
       { label: "Social Media Setup (2 platforms)", note: "Professional, consistent presence" },
       { label: "1 Month Post-Launch Support", note: "Peace of mind as you go live" },
@@ -33,7 +33,6 @@ const PACKAGES = [
   {
     id: "growth-engine", icon: Zap, name: "Growth Engine",
     tagline: "Stop Being the Best-Kept Secret in Your Industry",
-    price: "₦500,000", priceNote: "Website priced separately",
     timeline: "4–6 weeks", bestFor: "Growing SMEs, Competitive Markets, Revenue-Focused Brands",
     color: "#1D4ED8", popular: true,
     intro: "You have a great business but you're not getting enough enquiries. Growth Engine layers brand, website, content, marketing, and video into one results-driven system — each feeding the next.",
@@ -41,7 +40,7 @@ const PACKAGES = [
     features: [
       { label: "Full Brand Identity System", note: "Logo, typography, colour, brand guide" },
       { label: "UI/UX Design & Product Strategy", note: "Every page designed for conversions" },
-      { label: "Website (up to 10 pages)", note: "WordPress from ₦1M · Coded from ₦1.25M" },
+      { label: "Website (up to 10 pages)", note: "WordPress or custom coded — scoped to your goals" },
       { label: "3-Month Performance Marketing", note: "SEO, paid ads, content marketing" },
       { label: "30-Day Social Media Calendar", note: "Daily posts, engagement, platform growth" },
       { label: "2 Promotional Videos (30–60s)", note: "Trust-building video content" },
@@ -52,7 +51,6 @@ const PACKAGES = [
   {
     id: "brand-authority", icon: Crown, name: "Brand Authority",
     tagline: "Become the Brand Everyone Recognises, Respects & Chooses First",
-    price: "₦1,000,000", priceNote: "Website priced separately",
     timeline: "6–10 weeks", bestFor: "Established Brands, Premium Positioning, Market Leaders",
     color: "#000080", popular: false,
     intro: "At this level, you're no longer competing on price — you're competing on perception. We engineer your full market position with premium branding, world-class web experience, 6-month marketing, automation, video, and a dedicated account manager.",
@@ -60,7 +58,7 @@ const PACKAGES = [
     features: [
       { label: "Premium Brand System", note: "Logo suite, colour palette, icon library, style guide" },
       { label: "Deep UI/UX Design & Research", note: "User research, journey mapping, prototypes" },
-      { label: "Advanced Website", note: "WordPress from ₦1.5M · Coded from ₦2M" },
+      { label: "Advanced Website", note: "Scoped and priced based on complexity" },
       { label: "CRM & Email Automation", note: "Leads captured, nurtured, followed up automatically" },
       { label: "6-Month Full Marketing Strategy", note: "SEO, Google Ads, content, email campaigns" },
       { label: "6-Month Social Media Management", note: "Full strategy, content, community management" },
@@ -73,7 +71,6 @@ const PACKAGES = [
   {
     id: "tech-powerhouse", icon: Monitor, name: "Tech Powerhouse",
     tagline: "Build the Digital Infrastructure That Scales Without Limits",
-    price: "₦2,000,000", priceNote: "Full app + website: ₦3.5M – ₦9M based on scope",
     timeline: "8–20 weeks", bestFor: "Tech Products, SaaS, Fintech, Logistics, Enterprise Apps",
     color: "#0369A1", popular: false,
     intro: "Standard solutions won't get you there. Tech Powerhouse is BitLayerX at full engineering power — building custom digital infrastructure from the ground up.",
@@ -81,10 +78,9 @@ const PACKAGES = [
     features: [
       { label: "Full UX Research & Product Design", note: "User research, wireframing, interactive prototyping" },
       { label: "Custom Web & Mobile Applications", note: "iOS, Android, Web — engineered to perform at any scale" },
-      { label: "Custom App + Website", note: "₦3.5M – ₦9M based on complexity & scope" },
-      { label: "Cloud Infrastructure (AWS/Azure/GCP)", note: "API development, ERP/CRM, AI features, cybersecurity" },
+      { label: "Cloud Infrastructure", note: "AWS/Azure/GCP — API development, AI features, cybersecurity" },
       { label: "Brand Identity for the Product", note: "Consistent, premium, market-ready visual identity" },
-      { label: "Launch Campaign Video Package", note: "Intro your product to the market" },
+      { label: "Launch Campaign Video Package", note: "Introduce your product to the market" },
       { label: "QA Testing & Full Documentation", note: "All devices, browsers, and use cases" },
       { label: "12 Months Post-Launch Support", note: "What we build, we stand behind" },
     ],
@@ -93,7 +89,6 @@ const PACKAGES = [
   {
     id: "digital-dominance", icon: Globe2, name: "Digital Dominance",
     tagline: "When You're Ready to Own Your Market — Completely and Permanently",
-    price: "Custom Quote", priceNote: "Scoped based on team size, services, markets & engagement length",
     timeline: "Ongoing Partnership", bestFor: "Enterprise Brands, Organisations, Market Leaders, Multi-Market Operations",
     color: "#000080", popular: false, isEnterprise: true,
     intro: "This is not a package. This is a partnership at the highest level. BitLayerX becomes your dedicated digital division — sitting inside your growth strategy, contributing to business decisions, building your technology, running your marketing, managing your brand.",
@@ -103,7 +98,6 @@ const PACKAGES = [
       { label: "Ongoing Product Design & UX Optimisation", note: "Continuous user research & digital product improvement" },
       { label: "Dedicated Engineering Team", note: "Unlimited feature development, integrations, platform evolution" },
       { label: "Enterprise Web Platforms", note: "Unlimited updates, new sections, landing pages" },
-      { label: "2–5 Dedicated Engineers", note: "AI dashboards, automation, cloud management, cybersecurity" },
       { label: "Monthly Commercial Video Production", note: "Brand films, launches, advertising, social content" },
       { label: "Full-Service Marketing Retainer", note: "SEO, Google Ads, programmatic, email, influencers, PR" },
       { label: "Complete Social Media Management (365 days)", note: "Strategy, content, community, trends" },
@@ -118,9 +112,8 @@ const FAQS = [
   { q: "Can I combine multiple packages?", a: "Absolutely. Most clients combine packages for comprehensive results. We offer bundle pricing for combined services." },
   { q: "What payment plans do you offer?", a: "We offer flexible milestone-based payments: typically 50% upfront, 30% at project midpoint, and 20% on completion. Monthly retainers are billed at the start of each month." },
   { q: "How quickly can you start?", a: "Most projects kick off within 5–7 business days of contract signing. For urgent requirements, we offer expedited onboarding." },
-  { q: "Why is website development priced separately?", a: "Website scope varies significantly — from a clean 5-page site to a complex 50-page platform. We price development separately to ensure you only pay for exactly what you need." },
-  { q: "What results can I realistically expect?", a: "Our clients typically see 20–50% increases in conversion rates, 30–50% reduction in operational costs through automation, and 250%+ average ROI across marketing campaigns." },
-  { q: "Do you work with international clients?", a: "Yes — we serve clients across Nigeria, the UK, and internationally. All packages are available globally. We accommodate different time zones and work with full transparency remotely." },
+  { q: "Why is website development scoped separately?", a: "Website scope varies significantly — from a clean 5-page site to a complex 50-page platform. We scope development separately to ensure you only pay for exactly what you need." },
+  { q: "Do you work with international clients?", a: "Yes — we serve clients across Nigeria and globally. All packages are available worldwide. We accommodate different time zones and work with full transparency remotely." },
 ];
 
 const PHRASES = [
@@ -131,6 +124,7 @@ const PHRASES = [
   "Enterprises owning their digital future.",
 ];
 
+// ─── Animated Grid ─────────────────────────────────────────────────────────────
 function AnimatedGrid({ intensity = 1 }) {
   const canvasRef = useRef(null);
   const rafRef = useRef(null);
@@ -212,6 +206,7 @@ function AnimatedGrid({ intensity = 1 }) {
   return <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }} />;
 }
 
+// ─── Typewriter ────────────────────────────────────────────────────────────────
 function TypingText() {
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState("");
@@ -244,6 +239,7 @@ function TypingText() {
   );
 }
 
+// ─── Helpers ───────────────────────────────────────────────────────────────────
 function useVisible(margin = "-50px") {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin });
@@ -267,6 +263,9 @@ function Pill({ children }) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// HERO
+// ═══════════════════════════════════════════════════════════════════════════════
 function PackagesHero() {
   const [activeTab, setActiveTab] = useState(0);
   return (
@@ -274,20 +273,27 @@ function PackagesHero() {
       <AnimatedGrid intensity={1} />
       <div className="absolute top-0 left-0 right-0 z-20" style={{ height: 3, background: "linear-gradient(90deg,transparent 0%,#0818A8 25%,#2563EB 50%,#0818A8 75%,transparent 100%)" }} />
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-[1]" style={{ background: "radial-gradient(ellipse 85% 65% at 50% 0%,rgba(255,255,255,0.55) 0%,transparent 80%)" }} />
-      <style>{`@keyframes blx-blink{0%,100%{opacity:1}50%{opacity:0}} @keyframes blx-float-a{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9px) rotate(3deg)}} @keyframes blx-float-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}} @keyframes blx-glow-p{0%,100%{box-shadow:0 0 8px 2px rgba(37,99,235,0.28)}50%{box-shadow:0 0 22px 7px rgba(37,99,235,0.52)}}`}</style>
-      {[{ size: 18, top: "26%", right: "9%", delay: 0, glow: true }, { size: 9, top: "24%", right: "4.5%", delay: 0.2, glow: true }, { size: 22, top: "62%", left: "5%", delay: 0.1, glow: false }, { size: 10, top: "55%", left: "19%", delay: 0.3, glow: false }].map((a, i) => (
+      <style>{`
+        @keyframes blx-blink{0%,100%{opacity:1}50%{opacity:0}}
+        @keyframes blx-float-a{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9px) rotate(3deg)}}
+        @keyframes blx-float-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        @keyframes blx-glow-p{0%,100%{box-shadow:0 0 8px 2px rgba(37,99,235,0.28)}50%{box-shadow:0 0 22px 7px rgba(37,99,235,0.52)}}
+        @keyframes blx-pulse-ring{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.5);opacity:0}}
+      `}</style>
+      {[
+        { size: 18, top: "26%", right: "9%", delay: 0, glow: true },
+        { size: 9, top: "24%", right: "4.5%", delay: 0.2, glow: true },
+        { size: 22, top: "62%", left: "5%", delay: 0.1, glow: false },
+        { size: 10, top: "55%", left: "19%", delay: 0.3, glow: false },
+      ].map((a, i) => (
         <div key={i} aria-hidden="true" className="absolute pointer-events-none z-10" style={{ width: a.size, height: a.size, background: a.glow ? "linear-gradient(135deg,#000066,#1D4ED8)" : "#000066", opacity: a.glow ? 0.85 : 0.07, top: a.top, left: a.left, right: a.right, animation: [`blx-float-${i % 2 === 0 ? "a" : "b"} ${3.6 + i * 0.4}s ease-in-out infinite`, a.glow ? `blx-glow-p ${2.2 + i * 0.4}s ease-in-out infinite` : ""].filter(Boolean).join(", "), animationDelay: `${a.delay}s` }} />
       ))}
-      <div aria-hidden="true" className="absolute top-24 right-10 z-10 pointer-events-none hidden lg:block">
-        <div style={{ width: 32, height: 32, border: "1px solid rgba(0,0,102,0.14)" }} />
-        <div style={{ width: 20, height: 20, background: "rgba(0,0,102,0.04)", margin: "4px 0 0 4px" }} />
-      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-36 sm:pt-44 pb-0">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1, ease }} className="flex items-center gap-3 mb-6">
           <div className="w-8 h-8 rounded-lg bg-[#000080]/8 flex items-center justify-center"><Package size={15} strokeWidth={2.5} className="text-[#0818A8]" /></div>
           <p className="text-[#0818A8] text-[14px] font-black tracking-[0.28em] uppercase">Five Packages · One Philosophy · Infinite Layers</p>
         </motion.div>
-        <motion.h1 id="packages-hero-heading" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease }} className="font-black text-[#080c20] uppercase leading-[0.88] tracking-[-0.025em] mb-5" style={{ fontSize: "clamp(2.8rem, 7.5vw, 7rem)" }} itemProp="name">
+        <motion.h1 id="packages-hero-heading" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease }} className="font-black text-[#080c20] uppercase leading-[0.88] tracking-[-0.025em] mb-5" style={{ fontSize: "clamp(2.8rem, 7.5vw, 7rem)" }}>
           Building the<br />
           <span style={{ background: "linear-gradient(135deg,#0818A8 0%,#2563EB 50%,#0818A8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Future,</span><br />
           One Layer at a Time.
@@ -295,7 +301,7 @@ function PackagesHero() {
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.32, ease }} className="text-gray-500 text-[17px] sm:text-[16px] font-medium mb-2 min-h-[1.6em]">
           Built for <TypingText />
         </motion.p>
-        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.4, ease }} className="text-gray-400 text-[16px] sm:text-[17px] leading-relaxed max-w-xl mb-10 font-medium" itemProp="description">
+        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.4, ease }} className="text-gray-400 text-[16px] sm:text-[17px] leading-relaxed max-w-xl mb-10 font-medium">
           Five strategic packages — each a carefully engineered stack of layers designed to match your stage of growth. No hidden fees. No generic deliverables. Just measurable results.
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.48, ease }} className="flex flex-wrap gap-3 mb-16">
@@ -319,7 +325,7 @@ function PackagesHero() {
                   <Icon size={13} strokeWidth={2.5} style={{ color: active ? pkg.color : undefined }} className={active ? "" : "text-gray-300 group-hover:text-gray-500 transition-colors"} />
                   <span className={`text-[14px] font-black uppercase tracking-wide whitespace-nowrap transition-colors ${active ? "text-[#000080]" : "text-gray-300 group-hover:text-gray-600"}`}>{pkg.name}</span>
                 </div>
-                <span className={`text-[14px] font-semibold transition-colors hidden sm:block ${active ? "text-[#0818A8]" : "text-gray-200"}`}>{pkg.price}</span>
+                <span className={`text-[14px] font-semibold transition-colors hidden sm:block ${active ? "text-[#0818A8]" : "text-gray-200"}`}>{pkg.bestFor.split(",")[0]}</span>
               </a>
             );
           })}
@@ -329,6 +335,185 @@ function PackagesHero() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// WEBSITE PROMO BANNER — for businesses without a website
+// ═══════════════════════════════════════════════════════════════════════════════
+function WebsitePromo() {
+  const [ref, inView] = useVisible("-40px");
+
+  return (
+    <section className="relative bg-white py-0 overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      {/* Full-bleed banner */}
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 32 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.85, ease }}
+        className="relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #000033 0%, #000066 30%, #0818A8 60%, #1a56db 100%)" }}
+      >
+        {/* Animated dot mesh */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
+          style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+
+        {/* Large glowing orbs */}
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 65%)" }} />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(29,78,216,0.25) 0%, transparent 65%)" }} />
+
+        {/* Diagonal accent slash */}
+        <div className="absolute top-0 right-[35%] w-[2px] h-full pointer-events-none"
+          style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.04) 50%, transparent)", transform: "skewX(-18deg)" }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 lg:py-20">
+          <div className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
+
+            {/* Left content */}
+            <div>
+              {/* Promo badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.15, ease }}
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-6"
+                style={{ background: "rgba(251,191,36,0.15)", border: "1px solid rgba(251,191,36,0.3)" }}
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" style={{ animation: "blx-pulse-ring 1.4s cubic-bezier(0,0,0.2,1) infinite" }} />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber-400" />
+                </span>
+                <span className="text-amber-300 text-[13px] font-black tracking-[0.22em] uppercase">Limited Offer · New Businesses</span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.2, ease }}
+                className="font-black text-white uppercase leading-[0.88] tracking-[-0.02em] mb-5"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)" }}
+              >
+                No Website Yet?<br />
+                <span style={{ background: "linear-gradient(90deg, #93c5fd 0%, #ffffff 60%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  Let's Fix That —
+                </span><br />
+                Starting at ₦500,000.
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.3, ease }}
+                className="text-white/60 text-[16px] sm:text-[17px] leading-relaxed max-w-lg mb-8 font-medium"
+              >
+                Every business deserves a powerful digital presence. We've created a special entry package for businesses that don't have a website yet — professionally designed, fully built, and ready to launch.
+              </motion.p>
+
+              {/* Feature pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.38, ease }}
+                className="flex flex-wrap gap-3 mb-8"
+              >
+                {[
+                  { icon: Globe, label: "Professional Website" },
+                  { icon: Wifi, label: "Fully Hosted & Live" },
+                  { icon: MousePointer, label: "Mobile Optimised" },
+                  { icon: TrendingUp, label: "SEO Ready" },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-2 px-3.5 py-2 rounded-full"
+                      style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+                      <Icon size={12} strokeWidth={2.5} className="text-blue-300" />
+                      <span className="text-white/80 text-[13px] font-semibold">{item.label}</span>
+                    </div>
+                  );
+                })}
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.45, ease }}
+                className="flex flex-wrap gap-3"
+              >
+                <Link href="/contact/project?package=website-starter"
+                  className="group flex items-center gap-3 px-7 py-4 bg-white hover:bg-white/95 font-black text-[14px] uppercase tracking-[0.16em] text-[#000066] rounded-xl transition-all duration-200"
+                  style={{ boxShadow: "0 8px 32px rgba(0,0,80,0.35)" }}>
+                  <Rocket size={15} strokeWidth={2.5} />
+                  Get My Website
+                  <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link href="/contact/call"
+                  className="flex items-center gap-2 px-6 py-4 font-semibold text-[14px] uppercase tracking-wide text-white/80 hover:text-white transition-colors rounded-xl"
+                  style={{ border: "1px solid rgba(255,255,255,0.15)", background: "rgba(255,255,255,0.06)" }}>
+                  <CalendarCheck size={13} strokeWidth={2} />
+                  Talk to Us First
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right — feature card stack */}
+            <motion.div
+              initial={{ opacity: 0, x: 32 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.25, ease }}
+              className="flex-shrink-0 w-full lg:w-[340px] xl:w-[380px]"
+            >
+              {/* Price card */}
+              <div className="relative rounded-2xl overflow-hidden mb-3"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}>
+                <div className="absolute top-0 left-0 right-0 h-[3px]"
+                  style={{ background: "linear-gradient(90deg, #fbbf24, #f59e0b)" }} />
+                <div className="p-7">
+                  <p className="text-white/40 text-[12px] font-black tracking-[0.3em] uppercase mb-2">Starting From</p>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="font-black text-white" style={{ fontSize: "clamp(2.8rem, 5vw, 3.8rem)", lineHeight: 1 }}>₦500k</span>
+                  </div>
+                  <p className="text-white/40 text-[13px] font-medium mb-6">Final price scoped to your needs</p>
+
+                  <div className="space-y-3">
+                    {[
+                      "Up to 5 professionally designed pages",
+                      "Mobile-first responsive design",
+                      "Contact form & WhatsApp integration",
+                      "Basic SEO setup & Google indexing",
+                      "30 days post-launch support",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                          style={{ background: "rgba(251,191,36,0.2)" }}>
+                          <CheckCircle2 size={10} strokeWidth={2.5} className="text-amber-300" />
+                        </div>
+                        <span className="text-white/70 text-[13px] font-medium leading-snug">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust note */}
+              <div className="flex items-center gap-3 px-5 py-3.5 rounded-xl"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <Sparkles size={14} strokeWidth={2} className="text-amber-400 flex-shrink-0" />
+                <p className="text-white/50 text-[12.5px] font-medium leading-snug">
+                  Built to grow with you — upgrade to any package at any time.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COMPARISON STRIP
+// ═══════════════════════════════════════════════════════════════════════════════
 function ComparisonStrip() {
   const [ref, inView] = useVisible();
   return (
@@ -342,9 +527,9 @@ function ComparisonStrip() {
                 <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-white/20 flex items-center justify-center transition-colors"><Icon size={18} strokeWidth={2} className="text-white" /></div>
                 <div>
                   <p className="text-white font-black text-[14px] uppercase tracking-wide">{pkg.name}</p>
-                  <p className="text-white/40 text-[14px] font-medium mt-0.5">{pkg.price}</p>
+                  <p className="text-white/40 text-[11px] font-medium mt-0.5">{pkg.timeline}</p>
                 </div>
-                {pkg.popular && <span className="px-2.5 py-0.5 bg-white text-[#000066] text-[14px] font-black uppercase tracking-widest rounded-full">Popular</span>}
+                {pkg.popular && <span className="px-2.5 py-0.5 bg-white text-[#000066] text-[11px] font-black uppercase tracking-widest rounded-full">Popular</span>}
               </motion.a>
             );
           })}
@@ -354,6 +539,9 @@ function ComparisonStrip() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// PACKAGE SECTION
+// ═══════════════════════════════════════════════════════════════════════════════
 function PackageSection({ pkg, index }) {
   const [ref, inView] = useVisible("-40px");
   const [featuresOpen, setFeaturesOpen] = useState(false);
@@ -369,10 +557,11 @@ function PackageSection({ pkg, index }) {
             {pkg.popular && (
               <div className="absolute top-4 right-6 flex items-center gap-1.5 px-3 py-1.5 rounded-full z-10" style={{ background: pkg.color }}>
                 <Star size={10} strokeWidth={2.5} className="fill-white text-white" />
-                <span className="text-white text-[14px] font-black uppercase tracking-widest">Most Popular</span>
+                <span className="text-white text-[11px] font-black uppercase tracking-widest">Most Popular</span>
               </div>
             )}
-            <div className="grid lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_380px] gap-0">
+            <div className="grid lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px] gap-0">
+              {/* LEFT */}
               <div className="p-8 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-gray-100">
                 <div className="flex items-center gap-4 mb-7">
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: `${pkg.color}12` }}><Icon size={22} strokeWidth={1.75} style={{ color: pkg.color }} /></div>
@@ -387,29 +576,26 @@ function PackageSection({ pkg, index }) {
                 <div className="mb-7">
                   <p className="text-[14px] font-black tracking-[0.22em] uppercase text-gray-300 mb-2.5">Layers Activated</p>
                   <div className="flex flex-wrap gap-2">
-                    {pkg.layers.map((l, i) => <span key={i} className="px-3 py-1 text-[14px] font-bold rounded-full border" style={{ borderColor: `${pkg.color}30`, color: pkg.color, background: `${pkg.color}08` }}>{l}</span>)}
+                    {pkg.layers.map((l, i) => <span key={i} className="px-3 py-1 text-[11.5px] font-bold rounded-full border" style={{ borderColor: `${pkg.color}30`, color: pkg.color, background: `${pkg.color}08` }}>{l}</span>)}
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-xl border-l-[3px]" style={{ background: `${pkg.color}06`, borderLeftColor: pkg.color }}>
                   <Target size={14} strokeWidth={2.5} style={{ color: pkg.color }} className="flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[14px] font-black uppercase tracking-[0.2em] text-gray-400 mb-0.5">Best For</p>
-                    <p className="text-gray-800 text-[15px] font-bold">{pkg.bestFor}</p>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 mb-0.5">Best For</p>
+                    <p className="text-gray-800 text-[14px] font-bold">{pkg.bestFor}</p>
                   </div>
                 </div>
               </div>
+
+              {/* RIGHT */}
               <div className="p-8 sm:p-10 flex flex-col gap-5 bg-[#fafbff]">
-                <div>
-                  <p className="text-[14px] font-black tracking-[0.22em] uppercase text-gray-300 mb-2">{pkg.isEnterprise ? "Investment" : "Base Package"}</p>
-                  <p className="font-black text-[#000080] leading-none mb-1" style={{ fontSize: pkg.isEnterprise ? "1.75rem" : "2.4rem" }} itemProp="price">{pkg.price}</p>
-                  <p className="text-gray-400 text-[12.5px] font-medium leading-snug">{pkg.priceNote}</p>
-                </div>
                 <div className="flex items-center gap-2 pb-5 border-b border-gray-100">
                   <Clock size={13} strokeWidth={2.5} className="text-gray-300 flex-shrink-0" />
-                  <span className="text-gray-600 text-[15px] font-semibold">Timeline: {pkg.timeline}</span>
+                  <span className="text-gray-600 text-[14px] font-semibold">Timeline: <span className="font-black text-[#000080]">{pkg.timeline}</span></span>
                 </div>
                 <div>
-                  <p className="text-[14px] font-black tracking-[0.22em] uppercase text-gray-300 mb-3">Expected Outcomes</p>
+                  <p className="text-[11px] font-black tracking-[0.22em] uppercase text-gray-300 mb-3">Expected Outcomes</p>
                   <div className="space-y-2">
                     {pkg.outcomes.map((o, i) => (
                       <div key={i} className="flex items-start gap-2.5">
@@ -420,24 +606,26 @@ function PackageSection({ pkg, index }) {
                   </div>
                 </div>
                 <div className="space-y-2.5 mt-auto pt-2">
-                  <Link href={pkg.isEnterprise ? "/contact/proposal" : "/contact/project"} className="group flex items-center justify-between w-full px-5 py-4 text-white font-black text-[15px] uppercase tracking-wide rounded-xl transition-all duration-200" style={{ background: `linear-gradient(135deg,${pkg.color} 0%,${pkg.color}dd 100%)`, boxShadow: `0 6px 20px ${pkg.color}28` }}>
+                  <Link href={pkg.isEnterprise ? "/contact/proposal" : "/contact/project"} className="group flex items-center justify-between w-full px-5 py-4 text-white font-black text-[13px] uppercase tracking-wide rounded-xl transition-all duration-200" style={{ background: `linear-gradient(135deg,${pkg.color} 0%,${pkg.color}dd 100%)`, boxShadow: `0 6px 20px ${pkg.color}28` }}>
                     <span>{pkg.isEnterprise ? "Request a Proposal" : "Get Started"}</span>
                     <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0"><ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" /></span>
                   </Link>
-                  <Link href="/contact/call" className="flex items-center justify-center gap-2 w-full py-3 border border-gray-200 hover:border-[#000066]/25 bg-white hover:bg-[#000066]/3 text-gray-600 hover:text-[#000066] font-bold text-[12.5px] uppercase tracking-wide rounded-xl transition-all duration-200">
+                  <Link href="/contact/call" className="flex items-center justify-center gap-2 w-full py-3 border border-gray-200 hover:border-[#000066]/25 bg-white hover:bg-[#000066]/3 text-gray-600 hover:text-[#000066] font-bold text-[12px] uppercase tracking-wide rounded-xl transition-all duration-200">
                     <CalendarCheck size={13} strokeWidth={2} />Book a Strategy Call
                   </Link>
                 </div>
               </div>
             </div>
+
+            {/* FEATURES ACCORDION */}
             <div className="border-t border-gray-100">
               <button onClick={() => setFeaturesOpen(v => !v)} className="w-full flex items-center justify-between px-8 sm:px-10 lg:px-12 py-5 hover:bg-gray-50/50 transition-colors group">
                 <div className="flex items-center gap-3">
                   <div className="w-1 h-4 rounded-full" style={{ background: pkg.color }} />
-                  <p className="text-[14px] font-black uppercase tracking-[0.18em] text-gray-700 group-hover:text-[#000080] transition-colors">What's Included <span className="ml-2 font-semibold text-gray-400 normal-case tracking-normal">({pkg.features.length} deliverables)</span></p>
+                  <p className="text-[11.5px] font-black uppercase tracking-[0.18em] text-gray-700 group-hover:text-[#000080] transition-colors">What's Included <span className="ml-2 font-semibold text-gray-400 normal-case tracking-normal">({pkg.features.length} deliverables)</span></p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[14px] font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{featuresOpen ? "Collapse" : "Expand all"}</span>
+                  <span className="text-[13px] font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{featuresOpen ? "Collapse" : "Expand all"}</span>
                   <ChevronDown size={15} strokeWidth={2.5} className={`text-gray-300 group-hover:text-gray-500 transition-all duration-300 ${featuresOpen ? "rotate-180" : ""}`} />
                 </div>
               </button>
@@ -449,7 +637,7 @@ function PackageSection({ pkg, index }) {
                         <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05, duration: 0.4, ease }} className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all duration-200">
                           <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${pkg.color}15` }}><CheckCircle2 size={12} strokeWidth={2.5} style={{ color: pkg.color }} /></div>
                           <div>
-                            <p className="text-gray-800 text-[15px] font-bold leading-snug">{f.label}</p>
+                            <p className="text-gray-800 text-[13px] font-bold leading-snug">{f.label}</p>
                             {f.note && <p className="text-gray-400 text-[11.5px] mt-0.5 leading-snug font-medium">{f.note}</p>}
                           </div>
                         </motion.div>
@@ -476,11 +664,14 @@ function PackageSection({ pkg, index }) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// FAQ
+// ═══════════════════════════════════════════════════════════════════════════════
 function FAQSection() {
   const [open, setOpen] = useState(null);
   const [ref, inView] = useVisible();
   return (
-    <section className="bg-white py-24 lg:py-32" aria-labelledby="faq-heading" itemScope itemType="https://schema.org/FAQPage" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+    <section className="bg-white py-24 lg:py-32" aria-labelledby="faq-heading" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
           <Reveal className="lg:sticky lg:top-28">
@@ -489,19 +680,19 @@ function FAQSection() {
               Frequently<br /><span style={{ background: "linear-gradient(135deg,#0818A8,#2563EB)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Asked</span>
             </h2>
             <p className="text-gray-500 text-[15px] leading-relaxed mb-7">Everything you need to know before getting started.</p>
-            <Link href="/contact" className="inline-flex items-center gap-2 text-[#0818A8] font-black text-[14px] uppercase tracking-wide hover:opacity-70 transition-opacity">Ask us directly <ArrowRight size={12} strokeWidth={3} /></Link>
+            <Link href="/contact" className="inline-flex items-center gap-2 text-[#0818A8] font-black text-[13px] uppercase tracking-wide hover:opacity-70 transition-opacity">Ask us directly <ArrowRight size={12} strokeWidth={3} /></Link>
           </Reveal>
           <motion.div ref={ref} className="space-y-2">
             {FAQS.map((faq, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.07, ease }} className="border border-gray-100 rounded-xl overflow-hidden" itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.07, ease }} className="border border-gray-100 rounded-xl overflow-hidden">
                 <button onClick={() => setOpen(open === i ? null : i)} className={`w-full flex items-center justify-between px-6 py-4 text-left transition-all duration-200 ${open === i ? "bg-[#000066]" : "bg-white hover:bg-gray-50"}`}>
-                  <span className={`font-bold text-[15px] pr-4 ${open === i ? "text-white" : "text-gray-800"}`} itemProp="name">{faq.q}</span>
+                  <span className={`font-bold text-[14px] pr-4 ${open === i ? "text-white" : "text-gray-800"}`}>{faq.q}</span>
                   <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${open === i ? "bg-white/15 rotate-180" : "bg-gray-100"}`}><ChevronDown size={13} strokeWidth={2.5} className={open === i ? "text-white" : "text-gray-400"} /></div>
                 </button>
                 <AnimatePresence initial={false}>
                   {open === i && (
-                    <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} transition={{ duration: 0.3, ease }} className="overflow-hidden" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                      <div className="px-6 py-4 bg-gray-50 border-t border-gray-100"><p className="text-gray-600 text-[15px] leading-relaxed" itemProp="text">{faq.a}</p></div>
+                    <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} transition={{ duration: 0.3, ease }} className="overflow-hidden">
+                      <div className="px-6 py-4 bg-gray-50 border-t border-gray-100"><p className="text-gray-600 text-[14px] leading-relaxed">{faq.a}</p></div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -514,6 +705,9 @@ function FAQSection() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// PACKAGES CTA
+// ═══════════════════════════════════════════════════════════════════════════════
 function PackagesCTA() {
   const [ref, inView] = useVisible();
   return (
@@ -526,12 +720,12 @@ function PackagesCTA() {
             <div className="p-10 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/10">
               <p className="text-blue-300 text-[14px] font-black tracking-[0.28em] uppercase mb-6 flex items-center gap-2"><Layers size={11} strokeWidth={2.5} /> Ready to Build in Layers?</p>
               <h2 id="pkg-cta-heading" className="font-black text-white uppercase leading-[0.9] tracking-tight mb-6" style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}>Not Sure<br />Which<br />Package?</h2>
-              <p className="text-white/50 text-[16px] leading-relaxed max-w-xs mb-8">Book a free 30-minute strategy call. No pitch. Just clarity on your biggest digital challenge and which layers to activate.</p>
-              <div className="flex items-center gap-2 text-white/25 text-[14px]"><Phone size={12} strokeWidth={2} /><span>+234 802 540 1891 · Gwarinpa, Abuja</span></div>
+              <p className="text-white/50 text-[15px] leading-relaxed max-w-xs mb-8">Book a free 30-minute strategy call. No pitch. Just clarity on your biggest digital challenge and which layers to activate.</p>
+              <div className="flex items-center gap-2 text-white/25 text-[13px]"><Phone size={12} strokeWidth={2} /><span>+234 802 540 1891 · Gwarinpa, Abuja</span></div>
             </div>
             <div className="p-10 sm:p-12 lg:p-16 flex flex-col gap-4">
               {[
-                { icon: CalendarCheck, label: "Book a Strategy Call", desc: "30 mins with a senior BitLayerX strategist. Free.", href: "/contact/call", primary: true },
+                { icon: CalendarCheck, label: "Book a Strategy Call", desc: "30 mins with a BitLayerX strategist. Free.", href: "/contact/call", primary: true },
                 { icon: Rocket, label: "Start a Project", desc: "Tell us what you're building. We'll define your layers.", href: "/contact/project", primary: false },
                 { icon: Send, label: "Request a Proposal", desc: "Know what you need? Get a tailored proposal in 48hrs.", href: "/contact/proposal", primary: false },
               ].map((action, i) => {
@@ -541,8 +735,8 @@ function PackagesCTA() {
                     <Link href={action.href} className={`group flex items-center gap-4 p-5 rounded-xl transition-all duration-200 ${action.primary ? "bg-white hover:bg-white/95" : "bg-white/8 hover:bg-white/14 border border-white/10"}`} style={action.primary ? { boxShadow: "0 4px 16px rgba(0,0,80,0.2)" } : {}}>
                       <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${action.primary ? "bg-[#000066]/8" : "bg-white/10"}`}><Icon size={18} strokeWidth={2} className={action.primary ? "text-[#000066]" : "text-white"} /></div>
                       <div className="flex-1 min-w-0">
-                        <p className={`font-black text-[15px] uppercase tracking-wide mb-0.5 ${action.primary ? "text-[#000066]" : "text-white"}`}>{action.label}</p>
-                        <p className={`text-[14px] leading-snug ${action.primary ? "text-gray-500" : "text-white/40"}`}>{action.desc}</p>
+                        <p className={`font-black text-[14px] uppercase tracking-wide mb-0.5 ${action.primary ? "text-[#000066]" : "text-white"}`}>{action.label}</p>
+                        <p className={`text-[12px] leading-snug ${action.primary ? "text-gray-500" : "text-white/40"}`}>{action.desc}</p>
                       </div>
                       <ArrowRight size={14} strokeWidth={2.5} className={`flex-shrink-0 group-hover:translate-x-0.5 transition-transform ${action.primary ? "text-[#000066]" : "text-white/40"}`} />
                     </Link>
@@ -557,14 +751,18 @@ function PackagesCTA() {
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// PAGE ROOT
+// ═══════════════════════════════════════════════════════════════════════════════
 export default function PackagesPage() {
   return (
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="stylesheet" href={FONT_URL} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "Packages — BitLayerX", description: "Five strategic digital packages from BitLayerX.", url: "https://bitlayerx.com/packages", publisher: { "@type": "Organization", name: "BitLayerX", url: "https://bitlayerx.com" }, mainEntity: { "@type": "FAQPage", mainEntity: FAQS.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) } }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "Packages — BitLayerX", description: "Five strategic digital packages from BitLayerX.", url: "https://bitlayerx.org/packages", publisher: { "@type": "Organization", name: "BitLayerX", url: "https://bitlayerx.org" } }) }} />
       <main id="main-content" itemScope itemType="https://schema.org/WebPage" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         <PackagesHero />
+        <WebsitePromo />
         <ComparisonStrip />
         {PACKAGES.map((pkg, i) => <PackageSection key={pkg.id} pkg={pkg} index={i} />)}
         <FAQSection />
