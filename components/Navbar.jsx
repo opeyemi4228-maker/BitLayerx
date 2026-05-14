@@ -67,32 +67,6 @@ const NAV_ITEMS = [
     {
     label: "About",
     href: "/about",
-    dropdown: [
-      {
-        label: "Company Overview",
-        href: "/about",
-        icon: Building2,
-        desc: "Who we are & what we stand for",
-      },
-      {
-        label: "Our Philosophy",
-        href: "/about/philosophy",
-        icon: Lightbulb,
-        desc: "The layered thinking behind everything",
-      },
-      {
-        label: "Leadership & Team",
-        href: "/about/team",
-        icon: Users,
-        desc: "The people driving innovation",
-      },
-      {
-        label: "Why BitLayerX",
-        href: "/about/why",
-        icon: HeartHandshake,
-        desc: "What makes us different",
-      },
-    ],
   },
   {
     label: "Services",
@@ -110,26 +84,6 @@ const NAV_ITEMS = [
   {
     label: "Contact",
     href: "/contact",
-    dropdown: [
-      {
-        label: "Start a Project",
-        href: "/contact/project",
-        icon: Rocket,
-        desc: "Tell us what you're building",
-      },
-      {
-        label: "Book a Call",
-        href: "/contact/call",
-        icon: CalendarCheck,
-        desc: "Schedule a strategy session",
-      },
-      {
-        label: "Request Proposal",
-        href: "/contact/proposal",
-        icon: Send,
-        desc: "Get a tailored proposal",
-      },
-    ],
   },
 ];
 
