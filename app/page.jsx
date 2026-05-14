@@ -17,7 +17,7 @@ import HomeProducts from "@/components/HomeProducts";
 import Banner from "@/components/Banner";
 import NewsLetter from "@/components/NewsLetter";
 import FeaturedProduct from "@/components/FeaturedProduct";
-import Corporate from "@/components/Corporate";
+
 import Divide from "@/components/Divide";
 import Overlay from "@/components/Overlay";
 import Check from "@/components/Check";
@@ -1028,7 +1028,7 @@ export default function BitLayerxHomePage() {
       <HomeProducts />
      
       <Divide />
-      <Corporate />
+ 
       <Banner />
       <NewsLetter />
      

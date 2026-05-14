@@ -1,40 +1,20 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
-  ArrowRight,
-  BarChart3,
-  TrendingUp,
-  Zap,
-  Users,
-  ShieldCheck,
-  Globe,
-  Video,
-  ExternalLink,
-  Landmark,
-  Truck,
-  Home,
-  ShoppingCart,
-  Factory,
-  ChevronRight,
-  Award,
-  Target,
-  Layers,
+  ArrowRight, GitMerge, Layers, BarChart3, ShieldCheck,
+  TrendingUp, Users, Award, Target, CheckCircle2, Play,
+  Film, Megaphone, Sparkles, Eye, ChevronRight, Zap, Globe, Video,
 } from "lucide-react";
 
-// ─── Animation helpers ────────────────────────────────────────────────────────
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const stagger = (d = 0.11) => ({
+const stagger = (d = 0.1) => ({
   hidden: {},
   show: { transition: { staggerChildren: d } },
 });
@@ -43,591 +23,311 @@ function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-70px" });
   return (
-    <motion.div
-      ref={ref}
-      initial={{
-        opacity: 0,
-        y: direction === "up" ? 28 : direction === "down" ? -28 : 0,
-        x: direction === "left" ? 28 : direction === "right" ? -28 : 0,
-      }}
+    <motion.div ref={ref}
+      initial={{ opacity: 0, y: direction === "up" ? 28 : direction === "down" ? -28 : 0, x: direction === "left" ? 28 : direction === "right" ? -28 : 0 }}
       animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
+      className={className}>
       {children}
     </motion.div>
   );
 }
 
-// ─── Case Studies Data ────────────────────────────────────────────────────────
-const CASE_STUDIES = [
-  {
-    index: "01",
-    tag: "E-commerce · Branding · Performance Marketing",
-    industry: "E-commerce",
-    duration: "6 months",
-    title: "Scaling a Lagos Fashion Label to ₦120M Annual Revenue",
-    description:
-      "A homegrown fashion brand had exceptional products but zero digital authority. We rebuilt their brand identity, launched a custom e-commerce platform, and executed a 6-month performance marketing campaign — turning them into one of Lagos's most recognised online labels.",
-    layers: ["Brand", "Technology", "Growth"],
-    metrics: [
-      { value: "₦120M", label: "Revenue Generated",        icon: BarChart3  },
-      { value: "340%",  label: "Organic Traffic Increase",  icon: TrendingUp },
-      { value: "4.2×",  label: "Return on Ad Spend",        icon: Zap        },
-    ],
-    accentColor: "#0818A8",
-  },
-  {
-    index: "02",
-    tag: "Fintech · UI/UX · Software Engineering",
-    industry: "Fintech",
-    duration: "4 months",
-    title: "Building a CBN-Compliant Payments Platform for 50,000+ Users",
-    description:
-      "A Nigerian fintech startup needed a scalable, regulation-compliant payments infrastructure and consumer mobile app — built from scratch and shipped to production in under four months, handling thousands of daily transactions.",
-    layers: ["Strategy", "Experience", "Technology"],
-    metrics: [
-      { value: "50K+",    label: "Active Users at Launch", icon: Users      },
-      { value: "99.9%",   label: "Platform Uptime",        icon: ShieldCheck },
-      { value: "14 Days", label: "MVP to Live",            icon: Zap        },
-    ],
-    accentColor: "#1D4ED8",
-  },
-  {
-    index: "03",
-    tag: "Real Estate · Brand Identity · Commercial Video",
-    industry: "Real Estate",
-    duration: "3 months",
-    title: "Positioning an Abuja Property Group as the Premium Market Leader",
-    description:
-      "A real estate developer wanted to move upmarket and command premium pricing. We delivered a complete rebrand, three cinematic property films, and a luxury digital presence — resulting in a dramatic surge in high-value property enquiries.",
-    layers: ["Brand", "Media", "Experience"],
-    metrics: [
-      { value: "65%",   label: "Increase in Enquiries",       icon: TrendingUp },
-      { value: "₦2.1B", label: "Properties Sold Post-Launch", icon: BarChart3  },
-      { value: "3",     label: "Cinematic Brand Films",       icon: Video      },
-    ],
-    accentColor: "#000080",
-  },
-  {
-    index: "04",
-    tag: "Logistics · Software · AI Automation",
-    industry: "Logistics",
-    duration: "5 months",
-    title: "Automating Operations for a 200-Vehicle Fleet Company",
-    description:
-      "A logistics firm was drowning in manual coordination. We engineered a custom fleet management system with real-time GPS tracking, automated dispatch, client-facing portals, and AI-powered route optimisation — cutting costs nearly in half.",
-    layers: ["Strategy", "Technology", "Growth"],
-    metrics: [
-      { value: "47%",   label: "Operational Cost Reduction",  icon: BarChart3 },
-      { value: "200+",  label: "Vehicles Managed Real-Time",  icon: Globe     },
-      { value: "30 hrs", label: "Saved Per Week",             icon: Zap       },
-    ],
-    accentColor: "#0369A1",
-  },
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+const DIFFERENTIATORS = [
+  { icon: GitMerge,   title: "We Build Systems, Not Silos",         description: "Most agencies deliver one piece of the puzzle. BitLayerX architects the entire ecosystem — every layer engineered to integrate with and amplify the others.",       highlight: "One system. Six layers. Zero gaps."          },
+  { icon: Layers,     title: "Strategy Before Execution",           description: "We never start with design or development. We start with strategy — your market position, your audience, and your growth trajectory come first.",                   highlight: "Every decision is deliberate."               },
+  { icon: BarChart3,  title: "Measured in Revenue, Not Deliverables", description: "We don't celebrate outputs. We celebrate outcomes. Every engagement is tracked against real business metrics — leads, conversions, and growth.",               highlight: "Results that show up in your bank account."  },
+  { icon: ShieldCheck,title: "Built for the Long Term",             description: "Everything we create — your website, your brand, your tech — is engineered to compound in value over time. Digital assets, not decorations.",                       highlight: "Infrastructure that grows with you."         },
 ];
 
-// ─── Industries Data ──────────────────────────────────────────────────────────
-const INDUSTRIES = [
-  {
-    icon: Landmark,
-    label: "Fintech",
-    href: "/industries/fintech",
-    description:
-      "CBN-compliant platforms, payment infrastructure, investment apps, and digital banking experiences built for scale and security.",
-    stats: ["Payment platforms", "Investment apps", "KYC & compliance systems"],
-    color: "#0818A8",
-  },
-  {
-    icon: Truck,
-    label: "Logistics",
-    href: "/industries/logistics",
-    description:
-      "Fleet management systems, real-time tracking platforms, dispatch automation, and supply chain visibility tools.",
-    stats: ["Fleet management", "Route optimisation", "Client portals"],
-    color: "#1D4ED8",
-  },
-  {
-    icon: Home,
-    label: "Real Estate",
-    href: "/industries/real-estate",
-    description:
-      "Property listing platforms, developer brand identities, cinematic project videos, and lead-generation marketing systems.",
-    stats: ["Property platforms", "Brand & video", "Lead generation"],
-    color: "#000080",
-  },
-  {
-    icon: ShoppingCart,
-    label: "E-commerce",
-    href: "/industries/ecommerce",
-    description:
-      "High-conversion online stores, marketplace platforms, performance marketing campaigns, and abandoned cart automation.",
-    stats: ["Custom storefronts", "Performance ads", "Cart automation"],
-    color: "#2563EB",
-  },
-  {
-    icon: Factory,
-    label: "Corporate & Enterprise",
-    href: "/industries/enterprise",
-    description:
-      "Enterprise web platforms, internal systems, ERP integrations, brand governance, and long-term digital transformation partnerships.",
-    stats: ["Enterprise platforms", "ERP integrations", "Brand governance"],
-    color: "#0369A1",
-  },
+const COMPARISONS = [
+  { label: "Design & Development aligned",   bitlayerx: true, others: false },
+  { label: "Brand & Marketing unified",      bitlayerx: true, others: false },
+  { label: "Strategy before execution",      bitlayerx: true, others: false },
+  { label: "Single point of accountability", bitlayerx: true, others: false },
+  { label: "Revenue-focused reporting",      bitlayerx: true, others: false },
+  { label: "Layered digital ecosystem",      bitlayerx: true, others: false },
 ];
 
-// ─── FEATURED WORK ────────────────────────────────────────────────────────────
-function FeaturedWork() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+const MEDIA_ITEMS = [
+  { id: "brand-film",      category: "Brand Film",       title: "Redefining a Lagos Fashion Label",            description: "A cinematic brand story that drove significant traffic growth and revenue impact.",       duration: "2:45", icon: Film,     stats: [{ value: "4.2M",  label: "Views" }, { value: "High", label: "Revenue Impact" }], gradient: "from-[#000080] via-[#0818A8] to-[#1D4ED8]", color: "#0818A8" },
+  { id: "ad-campaign",    category: "Performance Ad",   title: "Fintech Product Launch Campaign",             description: "A high-impact 30-second ad that generated 50,000 app signups in the first month.",      duration: "0:30", icon: Megaphone, stats: [{ value: "50K+", label: "App Signups" }, { value: "6.8×", label: "ROAS" }],         gradient: "from-[#0369A1] via-[#0818A8] to-[#1D4ED8]", color: "#1D4ED8" },
+  { id: "property-film",  category: "Commercial Video", title: "Luxury Real Estate Developer Film",           description: "Three premium property films that repositioned a developer as Abuja's market leader.",   duration: "3:12", icon: Eye,       stats: [{ value: "65%",   label: "More Enquiries" }, { value: "Top", label: "Market Position" }],  gradient: "from-[#000080] via-[#00005a] to-[#0369A1]", color: "#000080" },
+  { id: "social-campaign",category: "Social Campaign",  title: "E-commerce Brand Awareness Series",           description: "A 12-part content series that built a 250K following and doubled monthly revenue.",      duration: "0:45", icon: Sparkles,  stats: [{ value: "250K", label: "New Followers" }, { value: "2×",   label: "Monthly Revenue" }], gradient: "from-[#0818A8] via-[#000080] to-[#0369A1]", color: "#0369A1" },
+];
+
+const MEDIA_CAPABILITIES = [
+  { icon: Film,     label: "Brand Films",      desc: "Cinematic stories that define your brand and captivate audiences across every platform." },
+  { icon: Megaphone,label: "Performance Ads",  desc: "High-converting ad creatives built for Meta, Google, YouTube & TikTok campaigns."       },
+  { icon: Sparkles, label: "Social Content",   desc: "Monthly content production that keeps your brand dominant, relevant, and growing."        },
+];
+
+// ─── WHY BITLAYERX ────────────────────────────────────────────────────────────
+function WhyBitLayerX() {
+  const listRef = useRef(null);
+  const listInView = useInView(listRef, { once: true, margin: "-80px" });
 
   return (
-    <section
-      className="bg-[#04040e] py-24 lg:py-32 overflow-hidden relative"
-      aria-labelledby="work-heading"
-      itemScope
-      itemType="https://schema.org/CreativeWork"
-    >
-      {/* Grid texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
+    <section className="bg-white py-24 lg:py-32 overflow-hidden" aria-labelledby="why-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
+          <FadeIn direction="right">
+            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+              <Target size={13} strokeWidth={2.5} /> The BitLayerX Difference
+            </p>
+            <h2 id="why-heading" className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#000080] uppercase leading-[0.92] tracking-tight">
+              WHY<br /><span className="text-[#0818A8]">BITLAYERX</span>
+            </h2>
+          </FadeIn>
+          <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
+            <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
+              Most agencies operate in silos. BitLayerX operates in layers —
+              every discipline integrated, every outcome compounding.
+            </p>
+          </FadeIn>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          {/* Left — differentiator cards */}
+          <motion.div ref={listRef} variants={stagger(0.12)} initial="hidden" animate={listInView ? "show" : "hidden"} className="space-y-4">
+            {DIFFERENTIATORS.map((d, i) => {
+              const Icon = d.icon;
+              return (
+                <motion.div key={i} variants={fadeUp}
+                  className="group flex gap-5 p-7 bg-gray-50 hover:bg-white border border-transparent hover:border-[#000080]/10 hover:shadow-xl hover:shadow-[#000080]/5 transition-all duration-300 cursor-default">
+                  <div className="w-11 h-11 rounded-xl bg-[#000080]/8 group-hover:bg-[#000080]/14 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-300">
+                    <Icon size={20} strokeWidth={2} className="text-[#0818A8]" />
+                  </div>
+                  <div>
+                    <h3 className="text-[17px] font-black text-[#000080] uppercase tracking-tight mb-2">{d.title}</h3>
+                    <p className="text-black/80 text-[17px] leading-relaxed mb-3">{d.description}</p>
+                    <p className="text-[15px] font-black tracking-wide text-[#0818A8] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">→ {d.highlight}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Right — comparison + quote + CTA */}
+          <div className="space-y-8">
+
+            {/* Comparison table */}
+            <FadeIn delay={0.2} direction="left">
+              <div className="border border-gray-100 overflow-hidden shadow-lg shadow-gray-100/80">
+                <div className="grid grid-cols-3 bg-[#000080] px-6 py-4">
+                  <div />
+                  <p className="text-center text-white font-black text-[16px] uppercase tracking-widest">BitLayerX</p>
+                  <p className="text-center text-white/40 font-bold text-[16px] uppercase tracking-widest">Typical Agency</p>
+                </div>
+                {COMPARISONS.map((row, i) => (
+                  <div key={i} className={`grid grid-cols-3 px-6 py-4 items-center border-b border-gray-50 last:border-b-0 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
+                    <p className="text-black/80 text-[16px] font-semibold pr-4">{row.label}</p>
+                    <div className="flex justify-center">
+                      <div className="w-6 h-6 rounded-full bg-[#000080]/10 flex items-center justify-center">
+                        <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#000080]" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center">
+                      <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                        <span className="text-gray-300 text-[17px] font-black leading-none">✕</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* Quote block */}
+            <FadeIn delay={0.3} direction="left">
+              <div className="relative p-8 bg-[#04040e] overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[3px]"
+                  style={{ background: "linear-gradient(90deg, #0818A8 0%, #2563EB 50%, #0818A8 100%)" }} />
+                <div className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/5 select-none" aria-hidden="true">"</div>
+                <p className="text-white/80 text-[17px] lg:text-[16px] leading-relaxed font-medium mb-6 relative z-10">
+                  "Everything is a layer, and every layer must work perfectly together. We don't build websites, apps, or campaigns — we build the digital systems that power modern business success."
+                </p>
+                <div className="flex items-center gap-3 relative z-10">
+                  <div className="w-9 h-9 rounded-full bg-[#0818A8] flex items-center justify-center">
+                    <Layers size={16} strokeWidth={2} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-white font-black text-[17px]">BitLayerX</p>
+                    <p className="text-white/30 text-[15px] font-medium">Digital Technology & Creative Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* CTAs */}
+            <FadeIn delay={0.4} direction="left">
+              <div className="flex items-center gap-3 flex-wrap">
+                <Link href="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group">
+                  Why Clients Choose Us
+                  <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <Link href="/contact/project"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#000080]/20 text-[#000080] font-bold text-[17px] rounded-xl hover:border-[#000080]/40 hover:bg-[#000080]/4 transition-all duration-200">
+                  Start a Project
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── VIDEO CARD ───────────────────────────────────────────────────────────────
+function VideoCard({ item }) {
+  const [hovered, setHovered] = useState(false);
+  const Icon = item.icon;
+  return (
+    <motion.div variants={fadeUp} className="group relative overflow-hidden cursor-pointer"
+      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      role="article" aria-label={item.title}>
+      <div className={`relative bg-gradient-to-br ${item.gradient} overflow-hidden`} style={{ aspectRatio: "16/9" }}>
+        <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+          <svg width="100%" height="100%" aria-hidden="true">
+            <defs>
+              <pattern id={`vh-${item.id}`} x="0" y="0" width="40" height="35" patternUnits="userSpaceOnUse">
+                <path d="M20 0 L37.3 10 L37.3 25 L20 35 L2.7 25 L2.7 10 Z" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill={`url(#vh-${item.id})`} />
+          </svg>
+        </div>
+        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-3 py-1.5 bg-black/40 backdrop-blur-sm border border-white/10 rounded-full">
+          <Icon size={10} strokeWidth={2.5} className="text-white/80" />
+          <span className="text-white/80 text-[15px] font-black tracking-widest uppercase">{item.category}</span>
+        </div>
+        <div className="absolute top-3 right-3 z-10 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
+          <span className="text-white/60 text-[15px] font-bold">{item.duration}</span>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <motion.div animate={{ scale: hovered ? 1.12 : 1 }} transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center shadow-2xl">
+            <Play size={18} className="text-white ml-1" fill="currentColor" strokeWidth={0} />
+          </motion.div>
+        </div>
+        <motion.div animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-black/25 z-[5]" />
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-10 bg-gradient-to-t from-black/60 to-transparent">
+          <div className="flex items-center gap-5">
+            {item.stats.map((s, j) => (
+              <div key={j} className="flex items-baseline gap-1">
+                <span className="text-white font-black text-[17px]">{s.value}</span>
+                <span className="text-white/45 text-[15px] font-semibold">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="p-5 bg-white border-t border-gray-50 group-hover:bg-gray-50/80 transition-colors duration-200">
+        <h3 className="text-[17px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-1.5">{item.title}</h3>
+        <p className="text-black/80 text-[16px] leading-relaxed mb-3">{item.description}</p>
+        <div className="flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: item.color }}>
+          View Project <ChevronRight size={12} strokeWidth={3} />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ─── MEDIA SHOWCASE ───────────────────────────────────────────────────────────
+function MediaShowcase() {
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
+
+  return (
+    <section className="bg-[#04040e] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="media-heading">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.025]">
         <svg width="100%" height="100%" aria-hidden="true">
-          <defs>
-            <pattern id="work-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(99,149,255,1)" strokeWidth="0.8" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#work-grid)" />
+          <defs><pattern id="media-diag" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><line x1="0" y1="60" x2="60" y2="0" stroke="white" strokeWidth="0.5" /></pattern></defs>
+          <rect width="100%" height="100%" fill="url(#media-diag)" />
         </svg>
       </div>
-
-      {/* Top accent line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.5) 30%, rgba(99,149,255,0.8) 50%, rgba(59,130,246,0.5) 70%, transparent 100%)",
-        }}
-      />
+      <div className="absolute top-0 right-[10%] w-[500px] h-[500px] pointer-events-none rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)" }} />
+      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.5) 30%, rgba(99,149,255,0.8) 50%, rgba(59,130,246,0.5) 70%, transparent 100%)" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-
-        {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
             <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
-              <Award size={13} strokeWidth={2.5} />
-              Proof of Execution
+              <Film size={13} strokeWidth={2.5} /> Media Layer in Action
             </p>
-            <h2
-              id="work-heading"
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight"
-            >
-              FEATURED
-              <br />
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #60a5fa 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                WORK
+            <h2 id="media-heading" className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight">
+              COMMERCIALS<br />
+              <span style={{ background: "linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #60a5fa 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                &amp; MEDIA
               </span>
             </h2>
           </FadeIn>
-
           <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
             <p className="text-white/35 text-[16px] leading-relaxed mb-5 lg:text-right">
-              Results over visuals. Every project is measured in business
-              impact — not aesthetics.
+              Nothing builds trust and drives action faster than great video. Every frame is engineered for impact.
             </p>
             <div className="lg:flex lg:justify-end">
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[16px] uppercase tracking-wide transition-colors group"
-              >
-                View All Projects
-                <ArrowRight
-                  size={13}
-                  strokeWidth={3}
-                  className="group-hover:translate-x-0.5 transition-transform"
-                />
+              <Link href="/services/video"
+                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[16px] uppercase tracking-wide transition-colors group">
+                Explore Media Services <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </FadeIn>
         </div>
 
-        {/* Case studies */}
-        <motion.div
-          ref={ref}
-          variants={stagger(0.13)}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          className="space-y-px"
-        >
-          {CASE_STUDIES.map((cs, i) => (
-            <motion.article
-              key={i}
-              variants={fadeUp}
-              className="group grid lg:grid-cols-2 min-h-[380px] lg:min-h-[420px]"
-              itemProp="workExample"
-            >
-              {/* Metrics panel */}
-              <div
-                className={`relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden ${
-                  i % 2 === 1 ? "lg:order-2" : ""
-                }`}
-                style={{
-                  background: `linear-gradient(135deg, ${cs.accentColor}f0 0%, ${cs.accentColor}cc 100%)`,
-                }}
-              >
-                {/* Dot pattern */}
-                <div
-                  className="absolute inset-0 opacity-[0.08] pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-                    backgroundSize: "28px 28px",
-                  }}
-                />
-
-                {/* Large index */}
-                <div
-                  className="absolute bottom-4 right-6 text-[100px] lg:text-[130px] font-black leading-none text-white/5 select-none pointer-events-none"
-                  aria-hidden="true"
-                >
-                  {cs.index}
-                </div>
-
-                <div className="relative z-10">
-                  {/* Tag */}
-                  <p className="text-white/60 text-[15px] font-bold tracking-[0.18em] uppercase mb-6">
-                    {cs.tag}
-                  </p>
-
-                  {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-3 sm:gap-5">
-                    {cs.metrics.map((m, j) => {
-                      const Icon = m.icon;
-                      return (
-                        <motion.div
-                          key={j}
-                          initial={{ opacity: 0, y: 16 }}
-                          animate={inView ? { opacity: 1, y: 0 } : {}}
-                          transition={{
-                            delay: 0.2 + i * 0.1 + j * 0.08,
-                            duration: 0.5,
-                          }}
-                          className="flex flex-col gap-2"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
-                            <Icon
-                              size={14}
-                              strokeWidth={2}
-                              className="text-white/80"
-                            />
-                          </div>
-                          <p className="text-white font-black text-[22px] sm:text-[28px] lg:text-[32px] leading-none">
-                            {m.value}
-                          </p>
-                          <p className="text-white/50 text-[15px] sm:text-[15px] font-semibold leading-tight">
-                            {m.label}
-                          </p>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Layer badges */}
-                <div className="relative z-10 mt-8 flex flex-wrap gap-2">
-                  {cs.layers.map((l, j) => (
-                    <span
-                      key={j}
-                      className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[15px] font-bold tracking-wider uppercase rounded-full"
-                    >
-                      {l} Layer
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Content panel */}
-              <div
-                className={`flex flex-col justify-between p-8 lg:p-12 bg-white group-hover:bg-gray-50/80 transition-colors duration-300 border-t lg:border-t-0 border-white/5 ${
-                  i % 2 === 1 ? "lg:order-1" : ""
-                }`}
-              >
-                <div>
-                  {/* Industry + duration */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <span
-                      className="px-3 py-1 text-[15px] font-black tracking-wider uppercase rounded-full"
-                      style={{
-                        backgroundColor: cs.accentColor + "12",
-                        color: cs.accentColor,
-                      }}
-                    >
-                      {cs.industry}
-                    </span>
-                    <span className="text-gray-200 text-[15px]">·</span>
-                    <span className="text-black/80 text-[15px] font-semibold">
-                      {cs.duration}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className="text-[19px] sm:text-[22px] lg:text-[24px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-5"
-                    itemProp="name"
-                  >
-                    {cs.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className="text-black/80 text-[17px] lg:text-[16px] leading-relaxed"
-                    itemProp="description"
-                  >
-                    {cs.description}
-                  </p>
-                </div>
-
-                {/* CTA */}
-                <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
-                  <Link
-                    href="/work"
-                    className="inline-flex items-center gap-2 font-black text-[16px] uppercase tracking-wide transition-colors group/link"
-                    style={{ color: cs.accentColor }}
-                  >
-                    View Case Study
-                    <ArrowRight
-                      size={13}
-                      strokeWidth={3}
-                      className="group-hover/link:translate-x-0.5 transition-transform"
-                    />
-                  </Link>
-                  <ExternalLink
-                    size={15}
-                    strokeWidth={1.5}
-                    className="text-gray-200"
-                  />
-                </div>
-              </div>
-            </motion.article>
-          ))}
+        <motion.div ref={gridRef} variants={stagger(0.1)} initial="hidden" animate={gridInView ? "show" : "hidden"} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+          {MEDIA_ITEMS.map((item) => <VideoCard key={item.id} item={item} />)}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <FadeIn className="text-center mt-14" delay={0.2}>
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group"
-          >
-            See All Case Studies
-            <ArrowRight
-              size={14}
-              strokeWidth={3}
-              className="group-hover:translate-x-0.5 transition-transform"
-            />
-          </Link>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-// ─── INDUSTRIES SECTION ───────────────────────────────────────────────────────
-function IndustriesSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [hovered, setHovered] = useState(null);
-
-  return (
-    <section
-      className="bg-white py-24 lg:py-32 overflow-hidden"
-      aria-labelledby="industries-heading"
-      itemScope
-      itemType="https://schema.org/ItemList"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
-          <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
-              <Target size={13} strokeWidth={2.5} />
-              Specialists, Not Generalists
-            </p>
-            <h2
-              id="industries-heading"
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#000080] uppercase leading-[0.92] tracking-tight"
-            >
-              INDUSTRIES
-              <br />
-              <span className="text-[#0818A8]">WE POWER</span>
-            </h2>
-          </FadeIn>
-
-          <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
-            <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
-              We don't work with everyone — we go deep in the industries where
-              our layered approach creates the most measurable impact.
-            </p>
-          </FadeIn>
-        </div>
-
-        {/* Industry cards */}
-        <motion.div
-          ref={ref}
-          variants={stagger(0.1)}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100"
-        >
-          {INDUSTRIES.map((ind, i) => {
-            const Icon = ind.icon;
-            const isHovered = hovered === i;
-
-            return (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-                className={`relative bg-white overflow-hidden transition-all duration-300 ${
-                  isHovered ? "shadow-2xl shadow-[#000080]/10 z-10" : ""
-                } ${i === 0 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-                itemProp="itemListElement"
-                itemScope
-                itemType="https://schema.org/Thing"
-              >
-                {/* Top accent bar */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-[3px] transition-transform duration-300 origin-left"
-                  style={{
-                    backgroundColor: ind.color,
-                    transform: isHovered ? "scaleX(1)" : "scaleX(0.3)",
-                    opacity: isHovered ? 1 : 0.4,
-                  }}
-                />
-
-                <Link href={ind.href} className="block p-8 lg:p-9 h-full group">
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"
-                    style={{
-                      backgroundColor: isHovered ? ind.color : ind.color + "12",
-                    }}
-                  >
-                    <Icon
-                      size={22}
-                      strokeWidth={1.75}
-                      className="transition-colors duration-300"
-                      style={{ color: isHovered ? "#fff" : ind.color }}
-                    />
+        <FadeIn delay={0.2} className="mt-14">
+          <div className="grid sm:grid-cols-3 gap-px bg-white/5 border border-white/5">
+            {MEDIA_CAPABILITIES.map((cap, i) => {
+              const Icon = cap.icon;
+              return (
+                <div key={i} className="flex items-start gap-4 p-6 bg-white/[0.03] hover:bg-white/[0.06] transition-colors duration-200">
+                  <div className="w-9 h-9 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon size={16} strokeWidth={2} className="text-blue-400" />
                   </div>
-
-                  {/* Label */}
-                  <p
-                    className="text-[15px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300"
-                    style={{ color: ind.color }}
-                    itemProp="name"
-                  >
-                    {ind.label}
-                  </p>
-
-                  {/* Description */}
-                  <p
-                    className="text-black/80 text-[17px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-black/80"
-                    itemProp="description"
-                  >
-                    {ind.description}
-                  </p>
-
-                  {/* Stat chips */}
-                  <ul className="space-y-2 mb-8">
-                    {ind.stats.map((s, j) => (
-                      <li key={j} className="flex items-center gap-2">
-                        <div
-                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: ind.color }}
-                        />
-                        <span className="text-black/80 text-[16px] font-semibold">
-                          {s}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <div
-                    className="flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide transition-all duration-300"
-                    style={{ color: isHovered ? ind.color : "#D1D5DB" }}
-                  >
-                    Explore
-                    <ChevronRight
-                      size={13}
-                      strokeWidth={3}
-                      className={`transition-transform duration-300 ${
-                        isHovered ? "translate-x-1" : ""
-                      }`}
-                    />
+                  <div>
+                    <p className="text-white font-black text-[17px] uppercase tracking-tight mb-1">{cap.label}</p>
+                    <p className="text-white/35 text-[16px] leading-relaxed">{cap.desc}</p>
                   </div>
-                </Link>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Industries CTA strip */}
-        <FadeIn delay={0.2}>
-          <div className="mt-px bg-gray-100 p-px">
-            <div className="bg-[#04040e] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Layers size={18} strokeWidth={2} className="text-blue-400" />
                 </div>
-                <div>
-                  <p className="text-white font-black text-[17px] lg:text-[17px] uppercase tracking-tight mb-1">
-                    Don't see your industry?
-                  </p>
-                  <p className="text-white/35 text-[17px]">
-                    Our layered approach adapts to any sector. Let's talk about
-                    yours.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <Link
-                  href="/contact/project"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group"
-                >
-                  Start a Conversation
-                  <ArrowRight
-                    size={13}
-                    strokeWidth={3}
-                    className="group-hover:translate-x-0.5 transition-transform"
-                  />
-                </Link>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </FadeIn>
 
+        <FadeIn className="text-center mt-14" delay={0.25}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/services/video"
+              className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group">
+              <Play size={13} fill="currentColor" strokeWidth={0} />
+              Start Your Video Project
+              <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <Link href="/portfolio"
+              className="inline-flex items-center gap-2 px-9 py-4 border border-white/15 hover:border-blue-400/40 bg-white/5 hover:bg-blue-500/10 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-300">
+              See All Production Work
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
 }
 
-// ─── Root Export ──────────────────────────────────────────────────────────────
-export default function FeaturedWorkAndIndustries() {
+export default function WhyBitLayerXAndMedia() {
   return (
     <>
-      <FeaturedWork />
-      <IndustriesSection />
+      <WhyBitLayerX />
+    
     </>
   );
 }
