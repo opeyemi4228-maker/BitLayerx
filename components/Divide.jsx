@@ -95,34 +95,39 @@ const CASE_STUDIES = [
 
 const INDUSTRIES = [
   {
-    icon: Landmark,     label: "Fintech",               href: "/industries/fintech",
+    icon: Landmark,     label: "Fintech",
     description: "CBN-compliant platforms, payment infrastructure, investment apps, and digital banking experiences built for scale and security.",
     stats: ["Payment platforms", "Investment apps", "KYC & compliance systems"],
     color: "#0818A8",
+    href: "/industries",
   },
   {
-    icon: Truck,        label: "Logistics",             href: "/industries/logistics",
+    icon: Truck,        label: "Logistics",
     description: "Fleet management systems, real-time tracking platforms, dispatch automation, and supply chain visibility tools.",
     stats: ["Fleet management", "Route optimisation", "Client portals"],
     color: "#1D4ED8",
+    href: "/industries",
   },
   {
-    icon: Home,         label: "Real Estate",           href: "/industries/real-estate",
+    icon: Home,         label: "Real Estate",
     description: "Property listing platforms, developer brand identities, cinematic project videos, and lead-generation marketing systems.",
     stats: ["Property platforms", "Brand & video", "Lead generation"],
     color: "#000080",
+    href: "/industries",
   },
   {
-    icon: ShoppingCart, label: "E-commerce",            href: "/industries/ecommerce",
+    icon: ShoppingCart, label: "E-commerce",            
     description: "High-conversion online stores, marketplace platforms, performance marketing campaigns, and abandoned cart automation.",
     stats: ["Custom storefronts", "Performance ads", "Cart automation"],
     color: "#2563EB",
+    href: "/industries",
   },
   {
-    icon: Factory,      label: "Corporate & Enterprise", href: "/industries/enterprise",
+    icon: Factory,      label: "Corporate & Enterprise", 
     description: "Enterprise web platforms, internal systems, ERP integrations, brand governance, and long-term digital transformation partnerships.",
-    stats: ["Enterprise platforms", "ERP integrations", "Brand governance"],
+    stats: ["Enterprise platforms", "ERP intsegrations", "Brand governance"],
     color: "#0369A1",
+    href: "/industries",
   },
 ];
 
@@ -346,7 +351,7 @@ function IndustriesSection() {
                 </div>
               </div>
               <div className="flex items-center gap-3 flex-shrink-0">
-                <Link href="/contact/project"
+                <Link href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group">
                   Start a Conversation
                   <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
