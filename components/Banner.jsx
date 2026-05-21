@@ -62,51 +62,39 @@ function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
 const TESTIMONIALS = [
   {
     name: "Chukwuemeka Obi",
-    role: "CEO",
-    company: "PrimeVest Capital",
+    role: "",
+    company: "",
     industry: "Fintech",
     avatar: "CO",
     color: "#0818A8",
     rating: 5,
-    result: "3.8× Revenue Growth in 8 Months",
+    result: "Revenue Growth",
     quote:
       "BitLayerX didn't just build us a platform — they built us a business. The strategy, the design, the technology, the marketing — everything worked together from day one. Within 8 months we had tripled our revenue and doubled our user base. I've worked with agencies before. This is different.",
-    metrics: [
-      { val: "3.8×", label: "Revenue Growth" },
-      { val: "50K+", label: "New Users" },
-    ],
   },
   {
     name: "Amaka Nwosu",
-    role: "Founder & Creative Director",
-    company: "Noir Lagos",
+    role: "",
+    company: "",
     industry: "Fashion & E-commerce",
     avatar: "AN",
     color: "#1D4ED8",
     rating: 5,
-    result: "₦120M in Sales, 340% More Traffic",
+    result: "More Traffic",
     quote:
       "Before BitLayerX, we had a beautiful product and a forgettable brand. They rebuilt everything — our visual identity, our website, our marketing strategy. The results were immediate and they kept compounding. We went from a local boutique to a national brand in under a year.",
-    metrics: [
-      { val: "₦120M", label: "Revenue Generated" },
-      { val: "340%",  label: "Traffic Growth" },
-    ],
   },
   {
     name: "Ibrahim Musa",
-    role: "Managing Director",
-    company: "SwiftHaul Logistics",
+    role: "",
+    company: "",
     industry: "Logistics",
     avatar: "IM",
     color: "#000080",
     rating: 5,
-    result: "47% Cost Reduction, 200 Vehicles Automated",
+    result: "47% Cost Reduction",
     quote:
       "We were drowning in manual processes. BitLayerX built us a fleet management system that handles everything automatically — dispatch, tracking, invoicing, client communication. We saved 30 hours per week and cut operational costs by nearly half. Worth every naira.",
-    metrics: [
-      { val: "47%",  label: "Cost Reduction" },
-      { val: "30hrs", label: "Saved Per Week" },
-    ],
   },
   {
     name: "Toluwani Adeyemi",
@@ -116,41 +104,31 @@ const TESTIMONIALS = [
     avatar: "TA",
     color: "#0369A1",
     rating: 5,
-    result: "65% More Enquiries, ₦2.1B Properties Sold",
+    result: "65% More Enquiries",
     quote:
       "The commercial videos BitLayerX produced for us were on a completely different level. Our properties started selling faster, at higher prices, to better clients. The rebrand and the digital presence they built gave us the authority to compete at the top of the Abuja market.",
-    metrics: [
-      { val: "65%",   label: "More Enquiries" },
-      { val: "₦2.1B", label: "Properties Sold" },
-    ],
   },
   {
     name: "Oluwaseun Bakare",
-    role: "Co-founder",
-    company: "Starta Africa",
+    role: "",
+    company: "",
     industry: "Startup",
     avatar: "OB",
     color: "#2563EB",
     rating: 5,
-    result: "Launched in 2 Weeks, 10K Users in 30 Days",
+    result: "",
     quote:
       "We needed to move fast. BitLayerX delivered our MVP in 14 days, and it was production-quality — not a prototype. The design was clean, the technology was solid, and the brand they built for us gave us instant credibility with investors. We closed our seed round 6 weeks after launch.",
-    metrics: [
-      { val: "14 Days", label: "MVP to Live" },
-      { val: "10K+",    label: "Users in 30 Days" },
-    ],
   },
 ];
 
 const LOGOS = [
-  "PrimeVest Capital",
-  "Noir Lagos",
-  "SwiftHaul Logistics",
-  "Horizon Properties",
-  "Starta Africa",
-  "NexaBridge",
-  "Crest Dynamics",
-  "TrueNorth Media",
+  "R-Zone Enterprises UK",
+  "Bricks and Wealth UK",
+  "GCSA Consulting",
+  "Ngogbehei Cancer Centre",
+  "Unice Stitches",
+  "e.t.c"
 ];
 
 const CTA_BENEFITS = [
@@ -301,38 +279,8 @@ function TestimonialsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Right — metrics + nav */}
+            {/* Right — nav */}
             <div className="flex flex-col gap-4">
-              {/* Metric cards */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active + "-metrics"}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.4 }}
-                  className="grid grid-cols-2 gap-3"
-                >
-                  {t.metrics.map((m, j) => (
-                    <div
-                      key={j}
-                      className="p-5 border border-gray-100 bg-white flex flex-col gap-1.5"
-                      style={{ borderTopColor: t.color, borderTopWidth: 3 }}
-                    >
-                      <p
-                        className="font-black text-[28px] lg:text-[32px] leading-none"
-                        style={{ color: t.color }}
-                      >
-                        {m.val}
-                      </p>
-                      <p className="text-black/80 text-[15px] font-semibold uppercase tracking-wider">
-                        {m.label}
-                      </p>
-                    </div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-
               {/* Dot indicators */}
               <div className="flex items-center gap-2 justify-center py-2">
                 {TESTIMONIALS.map((_, i) => (
