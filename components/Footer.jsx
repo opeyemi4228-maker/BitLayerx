@@ -19,7 +19,7 @@ export default function BitLayerxFooterBottom() {
       ),
       title: 'Free Consultation',
       description: 'Schedule a strategy session with our experts',
-      link: '/consultation'
+      link: '/contact'
     },
     {
       icon: (
@@ -27,7 +27,7 @@ export default function BitLayerxFooterBottom() {
       ),
       title: 'Success Stories',
       description: 'View client results and case studies',
-      link: '/case-studies'
+      link: '/#testimonials'
     },
     {
       icon: (

@@ -7,8 +7,8 @@ export default function TrustedBrandsSection() {
   const stats = [
     {
       icon: TrendingUp,
-      value: '₦50B+',
-      label: 'Revenue Generated',
+      value: '100+',
+      label: 'Happy Clients',
       color: 'from-[#00A651] to-[#00875a]',
     },
     {

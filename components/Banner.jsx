@@ -160,7 +160,8 @@ function TestimonialsSection() {
 
   return (
     <section
-      className="bg-white py-24 lg:py-32 overflow-hidden"
+      id="testimonials"
+      className="bg-white py-24 lg:py-32 overflow-hidden scroll-mt-24"
       aria-labelledby="testimonials-heading"
       itemScope
       itemType="https://schema.org/Review"

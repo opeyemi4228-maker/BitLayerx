@@ -1,243 +1,376 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Play, Target, Eye, GitBranch, Award, Video, TrendingUp, Layers } from "lucide-react";
+import {
+  ArrowRight, BarChart3, TrendingUp, Zap, Users, ShieldCheck,
+  Globe, Video, ExternalLink, Landmark, Truck, Home, ShoppingCart,
+  Factory, ChevronRight, Award, Target, Layers,
+} from "lucide-react";
 
-const FONT_URL =
-  "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap";
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+};
 
-const LAYERS = [
-  { number: "01", id: "strategy",   icon: Target,     label: "Strategy Layer",           title: "Strategy & Positioning",       tagline: "Vision. Roadmap. Direction.",          benefit: "Every great digital system starts with clarity. We define your market position, growth roadmap, and strategic blueprint before a single pixel is designed or line of code is written.", outcomes: ["Brand & market positioning","Digital growth roadmap","Competitive intelligence","Revenue strategy"],          color: "#0818A8", href: "/services/strategy"   },
-  { number: "02", id: "experience", icon: Eye,         label: "Experience Layer",          title: "UI/UX & Product Design",       tagline: "Intuitive. Engaging. Converting.",      benefit: "We design digital experiences around how your users think, feel, and decide. Every interface is a carefully engineered journey — from first impression to loyal customer.",             outcomes: ["User research & journey mapping","Wireframing & prototyping","Conversion-first design","Product strategy"],  color: "#1D4ED8", href: "/services/ui-ux"      },
-  { number: "03", id: "technology", icon: GitBranch,   label: "Technology Layer",          title: "Web, Mobile & Software",       tagline: "Fast. Scalable. Engineered.",           benefit: "We build the digital infrastructure your business runs on — from high-performance websites to complex custom applications and enterprise-grade software systems.",                       outcomes: ["Custom web & mobile apps","Scalable cloud architecture","API development & integrations","Software engineering"], color: "#2563EB", href: "/services/web-mobile" },
-  { number: "04", id: "brand",      icon: Award,       label: "Brand Layer",               title: "Branding & Identity",          tagline: "Memorable. Differentiated. Powerful.", benefit: "A brand that commands attention, builds trust, and communicates value before a word is spoken. We craft complete brand systems that make you the obvious choice.",                        outcomes: ["Logo & visual identity system","Brand guidelines & voice","Messaging & positioning","Brand evolution strategy"], color: "#000080", href: "/services/branding"   },
-  { number: "05", id: "media",      icon: Video,       label: "Media Layer",               title: "Commercials & Video",          tagline: "Cinematic. Compelling. Impactful.",     benefit: "Nothing builds trust and drives action faster than great video. We produce high-impact commercials, brand films, and ad creatives that make your brand impossible to ignore.",          outcomes: ["Brand & commercial films","Performance ad creatives","Social content production","Product launch campaigns"],   color: "#0369A1", href: "/services/video"      },
-  { number: "06", id: "growth",     icon: TrendingUp,  label: "Growth Layer",              title: "Digital Marketing & Growth",   tagline: "Data-Driven. Relentless. Compounding.", benefit: "We deploy performance marketing systems that grow more powerful every month — combining SEO, paid advertising, email, and content into one compounding growth engine.",                outcomes: ["SEO & content marketing","Paid advertising (Meta, Google)","Email & automation campaigns","Analytics & optimisation"], color: "#1E40AF", href: "/services/marketing" },
+const stagger = (d = 0.11) => ({
+  hidden: {},
+  show: { transition: { staggerChildren: d } },
+});
+
+function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-70px" });
+  return (
+    <motion.div ref={ref}
+      initial={{ opacity: 0, y: direction === "up" ? 28 : direction === "down" ? -28 : 0, x: direction === "left" ? 28 : direction === "right" ? -28 : 0 }}
+      animate={inView ? { opacity: 1, y: 0, x: 0 } : {}}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className}>
+      {children}
+    </motion.div>
+  );
+}
+
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+const CASE_STUDIES = [
+  {
+    index: "01",
+    tag: "E-commerce · Branding · Performance Marketing",
+    industry: "E-commerce", duration: "6 months",
+    title: "Scaling a Lagos Fashion Label to Market Dominance",
+    description: "A homegrown fashion brand had exceptional products but zero digital authority. We rebuilt their brand identity, launched a custom e-commerce platform, and executed a 6-month performance marketing campaign — turning them into one of Lagos's most recognised online labels.",
+    layers: ["Brand", "Technology", "Growth"],
+    metrics: [
+      { value: "340%",   label: "Organic Traffic Increase",  icon: TrendingUp },
+      { value: "4.2×",   label: "Return on Ad Spend",        icon: Zap        },
+      { value: "Top",    label: "Market Position",           icon: BarChart3  },
+    ],
+    accentColor: "#0818A8",
+  },
+  {
+    index: "02",
+    tag: "Fintech · UI/UX · Software Engineering",
+    industry: "Fintech", duration: "4 months",
+    title: "Building a CBN-Compliant Payments Platform for 50,000+ Users",
+    description: "A Nigerian fintech startup needed a scalable, regulation-compliant payments infrastructure and consumer mobile app — built from scratch and shipped to production in under four months, handling thousands of daily transactions.",
+    layers: ["Strategy", "Experience", "Technology"],
+    metrics: [
+      { value: "50K+",    label: "Active Users at Launch", icon: Users       },
+      { value: "99.9%",   label: "Platform Uptime",        icon: ShieldCheck  },
+      { value: "14 Days", label: "MVP to Live",            icon: Zap         },
+    ],
+    accentColor: "#1D4ED8",
+  },
+  {
+    index: "03",
+    tag: "Real Estate · Brand Identity · Commercial Video",
+    industry: "Real Estate", duration: "3 months",
+    title: "Positioning an Abuja Property Group as the Premium Market Leader",
+    description: "A real estate developer wanted to move upmarket and command premium pricing. We delivered a complete rebrand, three cinematic property films, and a luxury digital presence — resulting in a dramatic surge in high-value property enquiries.",
+    layers: ["Brand", "Media", "Experience"],
+    metrics: [
+      { value: "65%",  label: "Increase in Enquiries",       icon: TrendingUp },
+      { value: "3",    label: "Cinematic Brand Films",       icon: Video      },
+      { value: "Top",  label: "Abuja Market Position",       icon: BarChart3  },
+    ],
+    accentColor: "#000080",
+  },
+  {
+    index: "04",
+    tag: "Logistics · Software · AI Automation",
+    industry: "Logistics", duration: "5 months",
+    title: "Automating Operations for a 200-Vehicle Fleet Company",
+    description: "A logistics firm was drowning in manual coordination. We engineered a custom fleet management system with real-time GPS tracking, automated dispatch, client-facing portals, and AI-powered route optimisation — cutting costs nearly in half.",
+    layers: ["Strategy", "Technology", "Growth"],
+    metrics: [
+      { value: "47%",    label: "Operational Cost Reduction",  icon: BarChart3 },
+      { value: "200+",   label: "Vehicles Managed Real-Time",  icon: Globe     },
+      { value: "30 hrs", label: "Saved Per Week",              icon: Zap       },
+    ],
+    accentColor: "#0369A1",
+  },
 ];
 
-// ─── Abstract Blue Shape ──────────────────────────────────────────────────────
-function BlueShape() {
-  return (
-    <svg viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1D4ED8" /><stop offset="50%" stopColor="#2563EB" /><stop offset="100%" stopColor="#3B82F6" />
-        </linearGradient>
-        <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#1E40AF" /><stop offset="60%" stopColor="#2563EB" /><stop offset="100%" stopColor="#60A5FA" />
-        </linearGradient>
-        <linearGradient id="g3" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.7" /><stop offset="100%" stopColor="#93C5FD" stopOpacity="0.9" />
-        </linearGradient>
-        <filter id="blur1"><feGaussianBlur stdDeviation="2" /></filter>
-      </defs>
-      <path d="M 380 60 C 420 80, 440 160, 400 240 C 360 320, 280 340, 240 400 C 200 460, 220 510, 180 530 L 120 520 C 100 500, 140 450, 160 390 C 180 330, 120 290, 100 220 C 80 150, 140 80, 200 50 C 260 20, 340 40, 380 60 Z" fill="url(#g1)" opacity="0.95" />
-      <path d="M 350 80 C 390 110, 400 180, 360 255 C 320 330, 245 350, 210 410 C 190 450, 200 500, 165 520 L 145 518 C 175 498, 168 450, 185 408 C 210 348, 285 325, 320 250 C 356 175, 345 105, 310 78 Z" fill="url(#g2)" opacity="0.7" />
-      <path d="M 310 95 C 345 130, 345 200, 305 275 C 275 335, 225 358, 200 408 C 185 438, 190 475, 168 505 L 155 508 C 174 478, 170 440, 183 410 C 208 358, 258 334, 288 272 C 325 196, 323 126, 288 93 Z" fill="url(#g3)" opacity="0.85" />
-      <path d="M 270 108 C 298 138, 298 205, 262 278 C 245 315, 220 338, 205 372 L 195 368 C 210 334, 234 312, 250 275 C 285 200, 283 132, 255 103 Z" fill="#93C5FD" opacity="0.5" filter="url(#blur1)" />
-      <ellipse cx="345" cy="85" rx="18" ry="10" fill="#BFDBFE" opacity="0.6" transform="rotate(-30 345 85)" />
-    </svg>
-  );
-}
+const INDUSTRIES = [
+  {
+    icon: Landmark,     label: "Fintech",
+    description: "CBN-compliant platforms, payment infrastructure, investment apps, and digital banking experiences built for scale and security.",
+    stats: ["Payment platforms", "Investment apps", "KYC & compliance systems"],
+    color: "#0818A8",
+    href: "/industries",
+  },
+  {
+    icon: Truck,        label: "Logistics",
+    description: "Fleet management systems, real-time tracking platforms, dispatch automation, and supply chain visibility tools.",
+    stats: ["Fleet management", "Route optimisation", "Client portals"],
+    color: "#1D4ED8",
+    href: "/industries",
+  },
+  {
+    icon: Home,         label: "Real Estate",
+    description: "Property listing platforms, developer brand identities, cinematic project videos, and lead-generation marketing systems.",
+    stats: ["Property platforms", "Brand & video", "Lead generation"],
+    color: "#000080",
+    href: "/industries",
+  },
+  {
+    icon: ShoppingCart, label: "E-commerce",            
+    description: "High-conversion online stores, marketplace platforms, performance marketing campaigns, and abandoned cart automation.",
+    stats: ["Custom storefronts", "Performance ads", "Cart automation"],
+    color: "#2563EB",
+    href: "/industries",
+  },
+  {
+    icon: Factory,      label: "Corporate & Enterprise", 
+    description: "Enterprise web platforms, internal systems, ERP integrations, brand governance, and long-term digital transformation partnerships.",
+    stats: ["Enterprise platforms", "ERP intsegrations", "Brand governance"],
+    color: "#0369A1",
+    href: "/industries",
+  },
+];
 
-// ─── Video Card ───────────────────────────────────────────────────────────────
-function VideoCard() {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <article className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col h-full"
-      style={{ boxShadow: "0 2px 16px rgba(0,0,80,0.06)" }}
-      aria-label="BitLayerX — The Layered Approach video">
-      <div className="px-6 pt-6 pb-4">
-        <p className="text-[15px] font-semibold tracking-[0.22em] text-black/80 uppercase mb-3"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          The BitLayerX Method
-        </p>
-        <h2 className="text-[17px] sm:text-[19px] font-bold leading-snug"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          <span className="text-[#0818A8]">Watch How BitLayerX Builds</span>{" "}
-          <span className="text-gray-900">the Digital Ecosystem of Tomorrow</span>
-        </h2>
-      </div>
-      <div className="relative flex-1 mx-4 mb-4 rounded-xl overflow-hidden cursor-pointer min-h-[220px] sm:min-h-[260px] group"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        role="button" tabIndex={0} aria-label="Play BitLayerX overview video"
-        onKeyDown={(e) => e.key === "Enter" && e.currentTarget.click()}>
-        <Image
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop&q=85"
-          alt="BitLayerX team building digital ecosystems — strategy, design, technology"
-          fill className="object-cover transition-transform duration-700"
-          style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
-          sizes="(max-width: 768px) 100vw, 50vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end p-5">
-          <p className="text-white/60 text-[15px] font-semibold uppercase tracking-widest mb-1"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Six Precision
-          </p>
-          <p className="text-white font-black leading-none uppercase"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
-            Layers.<br />One Engine.
-          </p>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 shadow-2xl"
-            style={{ background: "#DC2626", transform: hovered ? "scale(1.12)" : "scale(1)", boxShadow: "0 8px 32px rgba(220,38,38,0.5)" }}>
-            <Play size={20} strokeWidth={0} className="fill-white ml-1" />
-          </div>
-        </div>
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-full border border-white/40 flex items-center justify-center" aria-hidden="true">
-          <ArrowRight size={12} className="text-white/70 -rotate-45" strokeWidth={2} />
-        </div>
-      </div>
-    </article>
-  );
-}
+// ─── FEATURED WORK ────────────────────────────────────────────────────────────
+function FeaturedWork() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
-// ─── Text Card ────────────────────────────────────────────────────────────────
-function TextCard() {
   return (
-    <article className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden flex h-full"
-      style={{ boxShadow: "0 2px 16px rgba(0,0,80,0.06)" }}
-      aria-label="BitLayerX — Digital innovation company overview"
-      itemScope itemType="https://schema.org/Organization">
-      <div className="flex flex-col justify-between p-7 sm:p-8 xl:p-10 flex-1 min-w-0">
-        <div>
-          <h2 className="text-[22px] sm:text-[26px] xl:text-[30px] font-normal leading-[1.25] text-gray-800 mb-5"
-            style={{ fontFamily: "'Montserrat', sans-serif" }} itemProp="description">
-            <span className="font-black text-[#0818A8]" itemProp="name">BitLayerX</span>{" "}
-            is a{" "}
-            <span className="text-gray-800 font-normal">digital-first technology and creative</span>{" "}
-            <span className="font-bold text-[#0818A8]">solutions company</span>{" "}
-            <span className="text-gray-800 font-normal">delivering layered digital ecosystems.</span>
-          </h2>
-          <p className="text-black/80 text-[15px] sm:text-[16px] leading-relaxed mb-6 max-w-sm"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            We combine strategy, design, technology, brand, media and growth —
-            all in one cohesive, compounding ecosystem built to dominate your market.
-          </p>
-          <div className="mb-8">
-            <p className="text-[15px] text-black/80 font-semibold uppercase tracking-[0.18em] mb-3"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Six service layers:
+    <section className="bg-[#04040e] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="work-heading">
+      {/* Grid texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
+        <svg width="100%" height="100%" aria-hidden="true">
+          <defs>
+            <pattern id="work-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(99,149,255,1)" strokeWidth="0.8" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#work-grid)" />
+        </svg>
+      </div>
+      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.5) 30%, rgba(99,149,255,0.8) 50%, rgba(59,130,246,0.5) 70%, transparent 100%)" }} />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
+          <FadeIn direction="right">
+            <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+              <Award size={13} strokeWidth={2.5} /> Proof of Execution
             </p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {LAYERS.map((layer) => {
-                const Icon = layer.icon;
-                return (
-                  <div key={layer.id} className="flex items-center gap-1.5">
-                    <Icon size={11} strokeWidth={2.5} style={{ color: layer.color }} />
-                    <span className="text-[16px] font-bold text-black/80" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                      {layer.title.split(" ")[0]}
-                    </span>
+            <h2 id="work-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight">
+              FEATURED<br />
+              <span style={{ background: "linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #60a5fa 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                WORK
+              </span>
+            </h2>
+          </FadeIn>
+          <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
+            <p className="text-white/35 text-[16px] leading-relaxed mb-5 lg:text-right">
+              Results over visuals. Every project is measured in business impact — not aesthetics.
+            </p>
+            <div className="lg:flex lg:justify-end">
+              <Link href="/portfolio"
+                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-black text-[16px] uppercase tracking-wide transition-colors group">
+                View All Projects
+                <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Case studies */}
+        <motion.div ref={ref} variants={stagger(0.13)} initial="hidden" animate={inView ? "show" : "hidden"} className="space-y-px">
+          {CASE_STUDIES.map((cs, i) => (
+            <motion.article key={i} variants={fadeUp}
+              className="group grid lg:grid-cols-2 min-h-[380px] lg:min-h-[420px]">
+
+              {/* Metrics panel */}
+              <div className={`relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                style={{ background: `linear-gradient(135deg, ${cs.accentColor}f0 0%, ${cs.accentColor}cc 100%)` }}>
+                <div className="absolute inset-0 opacity-[0.08] pointer-events-none"
+                  style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
+                <div className="absolute bottom-4 right-6 text-[100px] lg:text-[130px] font-black leading-none text-white/5 select-none pointer-events-none" aria-hidden="true">
+                  {cs.index}
+                </div>
+
+                <div className="relative z-10">
+                  <p className="text-white/60 text-[15px] font-bold tracking-[0.18em] uppercase mb-6">{cs.tag}</p>
+                  <div className="grid grid-cols-3 gap-3 sm:gap-5">
+                    {cs.metrics.map((m, j) => {
+                      const Icon = m.icon;
+                      return (
+                        <motion.div key={j} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ delay: 0.2 + i * 0.1 + j * 0.08, duration: 0.5 }} className="flex flex-col gap-2">
+                          <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                            <Icon size={14} strokeWidth={2} className="text-white/80" />
+                          </div>
+                          <p className="text-white font-black text-[22px] sm:text-[28px] lg:text-[32px] leading-none">{m.value}</p>
+                          <p className="text-white/50 text-[15px] font-semibold leading-tight">{m.label}</p>
+                        </motion.div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+
+                <div className="relative z-10 mt-8 flex flex-wrap gap-2">
+                  {cs.layers.map((l, j) => (
+                    <span key={j} className="px-3 py-1 border border-white/20 bg-white/10 text-white/70 text-[15px] font-bold tracking-wider uppercase rounded-full">
+                      {l} Layer
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Content panel */}
+              <div className={`flex flex-col justify-between p-8 lg:p-12 bg-white group-hover:bg-gray-50/80 transition-colors duration-300 border-t lg:border-t-0 border-white/5 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="px-3 py-1 text-[15px] font-black tracking-wider uppercase rounded-full"
+                      style={{ backgroundColor: cs.accentColor + "12", color: cs.accentColor }}>
+                      {cs.industry}
+                    </span>
+                    <span className="text-gray-200 text-[15px]">·</span>
+                    <span className="text-black/80 text-[15px] font-semibold">{cs.duration}</span>
+                  </div>
+                  <h3 className="text-[19px] sm:text-[22px] lg:text-[24px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-5">
+                    {cs.title}
+                  </h3>
+                  <p className="text-black/80 text-[17px] lg:text-[16px] leading-relaxed">{cs.description}</p>
+                </div>
+                <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+                  <Link href="/portfolio"
+                    className="inline-flex items-center gap-2 font-black text-[16px] uppercase tracking-wide transition-colors group/link"
+                    style={{ color: cs.accentColor }}>
+                    View Case Study
+                    <ArrowRight size={13} strokeWidth={3} className="group-hover/link:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <ExternalLink size={15} strokeWidth={1.5} className="text-gray-200" />
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        <FadeIn className="text-center mt-14" delay={0.2}>
+          <Link href="/portfolio"
+            className="inline-flex items-center gap-2.5 px-9 py-4 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-300 shadow-lg shadow-white/10 group">
+            See All Case Studies
+            <ArrowRight size={14} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── INDUSTRIES ───────────────────────────────────────────────────────────────
+function IndustriesSection() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [hovered, setHovered] = useState(null);
+
+  return (
+    <section className="bg-white py-24 lg:py-32 overflow-hidden" aria-labelledby="industries-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
+          <FadeIn direction="right">
+            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+              <Target size={13} strokeWidth={2.5} /> Specialists, Not Generalists
+            </p>
+            <h2 id="industries-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#000080] uppercase leading-[0.92] tracking-tight">
+              INDUSTRIES<br /><span className="text-[#0818A8]">WE POWER</span>
+            </h2>
+          </FadeIn>
+          <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
+            <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
+              We don't work with everyone — we go deep in the industries where
+              our layered approach creates the most measurable impact.
+            </p>
+          </FadeIn>
+        </div>
+
+        <motion.div ref={ref} variants={stagger(0.1)} initial="hidden" animate={inView ? "show" : "hidden"}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100">
+          {INDUSTRIES.map((ind, i) => {
+            const Icon = ind.icon;
+            const isHovered = hovered === i;
+            return (
+              <motion.div key={i} variants={fadeUp}
+                onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}
+                className={`relative bg-white overflow-hidden transition-all duration-300 ${isHovered ? "shadow-2xl shadow-[#000080]/10 z-10" : ""} ${i === 0 ? "sm:col-span-2 lg:col-span-1" : ""}`}>
+                <div className="absolute top-0 left-0 right-0 h-[3px] transition-transform duration-300 origin-left"
+                  style={{ backgroundColor: ind.color, transform: isHovered ? "scaleX(1)" : "scaleX(0.3)", opacity: isHovered ? 1 : 0.4 }} />
+                <Link href={ind.href} className="block p-8 lg:p-9 h-full group">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"
+                    style={{ backgroundColor: isHovered ? ind.color : ind.color + "12" }}>
+                    <Icon size={22} strokeWidth={1.75} className="transition-colors duration-300"
+                      style={{ color: isHovered ? "#fff" : ind.color }} />
+                  </div>
+                  <p className="text-[15px] font-black tracking-[0.2em] uppercase mb-2 transition-colors duration-300" style={{ color: ind.color }}>
+                    {ind.label}
+                  </p>
+                  <p className="text-black/80 text-[17px] leading-relaxed mb-6 transition-colors duration-300 group-hover:text-black/80">
+                    {ind.description}
+                  </p>
+                  <ul className="space-y-2 mb-8">
+                    {ind.stats.map((s, j) => (
+                      <li key={j} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: ind.color }} />
+                        <span className="text-black/80 text-[16px] font-semibold">{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center gap-1.5 text-[15px] font-black uppercase tracking-wide transition-all duration-300"
+                    style={{ color: isHovered ? ind.color : "#D1D5DB" }}>
+                    Explore
+                    <ChevronRight size={13} strokeWidth={3} className={`transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`} />
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Industries CTA strip */}
+        <FadeIn delay={0.2}>
+          <div className="mt-px bg-gray-100 p-px">
+            <div className="bg-[#04040e] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Layers size={18} strokeWidth={2} className="text-blue-400" />
+                </div>
+                <div>
+                  <p className="text-white font-black text-[17px] uppercase tracking-tight mb-1">Don't see your industry?</p>
+                  <p className="text-white/35 text-[17px]">Our layered approach adapts to any sector. Let's talk about yours.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <Link href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-[#000080] font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-white/5 group">
+                  Start a Conversation
+                  <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <Link href="/services"
-            className="group inline-flex items-center justify-between w-full max-w-[280px] sm:max-w-[320px] rounded-full font-bold text-[16px] text-white overflow-hidden transition-all duration-200 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0818A8] focus:ring-offset-2"
-            style={{ background: "linear-gradient(90deg, #1D4ED8 0%, #2563EB 100%)", boxShadow: "0 4px 20px rgba(29,78,216,0.35)", fontFamily: "'Montserrat', sans-serif" }}
-            aria-label="Explore the BitLayerX layered approach">
-            <span className="flex-1 text-center pl-7 pr-2 py-4 text-[16px] font-semibold tracking-wide">
-              Explore Our Approach
-            </span>
-            <span className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center mr-1 my-1 transition-transform duration-200 group-hover:translate-x-0.5"
-              style={{ background: "rgba(255,255,255,0.2)" }} aria-hidden="true">
-              <ArrowRight size={18} strokeWidth={2.5} className="text-white" />
-            </span>
-          </Link>
-        </div>
+        </FadeIn>
+
       </div>
-      {/* Right: Abstract blue shape */}
-      <div className="hidden lg:block relative flex-shrink-0 overflow-hidden" style={{ width: "clamp(140px, 22%, 200px)" }} aria-hidden="true">
-        <div className="absolute" style={{ top: "-10%", right: "-35%", width: "160%", height: "120%" }}>
-          <BlueShape />
-        </div>
-      </div>
-    </article>
+    </section>
   );
 }
 
-// ─── Main Section ─────────────────────────────────────────────────────────────
-export default function LayeredApproachShowcase() {
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
-
+export default function FeaturedWorkAndIndustries() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="stylesheet" href={FONT_URL} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "Organization",
-        name: "BitLayerX", url: "https://bitlayerx.org",
-        description: "BitLayerX is a digital-first technology and creative solutions company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth.",
-        hasOfferCatalog: { "@type": "OfferCatalog", name: "Six Service Layers", numberOfItems: 6 },
-      })}} />
-
-      <section ref={sectionRef} className="bg-[#F3F4F6] py-10 sm:py-14"
-        aria-labelledby="approach-heading" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        <h2 id="approach-heading" className="sr-only">BitLayerX — The Layered Approach to Digital Innovation</h2>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(24px)",
-              transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",
-            }}>
-            <div className="min-h-[420px] sm:min-h-[480px]"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s 0.05s cubic-bezier(0.22,1,0.36,1), transform 0.7s 0.05s cubic-bezier(0.22,1,0.36,1)" }}>
-              <VideoCard />
-            </div>
-            <div className="min-h-[420px] sm:min-h-[480px]"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s 0.12s cubic-bezier(0.22,1,0.36,1), transform 0.7s 0.12s cubic-bezier(0.22,1,0.36,1)" }}>
-              <TextCard />
-            </div>
-          </div>
-
-          {/* Layer pills strip */}
-          <div className="mt-5 flex flex-wrap items-center gap-2"
-            style={{ opacity: visible ? 1 : 0, transition: "opacity 0.6s 0.3s ease" }}>
-            {LAYERS.map((layer) => {
-              const Icon = layer.icon;
-              return (
-                <Link key={layer.id} href={layer.href}
-                  className="group flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full hover:border-[#0818A8]/30 hover:shadow-md transition-all duration-200"
-                  style={{ boxShadow: "0 1px 4px rgba(0,0,80,0.04)" }}
-                  aria-label={`Explore ${layer.title}`}>
-                  <Icon size={12} strokeWidth={2.5} style={{ color: layer.color }} className="flex-shrink-0" />
-                  <span className="text-[11.5px] font-semibold text-black/80 group-hover:text-[#0818A8] transition-colors whitespace-nowrap"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    {layer.title}
-                  </span>
-                  <span className="text-[15px] font-black text-gray-300 group-hover:text-[#0818A8]/40 transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    {layer.number}
-                  </span>
-                </Link>
-              );
-            })}
-            <Link href="/services"
-              className="flex items-center gap-1.5 px-4 py-2 text-[11.5px] font-bold text-[#0818A8] hover:underline transition-all"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              See all layers <ArrowRight size={11} strokeWidth={3} />
-            </Link>
-          </div>
-        </div>
-      </section>
+     
+      <IndustriesSection />
     </>
   );
 }

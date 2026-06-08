@@ -426,7 +426,7 @@ export default function HeroSection() {
 
           {/* CTA row */}
           <Reveal delay={0.62} className="mt-9 sm:mt-10 flex flex-col sm:flex-row items-center gap-3">
-            <Link href="/contact/project" aria-label="Start your project with BitLayerX"
+            <Link href="/contact" aria-label="Start your project with BitLayerX"
               className="group relative flex items-center overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#000066] focus:ring-offset-2"
               style={{ background: "#000066", minWidth: 260 }}>
               <span className="flex-1 text-white font-black text-[15px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
