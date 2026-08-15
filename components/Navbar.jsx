@@ -50,17 +50,17 @@ function BitLayerXLogo({ className = "" }) {
 // teaches returning visitors that our scarcity claims aren't real.
 function AnnouncementBar({ onClose }) {
   return (
-    <div className="relative bg-[#0B0B0F]">
-      <div className="relative max-w-[1600px] mx-auto pl-4 pr-10 sm:px-8 py-2 flex items-center justify-center">
+    <div className="relative bg-gradient-to-r from-[#0B0B0F] via-[#0040FF]/10 to-[#0B0B0F]">
+      <div className="relative max-w-[1600px] mx-auto pl-4 pr-10 sm:px-8 py-3 sm:py-4 flex items-center justify-center">
         <a
-          href={SERIES_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-2.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] rounded"
+          href="/"
+          className="group flex items-center gap-2.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] rounded px-4 py-2.5 hover:bg-white/5 transition-colors"
         >
-          <span className="text-white/85 text-[13.5px] sm:text-[14px] font-medium leading-tight truncate">
+          <Sparkles size={16} className="flex-shrink-0 text-[#0040FF]" strokeWidth={2} />
+          <span className="text-white/90 text-[14px] sm:text-[15px] font-medium leading-tight">
             <span className="font-bold text-white">We are your digital growth partner.</span>
           </span>
+          <ArrowRight size={14} className="flex-shrink-0 text-white/50 group-hover:text-white/80 transition-colors ml-1" strokeWidth={2.5} />
         </a>
       </div>
       <button
