@@ -1,42 +1,64 @@
 'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { MessageSquare, CalendarCheck, FolderOpen, Building2 } from 'lucide-react';
+
+// ─── Social ───────────────────────────────────────────────────────────────────
+// Own SVGs, not a third-party icon host. For a design studio, generic icons
+// served from someone else's server are both an aesthetic and a reliability
+// weakness  -  and every one of these used to be a dead "#" anchor.
+const SOCIAL = [
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/bitlayerx',
+    path: 'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z',
+  },
+  {
+    label: 'X',
+    href: 'https://x.com/bitlayerx',
+    path: 'M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41Z',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/bitlayerx',
+    path: 'M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38A5.87 5.87 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.39 2.12a5.87 5.87 0 0 0 2.12 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.12-1.38 5.87 5.87 0 0 0 1.39-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.39-2.13A5.87 5.87 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z',
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/bitlayerx',
+    path: 'M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07Z',
+  },
+];
 
 export default function BitLayerxFooterBottom() {
   const helpSections = [
     {
-      icon: (
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
-      ),
+      icon: MessageSquare,
       title: 'Help & Support',
-      description: "Got a question? We're here to help 24/7",
-      link: '/support'
+      // A promise we can keep, instead of a 24/7 one we cannot.
+      description: 'Ask us anything  -  we respond within 48 hours',
+      link: '/contact',
     },
     {
-      icon: (
-        <path d="M19.07 4.93l-1.41 1.41C19.1 7.79 20 9.79 20 12c0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12c0 3.31 2.69 6 6 6s6-2.69 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.37-1-1.72V2h-1C7.03 2 2 7.03 2 13s5.03 11 11 11 11-5.03 11-11c0-3.21-1.39-6.1-3.59-8.07l-1.34 1.34z"/>
-      ),
+      icon: CalendarCheck,
       title: 'Free Consultation',
-      description: 'Schedule a strategy session with our experts',
-      link: '/contact'
+      description: 'Book a 30-minute strategy call',
+      link: '/contact',
     },
     {
-      icon: (
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-      ),
-      title: 'Success Stories',
-      description: 'View client results and case studies',
-      link: '/#testimonials'
+      icon: FolderOpen,
+      title: 'Our Work',
+      description: 'Case studies and client results',
+      link: '/portfolio',
     },
     {
-      icon: (
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-      ),
-      title: 'About BitLayerx',
-      description: 'Company info, careers, and partnerships',
-      link: '/about'
-    }
+      icon: Building2,
+      title: 'About BitLayerX',
+      description: 'The studio, the method, and the people',
+      link: '/about',
+    },
   ];
 
   const legalLinks = [
@@ -44,206 +66,133 @@ export default function BitLayerxFooterBottom() {
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Cookie Policy', href: '/cookies' },
     { label: 'Data Protection', href: '/data-protection' },
-    { label: 'Accessibility', href: '/accessibility' }
-  ];
-
-  const socialLinks = [
-    {
-      key: 'linkedin',
-      href: '#linkedin',
-      icon: (
-        <img
-          width="18"
-          height="18"
-          src="https://img.icons8.com/glyph-neue/64/linkedin.png"
-          alt="linkedin"
-          style={{ filter: 'brightness(0) invert(0.6)' }}
-          className="group-hover:brightness-0 group-hover:invert transition-all"
-        />
-      )
-    },
-    {
-      key: 'twitter',
-      href: '#twitter',
-      icon: (
-        <img
-          width="18"
-          height="18"
-          src="https://img.icons8.com/ios-filled/100/twitterx--v1.png"
-          alt="twitterx--v1"
-          style={{ filter: 'brightness(0) invert(0.6)' }}
-          className="group-hover:brightness-0 group-hover:invert transition-all"
-        />
-      )
-    },
-    {
-      key: 'facebook',
-      href: '#facebook',
-      icon: (
-        <img
-          width="18"
-          height="18"
-          src="https://img.icons8.com/glyph-neue/64/facebook.png"
-          alt="facebook"
-          style={{ filter: 'brightness(0) invert(0.6)' }}
-          className="group-hover:brightness-0 group-hover:invert transition-all"
-        />
-      )
-    },
-    {
-      key: 'instagram',
-      href: '#instagram',
-      icon: (
-        <img
-          width="18"
-          height="18"
-          src="https://img.icons8.com/glyph-neue/64/instagram-new--v1.png"
-          alt="instagram-new--v1"
-          style={{ filter: 'brightness(0) invert(0.6)' }}
-          className="group-hover:brightness-0 group-hover:invert transition-all"
-        />
-      )
-    }
+    { label: 'Accessibility', href: '/accessibility' },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
+    hidden: { opacity: 0, y: 18 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <footer className="bg-gray-700">
-      {/* Top Section - Help Items */}
+    <footer className="blx-footer bg-[#0B0B0F]">
+      {/* Top  -  the four things people come here to do */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid md:grid-cols-2 lg:grid-cols-4 border-b border-gray-600"
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.07]"
       >
-        {helpSections.map((section, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover={{ backgroundColor: 'rgb(75, 85, 99)' }}
-            className="p-8 lg:p-10 border-r border-gray-600 last:border-r-0 md:odd:border-r-0 lg:odd:border-r flex flex-col gap-4 group transition-colors duration-200"
-          >
-            {/* Header */}
-            <div className="flex items-center gap-3 text-white">
-              <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                {section.icon}
-              </svg>
-              <h3 className="text-base font-semibold">{section.title}</h3>
-            </div>
-
-            {/* Link */}
-            <Link href={section.link}>
-              <motion.div
-                whileHover={{ x: 4 }}
-                className="flex items-center gap-2 text-white text-[14px] pl-9 group-hover:text-gray-200 transition-colors"
+        {helpSections.map((section) => {
+          const Icon = section.icon;
+          return (
+            <motion.div key={section.title} variants={itemVariants} className="bg-[#0B0B0F]">
+              <Link
+                href={section.link}
+                className="flex flex-col gap-3 p-8 lg:p-10 h-full group hover:bg-white/[0.03] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
               >
-                <span>{section.description}</span>
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                </svg>
-              </motion.div>
-            </Link>
-          </motion.div>
-        ))}
+                <div className="flex items-center gap-3 text-white">
+                  <Icon size={18} strokeWidth={2} className="text-blue-400 flex-shrink-0" />
+                  <h3 className="text-[15.5px] font-bold tracking-tight">{section.title}</h3>
+                </div>
+                <span className="flex items-center gap-2 text-white/45 text-[14px] pl-[30px] group-hover:text-white/70 transition-colors">
+                  {section.description}
+                  <svg
+                    className="w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                  </svg>
+                </span>
+              </Link>
+            </motion.div>
+          );
+        })}
       </motion.div>
 
-      {/* Bottom Section - Legal & Copyright */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="bg-black px-6 lg:px-12 py-6"
-      >
+      {/* Bottom  -  legal, credit, social */}
+      <div className="bg-black px-6 lg:px-12 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-            {/* Legal Links */}
-            <nav className="flex flex-wrap gap-6">
-              {legalLinks.map((link, index) => (
+            <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Legal">
+              {legalLinks.map((link) => (
                 <Link
-                  key={index}
+                  key={link.href}
                   href={link.href}
-                  className="text-white text-[14px] hover:text-gray-300 hover:underline transition-colors"
+                  className="text-white/70 text-[13.5px] hover:text-white hover:underline underline-offset-4 transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Copyright */}
-            <div className="text-white text-[14px] leading-relaxed lg:text-right">
-              <p>BitLayerx Technologies | © {new Date().getFullYear()} All rights reserved</p>
-              <p className="text-gray-400 mt-1">Your Complete Digital Growth Partner</p>
+            <div className="text-white/70 text-[13.5px] leading-relaxed lg:text-right">
+              <p>
+                BitLayerX Technologies · © {new Date().getFullYear()} All rights
+                reserved
+              </p>
+              <p className="text-white/40 mt-1">
+                Founded and led by{' '}
+                <a
+                  href="https://opeyemiojurongbe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white underline-offset-4 hover:underline transition-colors"
+                >
+                  Opeyemi T. Ojurongbe
+                </a>
+              </p>
             </div>
           </div>
 
-          {/* Additional Info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 pt-6 border-t border-gray-800"
-          >
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-[14px] text-gray-400">
-              <div className="flex flex-wrap gap-4">
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  Trusted by 500+ businesses
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
-                  </svg>
-                  Secure & Compliant
-                </span>
-                <span>•</span>
-                <span>Available in Nigeria, Operating Globally</span>
+          <div className="mt-7 pt-7 border-t border-white/10">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 text-[13px] text-white/40">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span>Based in Abuja. Working globally.</span>
+                <span aria-hidden="true" className="text-white/20">•</span>
+                <span>We respond within 48 hours</span>
+                <span aria-hidden="true" className="text-white/20">•</span>
+                <span>Secure &amp; compliant</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <span>Follow us:</span>
-                {/* Social Icons */}
-                <div className="flex gap-3">
-                  {socialLinks.map((social) => (
-                    <Link
-                      key={social.key}
+                <span className="sr-only">Follow BitLayerX</span>
+                <div className="flex gap-2.5">
+                  {SOCIAL.map((social) => (
+                    <a
+                      key={social.label}
                       href={social.href}
-                      className="w-8 h-8 rounded-full bg-gray-800 hover:bg-[#0818A8] flex items-center justify-center transition-colors group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`BitLayerX on ${social.label}`}
+                      className="w-9 h-9 rounded-full bg-white/[0.06] hover:bg-[#0040FF] flex items-center justify-center transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                     >
-                      {social.icon}
-                    </Link>
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        className="text-white/55 group-hover:text-white transition-colors"
+                      >
+                        <path d={social.path} />
+                      </svg>
+                    </a>
                   ))}
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

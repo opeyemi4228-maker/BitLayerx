@@ -3,9 +3,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const FONT_URL =
-  "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap";
-
 export default function NewsletterSubscription() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,13 +20,8 @@ export default function NewsletterSubscription() {
   };
 
   return (
-    <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="stylesheet" href={FONT_URL} />
-
-      <section
+    <section
         className="bg-white border-t border-b border-gray-200 py-16 lg:py-20"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,11 +42,11 @@ export default function NewsletterSubscription() {
             >
               <h2 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4 leading-tight">
                 Subscribe, be inspired,{" "}
-                <span className="text-[#0818A8] font-normal">grow your business</span>
+                <span className="text-[#0040FF] font-normal">grow your business</span>
               </h2>
-              <p className="text-base text-black/80 leading-relaxed">
-                Subscribe to our newsletter to receive exclusive insights about digital growth strategies,
-                web development, marketing automation, and business transformation delivered to your inbox.
+              <p className="text-[16px] text-gray-600 leading-relaxed">
+                One email a fortnight  -  what we're building, and what we're
+                learning while we build it. No campaigns, no filler.
               </p>
             </motion.div>
 
@@ -91,10 +83,9 @@ export default function NewsletterSubscription() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email address"
-                        className="w-full px-6 py-4 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-[#0818A8] focus:ring-2 focus:ring-[#0818A8]/20 focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-6 py-4 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-[#0040FF] focus:ring-2 focus:ring-[#0040FF]/20 focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         required
                         disabled={isSubmitting}
-                        style={{ fontFamily: "'Montserrat', sans-serif" }}
                       />
                     </div>
 
@@ -104,8 +95,7 @@ export default function NewsletterSubscription() {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-10 py-4 bg-gradient-to-r from-[#0818A8] to-[#4682B4] text-white font-semibold hover:shadow-xl hover:shadow-[#0818A8]/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 whitespace-nowrap relative overflow-hidden group"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}
+                      className="px-10 py-4 bg-gradient-to-r from-[#0040FF] to-[#0040FF] text-white font-semibold hover:shadow-xl hover:shadow-[#0040FF]/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 whitespace-nowrap relative overflow-hidden group"
                     >
                       {/* Shimmer */}
                       <motion.div
@@ -136,7 +126,7 @@ export default function NewsletterSubscription() {
                     className="mt-4 flex flex-wrap items-center gap-3 text-sm text-black/80"
                   >
                     <div className="flex items-center gap-1.5">
-                      <svg className="w-4 h-4 text-[#4682B4]" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-[#0040FF]" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                       </svg>
                       <span>Your data is secure</span>
@@ -144,14 +134,13 @@ export default function NewsletterSubscription() {
                     <span className="text-gray-300">•</span>
                     <span>No spam, unsubscribe anytime</span>
                     <span className="text-gray-300">•</span>
-                    <span>Digital growth insights, weekly</span>
+                    <span>One email a fortnight</span>
                   </motion.div>
                 </form>
               )}
             </motion.div>
           </div>
         </motion.div>
-      </section>
-    </>
+    </section>
   );
 }

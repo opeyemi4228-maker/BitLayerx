@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-inngest",
+  "name": "bitlayerx",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "framer-motion": "^12.34.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.577.0",
+    "marked": "^18.0.9",
     "next": "^16.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

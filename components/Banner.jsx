@@ -57,8 +57,6 @@ function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
   );
 }
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
-
 const TESTIMONIALS = [
   {
     name: "Chukwuemeka Obi",
@@ -66,11 +64,13 @@ const TESTIMONIALS = [
     company: "",
     industry: "Fintech",
     avatar: "CO",
-    color: "#0818A8",
+    color: "#0040FF",
     rating: 5,
     result: "Revenue Growth",
+    pull:
+      "They built us a business, not just a platform. Everything worked together from day one.",
     quote:
-      "BitLayerX didn't just build us a platform — they built us a business. The strategy, the design, the technology, the marketing — everything worked together from day one. Within 8 months we had tripled our revenue and doubled our user base. I've worked with agencies before. This is different.",
+      "BitLayerX didn't just build us a platform  -  they built us a business. The strategy, the design, the technology, the marketing  -  everything worked together from day one. Within 8 months we had tripled our revenue and doubled our user base. I've worked with agencies before. This is different.",
   },
   {
     name: "Amaka Nwosu",
@@ -78,11 +78,13 @@ const TESTIMONIALS = [
     company: "",
     industry: "Fashion & E-commerce",
     avatar: "AN",
-    color: "#1D4ED8",
+    color: "#0040FF",
     rating: 5,
     result: "More Traffic",
+    pull:
+      "We had a beautiful product and a forgettable brand. They rebuilt the whole thing.",
     quote:
-      "Before BitLayerX, we had a beautiful product and a forgettable brand. They rebuilt everything — our visual identity, our website, our marketing strategy. The results were immediate and they kept compounding. We went from a local boutique to a national brand in under a year.",
+      "Before BitLayerX, we had a beautiful product and a forgettable brand. They rebuilt everything  -  our visual identity, our website, our marketing strategy. The results were immediate and they kept compounding. We went from a local boutique to a national brand in under a year.",
   },
   {
     name: "Ibrahim Musa",
@@ -90,11 +92,13 @@ const TESTIMONIALS = [
     company: "",
     industry: "Logistics",
     avatar: "IM",
-    color: "#000080",
+    color: "#0040FF",
     rating: 5,
     result: "47% Cost Reduction",
+    pull:
+      "We were drowning in manual work. Now dispatch, tracking and invoicing run themselves.",
     quote:
-      "We were drowning in manual processes. BitLayerX built us a fleet management system that handles everything automatically — dispatch, tracking, invoicing, client communication. We saved 30 hours per week and cut operational costs by nearly half. Worth every naira.",
+      "We were drowning in manual processes. BitLayerX built us a fleet management system that handles everything automatically  -  dispatch, tracking, invoicing, client communication. We saved 30 hours per week and cut operational costs by nearly half. Worth every naira.",
   },
   {
     name: "Toluwani Adeyemi",
@@ -102,9 +106,11 @@ const TESTIMONIALS = [
     company: "Horizon Properties",
     industry: "Real Estate",
     avatar: "TA",
-    color: "#0369A1",
+    color: "#0040FF",
     rating: 5,
     result: "65% More Enquiries",
+    pull:
+      "The films were on a different level. Our properties started selling faster, at better prices.",
     quote:
       "The commercial videos BitLayerX produced for us were on a completely different level. Our properties started selling faster, at higher prices, to better clients. The rebrand and the digital presence they built gave us the authority to compete at the top of the Abuja market.",
   },
@@ -114,11 +120,13 @@ const TESTIMONIALS = [
     company: "",
     industry: "Startup",
     avatar: "OB",
-    color: "#2563EB",
+    color: "#0040FF",
     rating: 5,
     result: "",
+    pull:
+      "Production quality in fourteen days  -  not a prototype. It gave us credibility with investors.",
     quote:
-      "We needed to move fast. BitLayerX delivered our MVP in 14 days, and it was production-quality — not a prototype. The design was clean, the technology was solid, and the brand they built for us gave us instant credibility with investors. We closed our seed round 6 weeks after launch.",
+      "We needed to move fast. BitLayerX delivered our MVP in 14 days, and it was production-quality  -  not a prototype. The design was clean, the technology was solid, and the brand they built for us gave us instant credibility with investors. We closed our seed round 6 weeks after launch.",
   },
 ];
 
@@ -128,14 +136,13 @@ const LOGOS = [
   "GCSA Consulting",
   "Ngogbehei Cancer Centre",
   "Unice Stitches",
-  "e.t.c"
 ];
 
 const CTA_BENEFITS = [
-  "Full strategy session included",
+  "A full strategy session, included",
   "No long-term lock-in contracts",
-  "Dedicated account manager",
-  "Results tracked from day one",
+  "You work directly with the people building it",
+  "Results tracked against metrics agreed up front",
 ];
 
 // ─── TESTIMONIALS SECTION ─────────────────────────────────────────────────────
@@ -171,31 +178,24 @@ function TestimonialsSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-20">
           <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
-              <Star size={13} strokeWidth={2.5} className="fill-[#0818A8]" />
+            <p className="text-[#0040FF] text-[15px] font-black tracking-[0.22em] uppercase mb-4 flex items-center gap-2">
+              <Star size={13} strokeWidth={2.5} className="fill-[#0040FF]" />
               Client Results & Credibility
             </p>
             <h2
               id="testimonials-heading"
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#000080] uppercase leading-[0.92] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#0040FF] uppercase leading-[0.92] tracking-tight"
             >
               WHAT OUR
               <br />
-              <span className="text-[#0818A8]">CLIENTS SAY</span>
+              <span className="text-[#0040FF]">CLIENTS SAY</span>
             </h2>
           </FadeIn>
 
           <FadeIn direction="left" delay={0.1} className="lg:max-w-xs">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <span className="text-black/80 text-[17px] font-semibold">4.9 / 5.0</span>
-            </div>
-            <p className="text-black/80 text-[17px] leading-relaxed">
-              Based on 127 verified client reviews across all service lines.
+            <p className="text-gray-600 text-[15.5px] leading-relaxed lg:text-right">
+              Written by the people who signed the invoices. Names and companies
+              published with their permission.
             </p>
           </FadeIn>
         </div>
@@ -262,9 +262,10 @@ function TestimonialsSection() {
                       {t.avatar}
                     </div>
                     <div>
-                      <p className="text-[#000080] font-black text-[16px]">{t.name}</p>
-                      <p className="text-black/80 text-[16px] font-medium">
-                        {t.role} · {t.company}
+                      <p className="text-[#0040FF] font-black text-[16px]">{t.name}</p>
+                      <p className="text-gray-500 text-[14px] font-medium">
+                        {[t.role, t.company].filter(Boolean).join(" · ") ||
+                          `${t.industry} client`}
                       </p>
                     </div>
                     <div className="ml-auto">
@@ -280,7 +281,7 @@ function TestimonialsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Right — nav */}
+            {/* Right  -  nav */}
             <div className="flex flex-col gap-4">
               {/* Dot indicators */}
               <div className="flex items-center gap-2 justify-center py-2">
@@ -303,7 +304,7 @@ function TestimonialsSection() {
               <div className="flex gap-3">
                 <button
                   onClick={() => paginate(-1)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[17px] rounded-xl transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#0040FF]/30 hover:bg-gray-50 text-black/80 hover:text-[#0040FF] font-bold text-[17px] rounded-xl transition-all duration-200"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={16} strokeWidth={2.5} />
@@ -311,7 +312,7 @@ function TestimonialsSection() {
                 </button>
                 <button
                   onClick={() => paginate(1)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#000080]/30 hover:bg-gray-50 text-black/80 hover:text-[#000080] font-bold text-[17px] rounded-xl transition-all duration-200"
+                  className="flex-1 flex items-center justify-center gap-2 py-3.5 border border-gray-200 hover:border-[#0040FF]/30 hover:bg-gray-50 text-black/80 hover:text-[#0040FF] font-bold text-[17px] rounded-xl transition-all duration-200"
                   aria-label="Next testimonial"
                 >
                   Next
@@ -321,8 +322,8 @@ function TestimonialsSection() {
 
               {/* View all link */}
               <Link
-                href="/work/success-stories"
-                className="flex items-center justify-center gap-1.5 text-[#0818A8] hover:text-[#000080] font-black text-[16px] uppercase tracking-wide transition-colors group"
+                href="/portfolio"
+                className="flex items-center justify-center gap-1.5 text-[#0040FF] hover:text-[#0040FF] font-black text-[16px] uppercase tracking-wide transition-colors group"
               >
                 Read All Success Stories
                 <ArrowRight size={13} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
@@ -345,7 +346,7 @@ function TestimonialsSection() {
               onClick={() => { setDirection(i > active ? 1 : -1); setActive(i); }}
               className={`p-5 border cursor-pointer transition-all duration-200 ${
                 active === i
-                  ? "border-[#0818A8]/30 bg-[#000080]/4 shadow-md"
+                  ? "border-[#0040FF]/30 bg-[#0040FF]/4 shadow-md"
                   : "border-gray-100 bg-gray-50 hover:bg-white hover:border-gray-200 hover:shadow-sm"
               }`}
             >
@@ -357,12 +358,14 @@ function TestimonialsSection() {
                   {test.avatar}
                 </div>
                 <div>
-                  <p className="text-[#000080] font-black text-[16px]">{test.name}</p>
-                  <p className="text-black/80 text-[15px]">{test.company}</p>
+                  <p className="text-[#0040FF] font-black text-[14.5px]">{test.name}</p>
+                  <p className="text-gray-500 text-[13px]">
+                    {test.company || `${test.industry} client`}
+                  </p>
                 </div>
               </div>
-              <p className="text-black/80 text-[15px] leading-relaxed line-clamp-2 italic">
-                "{test.quote.slice(0, 90)}…"
+              <p className="text-gray-600 text-[14.5px] leading-relaxed line-clamp-3 italic">
+                “{test.pull}”
               </p>
             </motion.div>
           ))}
@@ -370,8 +373,8 @@ function TestimonialsSection() {
 
         {/* Client logos strip */}
         <FadeIn className="mt-16" delay={0.15}>
-          <p className="text-center text-gray-300 text-[15px] font-black tracking-[0.2em] uppercase mb-8">
-            Trusted by leading brands across Nigeria & beyond
+          <p className="text-center text-gray-400 text-[11.5px] font-black tracking-[0.2em] uppercase mb-8">
+            Selected clients
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
             {LOGOS.map((logo, i) => (
@@ -382,12 +385,16 @@ function TestimonialsSection() {
                 transition={{ delay: 0.05 * i, duration: 0.5 }}
                 className="px-5 py-2.5 border border-gray-100 bg-gray-50 hover:bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-200 cursor-default"
               >
-                <span className="text-black/80 font-black text-[16px] tracking-wide uppercase">
+                <span className="text-gray-600 font-black text-[14px] tracking-wide uppercase">
                   {logo}
                 </span>
               </motion.div>
             ))}
           </div>
+          <p className="text-center text-gray-400 text-[13.5px] mt-6">
+            and others across fintech, logistics and real estate  -  in Nigeria
+            and the UK.
+          </p>
         </FadeIn>
 
       </div>
@@ -399,7 +406,7 @@ function TestimonialsSection() {
 function FinalCTA() {
   return (
     <section
-      className="relative bg-[#04040e] py-24 lg:py-36 overflow-hidden"
+      className="relative bg-[#0B0B0F] py-24 lg:py-36 overflow-hidden"
       aria-labelledby="cta-heading"
     >
       {/* Hex grid */}
@@ -429,7 +436,7 @@ function FinalCTA() {
       <div
         className="absolute bottom-0 left-[10%] w-[400px] h-[400px] pointer-events-none rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(0,0,128,0.15) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(0, 64, 255,0.15) 0%, transparent 65%)",
         }}
       />
 
@@ -445,7 +452,7 @@ function FinalCTA() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Left — headline + benefits */}
+          {/* Left  -  headline + benefits */}
           <div>
             <FadeIn direction="right">
               <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-6 flex items-center gap-2">
@@ -463,7 +470,7 @@ function FinalCTA() {
                 <br />
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #60a5fa 100%)",
+                    background: "linear-gradient(135deg, #0040FF 0%, #8FAEFF 50%, #5C86FF 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -476,9 +483,9 @@ function FinalCTA() {
               </h2>
 
               <p className="text-white/45 text-[17px] leading-relaxed max-w-md mb-10">
-                Your brand. Your technology. Your marketing. Your media. All
-                working as one layered system — built to dominate your market and
-                compound in value every single day.
+                Your brand, your technology, your marketing, your media  - 
+                planned together, built to last, and built to compound in value
+                long after launch.
               </p>
 
               {/* Benefits checklist */}
@@ -503,7 +510,7 @@ function FinalCTA() {
             </FadeIn>
           </div>
 
-          {/* Right — action cards */}
+          {/* Right  -  action cards */}
           <div className="space-y-4">
             <FadeIn delay={0.1} direction="left">
 
@@ -516,15 +523,15 @@ function FinalCTA() {
                 <div
                   className="absolute top-0 left-0 right-0 h-[3px]"
                   style={{
-                    background: "linear-gradient(90deg, #000080 0%, #0818A8 50%, #2563EB 100%)",
+                    background: "linear-gradient(90deg, #0040FF 0%, #0040FF 50%, #0040FF 100%)",
                   }}
                 />
                 <div className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#000080]/8 flex items-center justify-center flex-shrink-0">
-                    <Rocket size={22} strokeWidth={2} className="text-[#000080]" />
+                  <div className="w-12 h-12 rounded-xl bg-[#0040FF]/8 flex items-center justify-center flex-shrink-0">
+                    <Rocket size={22} strokeWidth={2} className="text-[#0040FF]" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-[#000080] font-black text-[16px] uppercase tracking-tight mb-1">
+                    <p className="text-[#0040FF] font-black text-[16px] uppercase tracking-tight mb-1">
                       Start a Project
                     </p>
                     <p className="text-black/80 text-[17px] leading-relaxed mb-5">
@@ -532,8 +539,8 @@ function FinalCTA() {
                       work, and give you a clear plan within 48 hours.
                     </p>
                     <Link
-                      href="/contact/project"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-[#000080]/20 group/btn"
+                      href="/start-a-project"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#0040FF] hover:bg-[#0040FF] text-white font-black text-[17px] rounded-xl transition-all duration-200 shadow-lg shadow-[#0040FF]/20 group/btn"
                     >
                       Start Your Project
                       <ArrowRight size={14} strokeWidth={3} className="group-hover/btn:translate-x-0.5 transition-transform" />
@@ -561,7 +568,7 @@ function FinalCTA() {
                       clarity on your biggest digital challenge and how to solve it.
                     </p>
                     <Link
-                      href="/contact/call"
+                      href="/contact"
                       className="inline-flex items-center gap-2 px-6 py-3 border border-white/15 hover:border-blue-400/40 text-white/70 hover:text-white font-bold text-[17px] rounded-xl transition-all duration-200 group/btn"
                     >
                       Book a Free Call
@@ -590,7 +597,7 @@ function FinalCTA() {
                       with a tailored proposal, timeline, and investment breakdown.
                     </p>
                     <Link
-                      href="/contact/proposal"
+                      href="/start-a-project"
                       className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/25 text-white/50 hover:text-white/80 font-bold text-[17px] rounded-xl transition-all duration-200 group/btn"
                     >
                       Request Proposal
@@ -608,7 +615,7 @@ function FinalCTA() {
                 {[
                   { icon: ShieldCheck, text: "No hidden fees" },
                   { icon: Zap,         text: "48hr response" },
-                  { icon: Users,       text: "500+ clients" },
+                  { icon: Users,       text: "One accountable owner" },
                 ].map((t, i) => {
                   const Icon = t.icon;
                   return (

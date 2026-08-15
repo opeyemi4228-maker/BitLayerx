@@ -1,243 +1,241 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Play, Target, Eye, GitBranch, Award, Video, TrendingUp, Layers } from "lucide-react";
+import {
+  ArrowRight, Target, Eye, GitBranch, Award, Video, TrendingUp,
+} from "lucide-react";
+import Figure from "./Figure";
+import { MEDIA } from "@/lib/media";
 
-const FONT_URL =
-  "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap";
-
-const LAYERS = [
-  { number: "01", id: "strategy",   icon: Target,     label: "Strategy Layer",           title: "Strategy & Positioning",       tagline: "Vision. Roadmap. Direction.",          benefit: "Every great digital system starts with clarity. We define your market position, growth roadmap, and strategic blueprint before a single pixel is designed or line of code is written.", outcomes: ["Brand & market positioning","Digital growth roadmap","Competitive intelligence","Revenue strategy"],          color: "#0818A8", href: "/services/strategy"   },
-  { number: "02", id: "experience", icon: Eye,         label: "Experience Layer",          title: "UI/UX & Product Design",       tagline: "Intuitive. Engaging. Converting.",      benefit: "We design digital experiences around how your users think, feel, and decide. Every interface is a carefully engineered journey — from first impression to loyal customer.",             outcomes: ["User research & journey mapping","Wireframing & prototyping","Conversion-first design","Product strategy"],  color: "#1D4ED8", href: "/services/ui-ux"      },
-  { number: "03", id: "technology", icon: GitBranch,   label: "Technology Layer",          title: "Web, Mobile & Software",       tagline: "Fast. Scalable. Engineered.",           benefit: "We build the digital infrastructure your business runs on — from high-performance websites to complex custom applications and enterprise-grade software systems.",                       outcomes: ["Custom web & mobile apps","Scalable cloud architecture","API development & integrations","Software engineering"], color: "#2563EB", href: "/services/web-mobile" },
-  { number: "04", id: "brand",      icon: Award,       label: "Brand Layer",               title: "Branding & Identity",          tagline: "Memorable. Differentiated. Powerful.", benefit: "A brand that commands attention, builds trust, and communicates value before a word is spoken. We craft complete brand systems that make you the obvious choice.",                        outcomes: ["Logo & visual identity system","Brand guidelines & voice","Messaging & positioning","Brand evolution strategy"], color: "#000080", href: "/services/branding"   },
-  { number: "05", id: "media",      icon: Video,       label: "Media Layer",               title: "Commercials & Video",          tagline: "Cinematic. Compelling. Impactful.",     benefit: "Nothing builds trust and drives action faster than great video. We produce high-impact commercials, brand films, and ad creatives that make your brand impossible to ignore.",          outcomes: ["Brand & commercial films","Performance ad creatives","Social content production","Product launch campaigns"],   color: "#0369A1", href: "/services/video"      },
-  { number: "06", id: "growth",     icon: TrendingUp,  label: "Growth Layer",              title: "Digital Marketing & Growth",   tagline: "Data-Driven. Relentless. Compounding.", benefit: "We deploy performance marketing systems that grow more powerful every month — combining SEO, paid advertising, email, and content into one compounding growth engine.",                outcomes: ["SEO & content marketing","Paid advertising (Meta, Google)","Email & automation campaigns","Analytics & optimisation"], color: "#1E40AF", href: "/services/marketing" },
+// ─── The six practices ────────────────────────────────────────────────────────
+// Deliberately called "practices", not "layers". The word *layer* belongs to
+// the five-layer teaching framework; using it for both models forces a reader
+// to reconcile two different numbered systems with the same name.
+const PRACTICES = [
+  { id: "strategy",   short: "Strategy",    icon: Target,     title: "Strategy & Positioning",     color: "#0040FF", href: "/services/strategy"   },
+  { id: "experience", short: "Design",      icon: Eye,        title: "UI/UX & Product Design",     color: "#0040FF", href: "/services/ui-ux"      },
+  { id: "technology", short: "Engineering", icon: GitBranch,  title: "Web, Mobile & Software",     color: "#0040FF", href: "/services/web-mobile" },
+  { id: "brand",      short: "Brand",       icon: Award,      title: "Branding & Identity",        color: "#0040FF", href: "/services/branding"   },
+  { id: "media",      short: "Film",        icon: Video,      title: "Commercials & Video",        color: "#0040FF", href: "/services/video"      },
+  { id: "growth",     short: "Growth",      icon: TrendingUp, title: "Digital Marketing & Growth", color: "#0040FF", href: "/services/marketing"  },
 ];
 
-// ─── Abstract Blue Shape ──────────────────────────────────────────────────────
-function BlueShape() {
-  return (
-    <svg viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1D4ED8" /><stop offset="50%" stopColor="#2563EB" /><stop offset="100%" stopColor="#3B82F6" />
-        </linearGradient>
-        <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#1E40AF" /><stop offset="60%" stopColor="#2563EB" /><stop offset="100%" stopColor="#60A5FA" />
-        </linearGradient>
-        <linearGradient id="g3" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.7" /><stop offset="100%" stopColor="#93C5FD" stopOpacity="0.9" />
-        </linearGradient>
-        <filter id="blur1"><feGaussianBlur stdDeviation="2" /></filter>
-      </defs>
-      <path d="M 380 60 C 420 80, 440 160, 400 240 C 360 320, 280 340, 240 400 C 200 460, 220 510, 180 530 L 120 520 C 100 500, 140 450, 160 390 C 180 330, 120 290, 100 220 C 80 150, 140 80, 200 50 C 260 20, 340 40, 380 60 Z" fill="url(#g1)" opacity="0.95" />
-      <path d="M 350 80 C 390 110, 400 180, 360 255 C 320 330, 245 350, 210 410 C 190 450, 200 500, 165 520 L 145 518 C 175 498, 168 450, 185 408 C 210 348, 285 325, 320 250 C 356 175, 345 105, 310 78 Z" fill="url(#g2)" opacity="0.7" />
-      <path d="M 310 95 C 345 130, 345 200, 305 275 C 275 335, 225 358, 200 408 C 185 438, 190 475, 168 505 L 155 508 C 174 478, 170 440, 183 410 C 208 358, 258 334, 288 272 C 325 196, 323 126, 288 93 Z" fill="url(#g3)" opacity="0.85" />
-      <path d="M 270 108 C 298 138, 298 205, 262 278 C 245 315, 220 338, 205 372 L 195 368 C 210 334, 234 312, 250 275 C 285 200, 283 132, 255 103 Z" fill="#93C5FD" opacity="0.5" filter="url(#blur1)" />
-      <ellipse cx="345" cy="85" rx="18" ry="10" fill="#BFDBFE" opacity="0.6" transform="rotate(-30 345 85)" />
-    </svg>
-  );
+// ─── The method ───────────────────────────────────────────────────────────────
+// Six steps, one sentence each. A named, concrete method is what turns an
+// agency into a firm  -  and it is the thing this section used to only promise.
+const METHOD = [
+  {
+    step: "01",
+    title: "Understand the ground",
+    body: "We talk to your customers before anyone opens a laptop.",
+  },
+  {
+    step: "02",
+    title: "Define the layers",
+    body: "We map what needs to exist, and in what order.",
+  },
+  {
+    step: "03",
+    title: "Design before code",
+    body: "Decisions get made on paper, where changing them is cheap.",
+  },
+  {
+    step: "04",
+    title: "Build for the hard day",
+    body: "No power, weak network, three times the traffic.",
+  },
+  {
+    step: "05",
+    title: "Ship to real hands",
+    body: "Tested with actual users, not in a meeting room.",
+  },
+  {
+    step: "06",
+    title: "Measure and compound",
+    body: "We track what changed, and improve it.",
+  },
+];
+
+// ─── Reveal on scroll ─────────────────────────────────────────────────────────
+function useInViewOnce(margin = "-70px") {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSeen(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: margin, threshold: 0.05 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [margin]);
+
+  return [ref, seen];
 }
 
-// ─── Video Card ───────────────────────────────────────────────────────────────
-function VideoCard() {
-  const [hovered, setHovered] = useState(false);
+// ─── Method step card ─────────────────────────────────────────────────────────
+function MethodStep({ item, index, visible }) {
   return (
-    <article className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col h-full"
-      style={{ boxShadow: "0 2px 16px rgba(0,0,80,0.06)" }}
-      aria-label="BitLayerX — The Layered Approach video">
-      <div className="px-6 pt-6 pb-4">
-        <p className="text-[15px] font-semibold tracking-[0.22em] text-black/80 uppercase mb-3"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          The BitLayerX Method
-        </p>
-        <h2 className="text-[17px] sm:text-[19px] font-bold leading-snug"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          <span className="text-[#0818A8]">Watch How BitLayerX Builds</span>{" "}
-          <span className="text-gray-900">the Digital Ecosystem of Tomorrow</span>
-        </h2>
-      </div>
-      <div className="relative flex-1 mx-4 mb-4 rounded-xl overflow-hidden cursor-pointer min-h-[220px] sm:min-h-[260px] group"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        role="button" tabIndex={0} aria-label="Play BitLayerX overview video"
-        onKeyDown={(e) => e.key === "Enter" && e.currentTarget.click()}>
-        <Image
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop&q=85"
-          alt="BitLayerX team building digital ecosystems — strategy, design, technology"
-          fill className="object-cover transition-transform duration-700"
-          style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
-          sizes="(max-width: 768px) 100vw, 50vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end p-5">
-          <p className="text-white/60 text-[15px] font-semibold uppercase tracking-widest mb-1"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Six Precision
-          </p>
-          <p className="text-white font-black leading-none uppercase"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}>
-            Layers.<br />One Engine.
-          </p>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 shadow-2xl"
-            style={{ background: "#DC2626", transform: hovered ? "scale(1.12)" : "scale(1)", boxShadow: "0 8px 32px rgba(220,38,38,0.5)" }}>
-            <Play size={20} strokeWidth={0} className="fill-white ml-1" />
-          </div>
-        </div>
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-full border border-white/40 flex items-center justify-center" aria-hidden="true">
-          <ArrowRight size={12} className="text-white/70 -rotate-45" strokeWidth={2} />
-        </div>
-      </div>
-    </article>
-  );
-}
+    <li
+      className="group relative bg-white p-7 lg:p-8 transition-colors duration-300 hover:bg-[#0B0B0F]/[0.02]"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(18px)",
+        transition: `opacity 0.6s ${0.06 * index}s cubic-bezier(0.22,1,0.36,1), transform 0.6s ${0.06 * index}s cubic-bezier(0.22,1,0.36,1), background-color 0.3s`,
+      }}
+    >
+      {/* Left rule that fills in on hover  -  a small, quiet reward */}
+      <span
+        aria-hidden="true"
+        className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#0040FF] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300"
+      />
 
-// ─── Text Card ────────────────────────────────────────────────────────────────
-function TextCard() {
-  return (
-    <article className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden flex h-full"
-      style={{ boxShadow: "0 2px 16px rgba(0,0,80,0.06)" }}
-      aria-label="BitLayerX — Digital innovation company overview"
-      itemScope itemType="https://schema.org/Organization">
-      <div className="flex flex-col justify-between p-7 sm:p-8 xl:p-10 flex-1 min-w-0">
-        <div>
-          <h2 className="text-[22px] sm:text-[26px] xl:text-[30px] font-normal leading-[1.25] text-gray-800 mb-5"
-            style={{ fontFamily: "'Montserrat', sans-serif" }} itemProp="description">
-            <span className="font-black text-[#0818A8]" itemProp="name">BitLayerX</span>{" "}
-            is a{" "}
-            <span className="text-gray-800 font-normal">digital-first technology and creative</span>{" "}
-            <span className="font-bold text-[#0818A8]">solutions company</span>{" "}
-            <span className="text-gray-800 font-normal">delivering layered digital ecosystems.</span>
-          </h2>
-          <p className="text-black/80 text-[15px] sm:text-[16px] leading-relaxed mb-6 max-w-sm"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            We combine strategy, design, technology, brand, media and growth —
-            all in one cohesive, compounding ecosystem built to dominate your market.
-          </p>
-          <div className="mb-8">
-            <p className="text-[15px] text-black/80 font-semibold uppercase tracking-[0.18em] mb-3"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Six service layers:
-            </p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {LAYERS.map((layer) => {
-                const Icon = layer.icon;
-                return (
-                  <div key={layer.id} className="flex items-center gap-1.5">
-                    <Icon size={11} strokeWidth={2.5} style={{ color: layer.color }} />
-                    <span className="text-[16px] font-bold text-black/80" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                      {layer.title.split(" ")[0]}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        <div>
-          <Link href="/services"
-            className="group inline-flex items-center justify-between w-full max-w-[280px] sm:max-w-[320px] rounded-full font-bold text-[16px] text-white overflow-hidden transition-all duration-200 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#0818A8] focus:ring-offset-2"
-            style={{ background: "linear-gradient(90deg, #1D4ED8 0%, #2563EB 100%)", boxShadow: "0 4px 20px rgba(29,78,216,0.35)", fontFamily: "'Montserrat', sans-serif" }}
-            aria-label="Explore the BitLayerX layered approach">
-            <span className="flex-1 text-center pl-7 pr-2 py-4 text-[16px] font-semibold tracking-wide">
-              Explore Our Approach
-            </span>
-            <span className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center mr-1 my-1 transition-transform duration-200 group-hover:translate-x-0.5"
-              style={{ background: "rgba(255,255,255,0.2)" }} aria-hidden="true">
-              <ArrowRight size={18} strokeWidth={2.5} className="text-white" />
-            </span>
-          </Link>
-        </div>
+      <div className="flex items-baseline gap-4 mb-3">
+        <span
+          className="text-[13px] font-black tracking-[0.14em] text-[#0040FF]/45 tabular-nums"
+          aria-hidden="true"
+        >
+          {item.step}
+        </span>
+        <h3 className="text-[17px] lg:text-[18px] font-black text-[#0B0B0F] tracking-tight leading-snug">
+          {item.title}
+        </h3>
       </div>
-      {/* Right: Abstract blue shape */}
-      <div className="hidden lg:block relative flex-shrink-0 overflow-hidden" style={{ width: "clamp(140px, 22%, 200px)" }} aria-hidden="true">
-        <div className="absolute" style={{ top: "-10%", right: "-35%", width: "160%", height: "120%" }}>
-          <BlueShape />
-        </div>
-      </div>
-    </article>
+      <p className="text-[15.5px] leading-relaxed text-gray-600 pl-[42px]">
+        {item.body}
+      </p>
+    </li>
   );
 }
 
 // ─── Main Section ─────────────────────────────────────────────────────────────
-export default function LayeredApproachShowcase() {
-  const [visible, setVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
+export default function MethodAndPractices() {
+  const [gridRef, gridVisible] = useInViewOnce();
+  const [introRef, introVisible] = useInViewOnce();
 
   return (
-    <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="stylesheet" href={FONT_URL} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org", "@type": "Organization",
-        name: "BitLayerX", url: "https://bitlayerx.org",
-        description: "BitLayerX is a digital-first technology and creative solutions company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth.",
-        hasOfferCatalog: { "@type": "OfferCatalog", name: "Six Service Layers", numberOfItems: 6 },
-      })}} />
+    <section
+      id="method"
+      className="bg-[#fbfbfd] py-20 lg:py-28"
+      aria-labelledby="method-heading"
+    >
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
 
-      <section ref={sectionRef} className="bg-[#F3F4F6] py-10 sm:py-14"
-        aria-labelledby="approach-heading" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        <h2 id="approach-heading" className="sr-only">BitLayerX — The Layered Approach to Digital Innovation</h2>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(24px)",
-              transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",
-            }}>
-            <div className="min-h-[420px] sm:min-h-[480px]"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s 0.05s cubic-bezier(0.22,1,0.36,1), transform 0.7s 0.05s cubic-bezier(0.22,1,0.36,1)" }}>
-              <VideoCard />
-            </div>
-            <div className="min-h-[420px] sm:min-h-[480px]"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s 0.12s cubic-bezier(0.22,1,0.36,1), transform 0.7s 0.12s cubic-bezier(0.22,1,0.36,1)" }}>
-              <TextCard />
+        {/* ── Intro ─────────────────────────────────────────────────── */}
+        <div
+          ref={introRef}
+          className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-start mb-14 lg:mb-16"
+          style={{
+            opacity: introVisible ? 1 : 0,
+            transform: introVisible ? "translateY(0)" : "translateY(20px)",
+            transition:
+              "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",
+          }}
+        >
+          <div>
+            <p className="text-[11.5px] font-black tracking-[0.22em] uppercase text-[#0040FF] mb-4">
+              The BitLayerX Method
+            </p>
+            <h2
+              id="method-heading"
+              className="text-[30px] sm:text-[38px] lg:text-[44px] font-black text-[#0B0B0F] leading-[1.05] tracking-[-0.03em] mb-6"
+            >
+              Six steps. The same six,
+              <br className="hidden sm:block" /> every single time.
+            </h2>
+            <p className="text-[16px] leading-relaxed text-gray-600 max-w-[48ch] mb-7">
+              No two projects look alike. The way we get there does.
+            </p>
+
+            {/* The reconciliation note  -  makes two frameworks look deliberate */}
+            <div className="bg-white border-l-2 border-[#0040FF] p-6">
+              <p className="text-[15px] leading-relaxed text-gray-700">
+                We <span className="font-bold text-[#0B0B0F]">teach five layers</span>{" "}
+                of a product. We{" "}
+                <span className="font-bold text-[#0B0B0F]">
+                  deliver across six practices
+                </span>
+                . The first is how we think. The second is how we're organised.
+              </p>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-1.5 mt-4 text-[13px] font-black uppercase tracking-wide text-[#0040FF] hover:text-[#0B0B0F] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2 rounded"
+              >
+                See the practices
+                <ArrowRight
+                  size={12}
+                  strokeWidth={3}
+                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                />
+              </Link>
             </div>
           </div>
 
-          {/* Layer pills strip */}
-          <div className="mt-5 flex flex-wrap items-center gap-2"
-            style={{ opacity: visible ? 1 : 0, transition: "opacity 0.6s 0.3s ease" }}>
-            {LAYERS.map((layer) => {
-              const Icon = layer.icon;
+          <Figure
+            src={MEDIA.method.src}
+            alt={MEDIA.method.alt}
+            caption={MEDIA.method.caption}
+            ratio="4 / 3"
+            seed={2}
+            sizes="(max-width: 1024px) 100vw, 46vw"
+          />
+        </div>
+
+        {/* The six steps */}
+        <ul
+          ref={gridRef}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200"
+        >
+          {METHOD.map((item, i) => (
+            <MethodStep
+              key={item.step}
+              item={item}
+              index={i}
+              visible={gridVisible}
+            />
+          ))}
+        </ul>
+
+        {/* Practice strip */}
+        <div className="mt-12 lg:mt-14">
+          <p className="text-[12px] font-black tracking-[0.22em] uppercase text-gray-400 mb-5">
+            Six practices, one team
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            {PRACTICES.map((practice) => {
+              const Icon = practice.icon;
               return (
-                <Link key={layer.id} href={layer.href}
-                  className="group flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full hover:border-[#0818A8]/30 hover:shadow-md transition-all duration-200"
-                  style={{ boxShadow: "0 1px 4px rgba(0,0,80,0.04)" }}
-                  aria-label={`Explore ${layer.title}`}>
-                  <Icon size={12} strokeWidth={2.5} style={{ color: layer.color }} className="flex-shrink-0" />
-                  <span className="text-[11.5px] font-semibold text-black/80 group-hover:text-[#0818A8] transition-colors whitespace-nowrap"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    {layer.title}
+                <Link
+                  key={practice.id}
+                  href={practice.href}
+                  className="group flex items-center gap-2 pl-3.5 pr-4 py-2.5 bg-white border border-gray-200 rounded-full hover:border-[#0040FF]/40 hover:shadow-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+                >
+                  <Icon
+                    size={13}
+                    strokeWidth={2.5}
+                    style={{ color: practice.color }}
+                    className="flex-shrink-0"
+                  />
+                  <span className="text-[13.5px] font-bold text-gray-700 group-hover:text-[#0B0B0F] transition-colors whitespace-nowrap">
+                    {practice.short}
                   </span>
-                  <span className="text-[15px] font-black text-gray-300 group-hover:text-[#0818A8]/40 transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    {layer.number}
+                  <span className="text-[12.5px] font-semibold text-gray-400 group-hover:text-gray-500 transition-colors whitespace-nowrap hidden sm:inline">
+                    {practice.title}
                   </span>
                 </Link>
               );
             })}
-            <Link href="/services"
-              className="flex items-center gap-1.5 px-4 py-2 text-[11.5px] font-bold text-[#0818A8] hover:underline transition-all"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              See all layers <ArrowRight size={11} strokeWidth={3} />
-            </Link>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

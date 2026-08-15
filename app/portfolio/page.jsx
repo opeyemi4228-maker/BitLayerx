@@ -2,9 +2,9 @@ import { getGithubProjects } from '@/lib/github';
 import PortfolioClient from '@/components/PortfolioClient';
 
 export const metadata = {
-  title: 'Portfolio | BitLayerx — Live Projects & Deployments',
+  title: 'Work  -  Live Projects & Deployments',
   description:
-    'Explore live, deployed projects built by BitLayerx — real products shipped for businesses across Africa and beyond. Synced directly from GitHub.',
+    'Every project in the BitLayerX index is a running deployment you can open and use. Synced from GitHub and refreshed hourly.',
 };
 
 // Re-render hourly so newly published repos (with a Vercel URL) appear automatically.
@@ -15,16 +15,16 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      {/* SEO Schema — generated from live project data */}
+      {/* SEO Schema  -  generated from live project data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: 'BitLayerx Portfolio — Live Projects & Deployments',
+            name: 'BitLayerX Work  -  Live Projects & Deployments',
             description:
-              'Explore live, deployed projects built by BitLayerx across e-commerce, real estate, healthcare, education and more.',
+              'Running deployments built by BitLayerX across real estate, healthcare, education, consulting and more.',
             url: 'https://bitlayerx.com/portfolio',
             mainEntity: {
               '@type': 'ItemList',
@@ -40,7 +40,7 @@ export default async function PortfolioPage() {
               '@type': 'BreadcrumbList',
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bitlayerx.com' },
-                { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://bitlayerx.com/portfolio' },
+                { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://bitlayerx.com/portfolio' },
               ],
             },
           }),

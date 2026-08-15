@@ -1,61 +1,68 @@
-import { Montserrat } from "next/font/google";
+import { Poppins, Newsreader } from "next/font/google";
 import "./globals.css";
-import { AppContextProvider } from "@/context/AppContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
 import Script from "next/script";
 
-// ─── Font ──────────────────────────────────────────────────────────────────────
-const montserrat = Montserrat({
+// Poppins  -  the face the UK Labour Party serves on labour.org.uk (Light through
+// Black). A geometric sans built on near-perfect circles, so it reads open and
+// confident rather than institutional, and it holds its shape at Black weight
+// where display headlines live.
+const sans = Poppins({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
-  variable: "--font-montserrat",
+  variable: "--font-sans",
   preload: true,
   adjustFontFallback: true,
 });
 
-const HOTJAR_ID = process.env.NEXT_PUBLIC_HOTJAR_ID;
+// Newsreader for long-form journalism only  -  the blog. A serif signals
+// "reported piece" rather than "landing page", which is exactly the cue the BBC
+// and every publication of record leans on. Never used for UI.
+const serif = Newsreader({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-serif",
+  preload: false,
+  adjustFontFallback: true,
+});
 
-// ─── Metadata ─────────────────────────────────────────────────────────────────
+const HOTJAR_ID  = process.env.NEXT_PUBLIC_HOTJAR_ID;
+const GA_ID      = process.env.NEXT_PUBLIC_GA_ID;
+const FB_PIXEL   = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+
+// Verification codes live in env so a placeholder can never ship to production.
+const VERIFICATION = Object.fromEntries(
+  Object.entries({
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
+      : undefined,
+  }).filter(([, v]) => Boolean(v))
+);
+
+const CANONICAL_TITLE =
+  "BitLayerX  -  Digital Products, Brands & Systems Built to Last";
+
+const CANONICAL_DESCRIPTION =
+  "BitLayerX designs and builds the products, brands and systems companies run on. Strategy, design, engineering, brand, film and growth  -  one team, in Abuja, working globally.";
+
 export const metadata = {
   metadataBase: new URL("https://bitlayerx.com"),
 
   title: {
-    default:
-      "BitLayerX — Digital Innovation Company | Web, Brand, Video & Growth in Nigeria",
-    template: "%s | BitLayerX — Digital Innovation Company",
+    default: CANONICAL_TITLE,
+    template: "%s | BitLayerX",
   },
 
-  description:
-    "BitLayerX architects layered digital ecosystems — strategy, design, technology, brand, media & growth — working as one unified system. Trusted by 500+ businesses across Nigeria and beyond. Build. Scale. Dominate.",
-
-  keywords: [
-    "digital innovation company Nigeria",
-    "web development Nigeria",
-    "UI UX design agency Nigeria",
-    "branding agency Abuja",
-    "commercial video production Nigeria",
-    "performance marketing Nigeria",
-    "software engineering Nigeria",
-    "mobile app development Nigeria",
-    "digital marketing agency Abuja",
-    "BitLayerX",
-    "layered digital ecosystem",
-    "enterprise web solutions Nigeria",
-    "fintech app development",
-    "e-commerce development Nigeria",
-    "startup MVP Nigeria",
-    "brand identity Lagos",
-    "SEO agency Nigeria",
-    "digital transformation Nigeria",
-    "Abuja web developers",
-    "Lagos digital agency",
-  ],
+  description: CANONICAL_DESCRIPTION,
 
   authors: [
-    { name: "BitLayerX", url: "https://bitlayerx.com" },
+    { name: "Opeyemi T. Ojurongbe", url: "https://opeyemiojurongbe.com" },
   ],
   creator: "BitLayerX",
   publisher: "BitLayerX",
@@ -66,26 +73,18 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_NG",
     url: "https://bitlayerx.com",
-    siteName: "BitLayerX — Digital Innovation Company",
-    title:
-      "BitLayerX — Web Development, Branding, Video & Digital Marketing in Nigeria",
-    description:
-      "We architect layered digital ecosystems — strategy, design, technology, brand, media & growth — as one unified system. Trusted by 500+ businesses.",
+    siteName: "BitLayerX",
+    title: CANONICAL_TITLE,
+    description: CANONICAL_DESCRIPTION,
+    // A single designed 1200×630 card  -  a square logo makes a weak link preview.
     images: [
       {
-        url: "https://bitlayerx.com/og-image.png",
+        url: "https://bitlayerx.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "BitLayerX — Digital Innovation Company",
-        type: "image/png",
-      },
-      {
-        url: "https://bitlayerx.com/og-image-square.png",
-        width: 800,
-        height: 800,
-        alt: "BitLayerX Logo",
+        alt: "BitLayerX  -  design, engineering, brand, film and growth, one team.",
         type: "image/png",
       },
     ],
@@ -93,10 +92,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "BitLayerX — Digital Innovation Company",
-    description:
-      "Strategy, design, technology, brand, media & growth — working as one layered system. Trusted by 500+ businesses.",
-    images: ["https://bitlayerx.com/twitter-image.png"],
+    title: CANONICAL_TITLE,
+    description: CANONICAL_DESCRIPTION,
+    images: ["https://bitlayerx.com/opengraph-image"],
     creator: "@bitlayerx",
     site: "@bitlayerx",
   },
@@ -115,36 +113,19 @@ export const metadata = {
     },
   },
 
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000080" },
-    ],
-  },
+  // Icons and the manifest are produced by app/icon.png, app/apple-icon.png and
+  // app/manifest.js  -  the company mark, not a stand-in.
+  // They were previously declared here pointing at files that did not exist in
+  // /public  -  six guaranteed 404s on every page load, all of them counted by
+  // Search Console. File conventions cannot drift from reality this way.
 
-  manifest: "/site.webmanifest",
+  verification: VERIFICATION,
 
-  verification: {
-    google: "your-google-site-verification-code",
-    yandex: "your-yandex-verification-code",
-    bing: "your-bing-verification-code",
-  },
-
-  alternates: {
-    canonical: "https://bitlayerx.com",
-    languages: {
-      "en-US": "https://bitlayerx.com",
-      "en-GB": "https://bitlayerx.com/en-gb",
-    },
-  },
+  // No canonical here on purpose. A canonical set on the root layout is
+  // inherited by every route that does not override it, which tells Google
+  // that /services, /packages and the rest are all duplicates of the homepage  - 
+  // the "Duplicate without user-selected canonical" report. Each page declares
+  // its own via pageMetadata() in lib/seo.js instead.
 
   other: {
     "mobile-web-app-capable": "yes",
@@ -163,8 +144,8 @@ export const viewport = {
   userScalable: true,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0818A8" },
-    { media: "(prefers-color-scheme: dark)", color: "#000080" },
+    { media: "(prefers-color-scheme: light)", color: "#0040FF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0040FF" },
   ],
 };
 
@@ -173,21 +154,17 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={montserrat.variable}
+      className={`${sans.variable} ${serif.variable}`}
       suppressHydrationWarning
     >
       <head>
-        {/* ── Performance — Resource Hints ──────────────────────────────── */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        {/* ── Performance  -  Resource Hints ──────────────────────────────── */}
+        {/* No font preconnects: next/font self-hosts Inter and Newsreader at
+            build time, so there is no Google Fonts request to warm up. */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-        {/* ── Primary SEO Schema — Organization + WebSite + Service ─────── */}
+        {/* ── Primary SEO Schema  -  Organization + WebSite + Service ─────── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -198,17 +175,23 @@ export default function RootLayout({ children }) {
                   "@type": "Organization",
                   "@id": "https://bitlayerx.com/#organization",
                   name: "BitLayerX",
-                  alternateName: "BitLayerX Digital Innovation",
+                  legalName: "BitLayerX Technologies",
+                  alternateName: "BitLayerX Technologies",
                   url: "https://bitlayerx.com",
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://bitlayerx.com/logo.png",
+                    url: "https://bitlayerx.com/icon.png",
                     width: 512,
                     height: 512,
                   },
                   description:
-                    "BitLayerX is a forward-thinking digital innovation company delivering layered digital ecosystems — strategy, design, technology, brand, media, and growth — as one unified system.",
-                  foundingDate: "2020",
+                    "BitLayerX designs and builds the products, brands and systems companies run on  -  strategy, design, engineering, brand, film and growth, delivered by one team.",
+                  founder: {
+                    "@type": "Person",
+                    name: "Opeyemi T. Ojurongbe",
+                    jobTitle: "Founder & CEO",
+                    url: "https://opeyemiojurongbe.com",
+                  },
                   address: {
                     "@type": "PostalAddress",
                     streetAddress: "6th Avenue, Gwarinpa",
@@ -234,48 +217,28 @@ export default function RootLayout({ children }) {
                     },
                   ],
                   sameAs: [
-                    "https://twitter.com/bitlayerx",
-                    "https://linkedin.com/company/bitlayerx",
-                    "https://facebook.com/bitlayerx",
-                    "https://instagram.com/bitlayerx",
+                    "https://www.linkedin.com/company/bitlayerx",
+                    "https://x.com/bitlayerx",
+                    "https://www.instagram.com/bitlayerx",
+                    "https://www.facebook.com/bitlayerx",
+                    "https://opeyemiojurongbe.com",
                   ],
-                  aggregateRating: {
-                    "@type": "AggregateRating",
-                    ratingValue: "4.9",
-                    reviewCount: "127",
-                    bestRating: "5",
-                    worstRating: "1",
-                  },
-                  numberOfEmployees: {
-                    "@type": "QuantitativeValue",
-                    value: "50",
-                  },
                 },
                 {
                   "@type": "WebSite",
                   "@id": "https://bitlayerx.com/#website",
                   url: "https://bitlayerx.com",
                   name: "BitLayerX",
-                  description:
-                    "Digital Innovation Company — Layered Digital Ecosystems",
+                  description: CANONICAL_DESCRIPTION,
                   publisher: {
                     "@id": "https://bitlayerx.com/#organization",
-                  },
-                  potentialAction: {
-                    "@type": "SearchAction",
-                    target: {
-                      "@type": "EntryPoint",
-                      urlTemplate:
-                        "https://bitlayerx.com/search?q={search_term_string}",
-                    },
-                    "query-input": "required name=search_term_string",
                   },
                 },
                 {
                   "@type": "ProfessionalService",
                   "@id": "https://bitlayerx.com/#service",
                   name: "BitLayerX Digital Innovation",
-                  image: "https://bitlayerx.com/logo.png",
+                  image: "https://bitlayerx.com/icon.png",
                   priceRange: "₦₦₦",
                   telephone: "+234-802-540-1891",
                   address: {
@@ -378,7 +341,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "BitLayerX",
-              image: "https://bitlayerx.com/logo.png",
+              image: "https://bitlayerx.com/icon.png",
               "@id": "https://bitlayerx.com/#localbusiness",
               url: "https://bitlayerx.com",
               telephone: "+234-802-540-1891",
@@ -410,67 +373,69 @@ export default function RootLayout({ children }) {
                 },
               ],
               priceRange: "₦₦₦",
-              servesCuisine: null,
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "127",
-              },
             }),
           }}
         />
       </head>
 
       <body
-        className={`${montserrat.className} antialiased`}
+        className={`${sans.className} antialiased`}
         suppressHydrationWarning
       >
-        {/* ── Google Analytics — Replace G-XXXXXXXXXX with your GA4 ID ──── */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
-              page_path: window.location.pathname,
-              anonymize_ip: true,
-              cookie_flags: 'SameSite=None;Secure'
-            });
-          `}
-        </Script>
+        {/* ── Google Analytics  -  set NEXT_PUBLIC_GA_ID in .env ─────────── */}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  page_path: window.location.pathname,
+                  anonymize_ip: true,
+                  cookie_flags: 'SameSite=None;Secure'
+                });
+              `}
+            </Script>
+          </>
+        )}
 
-        {/* ── Facebook Pixel — Replace YOUR_PIXEL_ID ────────────────────── */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', 'YOUR_PIXEL_ID');
-            fbq('track', 'PageView');
-          `}
-        </Script>
+        {/* ── Facebook Pixel  -  set NEXT_PUBLIC_FB_PIXEL_ID in .env ──────── */}
+        {FB_PIXEL && (
+          <Script id="facebook-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${FB_PIXEL}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
 
-        {/* ── Microsoft Clarity — Replace YOUR_CLARITY_ID ──────────────── */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
-          `}
-        </Script>
+        {/* ── Microsoft Clarity  -  set NEXT_PUBLIC_CLARITY_ID in .env ────── */}
+        {CLARITY_ID && (
+          <Script id="microsoft-clarity" strategy="afterInteractive">
+            {`
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "${CLARITY_ID}");
+            `}
+          </Script>
+        )}
 
-        {/* ── Hotjar — Set NEXT_PUBLIC_HOTJAR_ID in .env ───────────────── */}
+        {/* ── Hotjar  -  Set NEXT_PUBLIC_HOTJAR_ID in .env ───────────────── */}
         {HOTJAR_ID && (
           <Script id="hotjar" strategy="afterInteractive">
             {`
@@ -490,74 +455,88 @@ export default function RootLayout({ children }) {
         <ToastProvider />
 
         {/* ── App Shell ─────────────────────────────────────────────────── */}
-        <AppContextProvider>
-          <div
-            id="root-wrapper"
-            suppressHydrationWarning
+        <div
+          id="root-wrapper"
+          suppressHydrationWarning
+          style={{
+            width: "100%",
+            maxWidth: "100vw",
+            overflowX: "hidden",
+            position: "relative",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Skip link  -  first tab stop for keyboard and screen-reader users */}
+          <a href="#main-content" className="blx-skip-link">
+            Skip to main content
+          </a>
+
+          {/* Navbar */}
+          <Navbar />
+
+          {/* Main Content */}
+          <main
+            id="main-content"
+            className="flex-1"
             style={{
               width: "100%",
               maxWidth: "100vw",
               overflowX: "hidden",
               position: "relative",
-              minHeight: "100vh",
-              display: "flex",
-              flexDirection: "column",
+              minHeight: "calc(100vh - 200px)",
             }}
+            role="main"
+            aria-label="Main content"
           >
-            {/* Navbar */}
-            <Navbar />
+            {children}
+          </main>
 
-            {/* Main Content */}
-            <main
-              id="main-content"
-              className="flex-1"
-              style={{
-                width: "100%",
-                maxWidth: "100vw",
-                overflowX: "hidden",
-                position: "relative",
-                minHeight: "calc(100vh - 200px)",
-              }}
-              role="main"
-              aria-label="Main content"
-            >
-              {children}
-            </main>
+          {/* Footer */}
+          <Footer />
+        </div>
 
-            {/* Footer */}
-            <Footer />
-          </div>
-        </AppContextProvider>
+        {/* ── Core Web Vitals  -  reported to GA4, never to the console ───── */}
+        {GA_ID && (
+          <Script id="web-vitals-monitor" strategy="afterInteractive">
+            {`
+              if ('PerformanceObserver' in window) {
+                var send = function (name, value) {
+                  if (typeof window.gtag === 'function') {
+                    window.gtag('event', name, {
+                      value: Math.round(value),
+                      metric_value: value,
+                      non_interaction: true,
+                    });
+                  }
+                };
+                try {
+                  new PerformanceObserver(function (list) {
+                    var last = list.getEntries().slice(-1)[0];
+                    if (last) send('LCP', last.renderTime || last.loadTime);
+                  }).observe({ type: 'largest-contentful-paint', buffered: true });
 
-        {/* ── Core Web Vitals Monitor (dev/analytics) ───────────────────── */}
-        <Script id="web-vitals-monitor" strategy="afterInteractive">
-          {`
-            if ('PerformanceObserver' in window) {
-              try {
-                new PerformanceObserver((list) => {
-                  const last = list.getEntries().slice(-1)[0];
-                  if (last) console.log('[BitLayerX] LCP:', last.renderTime || last.loadTime, 'ms');
-                }).observe({ entryTypes: ['largest-contentful-paint'] });
+                  new PerformanceObserver(function (list) {
+                    list.getEntries().forEach(function (e) {
+                      send('INP', e.processingStart - e.startTime);
+                    });
+                  }).observe({ type: 'first-input', buffered: true });
 
-                new PerformanceObserver((list) => {
-                  list.getEntries().forEach(e => {
-                    console.log('[BitLayerX] FID:', e.processingStart - e.startTime, 'ms');
-                  });
-                }).observe({ entryTypes: ['first-input'] });
-
-                let cls = 0;
-                new PerformanceObserver((list) => {
-                  list.getEntries().forEach(e => {
-                    if (!e.hadRecentInput) {
-                      cls += e.value;
-                      console.log('[BitLayerX] CLS:', cls.toFixed(4));
-                    }
-                  });
-                }).observe({ entryTypes: ['layout-shift'] });
-              } catch(e) {}
-            }
-          `}
-        </Script>
+                  var cls = 0;
+                  new PerformanceObserver(function (list) {
+                    list.getEntries().forEach(function (e) {
+                      if (!e.hadRecentInput) cls += e.value;
+                    });
+                  }).observe({ type: 'layout-shift', buffered: true });
+                  addEventListener('visibilitychange', function () {
+                    if (document.visibilityState === 'hidden') send('CLS', cls * 1000);
+                  }, { once: true });
+                } catch (e) {}
+              }
+            `}
+          </Script>
+        )}
       </body>
     </html>
   );

@@ -5,17 +5,20 @@ import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import {
   Target, Eye, GitBranch, Award, Video, TrendingUp,
-  ArrowRight, CheckCircle2, BarChart3, Users, Zap,
-  ShieldCheck, Globe, Layers, Star, ExternalLink,
+  ArrowRight, CheckCircle2, BarChart3,
+  ShieldCheck, Layers, Star,
 } from 'lucide-react';
 
 import FeaturedProduct from './FeaturedProduct';
+import Figure from './Figure';
+import { MEDIA } from '@/lib/media';
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const stagger = (delay = 0.12) => ({
+const stagger = (delay = 0.1) => ({
   hidden: {},
   show: { transition: { staggerChildren: delay } },
 });
@@ -26,10 +29,10 @@ function FadeIn({ children, className = '', delay = 0, direction = 'up' }) {
   const variants = {
     hidden: {
       opacity: 0,
-      y: direction === 'up' ? 32 : direction === 'down' ? -32 : 0,
-      x: direction === 'left' ? 32 : direction === 'right' ? -32 : 0,
+      y: direction === 'up' ? 28 : direction === 'down' ? -28 : 0,
+      x: direction === 'left' ? 28 : direction === 'right' ? -28 : 0,
     },
-    show: { opacity: 1, y: 0, x: 0, transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] } },
+    show: { opacity: 1, y: 0, x: 0, transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] } },
   };
   return (
     <motion.div ref={ref} variants={variants} initial="hidden" animate={inView ? 'show' : 'hidden'} className={className}>
@@ -39,86 +42,74 @@ function FadeIn({ children, className = '', delay = 0, direction = 'up' }) {
 }
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
+// Accountability leads. It is the sentence most likely to make a business
+// owner sit forward, because it names a pain they lived through last year.
 const ADVANTAGES = [
   {
+    icon: ShieldCheck,
+    title: 'One Point of Accountability',
+    description:
+      'Replace five vendors with a single partner. No coordination headaches, no one blaming the other agency  -  and you work directly with the people building it.',
+  },
+  {
     icon: Layers,
-    title: 'Complete Digital Ecosystem',
-    description: 'Integrated solutions — not isolated services. Web, video, branding, marketing, and automation working together as one system.',
+    title: 'A System, Not a Set of Parts',
+    description:
+      'Design, engineering, brand, film and growth are planned together and shipped together. Every piece is built knowing what the others are doing.',
   },
   {
     icon: BarChart3,
-    title: 'Revenue-Focused Approach',
-    description: 'We measure success in business results and revenue impact — turning your digital presence into a compounding growth engine.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'One Trusted Partner',
-    description: 'Replace 5+ vendors with a single strategic partner. No coordination headaches — just cohesive execution across every channel.',
+    title: 'Measured in Revenue, Not Deliverables',
+    description:
+      'Every engagement is tracked against agreed business metrics  -  and we report them whether or not they flatter us.',
   },
   {
     icon: Star,
-    title: 'Built for Long-Term Impact',
-    description: 'We help ambitious brands build authority, automate operations, and dominate their markets through strategic digital transformation.',
+    title: 'Built to Last, Built to Compound',
+    description:
+      'Everything we make is an asset you own: documented, handed over, and engineered to keep working when we are not in the room.',
   },
 ];
 
-const LAYERS = [
-  { number: '01', icon: Target,    label: 'Strategy Layer',   title: 'Strategy & Positioning',     benefit: 'Every project starts with a clear vision, roadmap, and market positioning — so every decision compounds toward your goals.',              outcomes: ['Brand positioning', 'Market research', 'Growth roadmap'],                        color: '#2563EB', bg: '#EFF6FF', href: '/services'   },
-  { number: '02', icon: Eye,       label: 'Experience Layer', title: 'UI/UX & Product Design',      benefit: 'Intuitive, high-converting user journeys designed around your customers — not templates.',                                                outcomes: ['User research', 'Wireframing & prototyping', 'Conversion-first design'],          color: '#0EA5E9', bg: '#F0F9FF', href: '/services'      },
-  { number: '03', icon: GitBranch, label: 'Technology Layer', title: 'Web, Mobile & Software',      benefit: 'Custom platforms built for speed, scale, and security — from landing pages to enterprise-grade applications.',                             outcomes: ['Custom web & mobile apps', 'Scalable architecture', 'API & integrations'],        color: '#1D4ED8', bg: '#EFF6FF', href: '/services' },
-  { number: '04', icon: Award,     label: 'Brand Layer',      title: 'Branding & Identity',         benefit: 'A brand system that makes you unforgettable — logo, voice, visual identity, and guidelines built to last.',                               outcomes: ['Logo & identity system', 'Brand guidelines', 'Messaging & tone of voice'],        color: '#3B82F6', bg: '#EFF6FF', href: '/services'   },
-  { number: '05', icon: Video,     label: 'Media Layer',      title: 'Commercials & Video',         benefit: 'High-impact commercial videos, brand films, and ad creatives that capture attention and drive action across every screen.',                outcomes: ['Brand & product films', 'Ad creatives', 'Social content production'],             color: '#0369A1', bg: '#F0F9FF', href: '/services'      },
-  { number: '06', icon: TrendingUp,label: 'Growth Layer',     title: 'Digital Marketing & Growth',  benefit: 'Data-driven campaigns across SEO, paid ads, email, and social — designed to compound in effectiveness every month.',                      outcomes: ['SEO & content marketing', 'Paid advertising', 'Analytics & optimisation'],        color: '#1E40AF', bg: '#EFF6FF', href: '/services'  },
-];
-
-const CASE_STUDIES = [
+// Each practice states one concrete deliverable, not a category name.
+// "Wireframing & prototyping" is a claim; "a clickable prototype your team can
+// test before we write code" is a commitment.
+const PRACTICES = [
   {
-    tag: 'E-commerce · Brand · Marketing',
-    title: 'Scaling a Lagos Fashion Brand to Market Dominance',
-    description: 'A homegrown fashion label had great products but zero digital presence. We rebuilt their brand, launched a custom e-commerce platform, and ran a 6-month performance marketing campaign.',
-    metrics: [
-      { value: '340%',  label: 'Traffic Increase',  icon: TrendingUp },
-      { value: '4.2×',  label: 'ROAS on Ad Spend',  icon: Zap        },
-      { value: 'Live',  label: 'Full Ecosystem',     icon: BarChart3  },
-    ],
-    layers: ['Brand', 'Technology', 'Growth'],
-    industry: 'E-commerce', duration: '6 months', dark: true,
+    number: '01', icon: Target, label: 'Strategy', title: 'Strategy & Positioning',
+    benefit: 'Every engagement starts with clarity  -  your market position, your audience, and the order things need to happen in.',
+    deliverable: 'A written positioning statement you could hand a new hire.',
+    color: '#0040FF', href: '/services/strategy',
   },
   {
-    tag: 'Fintech · UI/UX · Engineering',
-    title: 'Building a Payments Platform Serving 50,000+ Users',
-    description: 'A Nigerian fintech startup needed a scalable payments infrastructure and consumer mobile app — built from scratch, production-ready, and CBN-compliant.',
-    metrics: [
-      { value: '50K+',  label: 'Active Users',        icon: Users      },
-      { value: '99.9%', label: 'Platform Uptime',     icon: ShieldCheck },
-      { value: '2 Wks', label: 'MVP to Launch',       icon: Zap        },
-    ],
-    layers: ['Strategy', 'Experience', 'Technology'],
-    industry: 'Fintech', duration: '4 months', dark: false,
+    number: '02', icon: Eye, label: 'Design', title: 'UI/UX & Product Design',
+    benefit: 'Interfaces designed around how your customers actually think, decide and get interrupted.',
+    deliverable: 'A clickable prototype your team can test before we write code.',
+    color: '#0040FF', href: '/services/ui-ux',
   },
   {
-    tag: 'Real Estate · Brand · Video',
-    title: 'Positioning a Property Group as Abuja\'s Premium Brand',
-    description: 'A real estate developer wanted to move upmarket. We delivered a full rebrand, cinematic property videos, and a luxury digital presence that commanded premium pricing.',
-    metrics: [
-      { value: '65%',   label: 'Increase in Enquiries', icon: TrendingUp },
-      { value: '3',     label: 'Commercial Videos',     icon: Video      },
-      { value: 'Top',   label: 'Market Position',       icon: BarChart3  },
-    ],
-    layers: ['Brand', 'Media', 'Experience'],
-    industry: 'Real Estate', duration: '3 months', dark: true,
+    number: '03', icon: GitBranch, label: 'Engineering', title: 'Web, Mobile & Software',
+    benefit: 'The infrastructure your business runs on  -  built for weak networks, real traffic and the day something goes wrong.',
+    deliverable: 'Production code in your repository, documented and handed over.',
+    color: '#0040FF', href: '/services/web-mobile',
   },
   {
-    tag: 'Logistics · Software · Automation',
-    title: 'Automating Operations for a 200-Vehicle Fleet Company',
-    description: 'A logistics firm was drowning in manual processes. We engineered a custom fleet management system with real-time tracking, automated dispatch, and a client-facing portal.',
-    metrics: [
-      { value: '47%',   label: 'Cost Reduction',     icon: BarChart3 },
-      { value: '200+',  label: 'Vehicles Managed',   icon: Globe     },
-      { value: '30hr',  label: 'Saved Per Week',     icon: Zap       },
-    ],
-    layers: ['Strategy', 'Technology', 'Growth'],
-    industry: 'Logistics', duration: '5 months', dark: false,
+    number: '04', icon: Award, label: 'Brand', title: 'Branding & Identity',
+    benefit: 'A brand system that communicates value before a word is spoken  -  and holds up as the company grows.',
+    deliverable: 'A logo system that works at 16px and on a building  -  source files yours.',
+    color: '#0040FF', href: '/services/branding',
+  },
+  {
+    number: '05', icon: Video, label: 'Film', title: 'Commercials & Video',
+    benefit: 'Nothing builds trust faster than seeing the thing work. We produce films that carry weight, not just polish.',
+    deliverable: 'A finished film, cut down for every platform you post on.',
+    color: '#0040FF', href: '/services/video',
+  },
+  {
+    number: '06', icon: TrendingUp, label: 'Growth', title: 'Digital Marketing & Growth',
+    benefit: 'Search, paid, email and content run as one plan, so each month’s work makes the next month cheaper.',
+    deliverable: 'A dashboard you can read without us in the room.',
+    color: '#0040FF', href: '/services/marketing',
   },
 ];
 
@@ -130,30 +121,60 @@ function AdvantagesSection() {
   return (
     <section className="bg-white py-24 lg:py-32" aria-labelledby="advantages-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid lg:grid-cols-[420px_1fr] gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-[420px_1fr] gap-14 lg:gap-24 items-start">
 
           <FadeIn direction="right" className="lg:sticky lg:top-28 lg:self-start">
-            <p className="text-[#0818A8] text-[16px] font-black tracking-[0.2em] uppercase mb-4">Why BitLayerX</p>
-            <h2 id="advantages-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#000080] uppercase leading-[0.95] tracking-tight mb-6">
-              OUR<br /><span className="text-[#0818A8]">ADVANTAGES</span>
-            </h2>
-            <p className="text-black/80 text-[17px] leading-relaxed max-w-sm">
-              Most agencies deliver parts. We deliver the whole system — and the results prove it.
+            <p className="text-[#0040FF] text-[12.5px] font-black tracking-[0.22em] uppercase mb-4">
+              Why BitLayerX
             </p>
+            <h2
+              id="advantages-heading"
+              className="text-[34px] sm:text-[42px] lg:text-[52px] font-black text-[#0B0B0F] leading-[0.98] tracking-[-0.035em] mb-6"
+            >
+              Most agencies
+              <br />
+              deliver parts.
+              <br />
+              <span className="text-[#0040FF]">We deliver the whole.</span>
+            </h2>
+            <p className="text-gray-600 text-[16px] leading-relaxed max-w-sm">
+              Four reasons companies move their whole digital programme to one
+              team.
+            </p>
+
+            <Figure
+              src={MEDIA.practices.src}
+              alt={MEDIA.practices.alt}
+              ratio="5 / 4"
+              seed={1}
+              sizes="(max-width: 1024px) 100vw, 420px"
+              className="mt-9 max-w-sm"
+            />
           </FadeIn>
 
-          <motion.div ref={ref} variants={stagger(0.13)} initial="hidden" animate={inView ? 'show' : 'hidden'} className="grid gap-4">
+          <motion.div
+            ref={ref}
+            variants={stagger(0.11)}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'}
+            className="grid gap-4"
+          >
             {ADVANTAGES.map((adv, i) => {
               const Icon = adv.icon;
               return (
-                <motion.div key={i} variants={fadeUp} whileHover={{ x: 6 }}
-                  className="group flex gap-5 p-7 lg:p-8 bg-gray-50 hover:bg-white border-l-[3px] border-transparent hover:border-[#0818A8] hover:shadow-xl hover:shadow-[#000080]/8 transition-all duration-300 cursor-default">
-                  <div className="w-11 h-11 rounded-xl bg-[#000080]/8 group-hover:bg-[#000080]/12 flex items-center justify-center flex-shrink-0 transition-colors duration-300 mt-0.5">
-                    <Icon size={20} strokeWidth={2} className="text-[#0818A8]" />
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="group flex gap-5 p-7 lg:p-8 bg-gray-50 hover:bg-white border-l-[3px] border-transparent hover:border-[#0040FF] hover:shadow-xl hover:shadow-[#0040FF]/[0.06] transition-all duration-300"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-[#0040FF]/[0.07] group-hover:bg-[#0040FF]/[0.12] flex items-center justify-center flex-shrink-0 transition-colors duration-300 mt-0.5">
+                    <Icon size={20} strokeWidth={2} className="text-[#0040FF]" />
                   </div>
                   <div>
-                    <h3 className="text-[17px] font-black text-[#000080] uppercase tracking-tight mb-2 group-hover:text-[#0818A8] transition-colors">{adv.title}</h3>
-                    <p className="text-black/80 text-[16px] leading-relaxed">{adv.description}</p>
+                    <h3 className="text-[17px] font-black text-[#0B0B0F] tracking-tight mb-2 group-hover:text-[#0040FF] transition-colors">
+                      {adv.title}
+                    </h3>
+                    <p className="text-gray-600 text-[15.5px] leading-relaxed">{adv.description}</p>
                   </div>
                 </motion.div>
               );
@@ -165,13 +186,13 @@ function AdvantagesSection() {
   );
 }
 
-// ─── SERVICES SNAPSHOT ────────────────────────────────────────────────────────
-function ServicesSnapshot() {
+// ─── PRACTICES SNAPSHOT ───────────────────────────────────────────────────────
+function PracticesSnapshot() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="bg-[#04040e] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="services-heading">
+    <section className="bg-[#0B0B0F] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="practices-heading">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <svg width="100%" height="100%" aria-hidden="true">
           <defs>
@@ -182,57 +203,115 @@ function ServicesSnapshot() {
           <rect width="100%" height="100%" fill="url(#svc-hex)" />
         </svg>
       </div>
-      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.5) 30%, rgba(99,149,255,0.7) 50%, rgba(59,130,246,0.5) 70%, transparent 100%)' }} />
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.5) 30%, rgba(99,149,255,0.7) 50%, rgba(59,130,246,0.5) 70%, transparent 100%)' }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <FadeIn className="text-center mb-20">
-          <p className="text-blue-400 text-[16px] font-black tracking-[0.2em] uppercase mb-4">Structured by Layers</p>
-          <h2 id="services-heading" className="text-4xl sm:text-5xl lg:text-7xl font-black text-white uppercase leading-[0.92] tracking-tight mb-6">
-            WHAT WE<br />
-            <span style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #60a5fa 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>BUILD</span>
+        <FadeIn className="max-w-2xl mb-16 lg:mb-20">
+          <p className="text-blue-400 text-[12.5px] font-black tracking-[0.22em] uppercase mb-4">
+            Six practices
+          </p>
+          <h2
+            id="practices-heading"
+            className="text-[34px] sm:text-[42px] lg:text-[56px] font-black text-white leading-[0.98] tracking-[-0.035em] mb-6"
+          >
+            What we build, and{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #0040FF 0%, #8FAEFF 50%, #5C86FF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              what you actually receive
+            </span>
           </h2>
-          <p className="text-white/40 text-[17px] max-w-xl mx-auto leading-relaxed">
-            Six precision layers. Each one engineered to compound the value of the others.
+          <p className="text-white/45 text-[16px] leading-relaxed">
+            Every practice below lists what lands in your hands at the end of it.
+            Not the category  -  the deliverable.
           </p>
         </FadeIn>
 
-        <motion.div ref={ref} variants={stagger(0.1)} initial="hidden" animate={inView ? 'show' : 'hidden'} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-          {LAYERS.map((layer, i) => {
-            const Icon = layer.icon;
+        <motion.div
+          ref={ref}
+          variants={stagger(0.08)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06]"
+        >
+          {PRACTICES.map((practice, i) => {
+            const Icon = practice.icon;
             return (
-              <motion.div key={i} variants={fadeUp}
-                className="group bg-[#04040e] hover:bg-[#070720] p-8 lg:p-9 relative overflow-hidden transition-colors duration-300 cursor-pointer">
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundColor: layer.color }} />
-                <div className="absolute top-6 right-7 text-[48px] font-black leading-none pointer-events-none select-none opacity-[0.06] group-hover:opacity-[0.1] transition-opacity" style={{ color: layer.color }} aria-hidden="true">{layer.number}</div>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300" style={{ backgroundColor: layer.color + '20' }}>
-                  <Icon size={20} strokeWidth={2} style={{ color: layer.color }} />
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="group bg-[#0B0B0F] hover:bg-[#0B0B0F] p-8 lg:p-9 relative overflow-hidden transition-colors duration-300 flex flex-col"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ backgroundColor: practice.color }}
+                />
+                <div
+                  className="absolute top-6 right-7 text-[48px] font-black leading-none pointer-events-none select-none opacity-[0.07] group-hover:opacity-[0.12] transition-opacity tabular-nums"
+                  style={{ color: practice.color }}
+                  aria-hidden="true"
+                >
+                  {practice.number}
                 </div>
-                <p className="text-[15px] font-black tracking-[0.18em] uppercase mb-2" style={{ color: layer.color }}>{layer.label}</p>
-                <h3 className="text-[17px] lg:text-[19px] font-black text-white uppercase leading-tight mb-3 tracking-tight">{layer.title}</h3>
-                <p className="text-white/45 text-[17px] leading-relaxed mb-5 group-hover:text-white/60 transition-colors">{layer.benefit}</p>
-                <ul className="space-y-1.5 mb-6">
-                  {layer.outcomes.map((o, j) => (
-                    <li key={j} className="flex items-center gap-2">
-                      <CheckCircle2 size={13} strokeWidth={2.5} style={{ color: layer.color }} className="flex-shrink-0" />
-                      <span className="text-white/50 text-[16px] font-medium">{o}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href={layer.href}
-                  className="inline-flex items-center gap-1.5 text-[16px] font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0"
-                  style={{ color: layer.color }} aria-label={`Learn more about ${layer.title}`}>
-                  Explore Layer <ArrowRight size={12} strokeWidth={3} />
+
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                  style={{ backgroundColor: practice.color + '20' }}
+                >
+                  <Icon size={20} strokeWidth={2} style={{ color: practice.color }} />
+                </div>
+
+                <p className="text-[12px] font-black tracking-[0.2em] uppercase mb-2" style={{ color: practice.color }}>
+                  {practice.label}
+                </p>
+                <h3 className="text-[18px] lg:text-[19px] font-black text-white leading-tight mb-3 tracking-tight">
+                  {practice.title}
+                </h3>
+                <p className="text-white/45 text-[15px] leading-relaxed mb-6 flex-1 group-hover:text-white/60 transition-colors">
+                  {practice.benefit}
+                </p>
+
+                {/* One deliverable. A claim becomes a commitment when it names
+                    the thing that lands in your hands. */}
+                <div className="flex items-start gap-2.5 mb-6 pt-5 border-t border-white/[0.07]">
+                  <CheckCircle2
+                    size={14}
+                    strokeWidth={2.5}
+                    style={{ color: practice.color }}
+                    className="flex-shrink-0 mt-[3px]"
+                  />
+                  <span className="text-white/65 text-[14.5px] leading-snug">
+                    {practice.deliverable}
+                  </span>
+                </div>
+
+                <Link
+                  href={practice.href}
+                  className="inline-flex items-center gap-1.5 text-[13px] font-black uppercase tracking-wide transition-all duration-300 opacity-60 group-hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] rounded"
+                  style={{ color: practice.color }}
+                >
+                  {practice.label} in detail
+                  <ArrowRight size={12} strokeWidth={3} />
                 </Link>
               </motion.div>
             );
           })}
         </motion.div>
 
-        <FadeIn className="text-center mt-14" delay={0.2}>
-          <Link href="/services"
-            className="inline-flex items-center gap-2.5 px-8 py-4 border border-white/15 hover:border-blue-400/50 bg-white/5 hover:bg-blue-500/10 text-white/75 hover:text-white font-bold text-[16px] rounded-xl transition-all duration-300 group">
-            See All Services
+        <FadeIn className="text-center mt-14" delay={0.15}>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2.5 px-8 py-4 border border-white/15 hover:border-blue-400/50 bg-white/5 hover:bg-blue-500/10 text-white/75 hover:text-white font-bold text-[15px] rounded-xl transition-all duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]"
+          >
+            See all six practices
             <ArrowRight size={15} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </FadeIn>
@@ -241,107 +320,12 @@ function ServicesSnapshot() {
   );
 }
 
-// ─── FEATURED WORK ────────────────────────────────────────────────────────────
-function FeaturedWork() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-
+export default function AdvantagesAndPracticesSection() {
   return (
-    <section className="bg-white py-24 lg:py-32" aria-labelledby="work-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-          <FadeIn direction="right">
-            <p className="text-[#0818A8] text-[16px] font-black tracking-[0.2em] uppercase mb-4">Proof of Execution</p>
-            <h2 id="work-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#000080] uppercase leading-[0.95] tracking-tight">
-              FEATURED<br /><span className="text-[#0818A8]">WORK</span>
-            </h2>
-          </FadeIn>
-          <FadeIn direction="left" delay={0.1}>
-            <p className="text-black/80 text-[16px] max-w-xs leading-relaxed lg:text-right">
-              Results over visuals. Every project below is measured in impact, not aesthetics.
-            </p>
-          </FadeIn>
-        </div>
-
-        <motion.div ref={ref} variants={stagger(0.15)} initial="hidden" animate={inView ? 'show' : 'hidden'} className="grid gap-px bg-gray-100">
-          {CASE_STUDIES.map((cs, i) => (
-            <motion.article key={i} variants={fadeUp}
-              className={`group grid lg:grid-cols-2 min-h-[420px] ${i % 2 === 1 ? 'lg:[direction:rtl]' : ''}`}>
-              {/* Metrics panel */}
-              <div className={`relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden ${i % 2 === 1 ? 'lg:[direction:ltr]' : ''} ${cs.dark ? 'bg-[#000080]' : 'bg-[#04040e]'}`}>
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
-                  <svg width="100%" height="100%" aria-hidden="true">
-                    <defs><pattern id={`grid-${i}`} x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.8" /></pattern></defs>
-                    <rect width="100%" height="100%" fill={`url(#grid-${i})`} />
-                  </svg>
-                </div>
-                <div className="relative z-10">
-                  <p className="text-blue-300/70 text-[15px] font-bold tracking-[0.15em] uppercase mb-5">{cs.tag}</p>
-                  <div className="text-[80px] lg:text-[100px] font-black leading-none text-white/5 mb-2 select-none" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
-                  <div className="grid grid-cols-3 gap-4">
-                    {cs.metrics.map((m, j) => {
-                      const Icon = m.icon;
-                      return (
-                        <div key={j} className="flex flex-col gap-2">
-                          <div className="w-8 h-8 rounded-lg bg-blue-400/15 flex items-center justify-center flex-shrink-0">
-                            <Icon size={15} strokeWidth={2} className="text-blue-300" />
-                          </div>
-                          <div>
-                            <p className="text-white font-black text-[22px] lg:text-[28px] leading-none">{m.value}</p>
-                            <p className="text-white/40 text-[15px] font-semibold leading-tight mt-0.5">{m.label}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="relative z-10 mt-8 flex flex-wrap gap-2">
-                  {cs.layers.map((l, j) => (
-                    <span key={j} className="px-3 py-1 border border-blue-400/20 text-blue-300/70 text-[15px] font-bold tracking-wider uppercase rounded-full">{l} Layer</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Content panel */}
-              <div className={`flex flex-col justify-between p-8 lg:p-12 bg-white group-hover:bg-gray-50 transition-colors duration-300 ${i % 2 === 1 ? 'lg:[direction:ltr]' : ''}`}>
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="px-3 py-1 bg-[#000080]/8 text-[#000080] text-[15px] font-black tracking-wider uppercase rounded-full">{cs.industry}</span>
-                    <span className="text-gray-300 text-[15px]">·</span>
-                    <span className="text-black/80 text-[15px] font-semibold">{cs.duration}</span>
-                  </div>
-                  <h3 className="text-[20px] lg:text-[26px] font-black text-[#000080] uppercase leading-tight tracking-tight mb-5">{cs.title}</h3>
-                  <p className="text-black/80 text-[16px] leading-relaxed mb-8">{cs.description}</p>
-                </div>
-                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                  <Link href="/portfolio" className="inline-flex items-center gap-2 text-[#000080] font-black text-[17px] uppercase tracking-wide hover:text-[#0818A8] transition-colors group/link">
-                    View Case Study <ArrowRight size={15} strokeWidth={3} className="group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                  <ExternalLink size={16} strokeWidth={2} className="text-gray-200 group-hover:text-gray-300 transition-colors" />
-                </div>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
-
-        <FadeIn className="text-center mt-14" delay={0.2}>
-          <Link href="/portfolio"
-            className="inline-flex items-center gap-2.5 px-9 py-4 bg-[#000080] hover:bg-[#0818A8] text-white font-black text-[16px] rounded-xl transition-all duration-300 shadow-lg shadow-[#000080]/25 hover:shadow-[#000080]/40 group">
-            See All Case Studies
-            <ArrowRight size={15} strokeWidth={3} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-export default function AdvantagesServicesSection() {
-  return (
-    <main>
+    <>
       <AdvantagesSection />
-      <ServicesSnapshot />
+      <PracticesSnapshot />
       <FeaturedProduct />
-    </main>
+    </>
   );
 }
