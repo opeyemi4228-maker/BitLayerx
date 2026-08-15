@@ -24,7 +24,7 @@ export default function BitLayerxAboutPage() {
     {
       image: '/images/founder-opeyemi.jpg',
       name: 'Opeyemi T. Ojurongbe',
-      title: 'Founder & Chief Executive',
+      title: 'Team Lead',
       description:
         'Founded BitLayerX and still works on the projects. Scopes the plan you receive in the first 48 hours, and is who you speak to if something goes wrong.'
     }

@@ -58,26 +58,8 @@ function AnnouncementBar({ onClose }) {
           rel="noopener noreferrer"
           className="group flex items-center gap-2.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] rounded"
         >
-          <span
-            className="flex-shrink-0 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/10 text-white text-[11px] font-black tracking-[0.14em] uppercase"
-            aria-hidden="true"
-          >
-            <Radio size={10} strokeWidth={2.5} />
-            New
-          </span>
           <span className="text-white/85 text-[13.5px] sm:text-[14px] font-medium leading-tight truncate">
-            <span className="font-bold text-white">Design Engineering</span>
-            <span className="hidden sm:inline">
-              {" "} -  a five-minute series from our founder.
-            </span>
-          </span>
-          <span className="hidden sm:inline-flex items-center gap-1 text-white text-[13.5px] font-bold whitespace-nowrap">
-            Watch Episode 1
-            <ArrowRight
-              size={12}
-              strokeWidth={3}
-              className="transition-transform duration-200 group-hover:translate-x-0.5"
-            />
+            <span className="font-bold text-white">We are your digital growth partner.</span>
           </span>
         </a>
       </div>
