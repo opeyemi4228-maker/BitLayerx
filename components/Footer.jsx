@@ -8,7 +8,7 @@ import { MessageSquare, CalendarCheck, FolderOpen, Building2 } from 'lucide-reac
 // ─── Social ───────────────────────────────────────────────────────────────────
 // Own SVGs, not a third-party icon host. For a design studio, generic icons
 // served from someone else's server are both an aesthetic and a reliability
-// weakness  -  and every one of these used to be a dead "#" anchor.
+// weakness, and every one of these used to be a dead "#" anchor.
 const SOCIAL = [
   {
     label: 'LinkedIn',
@@ -38,7 +38,7 @@ export default function BitLayerxFooterBottom() {
       icon: MessageSquare,
       title: 'Help & Support',
       // A promise we can keep, instead of a 24/7 one we cannot.
-      description: 'Ask us anything  -  we respond within 48 hours',
+      description: 'Ask us anything, we respond within 48 hours',
       link: '/contact',
     },
     {
@@ -81,7 +81,7 @@ export default function BitLayerxFooterBottom() {
 
   return (
     <footer className="blx-footer bg-[#0B0B0F]">
-      {/* Top  -  the four things people come here to do */}
+      {/* Top, the four things people come here to do */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -118,7 +118,7 @@ export default function BitLayerxFooterBottom() {
         })}
       </motion.div>
 
-      {/* Bottom  -  legal, credit, social */}
+      {/* Bottom, legal, credit, social */}
       <div className="bg-black px-6 lg:px-12 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">

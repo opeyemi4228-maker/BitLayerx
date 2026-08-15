@@ -3,7 +3,7 @@ title: "Design Systems for Teams of Three"
 excerpt: "You do not need Material Design. You need eleven decisions written down and obeyed."
 category: design
 author: Opeyemi T. Ojurongbe
-authorRole: Founder & CEO
+authorRole: Team Lead
 published: 2026-08-02
 tags: [design, design systems, css, frontend]
 coverAlt: "A wall of pinned interface screens connected with string."
@@ -18,7 +18,7 @@ The useful version is much smaller than the famous ones.
 
 Inconsistency is not an aesthetic complaint. It is a trust signal.
 
-Users cannot articulate why a site feels amateur, but they register it. Two buttons with slightly different corner radii, section padding that changes between pages, four blues that are nearly the same  -  none of it is noticed individually, and all of it accumulates.
+Users cannot articulate why a site feels amateur, but they register it. Two buttons with slightly different corner radii, section padding that changes between pages, four blues that are nearly the same, none of it is noticed individually, and all of it accumulates.
 
 The fix is not talent. It is a short list of decisions, made once.
 
@@ -89,4 +89,4 @@ You need eleven decisions in one CSS file and six components that use them.
 
 Open two pages of your site side by side and measure the gap above the first heading.
 
-If they differ, you do not have a system yet  -  and that single measurement predicts almost everything else a visitor will feel about whether your company is serious.
+If they differ, you do not have a system yet, and that single measurement predicts almost everything else a visitor will feel about whether your company is serious.

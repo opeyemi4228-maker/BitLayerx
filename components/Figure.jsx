@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 /**
- * Figure  -  the site's single image primitive.
+ * Figure, the site's single image primitive.
  *
  * If the file at `src` is missing, it renders a branded generated plate rather
  * than a broken image or a stock photograph. That distinction matters: a stock
@@ -41,7 +41,7 @@ function BrandPlate({ seed = 0, label }) {
         <rect width="100%" height="100%" fill={`url(#${id}-sheen)`} />
       </svg>
 
-      {/* Three offset planes  -  the layer idea, drawn once and quietly. */}
+      {/* Three offset planes, the layer idea, drawn once and quietly. */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div
           className="relative"

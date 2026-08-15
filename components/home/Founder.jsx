@@ -8,7 +8,7 @@ import { Section, Container, ActionLink } from "@/components/ui/primitives";
  * A named, photographed person is the single strongest trust signal a small
  * firm has, and it is the one most agencies throw away by hiding behind "we".
  * A buyer deciding whether to send money to a company they found online is
- * really asking "who is accountable if this goes wrong"  -  so the answer is a
+ * really asking "who is accountable if this goes wrong", so the answer is a
  * face, a name, and a direct line, stated plainly.
  */
 export default function Founder() {
@@ -20,7 +20,7 @@ export default function Founder() {
 
               The caption sits below the frame rather than floating over the
               photograph. Overlaid on the image it fought the background for
-              contrast and never reliably won  -  and a name is the one thing on
+              contrast and never reliably won, and a name is the one thing on
               this section that has to be readable every time. */}
           <figure className="mx-auto w-full max-w-[420px] lg:mx-0">
             <div
@@ -29,7 +29,7 @@ export default function Founder() {
             >
               <Image
                 src="/images/founder-opeyemi.jpg"
-                alt="Opeyemi T. Ojurongbe, Founder and Chief Executive of BitLayerX."
+                alt="Opeyemi T. Ojurongbe, Team Lead at BitLayerX."
                 fill
                 sizes="(max-width: 1024px) 90vw, 420px"
                 className="object-cover object-[50%_18%]"
@@ -42,7 +42,7 @@ export default function Founder() {
                 Opeyemi T. Ojurongbe
               </span>
               <span className="mt-0.5 block text-[14px] text-[#6e6e73]">
-                Founder &amp; Chief Executive
+                Team Lead
               </span>
             </figcaption>
           </figure>

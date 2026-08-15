@@ -2,7 +2,7 @@ import { getGithubProjects } from '@/lib/github';
 import PortfolioClient from '@/components/PortfolioClient';
 
 export const metadata = {
-  title: 'Work  -  Live Projects & Deployments',
+  title: 'Work, Live Projects & Deployments',
   description:
     'Every project in the BitLayerX index is a running deployment you can open and use. Synced from GitHub and refreshed hourly.',
 };
@@ -15,14 +15,14 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      {/* SEO Schema  -  generated from live project data */}
+      {/* SEO Schema, generated from live project data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: 'BitLayerX Work  -  Live Projects & Deployments',
+            name: 'BitLayerX Work, Live Projects & Deployments',
             description:
               'Running deployments built by BitLayerX across real estate, healthcare, education, consulting and more.',
             url: 'https://bitlayerx.com/portfolio',

@@ -52,13 +52,13 @@ const DIFFERENTIATORS = [
     icon: Layers,
     title: "Strategy before execution",
     description:
-      "We never open with design or code. Position, audience and sequencing come first  -  on paper, where changing your mind is cheap.",
+      "We never open with design or code. Position, audience and sequencing come first, on paper, where changing your mind is cheap.",
   },
   {
     icon: BarChart3,
     title: "Measured in revenue, not deliverables",
     description:
-      "Every engagement is tracked against agreed business metrics  -  and we report them whether or not they flatter us.",
+      "Every engagement is tracked against agreed business metrics, and we report them whether or not they flatter us.",
   },
   {
     icon: ShieldCheck,
@@ -69,7 +69,7 @@ const DIFFERENTIATORS = [
 ];
 
 // The last row is one we lose. A perfectly one-sided comparison persuades less
-// than one that concedes something  -  the concession is what makes the rest
+// than one that concedes something, the concession is what makes the rest
 // believable.
 const COMPARISONS = [
   { label: "Design and engineering aligned",  us: true,  them: false },
@@ -107,7 +107,7 @@ function WhyBitLayerX() {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left  -  differentiators */}
+          {/* Left, differentiators */}
           <motion.div
             ref={listRef}
             variants={stagger(0.1)}
@@ -139,7 +139,7 @@ function WhyBitLayerX() {
             })}
           </motion.div>
 
-          {/* Right  -  the honest comparison */}
+          {/* Right, the honest comparison */}
           <FadeIn delay={0.15} direction="left">
             <div className="border border-gray-200 overflow-hidden rounded-xl">
               <div className="grid grid-cols-[1fr_92px_92px] bg-[#0B0B0F] px-6 py-4">
@@ -171,7 +171,7 @@ function WhyBitLayerX() {
             <p className="mt-4 text-[13px] leading-relaxed text-gray-500">
               We are not the cheapest, and we don't try to be. If price is the
               deciding factor, a specialist freelancer will beat us on the
-              invoice  -  and cost you more over three years.
+              invoice, and cost you more over three years.
             </p>
 
             <div className="flex items-center gap-3 flex-wrap mt-8">
@@ -266,7 +266,7 @@ function FounderSection() {
                 className="text-white text-[22px] sm:text-[27px] lg:text-[31px] font-black leading-[1.25] tracking-[-0.025em] mb-8"
               >
                 “Everything is a layer, and every layer has to hold. We don't
-                build websites, apps or campaigns  -  we build the systems a
+                build websites, apps or campaigns, we build the systems a
                 business runs on, and then we stay accountable for them.”
               </p>
 
@@ -276,7 +276,7 @@ function FounderSection() {
                     Opeyemi T. Ojurongbe
                   </p>
                   <p className="text-white/40 text-[14px] font-medium">
-                    Founder &amp; CEO · Design engineer · Registered mining
+                    Team Lead · Design engineer · Registered mining
                     engineer (NSE)
                   </p>
                 </div>
@@ -285,7 +285,7 @@ function FounderSection() {
 
             <p className="text-white/45 text-[15.5px] leading-relaxed mt-8 max-w-[58ch]">
               Opeyemi started underground and now works mostly on screens. He
-              writes and teaches publicly about design engineering  -  the habit of
+              writes and teaches publicly about design engineering, the habit of
               treating an interface as infrastructure, and treating the person
               on the other side of it as someone having a hard day.
             </p>

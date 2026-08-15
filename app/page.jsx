@@ -21,12 +21,12 @@ export const revalidate = 3600;
  * The order is the argument, and it is deliberately the order a sceptical
  * buyer thinks in rather than the order we would like to talk in:
  *
- *   1. What do you do?             -  hero
- *   2. What can you actually do?   -  the six practices
- *   3. What is it like to buy?     -  the method, and the risk it removes
- *   4. Prove it.                   -  live deployments, not screenshots
- *   5. Do you know anything?       -  writing
- *   6. Fine  -  what now?            -  one ask, one alternative
+ *   1. What do you do?, hero
+ *   2. What can you actually do?, the six practices
+ *   3. What is it like to buy?, the method, and the risk it removes
+ *   4. Prove it., live deployments, not screenshots
+ *   5. Do you know anything?, writing
+ *   6. Fine, what now?, one ask, one alternative
  *
  * Alternating panel tones (white, off-white, near-black, brand) mark each of
  * those as a separate chapter without a single dividing rule, which is the

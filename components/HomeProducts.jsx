@@ -49,7 +49,7 @@ const ADVANTAGES = [
     icon: ShieldCheck,
     title: 'One Point of Accountability',
     description:
-      'Replace five vendors with a single partner. No coordination headaches, no one blaming the other agency  -  and you work directly with the people building it.',
+      'Replace five vendors with a single partner. No coordination headaches, no one blaming the other agency, and you work directly with the people building it.',
   },
   {
     icon: Layers,
@@ -61,7 +61,7 @@ const ADVANTAGES = [
     icon: BarChart3,
     title: 'Measured in Revenue, Not Deliverables',
     description:
-      'Every engagement is tracked against agreed business metrics  -  and we report them whether or not they flatter us.',
+      'Every engagement is tracked against agreed business metrics, and we report them whether or not they flatter us.',
   },
   {
     icon: Star,
@@ -77,7 +77,7 @@ const ADVANTAGES = [
 const PRACTICES = [
   {
     number: '01', icon: Target, label: 'Strategy', title: 'Strategy & Positioning',
-    benefit: 'Every engagement starts with clarity  -  your market position, your audience, and the order things need to happen in.',
+    benefit: 'Every engagement starts with clarity, your market position, your audience, and the order things need to happen in.',
     deliverable: 'A written positioning statement you could hand a new hire.',
     color: '#0040FF', href: '/services/strategy',
   },
@@ -89,14 +89,14 @@ const PRACTICES = [
   },
   {
     number: '03', icon: GitBranch, label: 'Engineering', title: 'Web, Mobile & Software',
-    benefit: 'The infrastructure your business runs on  -  built for weak networks, real traffic and the day something goes wrong.',
+    benefit: 'The infrastructure your business runs on, built for weak networks, real traffic and the day something goes wrong.',
     deliverable: 'Production code in your repository, documented and handed over.',
     color: '#0040FF', href: '/services/web-mobile',
   },
   {
     number: '04', icon: Award, label: 'Brand', title: 'Branding & Identity',
-    benefit: 'A brand system that communicates value before a word is spoken  -  and holds up as the company grows.',
-    deliverable: 'A logo system that works at 16px and on a building  -  source files yours.',
+    benefit: 'A brand system that communicates value before a word is spoken, and holds up as the company grows.',
+    deliverable: 'A logo system that works at 16px and on a building, source files yours.',
     color: '#0040FF', href: '/services/branding',
   },
   {
@@ -231,7 +231,7 @@ function PracticesSnapshot() {
           </h2>
           <p className="text-white/45 text-[16px] leading-relaxed">
             Every practice below lists what lands in your hands at the end of it.
-            Not the category  -  the deliverable.
+            Not the category, the deliverable.
           </p>
         </FadeIn>
 

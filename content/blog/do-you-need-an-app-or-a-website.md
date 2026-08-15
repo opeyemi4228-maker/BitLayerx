@@ -3,7 +3,7 @@ title: "Do You Need an App, or Just a Better Website?"
 excerpt: "Most businesses asking for an app do not need one. Here is the test that tells you which you are."
 category: business
 author: Opeyemi T. Ojurongbe
-authorRole: Founder & CEO
+authorRole: Team Lead
 published: 2026-07-31
 tags: [strategy, apps, business]
 ---
@@ -24,13 +24,7 @@ Answer honestly.
 
 If you answered no to most of these, build a very good website instead and spend the difference on getting people to it.
 
-## When an app is right
-
-- Staff using it every day for their work
-- Customers ordering repeatedly, like food or transport
-- Anything needing notifications to work
-- Anything needing to work with no signal
-- Anything where the camera or location is central
+## When an app is right, Staff using it every day for their work, Customers ordering repeatedly, like food or transport, Anything needing notifications to work, Anything needing to work with no signal, Anything where the camera or location is central
 
 ## The middle option most people miss
 

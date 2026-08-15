@@ -3,7 +3,7 @@ title: "What Does It Cost to Build an App in Nigeria?"
 excerpt: "Real ranges for a mobile or web app, what makes the number move, and the four features that quietly double every quote."
 category: business
 author: Opeyemi T. Ojurongbe
-authorRole: Founder & CEO
+authorRole: Team Lead
 published: 2026-08-14
 featured: true
 tags: [pricing, apps, nigeria, business]

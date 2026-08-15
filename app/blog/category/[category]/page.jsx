@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   }
 
   const url = `${SITE.url}/blog/category/${category.slug}`;
-  const title = `${category.name}  -  Insight`;
+  const title = `${category.name}, Insight`;
   const description = `Writing from the BitLayerX team on ${category.name.toLowerCase()}. Practical notes from the work itself.`;
 
   return {
@@ -95,7 +95,7 @@ export default async function CategoryPage({ params }) {
               <Heading as="h2" size="md">Nothing filed here yet.</Heading>
               <Lede className="mt-4">
                 We have not published in this section so far. The other sections
-                have plenty  -  start with{" "}
+                have plenty, start with{" "}
                 <Link href="/blog" className="text-[#0040FF] underline underline-offset-4">
                   the latest writing
                 </Link>

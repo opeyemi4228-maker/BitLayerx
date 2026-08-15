@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
 import Script from "next/script";
 
-// Poppins  -  the face the UK Labour Party serves on labour.org.uk (Light through
+// Poppins, the face the UK Labour Party serves on labour.org.uk (Light through
 // Black). A geometric sans built on near-perfect circles, so it reads open and
 // confident rather than institutional, and it holds its shape at Black weight
 // where display headlines live.
@@ -18,7 +18,7 @@ const sans = Poppins({
   adjustFontFallback: true,
 });
 
-// Newsreader for long-form journalism only  -  the blog. A serif signals
+// Newsreader for long-form journalism only, the blog. A serif signals
 // "reported piece" rather than "landing page", which is exactly the cue the BBC
 // and every publication of record leans on. Never used for UI.
 const serif = Newsreader({
@@ -46,10 +46,10 @@ const VERIFICATION = Object.fromEntries(
 );
 
 const CANONICAL_TITLE =
-  "BitLayerX  -  Digital Products, Brands & Systems Built to Last";
+  "BitLayerX, Digital Products, Brands & Systems Built to Last";
 
 const CANONICAL_DESCRIPTION =
-  "BitLayerX designs and builds the products, brands and systems companies run on. Strategy, design, engineering, brand, film and growth  -  one team, in Abuja, working globally.";
+  "BitLayerX designs and builds the products, brands and systems companies run on. Strategy, design, engineering, brand, film and growth, one team, in Abuja, working globally.";
 
 export const metadata = {
   metadataBase: new URL("https://bitlayerx.com"),
@@ -78,13 +78,13 @@ export const metadata = {
     siteName: "BitLayerX",
     title: CANONICAL_TITLE,
     description: CANONICAL_DESCRIPTION,
-    // A single designed 1200×630 card  -  a square logo makes a weak link preview.
+    // A single designed 1200×630 card, a square logo makes a weak link preview.
     images: [
       {
         url: "https://bitlayerx.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "BitLayerX  -  design, engineering, brand, film and growth, one team.",
+        alt: "BitLayerX, design, engineering, brand, film and growth, one team.",
         type: "image/png",
       },
     ],
@@ -114,16 +114,16 @@ export const metadata = {
   },
 
   // Icons and the manifest are produced by app/icon.png, app/apple-icon.png and
-  // app/manifest.js  -  the company mark, not a stand-in.
+  // app/manifest.js, the company mark, not a stand-in.
   // They were previously declared here pointing at files that did not exist in
-  // /public  -  six guaranteed 404s on every page load, all of them counted by
+  // /public, six guaranteed 404s on every page load, all of them counted by
   // Search Console. File conventions cannot drift from reality this way.
 
   verification: VERIFICATION,
 
   // No canonical here on purpose. A canonical set on the root layout is
   // inherited by every route that does not override it, which tells Google
-  // that /services, /packages and the rest are all duplicates of the homepage  - 
+  // that /services, /packages and the rest are all duplicates of the homepage:
   // the "Duplicate without user-selected canonical" report. Each page declares
   // its own via pageMetadata() in lib/seo.js instead.
 
@@ -158,13 +158,13 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        {/* ── Performance  -  Resource Hints ──────────────────────────────── */}
+        {/* ── Performance, Resource Hints ──────────────────────────────── */}
         {/* No font preconnects: next/font self-hosts Inter and Newsreader at
             build time, so there is no Google Fonts request to warm up. */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-        {/* ── Primary SEO Schema  -  Organization + WebSite + Service ─────── */}
+        {/* ── Primary SEO Schema, Organization + WebSite + Service ─────── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -185,11 +185,11 @@ export default function RootLayout({ children }) {
                     height: 512,
                   },
                   description:
-                    "BitLayerX designs and builds the products, brands and systems companies run on  -  strategy, design, engineering, brand, film and growth, delivered by one team.",
+                    "BitLayerX designs and builds the products, brands and systems companies run on, strategy, design, engineering, brand, film and growth, delivered by one team.",
                   founder: {
                     "@type": "Person",
                     name: "Opeyemi T. Ojurongbe",
-                    jobTitle: "Founder & CEO",
+                    jobTitle: "Team Lead",
                     url: "https://opeyemiojurongbe.com",
                   },
                   address: {
@@ -382,7 +382,7 @@ export default function RootLayout({ children }) {
         className={`${sans.className} antialiased`}
         suppressHydrationWarning
       >
-        {/* ── Google Analytics  -  set NEXT_PUBLIC_GA_ID in .env ─────────── */}
+        {/* ── Google Analytics, set NEXT_PUBLIC_GA_ID in .env ─────────── */}
         {GA_ID && (
           <>
             <Script
@@ -404,7 +404,7 @@ export default function RootLayout({ children }) {
           </>
         )}
 
-        {/* ── Facebook Pixel  -  set NEXT_PUBLIC_FB_PIXEL_ID in .env ──────── */}
+        {/* ── Facebook Pixel, set NEXT_PUBLIC_FB_PIXEL_ID in .env ──────── */}
         {FB_PIXEL && (
           <Script id="facebook-pixel" strategy="afterInteractive">
             {`
@@ -422,7 +422,7 @@ export default function RootLayout({ children }) {
           </Script>
         )}
 
-        {/* ── Microsoft Clarity  -  set NEXT_PUBLIC_CLARITY_ID in .env ────── */}
+        {/* ── Microsoft Clarity, set NEXT_PUBLIC_CLARITY_ID in .env ────── */}
         {CLARITY_ID && (
           <Script id="microsoft-clarity" strategy="afterInteractive">
             {`
@@ -435,7 +435,7 @@ export default function RootLayout({ children }) {
           </Script>
         )}
 
-        {/* ── Hotjar  -  Set NEXT_PUBLIC_HOTJAR_ID in .env ───────────────── */}
+        {/* ── Hotjar, Set NEXT_PUBLIC_HOTJAR_ID in .env ───────────────── */}
         {HOTJAR_ID && (
           <Script id="hotjar" strategy="afterInteractive">
             {`
@@ -468,7 +468,7 @@ export default function RootLayout({ children }) {
             flexDirection: "column",
           }}
         >
-          {/* Skip link  -  first tab stop for keyboard and screen-reader users */}
+          {/* Skip link, first tab stop for keyboard and screen-reader users */}
           <a href="#main-content" className="blx-skip-link">
             Skip to main content
           </a>
@@ -497,7 +497,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
 
-        {/* ── Core Web Vitals  -  reported to GA4, never to the console ───── */}
+        {/* ── Core Web Vitals, reported to GA4, never to the console ───── */}
         {GA_ID && (
           <Script id="web-vitals-monitor" strategy="afterInteractive">
             {`
@@ -519,7 +519,7 @@ export default function RootLayout({ children }) {
 
                   new PerformanceObserver(function (list) {
                     list.getEntries().forEach(function (e) {
-                      send('INP', e.processingStart - e.startTime);
+                      send('INP', e.processingStart, e.startTime);
                     });
                   }).observe({ type: 'first-input', buffered: true });
 

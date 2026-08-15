@@ -5,8 +5,7 @@ import { Section, Container, SectionHeader } from "@/components/ui/primitives";
  * How the work runs.
  *
  * This section exists for one psychological reason: the single largest barrier
- * to commissioning agency work is not price, it is fear of the unknown  - 
- * "will I be able to see what is happening, and can I get out if it goes
+ * to commissioning agency work is not price, it is fear of the unknown, * "will I be able to see what is happening, and can I get out if it goes
  * wrong?" Every step below answers that, and the last one answers it hardest.
  */
 
@@ -46,7 +45,7 @@ export default function Method() {
           id="method-heading"
           eyebrow="How it runs"
           heading="You will always know where it stands."
-          lede="Agency work goes wrong in the dark. So the process is built to make the current state visible at every point  -  including the parts that are behind."
+          lede="Agency work goes wrong in the dark. So the process is built to make the current state visible at every point, including the parts that are behind."
         />
 
         <ol className="mx-auto mt-14 max-w-[840px]">

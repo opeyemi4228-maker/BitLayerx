@@ -207,7 +207,7 @@ export default async function ArticlePage({ params }) {
               Want this handled properly?
             </Heading>
             <p className="mt-3 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-              We do this work for a living  -  strategy, design, engineering,
+              We do this work for a living, strategy, design, engineering,
               brand, film and growth, from one team. Tell us what you are
               building and you will have a written plan within 48 hours.
             </p>

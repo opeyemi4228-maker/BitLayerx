@@ -3,7 +3,7 @@ title: "Why Your Website Is Slow, and What It Is Costing You"
 excerpt: "Slow sites lose customers before the page finishes loading. Here is how to find the cause in ten minutes."
 category: engineering
 author: Opeyemi T. Ojurongbe
-authorRole: Founder & CEO
+authorRole: Team Lead
 published: 2026-08-07
 tags: [performance, seo, engineering]
 ---

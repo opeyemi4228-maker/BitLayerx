@@ -63,7 +63,7 @@ function LeadStory({ post }) {
   );
 }
 
-/** Sidebar items: headline-first, no image  -  BBC's "more top stories" column. */
+/** Sidebar items: headline-first, no image, BBC's "more top stories" column. */
 function SecondaryStory({ post, showRule = true }) {
   return (
     <article className={showRule ? "pb-5 border-b border-black/10" : ""}>
@@ -160,7 +160,7 @@ export default function BlogIndex() {
               <Heading as="h1" size="lg">Insight</Heading>
               <Lede className="mt-3 max-w-[560px]">
                 Writing on building software, designing products and growing
-                companies  -  from the people doing the work.
+                companies, from the people doing the work.
               </Lede>
             </div>
             <ActionLink href="/contact">Work with us</ActionLink>
@@ -231,7 +231,7 @@ export default function BlogIndex() {
           </Heading>
           <Lede tone="light" className="mt-5 mx-auto max-w-[560px]">
             If any of the above described a problem you currently have, the next
-            step is a conversation  -  and a written plan within 48 hours.
+            step is a conversation, and a written plan within 48 hours.
           </Lede>
           <div className="mt-9 flex flex-wrap gap-3 justify-center">
             <Link

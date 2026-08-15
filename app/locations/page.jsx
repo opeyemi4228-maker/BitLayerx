@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/primitives";
 
 const url = `${SITE.url}/locations`;
-const title = "Where We Work  -  Nigeria, UK, USA, UAE, South Africa & Beyond";
+const title = "Where We Work, Nigeria, UK, USA, UAE, South Africa & Beyond";
 const description =
   "BitLayerX works with companies in Abuja, Lagos, London, Dubai, Johannesburg, New York and beyond. One team, GMT+1, overlapping most of the working world.";
 
@@ -59,7 +59,7 @@ export default function LocationsIndex() {
             One studio. Most of the working world.
           </Heading>
           <Lede className="mt-5 max-w-[620px]">
-            We build from Abuja on GMT+1  -  the same working day as London, one
+            We build from Abuja on GMT+1, the same working day as London, one
             hour from Accra and Johannesburg, three from Dubai, and a clean
             morning overlap with the US East Coast. Distance has not been the
             hard part for a long time.

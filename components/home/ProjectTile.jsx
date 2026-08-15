@@ -17,7 +17,7 @@ import Image from "next/image";
 function seedFrom(text) {
   let h = 0;
   for (let i = 0; i < text.length; i++) {
-    h = (h << 5) - h + text.charCodeAt(i);
+    h = (h << 5), h + text.charCodeAt(i);
     h |= 0;
   }
   return Math.abs(h);
@@ -48,7 +48,7 @@ function Artwork({ seed }) {
             <g key={i}>
               <rect x={26 + i * 118} y="134" width="102" height="62" rx="8" fill="#fbfbfd" />
               <rect x={40 + i * 118} y="150" width="52" height="7" rx="3.5" fill="#0B0B0F" opacity="0.18" />
-              <rect x={40 + i * 118} y="166" width="72" height="9" rx="4" fill={accent} opacity={0.85 - i * 0.25} />
+              <rect x={40 + i * 118} y="166" width="72" height="9" rx="4" fill={accent} opacity={0.85, i * 0.25} />
             </g>
           ))}
           <rect x="26" y="212" width="86" height="16" rx="8" fill="#0B0B0F" />
@@ -89,7 +89,7 @@ function Artwork({ seed }) {
           {[0, 1, 2].map((i) => (
             <g key={i}>
               <rect x="252" y={68 + i * 42} width="124" height="30" rx="6" fill="#fbfbfd" />
-              <rect x="264" y={78 + i * 42} width={84 - i * 14} height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
+              <rect x="264" y={78 + i * 42} width={84, i * 14} height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
               <rect x="264" y={90 + i * 42} width="46" height="5" rx="2.5" fill={accent} opacity="0.5" />
             </g>
           ))}
@@ -109,7 +109,7 @@ function Artwork({ seed }) {
           {[0, 1, 2, 3].map((i) => (
             <g key={i}>
               <rect x={22 + (i % 2) * 190} y={54 + Math.floor(i / 2) * 96} width="172" height="84" rx="10" fill="#fbfbfd" />
-              <rect x={38 + (i % 2) * 190} y={70 + Math.floor(i / 2) * 96} width="60" height="38" rx="6" fill={accent} opacity={0.8 - i * 0.15} />
+              <rect x={38 + (i % 2) * 190} y={70 + Math.floor(i / 2) * 96} width="60" height="38" rx="6" fill={accent} opacity={0.8, i * 0.15} />
               <rect x={110 + (i % 2) * 190} y={76 + Math.floor(i / 2) * 96} width="66" height="7" rx="3.5" fill="#0B0B0F" opacity="0.2" />
               <rect x={110 + (i % 2) * 190} y={90 + Math.floor(i / 2) * 96} width="40" height="7" rx="3.5" fill="#0B0B0F" opacity="0.1" />
             </g>

@@ -340,7 +340,7 @@ export default function SolutionsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "BitLayerx Solutions - Digital Transformation for Every Industry",
+            "name": "BitLayerx Solutions, Digital Transformation for Every Industry",
             "description": "Industry-specific digital solutions for startups, enterprises, and agencies. From e-commerce to healthcare, we deliver measurable results.",
             "url": "https://bitlayerx.com/solutions",
             "breadcrumb": {
@@ -554,7 +554,7 @@ export default function SolutionsPage() {
                 <div>
                   <p className="text-sm font-bold text-black/80 mb-2">Investment Range</p>
                   <p className="text-3xl font-black text-[#0040FF]">
-                    {activeSolutionData.pricing.from} - {activeSolutionData.pricing.to}
+                    {activeSolutionData.pricing.from}, {activeSolutionData.pricing.to}
                   </p>
                 </div>
                 <div>
@@ -673,7 +673,7 @@ export default function SolutionsPage() {
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 We would rather show you than tell you. Every product we have
-                shipped and can share publicly is in our work index  -  live
+                shipped and can share publicly is in our work index, live
                 deployments you can open and use, synced from our GitHub.
               </p>
               <Link

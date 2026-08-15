@@ -15,7 +15,7 @@ import Link from "next/link";
  */
 
 // ─── Panel tones ──────────────────────────────────────────────────────────────
-// Apple separates sections by background alone  -  no rules, no borders. The
+// Apple separates sections by background alone, no rules, no borders. The
 // eye reads a tone change as a new chapter more cleanly than a hairline does.
 const TONES = {
   white: "bg-white text-[#1d1d1f]",
@@ -53,8 +53,7 @@ export function Section({
 }
 
 // ─── Container ────────────────────────────────────────────────────────────────
-// One width, one gutter, everywhere. `width="text"` is the reading measure  - 
-// roughly 60 characters, which is where long-form comprehension peaks.
+// One width, one gutter, everywhere. `width="text"` is the reading measure, // roughly 60 characters, which is where long-form comprehension peaks.
 const WIDTHS = {
   text: "max-w-[720px]",
   narrow: "max-w-[980px]",
@@ -131,7 +130,7 @@ export function Lede({ children, tone = "dark", className = "" }) {
 
 // ─── Action link ──────────────────────────────────────────────────────────────
 // Apple's signature: a blue text link with a chevron, not a filled button.
-// Filled buttons everywhere flatten hierarchy  -  when everything shouts, the
+// Filled buttons everywhere flatten hierarchy, when everything shouts, the
 // primary action stops being findable.
 export function ActionLink({
   href,

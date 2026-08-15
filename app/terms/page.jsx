@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url,
-    title: "Terms of Service  -  BitLayerX",
+    title: "Terms of Service, BitLayerX",
     description: "The terms we work under, written plainly.",
     siteName: SITE.name,
   },

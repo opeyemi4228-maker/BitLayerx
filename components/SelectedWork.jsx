@@ -10,8 +10,7 @@ import { MEDIA } from "@/lib/media";
  * Selected work.
  *
  * Deliberately free of numbers. A result claimed without a named client and a
- * verifiable source is worth less than a clear statement of what was built  - 
- * and costs more if a reader doubts it. Metrics belong on the case study page,
+ * verifiable source is worth less than a clear statement of what was built, * and costs more if a reader doubts it. Metrics belong on the case study page,
  * next to the client who agreed to them.
  */
 function hostOf(url) {

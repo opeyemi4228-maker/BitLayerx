@@ -23,7 +23,7 @@ const PRACTICES = [
 
 // ─── The method ───────────────────────────────────────────────────────────────
 // Six steps, one sentence each. A named, concrete method is what turns an
-// agency into a firm  -  and it is the thing this section used to only promise.
+// agency into a firm, and it is the thing this section used to only promise.
 const METHOD = [
   {
     step: "01",
@@ -92,7 +92,7 @@ function MethodStep({ item, index, visible }) {
         transition: `opacity 0.6s ${0.06 * index}s cubic-bezier(0.22,1,0.36,1), transform 0.6s ${0.06 * index}s cubic-bezier(0.22,1,0.36,1), background-color 0.3s`,
       }}
     >
-      {/* Left rule that fills in on hover  -  a small, quiet reward */}
+      {/* Left rule that fills in on hover, a small, quiet reward */}
       <span
         aria-hidden="true"
         className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#0040FF] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300"
@@ -155,7 +155,7 @@ export default function MethodAndPractices() {
               No two projects look alike. The way we get there does.
             </p>
 
-            {/* The reconciliation note  -  makes two frameworks look deliberate */}
+            {/* The reconciliation note, makes two frameworks look deliberate */}
             <div className="bg-white border-l-2 border-[#0040FF] p-6">
               <p className="text-[15px] leading-relaxed text-gray-700">
                 We <span className="font-bold text-[#0B0B0F]">teach five layers</span>{" "}

@@ -10,7 +10,7 @@ import { Section, Container, ActionLink } from "@/components/ui/primitives";
  * real product photography exists, it replaces this wholesale.
  */
 
-/** A browser chrome frame  -  the container Apple uses to say "this is software". */
+/** A browser chrome frame, the container Apple uses to say "this is software". */
 function BrowserFrame({ children, label, className = "" }) {
   return (
     <div
@@ -31,7 +31,7 @@ function BrowserFrame({ children, label, className = "" }) {
   );
 }
 
-/** A dashboard abstraction  -  bars, a chart line, a table. No fake numbers. */
+/** A dashboard abstraction, bars, a chart line, a table. No fake numbers. */
 function DashboardArt() {
   return (
     <svg viewBox="0 0 640 380" className="block w-full" role="img" aria-label="An abstract representation of a product dashboard.">
@@ -49,7 +49,7 @@ function DashboardArt() {
         <g key={i}>
           <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#fbfbfd" />
           <rect x={178 + i * 158} y="48" width="46" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
-          <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1 - i * 0.28} />
+          <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1, i * 0.28} />
         </g>
       ))}
 
@@ -74,7 +74,7 @@ function DashboardArt() {
         <g key={y}>
           <rect x="162" y={y} width="200" height="8" rx="4" fill="#0B0B0F" opacity="0.14" />
           <rect x="392" y={y} width="120" height="8" rx="4" fill="#0B0B0F" opacity="0.09" />
-          <rect x="546" y={y} width="72" height="8" rx="4" fill="#0040FF" opacity={0.3 - i * 0.07} />
+          <rect x="546" y={y} width="72" height="8" rx="4" fill="#0040FF" opacity={0.3, i * 0.07} />
         </g>
       ))}
     </svg>
@@ -100,7 +100,7 @@ function PhoneArt() {
         {[212, 262, 312, 362].map((y, i) => (
           <g key={y}>
             <rect x="20" y={y} width="200" height="38" rx="9" fill="#fbfbfd" />
-            <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85 - i * 0.18} />
+            <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85, i * 0.18} />
             <rect x="62" y={y + 10} width="88" height="7" rx="3.5" fill="#0B0B0F" opacity="0.22" />
             <rect x="62" y={y + 23} width="58" height="6" rx="3" fill="#0B0B0F" opacity="0.11" />
           </g>
@@ -133,8 +133,7 @@ export default function Showcase() {
           </p>
         </div>
 
-        {/* The composition: desktop behind, phone overlapping at the corner  - 
-            the standard way to say "the same product, both places". */}
+        {/* The composition: desktop behind, phone overlapping at the corner, the standard way to say "the same product, both places". */}
         <div className="relative mx-auto mt-16 max-w-[900px]">
           <BrowserFrame label="bitlayerx.com/app">
             <DashboardArt />

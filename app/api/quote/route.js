@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
  * Very small in-memory rate limit.
  *
  * Enough to stop a script hammering the endpoint. It resets when the process
- * does, which is acceptable for a contact form  -  the honeypot catches most
+ * does, which is acceptable for a contact form, the honeypot catches most
  * automated traffic before it reaches here anyway.
  */
 const RECENT = new Map();
@@ -17,7 +17,7 @@ const MAX_PER_WINDOW = 5;
 
 function rateLimited(ip) {
   const now = Date.now();
-  const hits = (RECENT.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  const hits = (RECENT.get(ip) ?? []).filter((t) => now, t < WINDOW_MS);
   hits.push(now);
   RECENT.set(ip, hits);
 

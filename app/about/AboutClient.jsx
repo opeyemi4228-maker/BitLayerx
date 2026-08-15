@@ -67,7 +67,7 @@ export default function AboutClient() {
               >
                 <Image
                   src="/images/founder-opeyemi.jpg"
-                  alt="Opeyemi T. Ojurongbe, Founder and Chief Executive of BitLayerX."
+                  alt="Opeyemi T. Ojurongbe, Team Lead at BitLayerX."
                   fill
                   sizes="(max-width: 1024px) 90vw, 400px"
                   className="object-cover object-[50%_18%]"
@@ -78,7 +78,7 @@ export default function AboutClient() {
                   Opeyemi T. Ojurongbe
                 </span>
                 <span className="mt-0.5 block text-[14px] text-[#6e6e73]">
-                  Founder &amp; Chief Executive
+                  Team Lead
                 </span>
               </figcaption>
             </figure>
@@ -97,7 +97,7 @@ export default function AboutClient() {
                   properly, and had nobody to hold responsible when it did not.
                 </p>
                 <p>
-                  We stayed small on purpose. It means decisions take hours instead of weeks, and it means the team can afford to tell a client honestly when something is not worth building.
+                  We stayed small on purpose. It means decisions take seconds instead of weeks, and it means the team can afford to tell a client honestly when something is not worth building.
                 </p>
                 <p className="text-[#0B0B0F]">
                   If something goes wrong on your project, you will not be

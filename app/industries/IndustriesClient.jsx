@@ -22,7 +22,7 @@ import {
  * and to say out loud who we are not for. Refusing work is the most credible
  * thing an agency can do, because everyone else claims everything.
  *
- * It used to carry roughly nineteen facts per industry  -  challenges, how we
+ * It used to carry roughly nineteen facts per industry, challenges, how we
  * help, capabilities, metrics and a case study, five times over. Nobody reads
  * ninety-five bullet points. Each industry now gets one sentence and three
  * things we build, which is the amount a reader will actually take in before
@@ -64,7 +64,7 @@ const INDUSTRIES = [
     label: "Real estate",
     headline: "Property is sold on trust.",
     intro:
-      "Listing platforms, developer identities and cinematic project films  -  made by one team, so the film and the website tell the same story.",
+      "Listing platforms, developer identities and cinematic project films, made by one team, so the film and the website tell the same story.",
     builds: [
       "Property listing platforms",
       "Developer brand identity systems",
@@ -115,7 +115,7 @@ const CONSTANTS = [
   },
   {
     title: "You own all of it",
-    body: "Code, accounts and domains in your name from day one  -  not transferred at the end, and never held hostage.",
+    body: "Code, accounts and domains in your name from day one, not transferred at the end, and never held hostage.",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function IndustriesClient() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Industries  -  BitLayerX",
+            name: "Industries, BitLayerX",
             description:
               "BitLayerX works in five industries: fintech, logistics, real estate, e-commerce and corporate & enterprise.",
             url: "https://bitlayerx.com/industries",
@@ -163,7 +163,7 @@ export default function IndustriesClient() {
             plainly and we will tell you honestly whether we are the right team.
           </Lede>
 
-          {/* Quick nav  -  self-selection in one glance */}
+          {/* Quick nav, self-selection in one glance */}
           <nav
             aria-label="Jump to an industry"
             className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"

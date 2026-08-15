@@ -5,7 +5,7 @@ import { Container, ActionLink } from "@/components/ui/primitives";
  * The hero.
  *
  * Apple's opening move is always the same: one enormous centred headline, one
- * quiet line of support, two links  -  never two competing buttons  -  and a great
+ * quiet line of support, two links, never two competing buttons, and a great
  * deal of empty space. The restraint is the point. A hero that says three
  * things says nothing, because the visitor has to choose what to read and
  * mostly chooses to leave.
@@ -110,7 +110,7 @@ export default function Hero() {
                     <g key={i}>
                       <rect x={28 + i * 124} y="146" width="108" height="66" rx="9" fill="#fbfbfd" />
                       <rect x={44 + i * 124} y="164" width="46" height="7" rx="3.5" fill="#0B0B0F" opacity="0.18" />
-                      <rect x={44 + i * 124} y="180" width="72" height="12" rx="4" fill="#0040FF" opacity={0.9 - i * 0.26} />
+                      <rect x={44 + i * 124} y="180" width="72" height="12" rx="4" fill="#0040FF" opacity={0.9, i * 0.26} />
                     </g>
                   ))}
                   <rect x="28" y="232" width="98" height="18" rx="9" fill="#0040FF" />
@@ -133,7 +133,7 @@ export default function Hero() {
                   {[152, 194, 236].map((y, i) => (
                     <g key={y}>
                       <rect x="16" y={y} width="138" height="32" rx="8" fill="#fbfbfd" />
-                      <circle cx="36" cy={y + 16} r="8" fill="#0040FF" opacity={0.85 - i * 0.2} />
+                      <circle cx="36" cy={y + 16} r="8" fill="#0040FF" opacity={0.85, i * 0.2} />
                       <rect x="52" y={y + 9} width="62" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
                       <rect x="52" y={y + 20} width="40" height="5" rx="2.5" fill="#0B0B0F" opacity="0.1" />
                     </g>

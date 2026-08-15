@@ -13,8 +13,8 @@ export default function BitLayerxAboutPage() {
 
   // Real people only.
   //
-  // This list previously carried two invented executives  -  "Airicks Eit" and
-  // "Sarah Chen"  -  each illustrated with an Unsplash photograph of a real
+  // This list previously carried two invented executives, "Airicks Eit" and
+  // "Sarah Chen", each illustrated with an Unsplash photograph of a real
   // stranger. That is the single most expensive thing a services company can
   // put on its own website: one reverse image search by one prospective client
   // and every other claim on the site becomes suspect.
@@ -36,7 +36,7 @@ export default function BitLayerxAboutPage() {
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       ),
       title: 'Complete Integration',
-      description: 'We don\'t do isolated services. Every solution - web, video, marketing, automation - works as one cohesive ecosystem driving real business results.'
+      description: 'We don\'t do isolated services. Every solution, web, video, marketing, automation, works as one cohesive ecosystem driving real business results.'
     },
     {
       icon: (
@@ -50,7 +50,7 @@ export default function BitLayerxAboutPage() {
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
       ),
       title: 'One Trusted Partner',
-      description: 'Replace 5+ fragmented vendors with one strategic ally. Faster execution, consistent quality, unified vision - without the coordination headaches.'
+      description: 'Replace 5+ fragmented vendors with one strategic ally. Faster execution, consistent quality, unified vision, without the coordination headaches.'
     },
     {
       icon: (
@@ -123,7 +123,7 @@ export default function BitLayerxAboutPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl lg:text-2xl text-white/90 leading-relaxed"
             >
-              We're not just another digital agency. We're your complete growth partner - eliminating vendor chaos and delivering integrated solutions that actually drive revenue.
+              We're not just another digital agency. We're your complete growth partner, eliminating vendor chaos and delivering integrated solutions that actually drive revenue.
             </motion.p>
           </motion.div>
         </div>
@@ -178,7 +178,7 @@ export default function BitLayerxAboutPage() {
                   We're working to become the most trusted digital growth partner by transforming how Nigerian and UK businesses approach their digital infrastructure.
                 </p>
                 <p>
-                  We deliver complete digital ecosystems - web development, branding, video production, performance marketing, and AI automation - all integrated under one strategic approach.
+                  We deliver complete digital ecosystems, web development, branding, video production, performance marketing, and AI automation, all integrated under one strategic approach.
                 </p>
                 <p>
                   Our customers include ambitious SMEs, growth-stage startups, and enterprises ready to compound their advantage through measurable digital transformation.

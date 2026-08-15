@@ -6,8 +6,7 @@ import { Section, Container, ActionLink } from "@/components/ui/primitives";
  *
  * Placed after the proof rather than before it, and it names the objection out
  * loud instead of pretending it does not exist. "What if we are not the right
- * fit" is the thought in the reader's head at this exact point on the page  - 
- * answering it here is worth more than another testimonial.
+ * fit" is the thought in the reader's head at this exact point on the page, * answering it here is worth more than another testimonial.
  */
 export default function FinalCTA() {
   return (
@@ -39,7 +38,7 @@ export default function FinalCTA() {
         </div>
 
         <p className="mt-10 text-[14.5px] text-white/55">
-          Abuja · Lagos · London · Dubai · Johannesburg · New York  - {" "}
+          Abuja · Lagos · London · Dubai · Johannesburg · New York, {" "}
           <Link
             href="/locations"
             className="underline underline-offset-4 hover:text-white"

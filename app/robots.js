@@ -3,7 +3,7 @@ import { SITE } from "@/lib/seo";
 /**
  * robots.txt.
  *
- * The admin area is disallowed for tidiness, not for security  -  the middleware
+ * The admin area is disallowed for tidiness, not for security, the middleware
  * gate is what actually protects it. Never rely on robots.txt to hide
  * anything: it is a public file that advertises exactly which paths you would
  * prefer nobody looked at.

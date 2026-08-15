@@ -33,7 +33,7 @@ export default function InsightPreview() {
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
               Including the things most agencies here will not put in
-              writing  -  like what the work actually costs.
+              writing, like what the work actually costs.
             </p>
           </div>
 

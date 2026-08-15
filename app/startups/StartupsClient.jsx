@@ -45,15 +45,15 @@ export default function BitLayerxStartupsPage() {
       ),
       title: 'Small Team',
       problem: 'Wearing multiple hats, no dedicated tech or marketing team',
-      solution: 'We become your digital team - design, dev, marketing, all-in-one'
+      solution: 'We become your digital team, design, dev, marketing, all-in-one'
     }
   ];
 
   const packages = {
     'pre-seed': {
       name: 'Launch MVP',
-      price: '₦800k - ₦2M',
-      priceUK: '£1,500 - £4,000',
+      price: '₦800k, ₦2M',
+      priceUK: '£1,500, £4,000',
       timeline: '2-3 weeks',
       description: 'Get to market fast with a professional MVP',
       features: [
@@ -74,8 +74,8 @@ export default function BitLayerxStartupsPage() {
     },
     'seed': {
       name: 'Growth Package',
-      price: '₦2.5M - ₦5M',
-      priceUK: '£5,000 - £12,000',
+      price: '₦2.5M, ₦5M',
+      priceUK: '£5,000, £12,000',
       timeline: '4-6 weeks',
       description: 'Scale your validated idea with growth infrastructure',
       features: [
@@ -98,8 +98,8 @@ export default function BitLayerxStartupsPage() {
     },
     'series-a': {
       name: 'Scale Package',
-      price: '₦5M - ₦15M',
-      priceUK: '£12,000 - £35,000',
+      price: '₦5M, ₦15M',
+      priceUK: '£12,000, £35,000',
       timeline: '6-12 weeks',
       description: 'Enterprise-grade platform for rapid scaling',
       features: [
@@ -507,7 +507,7 @@ export default function BitLayerxStartupsPage() {
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-10">
               Every product we have shipped and can share publicly is in our work
-              index  -  live deployments you can open and use, synced from our
+              index, live deployments you can open and use, synced from our
               GitHub. No mockups, no numbers you would have to take on trust.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

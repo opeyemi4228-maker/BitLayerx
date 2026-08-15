@@ -15,8 +15,8 @@ const SERVICES = [
 
 const BUDGETS = [
   "Under ₦1m / under £1.5k",
-  "₦1m - ₦5m / £1.5k - £7k",
-  "₦5m - ₦20m / £7k - £30k",
+  "₦1m, ₦5m / £1.5k, £7k",
+  "₦5m, ₦20m / £7k, £30k",
   "₦20m+ / £30k+",
   "I need guidance on this",
 ];
@@ -28,7 +28,7 @@ const TIMELINES = [
   "Planning ahead / exploring",
 ];
 
-/** What happens after the form  -  stated up front, because uncertainty is what
+/** What happens after the form, stated up front, because uncertainty is what
  *  stops people submitting. */
 const STEPS = [
   {
@@ -103,7 +103,7 @@ export default function StartProjectClient() {
           </div>
           <Heading as="h1" size="lg">That is with us.</Heading>
           <Lede className="mt-5">
-            You will hear from a person  -  not an autoresponder  -  within one
+            You will hear from a person, not an autoresponder, within one
             business day. If it is urgent, call{" "}
             <a
               href="tel:+2348025401891"
@@ -146,7 +146,7 @@ export default function StartProjectClient() {
           </Heading>
           <Lede className="mt-5 max-w-[620px]">
             One working session, then a written plan with scope, timeline and
-            price within 48 hours. It is yours to keep  -  including if you take
+            price within 48 hours. It is yours to keep, including if you take
             it to another team.
           </Lede>
         </Container>
@@ -270,7 +270,7 @@ export default function StartProjectClient() {
                   />
                 </div>
 
-                {/* Honeypot  -  bots fill it, humans never see it. */}
+                {/* Honeypot, bots fill it, humans never see it. */}
                 <div className="absolute -left-[9999px]" aria-hidden="true">
                   <label htmlFor="website">Do not fill this in</label>
                   <input id="website" name="website" tabIndex={-1} autoComplete="off" />
@@ -326,8 +326,7 @@ export default function StartProjectClient() {
                   Would rather just talk?
                 </p>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-white/70">
-                  Call or message the studio directly. Abuja hours, GMT+1  - 
-                  which overlaps London all day and Dubai most of it.
+                  Call or message the studio directly. Abuja hours, GMT+1, which overlaps London all day and Dubai most of it.
                 </p>
                 <a
                   href="tel:+2348025401891"

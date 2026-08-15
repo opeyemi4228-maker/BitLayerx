@@ -8,7 +8,7 @@ import { useEffect } from "react";
  *
  * Without this file Next has nothing to render when a page throws, and the
  * browser falls into the "missing required error components, refreshing…"
- * loop  -  which tells a visitor nothing and looks like the site is broken
+ * loop, which tells a visitor nothing and looks like the site is broken
  * rather than one page being broken.
  *
  * The navbar and footer stay in place because this renders inside the root
@@ -38,7 +38,7 @@ export default function Error({ error, reset }) {
         </h1>
 
         <p className="mx-auto mt-6 max-w-[48ch] text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.5] text-[#6e6e73]">
-          The fault is ours, not yours. Try again  -  and if it keeps happening,
+          The fault is ours, not yours. Try again, and if it keeps happening,
           tell us and we will fix it properly.
         </p>
 
@@ -73,8 +73,7 @@ export default function Error({ error, reset }) {
             className="font-medium text-[#0040FF] underline underline-offset-4"
           >
             Contact us
-          </Link>{" "}
-           -  we reply within 48 hours.
+          </Link>{" "}, we reply within 48 hours.
         </p>
       </div>
     </section>

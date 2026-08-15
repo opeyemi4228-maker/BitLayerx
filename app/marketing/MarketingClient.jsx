@@ -16,7 +16,7 @@ export default function BitLayerxMarketingPage() {
         <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
       ),
       description: 'Build a consistent, engaging social media presence that drives brand awareness and generates qualified leads across all platforms.',
-      longDescription: 'In today\'s digital landscape, social media isn\'t optional - it\'s essential. But posting randomly won\'t cut it. You need a strategic, data-driven approach that turns followers into customers. Our social media management service handles everything from strategy to execution, ensuring your brand stays visible, relevant, and engaging 24/7.',
+      longDescription: 'In today\'s digital landscape, social media isn\'t optional, it\'s essential. But posting randomly won\'t cut it. You need a strategic, data-driven approach that turns followers into customers. Our social media management service handles everything from strategy to execution, ensuring your brand stays visible, relevant, and engaging 24/7.',
       features: [
         'Comprehensive Social Media Strategy',
         'Daily Content Creation & Posting (2-3 platforms)',
@@ -36,8 +36,8 @@ export default function BitLayerxMarketingPage() {
         'Professional content that converts'
       ],
       pricing: {
-        nigeria: '₦200k - ₦500k/month',
-        uk: '£500 - £1,500/month'
+        nigeria: '₦200k, ₦500k/month',
+        uk: '£500, £1,500/month'
       },
       deliverables: [
         'Monthly content calendar',
@@ -59,7 +59,7 @@ export default function BitLayerxMarketingPage() {
         <path strokeLinecap="round" strokeLinejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
       ),
       description: 'Performance-driven advertising campaigns across Meta, Google, and LinkedIn that generate qualified leads and measurable revenue growth.',
-      longDescription: 'Stop wasting ad budget on campaigns that don\'t convert. Our paid advertising service is built on one principle: ROI. We don\'t just run ads - we engineer conversion machines that turn every naira spent into measurable business growth. From Meta Ads to Google Ads and LinkedIn campaigns, we handle the entire funnel from targeting to conversion.',
+      longDescription: 'Stop wasting ad budget on campaigns that don\'t convert. Our paid advertising service is built on one principle: ROI. We don\'t just run ads, we engineer conversion machines that turn every naira spent into measurable business growth. From Meta Ads to Google Ads and LinkedIn campaigns, we handle the entire funnel from targeting to conversion.',
       features: [
         'Platform Setup & Optimization (Meta, Google, LinkedIn)',
         'Audience Research & Custom Targeting',
@@ -81,8 +81,8 @@ export default function BitLayerxMarketingPage() {
         'Faster business growth'
       ],
       pricing: {
-        nigeria: '₦300k - ₦800k/month + ad spend',
-        uk: '£800 - £2,500/month + ad spend'
+        nigeria: '₦300k, ₦800k/month + ad spend',
+        uk: '£800, £2,500/month + ad spend'
       },
       deliverables: [
         'Campaign strategy document',
@@ -92,7 +92,7 @@ export default function BitLayerxMarketingPage() {
         'Monthly optimization sessions',
         'Conversion tracking dashboard'
       ],
-      results: 'Spend tracked against agreed targets, creative tested rather than guessed, and every experiment logged  -  including the ones that failed.',
+      results: 'Spend tracked against agreed targets, creative tested rather than guessed, and every experiment logged, including the ones that failed.',
       timeline: 'Campaigns launch within 7 days, optimization ongoing',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80'
     },
@@ -104,7 +104,7 @@ export default function BitLayerxMarketingPage() {
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       ),
       description: 'Achieve first-page Google rankings through strategic content creation, technical SEO, and authority building that drives organic traffic.',
-      longDescription: 'Paid ads are great, but organic traffic is the gift that keeps giving. Our Content & SEO service positions you as an industry authority while driving consistent, high-intent traffic from search engines. We don\'t just chase rankings - we build content strategies that attract, engage, and convert your ideal customers.',
+      longDescription: 'Paid ads are great, but organic traffic is the gift that keeps giving. Our Content & SEO service positions you as an industry authority while driving consistent, high-intent traffic from search engines. We don\'t just chase rankings, we build content strategies that attract, engage, and convert your ideal customers.',
       features: [
         'Comprehensive SEO Audit',
         'Keyword Research & Strategy',
@@ -126,8 +126,8 @@ export default function BitLayerxMarketingPage() {
         'Long-term competitive advantage'
       ],
       pricing: {
-        nigeria: '₦250k - ₦600k/month',
-        uk: '£600 - £2,000/month'
+        nigeria: '₦250k, ₦600k/month',
+        uk: '£600, £2,000/month'
       },
       deliverables: [
         'SEO audit report',
@@ -171,8 +171,8 @@ export default function BitLayerxMarketingPage() {
         'Personalized customer experiences'
       ],
       pricing: {
-        nigeria: '₦150k - ₦400k/month',
-        uk: '£400 - £1,200/month'
+        nigeria: '₦150k, ₦400k/month',
+        uk: '£400, £1,200/month'
       },
       deliverables: [
         'Email platform setup & integration',
@@ -199,7 +199,7 @@ export default function BitLayerxMarketingPage() {
     },
     {
       question: 'Do I need to provide ad budget separately?',
-      answer: 'For Paid Advertising, yes - the management fee (₦300k-₦800k) is separate from your ad spend budget. We typically recommend a minimum ad spend of ₦200k-500k/month for meaningful results. Other services include all costs.'
+      answer: 'For Paid Advertising, yes, the management fee (₦300k-₦800k) is separate from your ad spend budget. We typically recommend a minimum ad spend of ₦200k-500k/month for meaningful results. Other services include all costs.'
     },
     {
       question: 'What platforms do you manage?',
@@ -317,7 +317,7 @@ export default function BitLayerxMarketingPage() {
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Content - Alternating sides */}
+              {/* Content, Alternating sides */}
               <motion.div
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}

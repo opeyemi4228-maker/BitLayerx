@@ -70,7 +70,7 @@ const TESTIMONIALS = [
     pull:
       "They built us a business, not just a platform. Everything worked together from day one.",
     quote:
-      "BitLayerX didn't just build us a platform  -  they built us a business. The strategy, the design, the technology, the marketing  -  everything worked together from day one. Within 8 months we had tripled our revenue and doubled our user base. I've worked with agencies before. This is different.",
+      "BitLayerX didn't just build us a platform, they built us a business. The strategy, the design, the technology, the marketing, everything worked together from day one. Within 8 months we had tripled our revenue and doubled our user base. I've worked with agencies before. This is different.",
   },
   {
     name: "Amaka Nwosu",
@@ -84,7 +84,7 @@ const TESTIMONIALS = [
     pull:
       "We had a beautiful product and a forgettable brand. They rebuilt the whole thing.",
     quote:
-      "Before BitLayerX, we had a beautiful product and a forgettable brand. They rebuilt everything  -  our visual identity, our website, our marketing strategy. The results were immediate and they kept compounding. We went from a local boutique to a national brand in under a year.",
+      "Before BitLayerX, we had a beautiful product and a forgettable brand. They rebuilt everything, our visual identity, our website, our marketing strategy. The results were immediate and they kept compounding. We went from a local boutique to a national brand in under a year.",
   },
   {
     name: "Ibrahim Musa",
@@ -98,7 +98,7 @@ const TESTIMONIALS = [
     pull:
       "We were drowning in manual work. Now dispatch, tracking and invoicing run themselves.",
     quote:
-      "We were drowning in manual processes. BitLayerX built us a fleet management system that handles everything automatically  -  dispatch, tracking, invoicing, client communication. We saved 30 hours per week and cut operational costs by nearly half. Worth every naira.",
+      "We were drowning in manual processes. BitLayerX built us a fleet management system that handles everything automatically, dispatch, tracking, invoicing, client communication. We saved 30 hours per week and cut operational costs by nearly half. Worth every naira.",
   },
   {
     name: "Toluwani Adeyemi",
@@ -124,9 +124,9 @@ const TESTIMONIALS = [
     rating: 5,
     result: "",
     pull:
-      "Production quality in fourteen days  -  not a prototype. It gave us credibility with investors.",
+      "Production quality in fourteen days, not a prototype. It gave us credibility with investors.",
     quote:
-      "We needed to move fast. BitLayerX delivered our MVP in 14 days, and it was production-quality  -  not a prototype. The design was clean, the technology was solid, and the brand they built for us gave us instant credibility with investors. We closed our seed round 6 weeks after launch.",
+      "We needed to move fast. BitLayerX delivered our MVP in 14 days, and it was production-quality, not a prototype. The design was clean, the technology was solid, and the brand they built for us gave us instant credibility with investors. We closed our seed round 6 weeks after launch.",
   },
 ];
 
@@ -281,7 +281,7 @@ function TestimonialsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Right  -  nav */}
+            {/* Right, nav */}
             <div className="flex flex-col gap-4">
               {/* Dot indicators */}
               <div className="flex items-center gap-2 justify-center py-2">
@@ -392,7 +392,7 @@ function TestimonialsSection() {
             ))}
           </div>
           <p className="text-center text-gray-400 text-[13.5px] mt-6">
-            and others across fintech, logistics and real estate  -  in Nigeria
+            and others across fintech, logistics and real estate, in Nigeria
             and the UK.
           </p>
         </FadeIn>
@@ -452,7 +452,7 @@ function FinalCTA() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-          {/* Left  -  headline + benefits */}
+          {/* Left, headline + benefits */}
           <div>
             <FadeIn direction="right">
               <p className="text-blue-400 text-[15px] font-black tracking-[0.22em] uppercase mb-6 flex items-center gap-2">
@@ -483,8 +483,7 @@ function FinalCTA() {
               </h2>
 
               <p className="text-white/45 text-[17px] leading-relaxed max-w-md mb-10">
-                Your brand, your technology, your marketing, your media  - 
-                planned together, built to last, and built to compound in value
+                Your brand, your technology, your marketing, your media, planned together, built to last, and built to compound in value
                 long after launch.
               </p>
 
@@ -510,7 +509,7 @@ function FinalCTA() {
             </FadeIn>
           </div>
 
-          {/* Right  -  action cards */}
+          {/* Right, action cards */}
           <div className="space-y-4">
             <FadeIn delay={0.1} direction="left">
 

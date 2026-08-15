@@ -50,25 +50,45 @@ function BitLayerXLogo({ className = "" }) {
 // teaches returning visitors that our scarcity claims aren't real.
 function AnnouncementBar({ onClose }) {
   return (
-    <div className="relative bg-gradient-to-r from-[#0B0B0F] via-[#0040FF]/10 to-[#0B0B0F]">
-      <div className="relative max-w-[1600px] mx-auto pl-4 pr-10 sm:px-8 py-3 sm:py-4 flex items-center justify-center">
-        <a
-          href="/"
-          className="group flex items-center gap-2.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F] rounded px-4 py-2.5 hover:bg-white/5 transition-colors"
+    <div className="relative bg-[#0040FF]">
+      <div className="relative mx-auto flex max-w-[1600px] items-center justify-center px-10 py-2.5 sm:px-12">
+        <Link
+          href="/packages"
+          className="group flex min-w-0 items-center gap-2.5 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0040FF]"
         >
-          <Sparkles size={16} className="flex-shrink-0 text-[#0040FF]" strokeWidth={2} />
-          <span className="text-white/90 text-[14px] sm:text-[15px] font-medium leading-tight">
-            <span className="font-bold text-white">We are your digital growth partner.</span>
+          {/* A concrete offer beats a slogan. "Websites from ₦500,000" tells a
+              visitor in four words whether this company is in their budget,
+              which is the question they are actually holding. */}
+          <span className="flex-shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-white">
+            Now
           </span>
-          <ArrowRight size={14} className="flex-shrink-0 text-white/50 group-hover:text-white/80 transition-colors ml-1" strokeWidth={2.5} />
-        </a>
+
+          <span className="truncate text-[13.5px] font-medium leading-tight text-white/85 sm:text-[14px]">
+            <span className="font-bold text-white">
+              Websites from ₦500,000.
+            </span>{" "}
+            <span className="hidden sm:inline">
+              Every price published, no call required.
+            </span>
+          </span>
+
+          <span className="hidden items-center gap-1 whitespace-nowrap text-[13.5px] font-bold text-white sm:inline-flex">
+            See packages
+            <ArrowRight
+              size={12}
+              strokeWidth={3}
+              className="transition-transform duration-200 group-hover:translate-x-0.5"
+            />
+          </span>
+        </Link>
       </div>
+
       <button
         onClick={onClose}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 rounded hover:bg-white/10 transition-colors"
+        className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1.5 transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:right-4"
         aria-label="Dismiss announcement"
       >
-        <X size={13} className="text-white/50" strokeWidth={2.5} />
+        <X size={13} className="text-white/70" strokeWidth={2.5} />
       </button>
     </div>
   );
@@ -283,7 +303,7 @@ export default function Navbar() {
               <Link
                 href="/"
                 className="flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
-                aria-label="BitLayerX  -  back to homepage"
+                aria-label="BitLayerX, back to homepage"
               >
                 <BitLayerXLogo />
               </Link>
@@ -331,7 +351,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Reading progress  -  orientation, not decoration. */}
+          {/* Reading progress, orientation, not decoration. */}
           <div
             aria-hidden="true"
             className="absolute bottom-0 left-0 h-[2px] bg-[#0040FF] origin-left"
@@ -348,8 +368,7 @@ export default function Navbar() {
       {/*
         Spacer.
 
-        The bar above is `position: fixed`, which takes it out of normal flow  - 
-        so without this, every page's first section renders underneath it. The
+        The bar above is `position: fixed`, which takes it out of normal flow, so without this, every page's first section renders underneath it. The
         height tracks the bar exactly: the header is 64px (72px from `lg`), plus
         48px while the announcement is showing, and it animates on the same
         curve so the page does not jump when the announcement collapses.

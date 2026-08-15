@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
   }
 
   const url = `${SITE.url}/locations/${m.slug}`;
-  const title = `Digital Agency in ${m.city}  -  Design, Engineering & Growth`;
+  const title = `Digital Agency in ${m.city}, Design, Engineering & Growth`;
   const description = `BitLayerX builds websites, software, brands and growth programmes for companies in ${m.city}, ${m.country}. One team across strategy, design, engineering, brand, film and marketing.`;
 
   return {
@@ -105,7 +105,7 @@ export default async function LocationPage({ params }) {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${url}#service`,
-    name: `BitLayerX  -  ${m.city}`,
+    name: `BitLayerX, ${m.city}`,
     url,
     description: `Design, engineering, brand and growth services for companies in ${m.city}, ${m.country}.`,
     parentOrganization: { "@id": `${SITE.url}/#organization` },
@@ -233,7 +233,7 @@ export default async function LocationPage({ params }) {
               <dt className="text-[14px] font-bold text-[#1d1d1f]">First step</dt>
               <dd className="text-[15.5px] leading-relaxed text-[#6e6e73]">
                 One 45-minute session, then a written plan with scope, timeline
-                and price within 48 hours  -  yours to keep either way.
+                and price within 48 hours, yours to keep either way.
               </dd>
             </div>
           </dl>

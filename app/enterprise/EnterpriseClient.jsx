@@ -101,7 +101,7 @@ export default function BitLayerxEnterprisePage() {
       challenge:
         'A site that buckles under real traffic, a mobile experience nobody owns, and security debt no one has time to pay down.',
       solution:
-        'A staged rebuild  -  service boundaries drawn first, security reviewed before launch, and analytics wired in from day one.',
+        'A staged rebuild, service boundaries drawn first, security reviewed before launch, and analytics wired in from day one.',
       results: [
         'Load-tested at three times your current peak',
         'Security review before launch, not after',
@@ -331,7 +331,7 @@ export default function BitLayerxEnterprisePage() {
               Why <span className="font-bold text-[#0040FF]">Enterprise</span> Clients Choose Us
             </h2>
             <p className="text-lg text-black/80 max-w-3xl mx-auto">
-              We're not just vendors - we're strategic partners built for enterprise complexity
+              We're not just vendors, we're strategic partners built for enterprise complexity
             </p>
           </motion.div>
 

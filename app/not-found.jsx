@@ -5,7 +5,7 @@ import { Section, Container, Heading, Lede } from "@/components/ui/primitives";
  * The 404 page.
  *
  * A dead end is the most expensive page on a site: the visitor arrived with
- * intent and found nothing. So this one routes rather than apologises  -  it
+ * intent and found nothing. So this one routes rather than apologises, it
  * offers the destinations people are actually looking for when a URL breaks.
  */
 export const metadata = {
@@ -34,7 +34,7 @@ export default function NotFound() {
         </Heading>
         <Lede className="mt-5 max-w-[560px]">
           The link may be old, or we may have moved something. Nothing is
-          broken on your side  -  here is where most people were heading.
+          broken on your side, here is where most people were heading.
         </Lede>
 
         <div className="mt-12 grid sm:grid-cols-2 gap-px bg-black/10 rounded-2xl overflow-hidden">

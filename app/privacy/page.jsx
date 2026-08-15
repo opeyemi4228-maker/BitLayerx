@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url,
-    title: "Privacy Policy  -  BitLayerX",
+    title: "Privacy Policy, BitLayerX",
     description: "What we collect, why, and how to have it deleted.",
     siteName: SITE.name,
   },
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
 
             <p><strong>What you send us.</strong> When you complete a form on this
             site, we receive your name, email address, and whatever else you
-            chose to include  -  company, phone number, budget range, timeline and
+            chose to include, company, phone number, budget range, timeline and
             your description of the project. Nothing on our forms is collected
             without you typing it.</p>
 
@@ -78,9 +78,9 @@ export default function PrivacyPage() {
             <h2>How long we keep it</h2>
 
             <ul>
-              <li><strong>Enquiries that do not become projects</strong>  -  24 months, then deleted.</li>
-              <li><strong>Client records</strong>  -  for the duration of the engagement plus seven years, because tax law in the relevant jurisdictions requires it.</li>
-              <li><strong>Analytics</strong>  -  14 months, aggregated.</li>
+              <li><strong>Enquiries that do not become projects</strong>, 24 months, then deleted.</li>
+              <li><strong>Client records</strong>, for the duration of the engagement plus seven years, because tax law in the relevant jurisdictions requires it.</li>
+              <li><strong>Analytics</strong>, 14 months, aggregated.</li>
             </ul>
 
             <h2>Who else sees it</h2>
@@ -102,16 +102,16 @@ export default function PrivacyPage() {
 
             <h2>Your rights</h2>
 
-            <p>Wherever you are, we will honour these  -  we would rather apply
+            <p>Wherever you are, we will honour these, we would rather apply
             the strongest standard everywhere than track which rules apply to
             whom:</p>
 
             <ul>
-              <li><strong>Access</strong>  -  ask what we hold about you.</li>
-              <li><strong>Correction</strong>  -  have anything wrong put right.</li>
-              <li><strong>Deletion</strong>  -  have it removed, except where we are legally required to keep it.</li>
-              <li><strong>Portability</strong>  -  receive it in a machine-readable format.</li>
-              <li><strong>Objection</strong>  -  tell us to stop processing it.</li>
+              <li><strong>Access</strong>, ask what we hold about you.</li>
+              <li><strong>Correction</strong>, have anything wrong put right.</li>
+              <li><strong>Deletion</strong>, have it removed, except where we are legally required to keep it.</li>
+              <li><strong>Portability</strong>, receive it in a machine-readable format.</li>
+              <li><strong>Objection</strong>, tell us to stop processing it.</li>
             </ul>
 
             <p>Email{" "}
@@ -149,8 +149,7 @@ export default function PrivacyPage() {
 
           <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#fbfbfd] p-7">
             <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
-              Questions about any of this before you send us a brief? Ask first
-               -  that is entirely reasonable.{" "}
+              Questions about any of this before you send us a brief? Ask first, that is entirely reasonable.{" "}
               <Link
                 href="/contact"
                 className="font-medium text-[#0040FF] underline underline-offset-4"

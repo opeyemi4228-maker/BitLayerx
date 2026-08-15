@@ -3,14 +3,13 @@ import { ImageResponse } from "next/og";
 /**
  * The default social card, generated at build time.
  *
- * layout.js previously pointed at /og-image.png, which was never in /public  - 
- * so every share of every page produced a blank preview and another 404 in
+ * layout.js previously pointed at /og-image.png, which was never in /public, * so every share of every page produced a blank preview and another 404 in
  * Search Console. Generating it here means it cannot go missing again.
  */
 
 export const runtime = "nodejs";
 export const alt =
-  "BitLayerX  -  digital products, brands and systems built to last.";
+  "BitLayerX, digital products, brands and systems built to last.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

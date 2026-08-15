@@ -60,7 +60,7 @@ function AnimatedGrid({ paused }) {
         return;
       }
       if (!startTs) startTs = ts;
-      const t = (ts - startTs) / 1000;
+      const t = (ts, startTs) / 1000;
       ctx.clearRect(0, 0, W, H);
 
       ctx.strokeStyle = "rgba(0, 64, 255,0.052)";
@@ -82,12 +82,12 @@ function AnimatedGrid({ paused }) {
         for (let c = 0; c <= cols; c++) {
           for (let r2 = 0; r2 <= rows; r2++) {
             const ix = c * CELL, iy = r2 * CELL;
-            const dx = ix - cx, dy = iy - cy;
+            const dx = ix, cx, dy = iy, cy;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist > r) continue;
-            const phase = dist * 0.02 - t * sr * 3.5;
+            const phase = dist * 0.02, t * sr * 3.5;
             const wave = (Math.sin(phase) + 1) * 0.5;
-            const prox = 1 - dist / r;
+            const prox = 1, dist / r;
             const alpha = wave * prox * 0.72;
             if (alpha < 0.035) continue;
             ctx.beginPath();
@@ -214,7 +214,7 @@ function Reveal({ delay = 0, children, className = "", as: Tag = "div" }) {
 }
 
 // The three things a first-time visitor most needs to believe. Each one is
-// specific and keepable  -  no superlatives, nothing that needs a footnote.
+// specific and keepable, no superlatives, nothing that needs a footnote.
 const PROMISES = [
   "A clear plan within 48 hours",
   "One point of accountability",
@@ -274,7 +274,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Floating marks  -  the same accent language as the About hero */}
+      {/* Floating marks, the same accent language as the About hero */}
       <style>{`
         @keyframes blx-float-a{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9px) rotate(3deg)}}
         @keyframes blx-float-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -320,7 +320,7 @@ export default function HeroSection() {
       {/* MAIN CONTENT */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-5 sm:px-10 lg:px-16 pt-36 sm:pt-44 pb-16 text-center">
 
-        {/* Badge  -  verifiable facts only */}
+        {/* Badge, verifiable facts only */}
         <Reveal delay={0.15}>
           <div
             className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full backdrop-blur-sm mb-10"
@@ -393,7 +393,7 @@ export default function HeroSection() {
         {/* Sub */}
         <Reveal delay={0.58}>
           <p className="text-gray-500 text-[16px] sm:text-[17px] leading-relaxed max-w-2xl font-medium mb-10">
-            Strategy, design, engineering, brand, film and growth  - {" "}
+            Strategy, design, engineering, brand, film and growth, {" "}
             <span className="text-[#0B0B0F] font-bold">
               one team, one standard, one person accountable to you.
             </span>{" "}

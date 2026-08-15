@@ -63,7 +63,7 @@ const INDUSTRIES = [
   },
   {
     icon: Factory,      label: "Corporate & Enterprise", 
-    description: "Internal systems, ERP integrations and brand governance  -  long engagements with procurement in the room.",
+    description: "Internal systems, ERP integrations and brand governance, long engagements with procurement in the room.",
     stats: ["Enterprise platforms", "ERP integrations"],
     color: "#0040FF",
     href: "/industries",
@@ -92,7 +92,7 @@ function IndustriesSection() {
           </FadeIn>
           <FadeIn direction="left" delay={0.1} className="lg:max-w-sm">
             <p className="text-black/80 text-[16px] leading-relaxed lg:text-right">
-              We don't work with everyone  -  we go deep in the industries where
+              We don't work with everyone, we go deep in the industries where
               our layered approach creates the most measurable impact.
             </p>
           </FadeIn>

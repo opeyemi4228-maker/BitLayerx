@@ -45,7 +45,7 @@ export default function NewsletterSubscription() {
                 <span className="text-[#0040FF] font-normal">grow your business</span>
               </h2>
               <p className="text-[16px] text-gray-600 leading-relaxed">
-                One email a fortnight  -  what we're building, and what we're
+                One email a fortnight, what we're building, and what we're
                 learning while we build it. No campaigns, no filler.
               </p>
             </motion.div>

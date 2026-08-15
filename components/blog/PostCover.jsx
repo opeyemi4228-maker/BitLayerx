@@ -6,7 +6,7 @@ import { categoryBySlug } from "@/lib/blog";
  *
  * When a real cover image exists it is used. When one does not, this draws a
  * generated plate keyed to the post's category rather than reaching for a
- * stock photograph  -  a stock image of strangers at a whiteboard attached to an
+ * stock photograph, a stock image of strangers at a whiteboard attached to an
  * article about your own work is the thing that quietly costs a reader's
  * trust, and it is never worth the visual filler.
  */

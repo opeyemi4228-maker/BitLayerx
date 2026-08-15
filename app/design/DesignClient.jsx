@@ -15,8 +15,8 @@ export default function BitLayerxDesignPage() {
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
       ),
-      description: 'Build a professional brand identity that commands attention and trust - from logo design to complete visual systems.',
-      longDescription: 'Your brand is more than a logo - it\'s the entire visual language that communicates who you are. Our brand identity service creates memorable, professional identities that differentiate you from competitors and build instant credibility. From initial concepts to complete brand guidelines, we ensure every visual element works together to tell your story.',
+      description: 'Build a professional brand identity that commands attention and trust, from logo design to complete visual systems.',
+      longDescription: 'Your brand is more than a logo, it\'s the entire visual language that communicates who you are. Our brand identity service creates memorable, professional identities that differentiate you from competitors and build instant credibility. From initial concepts to complete brand guidelines, we ensure every visual element works together to tell your story.',
       features: [
         'Logo Design (3 unique concepts)',
         'Unlimited revisions on chosen concept',
@@ -40,8 +40,8 @@ export default function BitLayerxDesignPage() {
         'Scalable across all mediums'
       ],
       pricing: {
-        nigeria: '₦500k - ₦1.5M',
-        uk: '£1,500 - £4,000'
+        nigeria: '₦500k, ₦1.5M',
+        uk: '£1,500, £4,000'
       },
       deliverables: [
         'Primary logo + variations',
@@ -69,7 +69,7 @@ export default function BitLayerxDesignPage() {
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
       ),
-      description: 'Professional design on demand - unlimited requests for all your marketing materials with fast 2-3 day turnaround.',
+      description: 'Professional design on demand, unlimited requests for all your marketing materials with fast 2-3 day turnaround.',
       longDescription: 'Stop struggling with DIY design tools or waiting weeks for freelancers. Our unlimited design service gives you access to professional designers whenever you need them. Submit as many requests as you want, get high-quality designs back in 2-3 days, and never worry about design bottlenecks again. It\'s like having an in-house design team without the overhead.',
       features: [
         'Unlimited Design Requests (queue-based)',
@@ -94,8 +94,8 @@ export default function BitLayerxDesignPage() {
         'Focus on strategy, not design execution'
       ],
       pricing: {
-        nigeria: '₦150k - ₦400k/month',
-        uk: '£400 - £1,200/month'
+        nigeria: '₦150k, ₦400k/month',
+        uk: '£400, £1,200/month'
       },
       deliverables: [
         'Unlimited design requests',
@@ -148,8 +148,8 @@ export default function BitLayerxDesignPage() {
         'Data-driven improvements'
       ],
       pricing: {
-        nigeria: '₦200k - ₦500k/month',
-        uk: '£500 - £1,500/month'
+        nigeria: '₦200k, ₦500k/month',
+        uk: '£500, £1,500/month'
       },
       deliverables: [
         'Monthly ad creative strategy',
@@ -176,8 +176,8 @@ export default function BitLayerxDesignPage() {
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       ),
-      description: 'Command attention in the physical world with professional print design - from business cards to billboards.',
-      longDescription: 'Digital is essential, but physical materials still matter - especially for events, trade shows, retail, and local marketing. Our print design service ensures your brand looks just as good in the physical world as it does online. We handle everything from small-format business cards to large-format billboards, ensuring print-ready files that translate perfectly from screen to paper.',
+      description: 'Command attention in the physical world with professional print design, from business cards to billboards.',
+      longDescription: 'Digital is essential, but physical materials still matter, especially for events, trade shows, retail, and local marketing. Our print design service ensures your brand looks just as good in the physical world as it does online. We handle everything from small-format business cards to large-format billboards, ensuring print-ready files that translate perfectly from screen to paper.',
       features: [
         'Billboard & Outdoor Advertising Design',
         'Trade Show Booth Graphics',
@@ -201,8 +201,8 @@ export default function BitLayerxDesignPage() {
         'No costly printing mistakes'
       ],
       pricing: {
-        nigeria: '₦100k - ₦500k per project',
-        uk: '£300 - £1,500 per project'
+        nigeria: '₦100k, ₦500k per project',
+        uk: '£300, £1,500 per project'
       },
       deliverables: [
         'Print-ready PDF files',
@@ -321,7 +321,7 @@ export default function BitLayerxDesignPage() {
               transition={{ delay: 0.4 }}
               className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-12"
             >
-              From brand identities that build trust to marketing materials that convert - professional design that elevates your business.
+              From brand identities that build trust to marketing materials that convert, professional design that elevates your business.
             </motion.p>
 
             <motion.div

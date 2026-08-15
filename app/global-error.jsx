@@ -5,7 +5,7 @@ import { useEffect } from "react";
 /**
  * Root error boundary.
  *
- * This catches failures in the root layout itself  -  the case app/error.jsx
+ * This catches failures in the root layout itself, the case app/error.jsx
  * cannot handle, because that one renders *inside* the layout that just threw.
  * It therefore has to supply its own <html> and <body>, and it cannot rely on
  * the site's fonts or navigation existing.
@@ -68,7 +68,7 @@ export default function GlobalError({ error, reset }) {
               color: "#6e6e73",
             }}
           >
-            This one is on us. Reload the page  -  if it happens again, email{" "}
+            This one is on us. Reload the page, if it happens again, email{" "}
             <a
               href="mailto:hello@bitlayerx.com"
               style={{ color: "#0040FF", fontWeight: 500 }}

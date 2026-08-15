@@ -4,11 +4,11 @@ import { SITE } from "@/lib/seo";
  * Web app manifest, served at /manifest.webmanifest.
  *
  * This replaces the /site.webmanifest that layout.js used to reference and
- * that never existed in /public  -  one of the 404s Search Console was counting.
+ * that never existed in /public, one of the 404s Search Console was counting.
  */
 export default function manifest() {
   return {
-    name: `${SITE.name}  -  Digital Products, Brands & Systems`,
+    name: `${SITE.name}, Digital Products, Brands & Systems`,
     short_name: SITE.name,
     description:
       "BitLayerX designs and builds the products, brands and systems companies run on.",
