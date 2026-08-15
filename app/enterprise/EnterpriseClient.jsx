@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import BrandPlate from "@/components/BrandPlate";
 
 export default function BitLayerxEnterprisePage() {
   const [activeTab, setActiveTab] = useState('features');
@@ -64,7 +65,7 @@ export default function BitLayerxEnterprisePage() {
         'Change management support',
         'Executive dashboards & analytics'
       ],
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&q=80'
+      image: null
     },
     {
       title: 'Enterprise Marketing Automation',
@@ -77,7 +78,7 @@ export default function BitLayerxEnterprisePage() {
         'Compliance & governance',
         'Global brand consistency'
       ],
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80'
+      image: null
     },
     {
       title: 'AI & Process Automation',
@@ -90,7 +91,7 @@ export default function BitLayerxEnterprisePage() {
         'Custom AI model development',
         'ROI tracking & optimization'
       ],
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop&q=80'
+      image: null
     }
   ];
 
@@ -108,7 +109,7 @@ export default function BitLayerxEnterprisePage() {
         'Documented handover to your own team',
         'Migration run in stages, never big-bang',
       ],
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=400&fit=crop&q=80',
+      image: null,
     },
     {
       company: 'Multi-market brand governance',
@@ -123,7 +124,7 @@ export default function BitLayerxEnterprisePage() {
         'Approval flows that match how you already work',
         'One place to see what shipped where',
       ],
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop&q=80',
+      image: null,
     },
     {
       company: 'Support automation',
@@ -138,7 +139,7 @@ export default function BitLayerxEnterprisePage() {
         'CRM integration, not a bolt-on widget',
         'Every automated answer reviewable',
       ],
-      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop&q=80',
+      image: null,
     },
   ];
 
@@ -434,11 +435,12 @@ export default function BitLayerxEnterprisePage() {
                 </div>
                 
                 <div className={`relative h-[400px] ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <Image
+                  <BrandPlate
                     src={solution.image}
                     alt={solution.title}
-                    fill
-                    className="object-cover shadow-2xl"
+                    seed={solution.title}
+                    ratio="3 / 2"
+                    className="h-full shadow-[0_24px_70px_-30px_rgba(0,0,0,0.4)]"
                   />
                 </div>
               </motion.div>
@@ -475,12 +477,7 @@ export default function BitLayerxEnterprisePage() {
                 className="bg-white overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
                 <div className="relative h-48">
-                  <Image
-                    src={study.image}
-                    alt={study.company}
-                    fill
-                    className="object-cover"
-                  />
+                  <BrandPlate src={study.image} alt={study.company} seed={study.company} ratio="3 / 2" />
                   <div className="absolute top-4 left-4 px-3 py-1 bg-[#0040FF] text-white text-sm font-semibold">
                     {study.industry}
                   </div>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import BrandPlate from "@/components/BrandPlate";
 
 export default function BitLayerxDesignPage() {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -54,7 +55,7 @@ export default function BitLayerxDesignPage() {
       ],
       results: 'A logo system that works at 16px and on a building, a written voice guide, and every source file owned outright by you.',
       timeline: '2-3 weeks from kickoff to final delivery',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&q=80',
+      image: null,
       process: [
         { step: 'Discovery', desc: 'Brand questionnaire & competitor analysis' },
         { step: 'Concepts', desc: '3 unique logo directions presented' },
@@ -107,7 +108,7 @@ export default function BitLayerxDesignPage() {
       ],
       results: '5-10x faster design turnaround, consistent brand quality, no design delays',
       timeline: 'Ongoing monthly service, 2-3 day turnaround per request',
-      image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop&q=80',
+      image: null,
       process: [
         { step: 'Submit', desc: 'Add requests via portal or email' },
         { step: 'Queue', desc: 'Requests processed in order' },
@@ -161,7 +162,7 @@ export default function BitLayerxDesignPage() {
       ],
       results: 'Creative cut to each platform\u2019s specs, variants built for testing, and the working files handed over.',
       timeline: 'Initial creative within 5-7 days, ongoing optimization',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=80',
+      image: null,
       process: [
         { step: 'Strategy', desc: 'Analyze target audience & competitors' },
         { step: 'Create', desc: 'Design multiple ad variations' },
@@ -214,7 +215,7 @@ export default function BitLayerxDesignPage() {
       ],
       results: 'Professional physical materials that match digital quality, 100% print-ready',
       timeline: '1-2 weeks depending on project complexity',
-      image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1200&h=800&fit=crop&q=80',
+      image: null,
       process: [
         { step: 'Specs', desc: 'Gather size, material & printer requirements' },
         { step: 'Design', desc: 'Create print-optimized designs' },
@@ -255,25 +256,25 @@ export default function BitLayerxDesignPage() {
     {
       category: 'Brand Identity',
       client: 'TechHub Africa',
-      image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&h=400&fit=crop&q=80',
+      image: null,
       description: 'Complete rebrand for Nigeria\'s leading tech incubator'
     },
     {
       category: 'Marketing Collateral',
       client: 'FreshMart',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop&q=80',
+      image: null,
       description: 'Monthly design support for social media & campaigns'
     },
     {
       category: 'Ad Creative',
       client: 'Lagos Financial',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80',
+      image: null,
       description: 'High-converting ad campaigns across Meta & Google'
     },
     {
       category: 'Print Design',
       client: 'Heritage Hotels',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop&q=80',
+      image: null,
       description: 'Large-format signage and environmental graphics'
     }
   ];
@@ -445,14 +446,14 @@ export default function BitLayerxDesignPage() {
                 transition={{ duration: 0.8 }}
                 className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}
               >
-                <div className="relative h-[600px] overflow-hidden shadow-2xl">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <BrandPlate
+                  src={service.image}
+                  alt={service.title}
+                  seed={service.title}
+                  ratio="4 / 5"
+                  rounded="rounded-2xl"
+                  className="shadow-[0_24px_70px_-30px_rgba(0,0,0,0.4)]"
+                />
 
                 {/* Deliverables Card */}
                 <motion.div
@@ -568,12 +569,7 @@ export default function BitLayerxDesignPage() {
                 className="group cursor-pointer"
               >
                 <div className="relative h-64 overflow-hidden mb-4">
-                  <Image
-                    src={item.image}
-                    alt={item.client}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  <BrandPlate src={item.image} alt={item.title || ""} seed={item.title || ""} ratio="3 / 2" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="text-sm text-[#0040FF] font-semibold mb-1">{item.category}</div>

@@ -8,6 +8,7 @@ import Founder from "@/components/home/Founder";
 import WorkPreview from "@/components/home/WorkPreview";
 import InsightPreview from "@/components/home/InsightPreview";
 import Testimonials from "@/components/home/Testimonials";
+import Newsletter from "@/components/home/Newsletter";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export const metadata = pageMetadata("/");
@@ -48,6 +49,7 @@ export default function BitLayerXHomePage() {
       <Testimonials />  {/* off-white, renders only once real quotes exist */}
       <InsightPreview />{/* off-white */}
       <Founder />       {/* white     */}
+      <Newsletter />    {/* off-white */}
       <FinalCTA />      {/* blue      */}
     </>
   );
