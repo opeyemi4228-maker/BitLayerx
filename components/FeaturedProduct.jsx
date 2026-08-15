@@ -96,7 +96,7 @@ function WhyBitLayerX() {
             </p>
             <h2
               id="why-heading"
-              className="text-[32px] sm:text-[40px] lg:text-[52px] font-black text-[#0B0B0F] leading-[1] tracking-[-0.035em]"
+              className="text-[32px] sm:text-[40px] lg:text-[52px] font-black text-[#1d1d1f] leading-[1] tracking-[-0.035em]"
             >
               Why companies move
               <br />
@@ -127,7 +127,7 @@ function WhyBitLayerX() {
                     <Icon size={18} strokeWidth={2} className="text-[#0040FF]" />
                   </div>
                   <div>
-                    <h3 className="text-[16.5px] font-black text-[#0B0B0F] tracking-tight mb-2">
+                    <h3 className="text-[16.5px] font-black text-[#1d1d1f] tracking-tight mb-2">
                       {d.title}
                     </h3>
                     <p className="text-gray-600 text-[15px] leading-relaxed">
@@ -142,7 +142,7 @@ function WhyBitLayerX() {
           {/* Right, the honest comparison */}
           <FadeIn delay={0.15} direction="left">
             <div className="border border-gray-200 overflow-hidden rounded-xl">
-              <div className="grid grid-cols-[1fr_92px_92px] bg-[#0B0B0F] px-6 py-4">
+              <div className="grid grid-cols-[1fr_92px_92px] bg-black px-6 py-4">
                 <div />
                 <p className="text-center text-white font-black text-[11.5px] uppercase tracking-[0.14em]">
                   BitLayerX
@@ -177,7 +177,7 @@ function WhyBitLayerX() {
             <div className="flex items-center gap-3 flex-wrap mt-8">
               <Link
                 href="/start-a-project"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0B0B0F] hover:bg-[#0040FF] text-white font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-black hover:bg-[#0040FF] text-white font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
               >
                 Start a project
                 <ArrowRight
@@ -188,7 +188,7 @@ function WhyBitLayerX() {
               </Link>
               <Link
                 href="/packages"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#0B0B0F]/20 text-[#0B0B0F] font-bold text-[14.5px] rounded-xl hover:border-[#0B0B0F]/40 hover:bg-[#0B0B0F]/[0.03] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#1d1d1f]/20 text-[#1d1d1f] font-bold text-[14.5px] rounded-xl hover:border-[#1d1d1f]/40 hover:bg-black/[0.03] transition-all duration-200"
               >
                 See what things cost
               </Link>
@@ -205,11 +205,11 @@ function Mark({ on }) {
     <div className="flex justify-center">
       <div
         className={`w-6 h-6 rounded-full flex items-center justify-center ${
-          on ? "bg-[#0B0B0F]/10" : "bg-gray-100"
+          on ? "bg-black/10" : "bg-gray-100"
         }`}
       >
         {on ? (
-          <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#0B0B0F]" />
+          <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#1d1d1f]" />
         ) : (
           <X size={13} strokeWidth={3} className="text-gray-300" />
         )}
@@ -223,7 +223,7 @@ function Mark({ on }) {
 // the founder's videos is looking for a person; they should find one.
 function FounderSection() {
   return (
-    <section className="bg-[#0B0B0F] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="founder-heading">
+    <section className="bg-black py-24 lg:py-32 overflow-hidden relative" aria-labelledby="founder-heading">
       <div
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
@@ -295,7 +295,7 @@ function FounderSection() {
                 href="https://opeyemiojurongbe.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-[#0B0B0F] font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-[#1d1d1f] font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]"
               >
                 Read the writing
                 <ArrowRight

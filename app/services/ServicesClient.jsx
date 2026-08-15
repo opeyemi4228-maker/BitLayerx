@@ -146,7 +146,7 @@ export default function ServicesClient() {
                 <Heading as="h2" size="xl" id={`service-${s.n}`} className="mt-4">
                   {s.title}
                 </Heading>
-                <p className="mt-5 text-[clamp(1.15rem,1.9vw,1.4rem)] font-medium leading-[1.4] text-[#0B0B0F]">
+                <p className="mt-5 text-[clamp(1.15rem,1.9vw,1.4rem)] font-medium leading-[1.4] text-[#1d1d1f]">
                   {s.lede}
                 </p>
                 <p className="mt-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
@@ -158,7 +158,7 @@ export default function ServicesClient() {
               </div>
 
               <div className="lg:pt-14">
-                <h3 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+                <h3 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
                   What you get
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -168,7 +168,7 @@ export default function ServicesClient() {
                         aria-hidden="true"
                         className="mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
                       />
-                      <span className="text-[1.0625rem] leading-relaxed text-[#0B0B0F]">
+                      <span className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
                         {g}
                       </span>
                     </li>
@@ -193,7 +193,7 @@ export default function ServicesClient() {
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 lg:grid-cols-3">
             {WAYS.map((w) => (
-              <div key={w.title} className="bg-[#0B0B0F] p-9">
+              <div key={w.title} className="bg-black p-9">
                 {w.featured && (
                   <span className="mb-4 inline-block rounded-full bg-[#0040FF] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
                     Most common
@@ -229,7 +229,7 @@ export default function ServicesClient() {
           <div className="mt-10">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
             >
               Start a project
             </Link>

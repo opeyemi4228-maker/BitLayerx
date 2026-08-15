@@ -254,8 +254,8 @@ export default function BitLayerxStartupsPage() {
               transition={{ delay: 0.3 }}
               className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             >
-              From <span className="text-[#fbfbfd]">Idea</span> to{' '}
-              <span className="text-[#fbfbfd]">Launch</span> in Weeks
+              From <span className="text-[#f5f5f7]">Idea</span> to{' '}
+              <span className="text-[#f5f5f7]">Launch</span> in Weeks
             </motion.h1>
             
             <motion.p
@@ -513,7 +513,7 @@ export default function BitLayerxStartupsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/portfolio"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0040FF] hover:bg-[#0B0B0F] text-white font-bold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0040FF] hover:bg-black text-white font-bold rounded-xl transition-colors"
               >
                 See the live work
                 <ArrowRight size={18} strokeWidth={2.5} />

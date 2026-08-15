@@ -151,7 +151,7 @@ export default function PackagesClient() {
             {PACKAGES.map((p) => (
               <div
                 key={p.name}
-                className={`flex flex-col p-8 ${p.featured ? "bg-[#0B0B0F]" : "bg-white"}`}
+                className={`flex flex-col p-8 ${p.featured ? "bg-black" : "bg-white"}`}
               >
                 {p.featured && (
                   <span className="mb-4 inline-block self-start rounded-full bg-[#0040FF] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
@@ -160,7 +160,7 @@ export default function PackagesClient() {
                 )}
 
                 <h2
-                  className={`text-[1.6rem] font-bold tracking-[-0.03em] ${p.featured ? "text-white" : "text-[#0B0B0F]"}`}
+                  className={`text-[1.6rem] font-bold tracking-[-0.03em] ${p.featured ? "text-white" : "text-[#1d1d1f]"}`}
                 >
                   {p.name}
                 </h2>
@@ -179,7 +179,7 @@ export default function PackagesClient() {
                     {p.pricePrefix}
                   </span>
                   <span
-                    className={`mt-1 block text-[2rem] font-extrabold tracking-[-0.035em] ${p.featured ? "text-white" : "text-[#0B0B0F]"}`}
+                    className={`mt-1 block text-[2rem] font-extrabold tracking-[-0.035em] ${p.featured ? "text-white" : "text-[#1d1d1f]"}`}
                   >
                     {p.price}
                   </span>
@@ -197,7 +197,7 @@ export default function PackagesClient() {
                       : "border-black/10 text-[#6e6e73]"
                   }`}
                 >
-                  <span className={p.featured ? "font-semibold text-white/80" : "font-semibold text-[#0B0B0F]"}>
+                  <span className={p.featured ? "font-semibold text-white/80" : "font-semibold text-[#1d1d1f]"}>
                     Good for:
                   </span>{" "}
                   {p.who}
@@ -211,7 +211,7 @@ export default function PackagesClient() {
                         className="mt-[0.42rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
                       />
                       <span
-                        className={`text-[15px] leading-relaxed ${p.featured ? "text-white/80" : "text-[#0B0B0F]"}`}
+                        className={`text-[15px] leading-relaxed ${p.featured ? "text-white/80" : "text-[#1d1d1f]"}`}
                       >
                         {item}
                       </span>
@@ -223,8 +223,8 @@ export default function PackagesClient() {
                   href="/start-a-project"
                   className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-[0.8rem] text-[1.0625rem] font-medium transition-colors ${
                     p.featured
-                      ? "bg-white text-[#0B0B0F] hover:bg-white/90"
-                      : "bg-[#0040FF] text-white hover:bg-[#0B0B0F]"
+                      ? "bg-white text-[#1d1d1f] hover:bg-white/90"
+                      : "bg-[#0040FF] text-white hover:bg-black"
                   }`}
                 >
                   Get a price for this
@@ -261,7 +261,7 @@ export default function PackagesClient() {
           <dl className="mt-12 divide-y divide-black/10 border-y border-black/10">
             {FAQS.map((f) => (
               <div key={f.q} className="grid gap-3 py-7 sm:grid-cols-[1fr_1.4fr] sm:gap-10">
-                <dt className="text-[1.0625rem] font-bold text-[#0B0B0F]">{f.q}</dt>
+                <dt className="text-[1.0625rem] font-bold text-[#1d1d1f]">{f.q}</dt>
                 <dd className="text-[1.0625rem] leading-relaxed text-[#6e6e73]">
                   {f.a}
                   {f.link && (
@@ -296,7 +296,7 @@ export default function PackagesClient() {
           <div className="mt-10">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
             >
               Start a project
             </Link>

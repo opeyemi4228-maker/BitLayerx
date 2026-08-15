@@ -23,7 +23,7 @@ export default function PostCover({
 
   return (
     <div
-      className={`relative w-full overflow-hidden ${rounded} bg-[#fbfbfd] ${className}`}
+      className={`relative w-full overflow-hidden ${rounded} bg-[#f5f5f7] ${className}`}
       style={{ aspectRatio: ratio }}
     >
       {post.cover ? (

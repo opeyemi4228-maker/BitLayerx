@@ -38,7 +38,7 @@ export default async function Clients() {
                 href={p.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[1.05rem] font-bold tracking-[-0.02em] text-[#0B0B0F]/45 transition-colors hover:text-[#0040FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2 rounded"
+                className="text-[1.05rem] font-bold tracking-[-0.02em] text-[#1d1d1f]/45 transition-colors hover:text-[#0040FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2 rounded"
               >
                 {p.title}
               </a>

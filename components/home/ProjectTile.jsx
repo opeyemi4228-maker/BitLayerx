@@ -46,7 +46,7 @@ function Artwork({ seed }) {
           <rect x="26" y="76" width="140" height="12" rx="4" fill="#fff" opacity="0.7" />
           {[0, 1, 2].map((i) => (
             <g key={i}>
-              <rect x={26 + i * 118} y="134" width="102" height="62" rx="8" fill="#fbfbfd" />
+              <rect x={26 + i * 118} y="134" width="102" height="62" rx="8" fill="#f5f5f7" />
               <rect x={40 + i * 118} y="150" width="52" height="7" rx="3.5" fill="#0B0B0F" opacity="0.18" />
               <rect x={40 + i * 118} y="166" width="72" height="9" rx="4" fill={accent} opacity={0.85, i * 0.25} />
             </g>
@@ -65,7 +65,7 @@ function Artwork({ seed }) {
           ))}
           <rect x="120" y="26" width="120" height="12" rx="5" fill="#0B0B0F" opacity="0.75" />
           {[0, 1].map((i) => (
-            <rect key={i} x={120 + i * 138} y="56" width="122" height="56" rx="8" fill="#fbfbfd" />
+            <rect key={i} x={120 + i * 138} y="56" width="122" height="56" rx="8" fill="#f5f5f7" />
           ))}
           <rect x="136" y="74" width="60" height="14" rx="4" fill={accent} />
           <rect x="274" y="74" width="42" height="14" rx="4" fill={accent} opacity="0.45" />
@@ -88,7 +88,7 @@ function Artwork({ seed }) {
           <rect x="24" y="68" width="212" height="118" rx="10" fill="none" stroke={accent} strokeOpacity="0.35" />
           {[0, 1, 2].map((i) => (
             <g key={i}>
-              <rect x="252" y={68 + i * 42} width="124" height="30" rx="6" fill="#fbfbfd" />
+              <rect x="252" y={68 + i * 42} width="124" height="30" rx="6" fill="#f5f5f7" />
               <rect x="264" y={78 + i * 42} width={84, i * 14} height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
               <rect x="264" y={90 + i * 42} width="46" height="5" rx="2.5" fill={accent} opacity="0.5" />
             </g>
@@ -108,7 +108,7 @@ function Artwork({ seed }) {
           ))}
           {[0, 1, 2, 3].map((i) => (
             <g key={i}>
-              <rect x={22 + (i % 2) * 190} y={54 + Math.floor(i / 2) * 96} width="172" height="84" rx="10" fill="#fbfbfd" />
+              <rect x={22 + (i % 2) * 190} y={54 + Math.floor(i / 2) * 96} width="172" height="84" rx="10" fill="#f5f5f7" />
               <rect x={38 + (i % 2) * 190} y={70 + Math.floor(i / 2) * 96} width="60" height="38" rx="6" fill={accent} opacity={0.8, i * 0.15} />
               <rect x={110 + (i % 2) * 190} y={76 + Math.floor(i / 2) * 96} width="66" height="7" rx="3.5" fill="#0B0B0F" opacity="0.2" />
               <rect x={110 + (i % 2) * 190} y={90 + Math.floor(i / 2) * 96} width="40" height="7" rx="3.5" fill="#0B0B0F" opacity="0.1" />
@@ -126,7 +126,7 @@ export default function ProjectTile({ project, screenshot = null }) {
   return (
     <div className="relative overflow-hidden rounded-lg bg-white ring-1 ring-white/10" style={{ aspectRatio: "16 / 10" }}>
       {/* Browser chrome, so the tile reads as software rather than decoration */}
-      <div className="flex items-center gap-1.5 bg-[#fbfbfd] px-3 py-2">
+      <div className="flex items-center gap-1.5 bg-[#f5f5f7] px-3 py-2">
         <span className="h-2 w-2 rounded-full bg-black/15" />
         <span className="h-2 w-2 rounded-full bg-black/15" />
         <span className="h-2 w-2 rounded-full bg-black/15" />

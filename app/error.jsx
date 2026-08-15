@@ -27,13 +27,13 @@ export default function Error({ error, reset }) {
   }, [error]);
 
   return (
-    <section className="bg-[#fbfbfd] py-[clamp(4.5rem,9vw,9rem)]">
+    <section className="bg-[#f5f5f7] py-[clamp(4.5rem,9vw,9rem)]">
       <div className="mx-auto max-w-[720px] px-5 text-center sm:px-8">
         <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
           Something broke
         </p>
 
-        <h1 className="mx-auto mt-5 max-w-[16ch] text-[clamp(2.1rem,5vw,3.9rem)] font-extrabold leading-[1.03] tracking-[-0.035em] text-[#0B0B0F]">
+        <h1 className="mx-auto mt-5 max-w-[16ch] text-[clamp(2.1rem,5vw,3.9rem)] font-extrabold leading-[1.03] tracking-[-0.035em] text-[#1d1d1f]">
           That page didn&rsquo;t load.
         </h1>
 
@@ -54,13 +54,13 @@ export default function Error({ error, reset }) {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+            className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
           >
             Try again
           </button>
           <Link
             href="/"
-            className="text-[1.0625rem] font-medium text-[#0040FF] transition-colors hover:text-[#0B0B0F]"
+            className="text-[1.0625rem] font-medium text-[#0040FF] transition-colors hover:text-[#1d1d1f]"
           >
             Back to the homepage ›
           </Link>

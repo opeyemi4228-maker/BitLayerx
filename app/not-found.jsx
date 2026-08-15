@@ -42,7 +42,7 @@ export default function NotFound() {
             <Link
               key={d.href}
               href={d.href}
-              className="group bg-white p-6 hover:bg-[#fbfbfd] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+              className="group bg-white p-6 hover:bg-[#f5f5f7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
             >
               <span className="flex items-center gap-1.5 text-[1.0625rem] font-semibold text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
                 {d.label}

@@ -88,7 +88,7 @@ export default function LocationsIndex() {
                     <Link
                       key={m.slug}
                       href={`/locations/${m.slug}`}
-                      className="group bg-white p-7 transition-colors hover:bg-[#fbfbfd] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+                      className="group bg-white p-7 transition-colors hover:bg-[#f5f5f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
                     >
                       <h3 className="flex items-center gap-1.5 text-[1.125rem] font-bold text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                         {m.city}

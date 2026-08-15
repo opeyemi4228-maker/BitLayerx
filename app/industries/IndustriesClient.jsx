@@ -225,7 +225,7 @@ export default function IndustriesClient() {
                             aria-hidden="true"
                             className="mt-[0.5rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
                           />
-                          <span className="text-[1.0625rem] leading-relaxed text-[#0B0B0F]">
+                          <span className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
                             {b}
                           </span>
                         </li>
@@ -233,7 +233,7 @@ export default function IndustriesClient() {
                     </ul>
 
                     <p className="mt-7 text-[14px] text-[#6e6e73]">
-                      <span className="font-semibold text-[#0B0B0F]">
+                      <span className="font-semibold text-[#1d1d1f]">
                         Practices involved:
                       </span>{" "}
                       {industry.practices.join(" · ")}
@@ -269,7 +269,7 @@ export default function IndustriesClient() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-3">
             {CONSTANTS.map((c) => (
               <div key={c.title} className="bg-white p-8">
-                <h3 className="text-[1.0625rem] font-bold text-[#0B0B0F]">
+                <h3 className="text-[1.0625rem] font-bold text-[#1d1d1f]">
                   {c.title}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-[#6e6e73]">
@@ -296,7 +296,7 @@ export default function IndustriesClient() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
             >
               Start a project
             </Link>

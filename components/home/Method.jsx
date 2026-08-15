@@ -74,7 +74,7 @@ export default function Method() {
         <div className="mt-12 text-center">
           <Link
             href="/start-a-project"
-            className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.9rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+            className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.9rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
           >
             Book the first session
           </Link>

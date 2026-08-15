@@ -117,7 +117,7 @@ export default function StartProjectClient() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               href="/portfolio"
-              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
             >
               See work while you wait
             </Link>
@@ -285,7 +285,7 @@ export default function StartProjectClient() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="mt-7 w-full rounded-full bg-[#0040FF] px-7 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="mt-7 w-full rounded-full bg-[#0040FF] px-7 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   {status === "sending" ? "Sending…" : "Send this brief"}
                 </button>

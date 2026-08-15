@@ -67,8 +67,8 @@ export default function PortfolioClient({ projects = [] }) {
             </div>
           ) : (
             <>
-              <div className="mb-10 flex items-end justify-between gap-6 border-b-2 border-[#0B0B0F] pb-3">
-                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+              <div className="mb-10 flex items-end justify-between gap-6 border-b-2 border-[#1d1d1f] pb-3">
+                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
                   {withShots.length} live {withShots.length === 1 ? "project" : "projects"}
                 </h2>
                 <p className="text-[13px] text-[#6e6e73]">Updated hourly</p>
@@ -89,7 +89,7 @@ export default function PortfolioClient({ projects = [] }) {
 
                     <div className="mt-4 flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <h3 className="truncate text-[1.15rem] font-bold tracking-[-0.02em] text-[#0B0B0F] transition-colors group-hover:text-[#0040FF]">
+                        <h3 className="truncate text-[1.15rem] font-bold tracking-[-0.02em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                           {p.title}
                         </h3>
                         <p className="mt-1 truncate text-[13.5px] text-[#6e6e73]">
@@ -136,7 +136,7 @@ export default function PortfolioClient({ projects = [] }) {
           <div className="mt-10">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
             >
               Start a project
             </Link>

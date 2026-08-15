@@ -143,7 +143,7 @@ function IndustriesSection() {
         {/* Industries CTA strip */}
         <FadeIn delay={0.2}>
           <div className="mt-px bg-gray-100 p-px">
-            <div className="bg-[#0B0B0F] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="bg-black p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Layers size={18} strokeWidth={2} className="text-blue-400" />

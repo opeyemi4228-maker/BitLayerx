@@ -65,12 +65,12 @@ export default function Practices() {
             <Link
               key={s.title}
               href={s.href}
-              className="group bg-white p-8 transition-colors hover:bg-[#fbfbfd] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+              className="group bg-white p-8 transition-colors hover:bg-[#f5f5f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
             >
               <span className="text-[12px] font-bold tabular-nums tracking-[0.1em] text-[#0040FF]">
                 {s.n}
               </span>
-              <h3 className="mt-3 flex items-center gap-1.5 text-[1.375rem] font-bold tracking-[-0.025em] text-[#0B0B0F] transition-colors group-hover:text-[#0040FF]">
+              <h3 className="mt-3 flex items-center gap-1.5 text-[1.375rem] font-bold tracking-[-0.025em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                 {s.title}
                 <span
                   aria-hidden="true"

@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-[70vh] items-center justify-center bg-[#fbfbfd]">
+        <div className="flex min-h-[70vh] items-center justify-center bg-[#f5f5f7]">
           <p className="text-[14.5px] text-[#6e6e73]">Loading…</p>
         </div>
       }

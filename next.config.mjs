@@ -1,5 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /**
+   * Build output directory.
+   *
+   * `next dev` and `next build` share `.next` by default, so running a
+   * production build while a dev server is up writes over the cache that dev
+   * server is actively reading. Turbopack's persistent cache does not survive
+   * that: it surfaces as "Failed to deserialize AMQF ... ArrayLengthMismatch",
+   * every route starts returning 500, and the browser falls into the
+   * "missing required error components, refreshing..." loop.
+   *
+   * Setting NEXT_BUILD_DIR sends a verification build somewhere else, so it
+   * can never disturb a running dev server:
+   *
+   *   NEXT_BUILD_DIR=.next-verify npm run build
+   */
+  distDir: process.env.NEXT_BUILD_DIR || ".next",
+
   images: {
     // Modern formats first. Next serves AVIF where supported and falls back to
     // WebP, which is typically a 30-50% saving over the JPEG equivalent  -  and

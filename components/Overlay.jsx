@@ -13,12 +13,12 @@ import { MEDIA } from "@/lib/media";
 // the five-layer teaching framework; using it for both models forces a reader
 // to reconcile two different numbered systems with the same name.
 const PRACTICES = [
-  { id: "strategy",   short: "Strategy",    icon: Target,     title: "Strategy & Positioning",     color: "#0040FF", href: "/services/strategy"   },
-  { id: "experience", short: "Design",      icon: Eye,        title: "UI/UX & Product Design",     color: "#0040FF", href: "/services/ui-ux"      },
-  { id: "technology", short: "Engineering", icon: GitBranch,  title: "Web, Mobile & Software",     color: "#0040FF", href: "/services/web-mobile" },
-  { id: "brand",      short: "Brand",       icon: Award,      title: "Branding & Identity",        color: "#0040FF", href: "/services/branding"   },
-  { id: "media",      short: "Film",        icon: Video,      title: "Commercials & Video",        color: "#0040FF", href: "/services/video"      },
-  { id: "growth",     short: "Growth",      icon: TrendingUp, title: "Digital Marketing & Growth", color: "#0040FF", href: "/services/marketing"  },
+  { id: "strategy",   short: "Strategy",    icon: Target,     title: "Strategy & Positioning",     color: "#0040FF", href: "/services#service-01"   },
+  { id: "experience", short: "Design",      icon: Eye,        title: "UI/UX & Product Design",     color: "#0040FF", href: "/design"      },
+  { id: "technology", short: "Engineering", icon: GitBranch,  title: "Web, Mobile & Software",     color: "#0040FF", href: "/solutions" },
+  { id: "brand",      short: "Brand",       icon: Award,      title: "Branding & Identity",        color: "#0040FF", href: "/design"   },
+  { id: "media",      short: "Film",        icon: Video,      title: "Commercials & Video",        color: "#0040FF", href: "/services#service-05"      },
+  { id: "growth",     short: "Growth",      icon: TrendingUp, title: "Digital Marketing & Growth", color: "#0040FF", href: "/marketing"  },
 ];
 
 // ─── The method ───────────────────────────────────────────────────────────────
@@ -85,7 +85,7 @@ function useInViewOnce(margin = "-70px") {
 function MethodStep({ item, index, visible }) {
   return (
     <li
-      className="group relative bg-white p-7 lg:p-8 transition-colors duration-300 hover:bg-[#0B0B0F]/[0.02]"
+      className="group relative bg-white p-7 lg:p-8 transition-colors duration-300 hover:bg-black/[0.02]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(18px)",
@@ -105,7 +105,7 @@ function MethodStep({ item, index, visible }) {
         >
           {item.step}
         </span>
-        <h3 className="text-[17px] lg:text-[18px] font-black text-[#0B0B0F] tracking-tight leading-snug">
+        <h3 className="text-[17px] lg:text-[18px] font-black text-[#1d1d1f] tracking-tight leading-snug">
           {item.title}
         </h3>
       </div>
@@ -124,7 +124,7 @@ export default function MethodAndPractices() {
   return (
     <section
       id="method"
-      className="bg-[#fbfbfd] py-20 lg:py-28"
+      className="bg-[#f5f5f7] py-20 lg:py-28"
       aria-labelledby="method-heading"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -146,7 +146,7 @@ export default function MethodAndPractices() {
             </p>
             <h2
               id="method-heading"
-              className="text-[30px] sm:text-[38px] lg:text-[44px] font-black text-[#0B0B0F] leading-[1.05] tracking-[-0.03em] mb-6"
+              className="text-[30px] sm:text-[38px] lg:text-[44px] font-black text-[#1d1d1f] leading-[1.05] tracking-[-0.03em] mb-6"
             >
               Six steps. The same six,
               <br className="hidden sm:block" /> every single time.
@@ -158,16 +158,16 @@ export default function MethodAndPractices() {
             {/* The reconciliation note, makes two frameworks look deliberate */}
             <div className="bg-white border-l-2 border-[#0040FF] p-6">
               <p className="text-[15px] leading-relaxed text-gray-700">
-                We <span className="font-bold text-[#0B0B0F]">teach five layers</span>{" "}
+                We <span className="font-bold text-[#1d1d1f]">teach five layers</span>{" "}
                 of a product. We{" "}
-                <span className="font-bold text-[#0B0B0F]">
+                <span className="font-bold text-[#1d1d1f]">
                   deliver across six practices
                 </span>
                 . The first is how we think. The second is how we're organised.
               </p>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-1.5 mt-4 text-[13px] font-black uppercase tracking-wide text-[#0040FF] hover:text-[#0B0B0F] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2 rounded"
+                className="inline-flex items-center gap-1.5 mt-4 text-[13px] font-black uppercase tracking-wide text-[#0040FF] hover:text-[#1d1d1f] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2 rounded"
               >
                 See the practices
                 <ArrowRight
@@ -216,7 +216,7 @@ export default function MethodAndPractices() {
                 <Link
                   key={practice.id}
                   href={practice.href}
-                  className="group flex items-center gap-2 pl-3.5 pr-4 py-2.5 bg-white border border-gray-200 rounded-full hover:border-[#0040FF]/40 hover:shadow-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+                  className="group flex items-center gap-2 pl-3.5 pr-4 py-2.5 bg-white border border-gray-200 rounded-full hover:border-[#0040FF]/40 hover:shadow-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
                 >
                   <Icon
                     size={13}
@@ -224,7 +224,7 @@ export default function MethodAndPractices() {
                     style={{ color: practice.color }}
                     className="flex-shrink-0"
                   />
-                  <span className="text-[13.5px] font-bold text-gray-700 group-hover:text-[#0B0B0F] transition-colors whitespace-nowrap">
+                  <span className="text-[13.5px] font-bold text-gray-700 group-hover:text-[#1d1d1f] transition-colors whitespace-nowrap">
                     {practice.short}
                   </span>
                   <span className="text-[12.5px] font-semibold text-gray-400 group-hover:text-gray-500 transition-colors whitespace-nowrap hidden sm:inline">

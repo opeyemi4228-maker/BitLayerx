@@ -79,37 +79,37 @@ const PRACTICES = [
     number: '01', icon: Target, label: 'Strategy', title: 'Strategy & Positioning',
     benefit: 'Every engagement starts with clarity, your market position, your audience, and the order things need to happen in.',
     deliverable: 'A written positioning statement you could hand a new hire.',
-    color: '#0040FF', href: '/services/strategy',
+    color: '#0040FF', href: '/services#service-01',
   },
   {
     number: '02', icon: Eye, label: 'Design', title: 'UI/UX & Product Design',
     benefit: 'Interfaces designed around how your customers actually think, decide and get interrupted.',
     deliverable: 'A clickable prototype your team can test before we write code.',
-    color: '#0040FF', href: '/services/ui-ux',
+    color: '#0040FF', href: '/design',
   },
   {
     number: '03', icon: GitBranch, label: 'Engineering', title: 'Web, Mobile & Software',
     benefit: 'The infrastructure your business runs on, built for weak networks, real traffic and the day something goes wrong.',
     deliverable: 'Production code in your repository, documented and handed over.',
-    color: '#0040FF', href: '/services/web-mobile',
+    color: '#0040FF', href: '/solutions',
   },
   {
     number: '04', icon: Award, label: 'Brand', title: 'Branding & Identity',
     benefit: 'A brand system that communicates value before a word is spoken, and holds up as the company grows.',
     deliverable: 'A logo system that works at 16px and on a building, source files yours.',
-    color: '#0040FF', href: '/services/branding',
+    color: '#0040FF', href: '/design',
   },
   {
     number: '05', icon: Video, label: 'Film', title: 'Commercials & Video',
     benefit: 'Nothing builds trust faster than seeing the thing work. We produce films that carry weight, not just polish.',
     deliverable: 'A finished film, cut down for every platform you post on.',
-    color: '#0040FF', href: '/services/video',
+    color: '#0040FF', href: '/services#service-05',
   },
   {
     number: '06', icon: TrendingUp, label: 'Growth', title: 'Digital Marketing & Growth',
     benefit: 'Search, paid, email and content run as one plan, so each month’s work makes the next month cheaper.',
     deliverable: 'A dashboard you can read without us in the room.',
-    color: '#0040FF', href: '/services/marketing',
+    color: '#0040FF', href: '/marketing',
   },
 ];
 
@@ -129,7 +129,7 @@ function AdvantagesSection() {
             </p>
             <h2
               id="advantages-heading"
-              className="text-[34px] sm:text-[42px] lg:text-[52px] font-black text-[#0B0B0F] leading-[0.98] tracking-[-0.035em] mb-6"
+              className="text-[34px] sm:text-[42px] lg:text-[52px] font-black text-[#1d1d1f] leading-[0.98] tracking-[-0.035em] mb-6"
             >
               Most agencies
               <br />
@@ -171,7 +171,7 @@ function AdvantagesSection() {
                     <Icon size={20} strokeWidth={2} className="text-[#0040FF]" />
                   </div>
                   <div>
-                    <h3 className="text-[17px] font-black text-[#0B0B0F] tracking-tight mb-2 group-hover:text-[#0040FF] transition-colors">
+                    <h3 className="text-[17px] font-black text-[#1d1d1f] tracking-tight mb-2 group-hover:text-[#0040FF] transition-colors">
                       {adv.title}
                     </h3>
                     <p className="text-gray-600 text-[15.5px] leading-relaxed">{adv.description}</p>
@@ -192,7 +192,7 @@ function PracticesSnapshot() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="bg-[#0B0B0F] py-24 lg:py-32 overflow-hidden relative" aria-labelledby="practices-heading">
+    <section className="bg-black py-24 lg:py-32 overflow-hidden relative" aria-labelledby="practices-heading">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <svg width="100%" height="100%" aria-hidden="true">
           <defs>
@@ -248,7 +248,7 @@ function PracticesSnapshot() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="group bg-[#0B0B0F] hover:bg-[#0B0B0F] p-8 lg:p-9 relative overflow-hidden transition-colors duration-300 flex flex-col"
+                className="group bg-black hover:bg-black p-8 lg:p-9 relative overflow-hidden transition-colors duration-300 flex flex-col"
               >
                 <div
                   className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"

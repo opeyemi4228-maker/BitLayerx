@@ -54,11 +54,21 @@ export default function PrivacyPage() {
             your description of the project. Nothing on our forms is collected
             without you typing it.</p>
 
+            <p><strong>When you send a form, we also record where it came
+            from.</strong> Your IP address, the country and city your network
+            reports, your time zone, your browser, and which page on this site
+            you sent it from. We keep this for two reasons: to block automated
+            abuse of our forms, and to know which markets and which pages
+            produce real enquiries.</p>
+
+            <p>This is recorded only when you choose to submit a form. We do not
+            log the address of every visitor who reads the site.</p>
+
             <p><strong>Analytics.</strong> If analytics is enabled, we collect
             aggregate usage data: pages visited, approximate location at country
-            or city level, device type, and how you arrived. IP addresses are
-            anonymised. We use this to understand which pages are useful, not to
-            identify individuals.</p>
+            or city level, device type, and how you arrived. Analytics IP
+            addresses are anonymised. We use this to understand which pages are
+            useful, not to identify individuals.</p>
 
             <p><strong>What we do not collect.</strong> We do not take payment
             details on this website. We do not use fingerprinting. We do not buy
@@ -78,7 +88,7 @@ export default function PrivacyPage() {
             <h2>How long we keep it</h2>
 
             <ul>
-              <li><strong>Enquiries that do not become projects</strong>, 24 months, then deleted.</li>
+              <li><strong>Enquiries that do not become projects</strong>, 24 months, then deleted, including the IP address and location recorded with them.</li>
               <li><strong>Client records</strong>, for the duration of the engagement plus seven years, because tax law in the relevant jurisdictions requires it.</li>
               <li><strong>Analytics</strong>, 14 months, aggregated.</li>
             </ul>
@@ -100,7 +110,10 @@ export default function PrivacyPage() {
             processed outside your country. Transfers rely on standard
             contractual clauses where required.</p>
 
-            <h2>Your rights</h2>
+            {/* Anchored: the footer's "Data protection" link lands here, so
+                the promise in the nav and the section that keeps it stay
+                attached to each other. */}
+            <h2 id="your-rights">Your rights</h2>
 
             <p>Wherever you are, we will honour these, we would rather apply
             the strongest standard everywhere than track which rules apply to
@@ -147,7 +160,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
-          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#fbfbfd] p-7">
+          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#f5f5f7] p-7">
             <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
               Questions about any of this before you send us a brief? Ask first, that is entirely reasonable.{" "}
               <Link

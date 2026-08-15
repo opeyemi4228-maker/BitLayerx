@@ -37,7 +37,7 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center bg-[#fbfbfd] px-5 py-16">
+    <div className="flex min-h-[70vh] items-center justify-center bg-[#f5f5f7] px-5 py-16">
       <div className="w-full max-w-[400px]">
         <div className="mb-8 text-center">
           <svg
@@ -57,7 +57,7 @@ export default function LoginForm() {
               <path d="M14 40 L32 50 L50 40" opacity="0.44" />
             </g>
           </svg>
-          <h1 className="mt-5 text-[1.75rem] font-extrabold tracking-[-0.03em] text-[#0B0B0F]">
+          <h1 className="mt-5 text-[1.75rem] font-extrabold tracking-[-0.03em] text-[#1d1d1f]">
             BitLayerX Admin
           </h1>
           <p className="mt-2 text-[14.5px] text-[#6e6e73]">
@@ -71,7 +71,7 @@ export default function LoginForm() {
         >
           <label
             htmlFor="password"
-            className="mb-2 block text-[13.5px] font-semibold text-[#0B0B0F]"
+            className="mb-2 block text-[13.5px] font-semibold text-[#1d1d1f]"
           >
             Password
           </label>
@@ -82,7 +82,7 @@ export default function LoginForm() {
             required
             autoFocus
             autoComplete="current-password"
-            className="w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#0B0B0F] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20"
+            className="w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#1d1d1f] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20"
           />
 
           {error && (
@@ -97,7 +97,7 @@ export default function LoginForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="mt-6 w-full rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F] disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 w-full rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? "Signing in…" : "Sign in"}
           </button>

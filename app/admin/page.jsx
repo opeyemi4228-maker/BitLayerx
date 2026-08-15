@@ -2,7 +2,6 @@ import Link from "next/link";
 import { readLeads } from "@/lib/leads";
 import { getAllPosts, CATEGORIES } from "@/lib/blog";
 import { MARKETS, PAGES, SITE } from "@/lib/seo";
-import { getGithubProjects } from "@/lib/github";
 import { TESTIMONIALS } from "@/content/testimonials";
 import SignOutButton from "./SignOutButton";
 
@@ -34,7 +33,7 @@ function Stat({ label, value, sub, href }) {
       <span className="block text-[12px] font-semibold uppercase tracking-[0.12em] text-[#6e6e73]">
         {label}
       </span>
-      <span className="mt-2 block text-[2.25rem] font-extrabold leading-none tracking-[-0.035em] text-[#0B0B0F]">
+      <span className="mt-2 block text-[2.25rem] font-extrabold leading-none tracking-[-0.035em] text-[#1d1d1f]">
         {value}
       </span>
       {sub && (
@@ -46,7 +45,7 @@ function Stat({ label, value, sub, href }) {
   return href ? (
     <Link
       href={href}
-      className="block bg-white p-6 transition-colors hover:bg-[#fbfbfd] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+      className="block bg-white p-6 transition-colors hover:bg-[#f5f5f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
     >
       {body}
     </Link>
@@ -58,13 +57,6 @@ function Stat({ label, value, sub, href }) {
 export default async function AdminDashboard() {
   const leads = readLeads();
   const posts = getAllPosts();
-
-  let projects = [];
-  try {
-    projects = await getGithubProjects();
-  } catch {
-    projects = [];
-  }
 
   const now = Date.now();
   const dayMs = 24 * 60 * 60 * 1000;
@@ -85,6 +77,28 @@ export default async function AdminDashboard() {
   }, {});
   const serviceRanking = Object.entries(byService).sort((a, b) => b[1] - a[1]);
 
+  // Where enquiries physically come from. Useful for deciding which location
+  // pages deserve more work, and which markets to price for.
+  const byCountry = leads.reduce((acc, l) => {
+    const key = l.origin?.country || "Unknown";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+
+  const byCity = leads.reduce((acc, l) => {
+    const key = l.origin?.city || "Unknown";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+
+  // Which page the enquiry was sent from. Tells you which page actually sells.
+  const bySource = leads.reduce((acc, l) => {
+    const raw = l.source && l.source !== "direct" ? l.source : null;
+    const key = raw ? raw.replace(/^https?:\/\/[^/]+/, "") || "/" : "Direct";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+
   const byBudget = leads.reduce((acc, l) => {
     const key = l.budget || "Not stated";
     acc[key] = (acc[key] || 0) + 1;
@@ -99,12 +113,12 @@ export default async function AdminDashboard() {
     4;
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd]">
+    <div className="min-h-screen bg-[#f5f5f7]">
       {/* Header */}
       <header className="border-b border-black/[0.07] bg-white">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <div>
-            <h1 className="text-[1.5rem] font-extrabold tracking-[-0.03em] text-[#0B0B0F]">
+            <h1 className="text-[1.5rem] font-extrabold tracking-[-0.03em] text-[#1d1d1f]">
               Admin
             </h1>
             <p className="mt-0.5 text-[13.5px] text-[#6e6e73]">
@@ -114,7 +128,7 @@ export default async function AdminDashboard() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="rounded-full border border-black/15 px-5 py-2 text-[14.5px] font-medium text-[#0B0B0F] transition-colors hover:border-black/40"
+              className="rounded-full border border-black/15 px-5 py-2 text-[14.5px] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
             >
               View site
             </Link>
@@ -142,12 +156,6 @@ export default async function AdminDashboard() {
 
         <div className="mt-px grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Blog posts" value={posts.length} sub="Published" href="/blog" />
-          <Stat
-            label="Live projects"
-            value={projects.length}
-            sub="Synced from GitHub"
-            href="/portfolio"
-          />
           <Stat label="Markets" value={MARKETS.length} sub="Location pages" href="/locations" />
           <Stat
             label="Testimonials"
@@ -158,13 +166,13 @@ export default async function AdminDashboard() {
 
         {/* Enquiries */}
         <section className="mt-10">
-          <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+          <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
             Enquiries
           </h2>
 
           {leads.length === 0 ? (
             <div className="mt-6 rounded-2xl border border-black/[0.07] bg-white p-8">
-              <p className="text-[1.0625rem] font-semibold text-[#0B0B0F]">
+              <p className="text-[1.0625rem] font-semibold text-[#1d1d1f]">
                 No enquiries captured yet.
               </p>
               <p className="mt-2 max-w-[70ch] text-[14.5px] leading-relaxed text-[#6e6e73]">
@@ -178,13 +186,13 @@ export default async function AdminDashboard() {
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
                   href="/start-a-project"
-                  className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+                  className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-black"
                 >
                   Open the project form
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-full border border-black/15 px-6 py-2.5 text-[14.5px] font-medium text-[#0B0B0F] transition-colors hover:border-black/40"
+                  className="rounded-full border border-black/15 px-6 py-2.5 text-[14.5px] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
                 >
                   Open the contact form
                 </Link>
@@ -195,14 +203,17 @@ export default async function AdminDashboard() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-[14.5px]">
                   <thead>
-                    <tr className="border-b border-black/[0.09] bg-[#fbfbfd]">
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Received</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Name</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Contact</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Wants</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Budget</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#0B0B0F]">Timeline</th>
-                      <th className="px-5 py-3 font-bold text-[#0B0B0F]">Message</th>
+                    <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Received</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Name</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Contact</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Wants</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Budget</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Timeline</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Location</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">IP address</th>
+                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Came from</th>
+                      <th className="px-5 py-3 font-bold text-[#1d1d1f]">Message</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -212,7 +223,7 @@ export default async function AdminDashboard() {
                           {formatDateTime(l.receivedAt)}
                         </td>
                         <td className="px-5 py-4">
-                          <span className="block font-semibold text-[#0B0B0F]">{l.name}</span>
+                          <span className="block font-semibold text-[#1d1d1f]">{l.name}</span>
                           {l.company && (
                             <span className="mt-0.5 block text-[13px] text-[#6e6e73]">{l.company}</span>
                           )}
@@ -233,9 +244,29 @@ export default async function AdminDashboard() {
                             </a>
                           )}
                         </td>
-                        <td className="px-5 py-4 text-[#0B0B0F]">{l.service || "Not stated"}</td>
+                        <td className="px-5 py-4 text-[#1d1d1f]">{l.service || "Not stated"}</td>
                         <td className="px-5 py-4 text-[#6e6e73]">{l.budget || "Not stated"}</td>
                         <td className="px-5 py-4 text-[#6e6e73]">{l.timeline || "Not stated"}</td>
+                        <td className="whitespace-nowrap px-5 py-4 text-[#6e6e73]">
+                          {[l.origin?.city, l.origin?.country]
+                            .filter(Boolean)
+                            .join(", ") || "Unknown"}
+                          {l.origin?.timezone && (
+                            <span className="mt-0.5 block text-[12px] text-[#6e6e73]/70">
+                              {l.origin.timezone}
+                            </span>
+                          )}
+                        </td>
+                        <td className="whitespace-nowrap px-5 py-4 font-mono text-[12.5px] text-[#6e6e73]">
+                          {l.origin?.ip || l.ip || "Not recorded"}
+                        </td>
+                        <td className="max-w-[200px] px-5 py-4 text-[12.5px] text-[#6e6e73]">
+                          <span className="block truncate">
+                            {l.source && l.source !== "direct"
+                              ? l.source.replace(/^https?:\/\/[^/]+/, "") || "/"
+                              : "Direct"}
+                          </span>
+                        </td>
                         <td className="max-w-[420px] px-5 py-4 text-[#6e6e73]">{l.message}</td>
                       </tr>
                     ))}
@@ -250,13 +281,13 @@ export default async function AdminDashboard() {
         {leads.length > 0 && (
           <section className="mt-10 grid gap-8 lg:grid-cols-2">
             <div>
-              <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+              <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
                 What people ask for
               </h2>
               <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
                 {serviceRanking.map(([service, count]) => (
                   <div key={service} className="flex items-center justify-between px-5 py-3.5">
-                    <dt className="text-[14.5px] text-[#0B0B0F]">{service}</dt>
+                    <dt className="text-[14.5px] text-[#1d1d1f]">{service}</dt>
                     <dd className="text-[14.5px] font-bold tabular-nums text-[#0040FF]">{count}</dd>
                   </div>
                 ))}
@@ -264,7 +295,7 @@ export default async function AdminDashboard() {
             </div>
 
             <div>
-              <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+              <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
                 Budgets stated
               </h2>
               <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
@@ -272,7 +303,7 @@ export default async function AdminDashboard() {
                   .sort((a, b) => b[1] - a[1])
                   .map(([budget, count]) => (
                     <div key={budget} className="flex items-center justify-between px-5 py-3.5">
-                      <dt className="text-[14.5px] text-[#0B0B0F]">{budget}</dt>
+                      <dt className="text-[14.5px] text-[#1d1d1f]">{budget}</dt>
                       <dd className="text-[14.5px] font-bold tabular-nums text-[#0040FF]">{count}</dd>
                     </div>
                   ))}
@@ -281,10 +312,45 @@ export default async function AdminDashboard() {
           </section>
         )}
 
+        {/* Where enquiries come from */}
+        {leads.length > 0 && (
+          <section className="mt-10 grid gap-8 lg:grid-cols-3">
+            {[
+              ["Countries", byCountry],
+              ["Cities", byCity],
+              ["Page they enquired from", bySource],
+            ].map(([title, data]) => (
+              <div key={title}>
+                <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
+                  {title}
+                </h2>
+                <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
+                  {Object.entries(data)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 10)
+                    .map(([key, count]) => (
+                      <div
+                        key={key}
+                        className="flex items-center justify-between gap-3 px-5 py-3.5"
+                      >
+                        <dt className="min-w-0 truncate text-[14.5px] text-[#1d1d1f]">
+                          {key}
+                        </dt>
+                        <dd className="flex-shrink-0 text-[14.5px] font-bold tabular-nums text-[#0040FF]">
+                          {count}
+                        </dd>
+                      </div>
+                    ))}
+                </dl>
+              </div>
+            ))}
+          </section>
+        )}
+
         {/* Content */}
-        <section className="mt-10 grid gap-8 lg:grid-cols-2">
+        <section className="mt-10">
           <div>
-            <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+            <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
               Blog posts
             </h2>
             <ul className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
@@ -292,7 +358,7 @@ export default async function AdminDashboard() {
                 <li key={p.slug} className="px-5 py-4">
                   <Link
                     href={`/blog/${p.slug}`}
-                    className="block font-semibold text-[#0B0B0F] hover:text-[#0040FF]"
+                    className="block font-semibold text-[#1d1d1f] hover:text-[#0040FF]"
                   >
                     {p.title}
                   </Link>
@@ -305,33 +371,11 @@ export default async function AdminDashboard() {
             </ul>
           </div>
 
-          <div>
-            <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
-              Live projects
-            </h2>
-            <ul className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
-              {projects.map((p) => (
-                <li key={p.id} className="px-5 py-4">
-                  <a
-                    href={p.homepage}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block font-semibold text-[#0B0B0F] hover:text-[#0040FF]"
-                  >
-                    {p.title}
-                  </a>
-                  <p className="mt-1 break-all text-[13px] text-[#6e6e73]">
-                    {p.homepage?.replace(/^https?:\/\//, "")}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+</section>
 
         {/* Configuration health */}
         <section className="mt-10">
-          <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+          <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
             Configuration
           </h2>
           <p className="mt-4 max-w-[70ch] text-[14.5px] leading-relaxed text-[#6e6e73]">
@@ -351,7 +395,7 @@ export default async function AdminDashboard() {
             ].map(([label, key, value]) => (
               <div key={key} className="flex items-center justify-between gap-4 px-5 py-3.5">
                 <div>
-                  <dt className="text-[14.5px] font-semibold text-[#0B0B0F]">{label}</dt>
+                  <dt className="text-[14.5px] font-semibold text-[#1d1d1f]">{label}</dt>
                   <dd className="mt-0.5 font-mono text-[12px] text-[#6e6e73]">{key}</dd>
                 </div>
                 <span

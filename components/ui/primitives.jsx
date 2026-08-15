@@ -19,9 +19,13 @@ import Link from "next/link";
 // eye reads a tone change as a new chapter more cleanly than a hairline does.
 const TONES = {
   white: "bg-white text-[#1d1d1f]",
-  offwhite: "bg-[#fbfbfd] text-[#1d1d1f]",
-  dark: "bg-[#0B0B0F] text-white",
-  brand: "bg-[#0B0B0F] text-white",
+  offwhite: "bg-[#f5f5f7] text-[#1d1d1f]",
+  dark: "bg-black text-white",
+  // `brand` is an alias for the black panel on purpose. A full width panel of
+  // saturated blue reads loud and cheap at any size; Apple never fills one.
+  // Blue earns its impact by appearing only at button and link scale, against
+  // white, grey or black. Keeping the name means pages need no edits.
+  brand: "bg-black text-white",
 };
 
 // Two rhythms, and only two. Every section on the site is one or the other.
@@ -142,7 +146,7 @@ export function ActionLink({
   const colour =
     tone === "light"
       ? "text-[#5C86FF] hover:text-[#8FAEFF]"
-      : "text-[#0040FF] hover:text-[#0B0B0F]";
+      : "text-[#0040FF] hover:text-[#1d1d1f]";
 
   const props = external
     ? { href, target: "_blank", rel: "noopener noreferrer" }
@@ -170,7 +174,7 @@ export function ActionLink({
 // Reserved for the one action that matters on a page.
 const BUTTON_VARIANTS = {
   primary:
-    "bg-[#0040FF] text-white hover:bg-[#0B0B0F] focus-visible:ring-[#0040FF]",
+    "bg-[#0040FF] text-white hover:bg-black focus-visible:ring-[#0040FF]",
   onDark:
     "bg-white text-[#1d1d1f] hover:bg-white/90 focus-visible:ring-white",
   outline:
@@ -268,13 +272,13 @@ export function PageHero({
   children,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#fbfbfd] pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]">
+    <section className="relative overflow-hidden bg-[#f5f5f7] pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%]"
         style={{
           background:
-            "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0,64,255,0.11), transparent 70%)",
+            "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0,64,255,0.05), transparent 70%)",
         }}
       />
 
@@ -285,7 +289,7 @@ export function PageHero({
           </p>
         )}
 
-        <h1 className="mx-auto mt-6 max-w-[15ch] text-[clamp(2.6rem,7.4vw,5.4rem)] font-extrabold leading-[0.96] tracking-[-0.045em] text-[#0B0B0F]">
+        <h1 className="mx-auto mt-6 max-w-[15ch] text-[clamp(2.6rem,7.4vw,5.4rem)] font-extrabold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
           {before}
           {highlight && (
             <>
@@ -310,7 +314,7 @@ export function PageHero({
             {primary && (
               <Link
                 href={primary.href}
-                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
               >
                 {primary.label}
               </Link>

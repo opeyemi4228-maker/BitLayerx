@@ -214,7 +214,7 @@ export default async function ArticlePage({ params }) {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <Link
                 href="/start-a-project"
-                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white hover:bg-[#0B0B0F] transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white hover:bg-black transition-colors"
               >
                 Request a session
               </Link>

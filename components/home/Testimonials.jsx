@@ -42,7 +42,7 @@ export default function Testimonials() {
               className="flex flex-col rounded-2xl bg-white p-8 ring-1 ring-black/[0.07]"
             >
               <blockquote className="flex-1">
-                <p className="text-[1.0625rem] leading-relaxed text-[#0B0B0F]">
+                <p className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </blockquote>
@@ -67,7 +67,7 @@ export default function Testimonials() {
 
                 <span className="min-w-0">
                   {t.name && (
-                    <span className="block truncate text-[15px] font-bold text-[#0B0B0F]">
+                    <span className="block truncate text-[15px] font-bold text-[#1d1d1f]">
                       {t.name}
                     </span>
                   )}

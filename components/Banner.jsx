@@ -406,7 +406,7 @@ function TestimonialsSection() {
 function FinalCTA() {
   return (
     <section
-      className="relative bg-[#0B0B0F] py-24 lg:py-36 overflow-hidden"
+      className="relative bg-black py-24 lg:py-36 overflow-hidden"
       aria-labelledby="cta-heading"
     >
       {/* Hex grid */}

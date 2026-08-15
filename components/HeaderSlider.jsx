@@ -333,9 +333,9 @@ export default function HeroSection() {
             <Sparkles size={13} strokeWidth={2.5} className="text-amber-400" />
             <span className="text-[13.5px] font-bold text-gray-600">
               Headquartered in{" "}
-              <span className="text-[#0B0B0F] font-black">Abuja, Nigeria</span> ·
+              <span className="text-[#1d1d1f] font-black">Abuja, Nigeria</span> ·
               Operational since{" "}
-              <span className="text-[#0B0B0F] font-black">May 2026</span>
+              <span className="text-[#1d1d1f] font-black">May 2026</span>
             </span>
           </div>
         </Reveal>
@@ -353,7 +353,7 @@ export default function HeroSection() {
           <span aria-hidden="true">
             <Reveal delay={0.28} as="span">
               <span
-                className="block font-black uppercase leading-[0.9] tracking-[-0.03em] text-[#0B0B0F]"
+                className="block font-black uppercase leading-[0.9] tracking-[-0.03em] text-[#1d1d1f]"
                 style={{ fontSize: "clamp(2.1rem, 6vw, 5.6rem)" }}
               >
                 We build the
@@ -381,7 +381,7 @@ export default function HeroSection() {
 
             <Reveal delay={0.48} as="span">
               <span
-                className="block font-black uppercase leading-[0.9] tracking-[-0.03em] text-[#0B0B0F]"
+                className="block font-black uppercase leading-[0.9] tracking-[-0.03em] text-[#1d1d1f]"
                 style={{ fontSize: "clamp(2.1rem, 6vw, 5.6rem)" }}
               >
                 Companies run on.
@@ -394,7 +394,7 @@ export default function HeroSection() {
         <Reveal delay={0.58}>
           <p className="text-gray-500 text-[16px] sm:text-[17px] leading-relaxed max-w-2xl font-medium mb-10">
             Strategy, design, engineering, brand, film and growth, {" "}
-            <span className="text-[#0B0B0F] font-bold">
+            <span className="text-[#1d1d1f] font-bold">
               one team, one standard, one person accountable to you.
             </span>{" "}
             Replace five vendors with a studio that owns the whole outcome.
@@ -407,7 +407,7 @@ export default function HeroSection() {
             <Link
               href="/portfolio"
               aria-label="See BitLayerX work"
-              className="group flex items-center overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+              className="group flex items-center overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
               style={{ background: "#0B0B0F", minWidth: 240 }}
             >
               <span className="flex-1 text-white font-black text-[15px] tracking-[0.16em] uppercase pl-7 pr-4 py-4">
@@ -431,7 +431,7 @@ export default function HeroSection() {
             <Link
               href="/contact"
               aria-label="Book a strategy call with BitLayerX"
-              className="flex items-center gap-2 px-7 py-4 font-semibold text-[15px] text-gray-600 hover:text-[#0B0B0F] transition-colors tracking-wide uppercase backdrop-blur-sm"
+              className="flex items-center gap-2 px-7 py-4 font-semibold text-[15px] text-gray-600 hover:text-[#1d1d1f] transition-colors tracking-wide uppercase backdrop-blur-sm"
               style={{
                 border: "1px solid rgba(0, 64, 255,0.12)",
                 minWidth: 210,
@@ -474,13 +474,13 @@ export default function HeroSection() {
 
       {/* Bottom strip: who is behind it, and who it is for */}
       <div className="relative z-10 w-full max-w-[1180px] mx-auto px-5 sm:px-8 lg:px-10 mt-14 lg:mt-20 pb-12">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-7 border-t border-[#0B0B0F]/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-7 border-t border-[#1d1d1f]/[0.08]">
           <div className="flex items-center gap-3.5">
             <span
               aria-hidden="true"
-              className="w-9 h-9 rounded-full bg-[#0B0B0F]/[0.06] flex items-center justify-center flex-shrink-0"
+              className="w-9 h-9 rounded-full bg-black/[0.06] flex items-center justify-center flex-shrink-0"
             >
-              <span className="text-[12px] font-black text-[#0B0B0F]">OO</span>
+              <span className="text-[12px] font-black text-[#1d1d1f]">OO</span>
             </span>
             <p className="text-[13px] leading-snug text-gray-500">
               <span className="block text-[10.5px] font-bold tracking-[0.18em] uppercase text-gray-400">
@@ -490,7 +490,7 @@ export default function HeroSection() {
                 href="https://opeyemiojurongbe.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-[#0B0B0F] hover:text-[#0040FF] transition-colors underline-offset-4 hover:underline"
+                className="font-bold text-[#1d1d1f] hover:text-[#0040FF] transition-colors underline-offset-4 hover:underline"
               >
                 Opeyemi T. Ojurongbe
               </a>

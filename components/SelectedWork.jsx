@@ -58,7 +58,7 @@ export default function SelectedWork() {
             </p>
             <h2
               id="work-heading"
-              className="text-[32px] sm:text-[40px] lg:text-[48px] font-black text-[#0B0B0F] leading-[1] tracking-[-0.035em]"
+              className="text-[32px] sm:text-[40px] lg:text-[48px] font-black text-[#1d1d1f] leading-[1] tracking-[-0.035em]"
             >
               Things we built, <span className="text-[#0040FF]">still running.</span>
             </h2>
@@ -66,7 +66,7 @@ export default function SelectedWork() {
 
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-[13.5px] font-black uppercase tracking-wide text-[#0040FF] hover:text-[#0B0B0F] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2 rounded self-start sm:self-auto"
+            className="inline-flex items-center gap-2 text-[13.5px] font-black uppercase tracking-wide text-[#0040FF] hover:text-[#1d1d1f] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2 rounded self-start sm:self-auto"
           >
             All case studies
             <ArrowUpRight
@@ -100,11 +100,11 @@ export default function SelectedWork() {
                 href={item.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-4 rounded-2xl"
+                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-4 rounded-2xl"
                 aria-label={`Open live preview of ${item.title}`}
               >
                 <LiveWebsitePreview homepage={item.homepage} label={item.label} />
-                <h3 className="mt-5 text-[17px] font-black text-[#0B0B0F] leading-snug tracking-tight group-hover:text-[#0040FF] transition-colors">
+                <h3 className="mt-5 text-[17px] font-black text-[#1d1d1f] leading-snug tracking-tight group-hover:text-[#0040FF] transition-colors">
                   {item.title}
                 </h3>
               </a>

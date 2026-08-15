@@ -152,7 +152,7 @@ export default async function LocationPage({ params }) {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
             >
               Request a session
             </Link>
@@ -177,7 +177,7 @@ export default async function LocationPage({ params }) {
               <Link
                 key={p.title}
                 href={p.href}
-                className="group bg-white p-7 transition-colors hover:bg-[#fbfbfd] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+                className="group bg-white p-7 transition-colors hover:bg-[#f5f5f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
               >
                 <h3 className="flex items-center gap-1.5 text-[1.0625rem] font-bold text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                   {p.title}

@@ -26,7 +26,7 @@ export default function TermsPage() {
       <Section tone="white" rhythm="tight">
         <Container width="text">
           <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#0B0B0F]">Home</Link>
+            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Terms</span>
           </nav>
@@ -139,7 +139,7 @@ export default function TermsPage() {
             </p>
           </div>
 
-          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#fbfbfd] p-7">
+          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#f5f5f7] p-7">
             <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
               Want any of this explained before you commit? That is a reasonable
               thing to ask.{" "}

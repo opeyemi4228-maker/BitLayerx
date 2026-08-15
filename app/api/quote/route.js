@@ -17,7 +17,7 @@ const MAX_PER_WINDOW = 5;
 
 function rateLimited(ip) {
   const now = Date.now();
-  const hits = (RECENT.get(ip) ?? []).filter((t) => now, t < WINDOW_MS);
+  const hits = (RECENT.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
   hits.push(now);
   RECENT.set(ip, hits);
 
@@ -76,6 +76,30 @@ export async function POST(request) {
     );
   }
 
+  /**
+   * Where the enquiry came from.
+   *
+   * Geo headers are set by the CDN, not guessed from the IP: Vercel provides
+   * x-vercel-ip-*, Cloudflare provides cf-ipcountry. Running locally none of
+   * them exist, which is why every field falls back rather than throwing.
+   *
+   * This is recorded per enquiry, not per visitor. Logging every visitor's
+   * address would be a different thing entirely and would need its own notice.
+   */
+  const h = request.headers;
+  const origin = {
+    ip,
+    country:
+      h.get("x-vercel-ip-country") ?? h.get("cf-ipcountry") ?? null,
+    region: h.get("x-vercel-ip-country-region") ?? null,
+    city: h.get("x-vercel-ip-city")
+      ? decodeURIComponent(h.get("x-vercel-ip-city"))
+      : null,
+    timezone: h.get("x-vercel-ip-timezone") ?? null,
+    userAgent: h.get("user-agent") ?? null,
+    language: h.get("accept-language")?.split(",")[0] ?? null,
+  };
+
   const { persisted, forwarded } = await saveLead({
     name,
     email,
@@ -86,6 +110,8 @@ export async function POST(request) {
     budget: String(body.budget ?? "").trim(),
     timeline: String(body.timeline ?? "").trim(),
     source: request.headers.get("referer") ?? "direct",
+    page: String(body.page ?? "").trim() || null,
+    origin,
   });
 
   return NextResponse.json({ success: true, persisted, forwarded });

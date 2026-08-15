@@ -61,11 +61,14 @@ export default function BitLayerxFooterBottom() {
     },
   ];
 
+  // "Data protection" deep-links into the privacy policy rather than pointing
+  // at /privacy a second time. Two entries with the same href collided on the
+  // React key and rendered as duplicates.
   const legalLinks = [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Cookie Policy', href: '/cookies' },
-    { label: 'Data Protection', href: '/data-protection' },
+    { label: 'Data Protection', href: '/privacy#your-rights' },
     { label: 'Accessibility', href: '/accessibility' },
   ];
 
@@ -80,7 +83,7 @@ export default function BitLayerxFooterBottom() {
   };
 
   return (
-    <footer className="blx-footer bg-[#0B0B0F]">
+    <footer className="blx-footer bg-black">
       {/* Top, the four things people come here to do */}
       <motion.div
         variants={containerVariants}
@@ -92,7 +95,7 @@ export default function BitLayerxFooterBottom() {
         {helpSections.map((section) => {
           const Icon = section.icon;
           return (
-            <motion.div key={section.title} variants={itemVariants} className="bg-[#0B0B0F]">
+            <motion.div key={section.title} variants={itemVariants} className="bg-black">
               <Link
                 href={section.link}
                 className="flex flex-col gap-3 p-8 lg:p-10 h-full group hover:bg-white/[0.03] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
@@ -125,7 +128,7 @@ export default function BitLayerxFooterBottom() {
             <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Legal">
               {legalLinks.map((link) => (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="text-white/70 text-[13.5px] hover:text-white hover:underline underline-offset-4 transition-colors"
                 >

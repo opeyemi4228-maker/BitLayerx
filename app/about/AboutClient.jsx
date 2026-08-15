@@ -62,7 +62,7 @@ export default function AboutClient() {
           <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
             <figure className="mx-auto w-full max-w-[400px] lg:mx-0">
               <div
-                className="relative overflow-hidden rounded-2xl bg-[#fbfbfd]"
+                className="relative overflow-hidden rounded-2xl bg-[#f5f5f7]"
                 style={{ aspectRatio: "3 / 4" }}
               >
                 <Image
@@ -74,7 +74,7 @@ export default function AboutClient() {
                 />
               </div>
               <figcaption className="mt-5 border-l-2 border-[#0040FF] pl-4">
-                <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#0B0B0F]">
+                <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#1d1d1f]">
                   Opeyemi T. Ojurongbe
                 </span>
                 <span className="mt-0.5 block text-[14px] text-[#6e6e73]">
@@ -99,7 +99,7 @@ export default function AboutClient() {
                 <p>
                   We stayed small on purpose. It means decisions take seconds instead of weeks, and it means the team can afford to tell a client honestly when something is not worth building.
                 </p>
-                <p className="text-[#0B0B0F]">
+                <p className="text-[#1d1d1f]">
                   If something goes wrong on your project, you will not be
                   passed to an account manager. You will speak to me.
                 </p>
@@ -125,7 +125,7 @@ export default function AboutClient() {
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {BELIEFS.map((b) => (
-              <div key={b.n} className="bg-[#0B0B0F] p-8">
+              <div key={b.n} className="bg-black p-8">
                 <span className="text-[12px] font-bold tabular-nums tracking-[0.14em] text-[#5C86FF]">
                   {b.n}
                 </span>
@@ -171,7 +171,7 @@ export default function AboutClient() {
           <div className="mt-10">
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
             >
               Start a project
             </Link>

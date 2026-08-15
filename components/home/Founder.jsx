@@ -24,7 +24,7 @@ export default function Founder() {
               this section that has to be readable every time. */}
           <figure className="mx-auto w-full max-w-[420px] lg:mx-0">
             <div
-              className="relative overflow-hidden rounded-2xl bg-[#fbfbfd]"
+              className="relative overflow-hidden rounded-2xl bg-[#f5f5f7]"
               style={{ aspectRatio: "3 / 4" }}
             >
               <Image
@@ -38,7 +38,7 @@ export default function Founder() {
             </div>
 
             <figcaption className="mt-5 border-l-2 border-[#0040FF] pl-4">
-              <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#0B0B0F]">
+              <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#1d1d1f]">
                 Opeyemi T. Ojurongbe
               </span>
               <span className="mt-0.5 block text-[14px] text-[#6e6e73]">
@@ -55,7 +55,7 @@ export default function Founder() {
 
             <h2
               id="founder-heading"
-              className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#0B0B0F]"
+              className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#1d1d1f]"
             >
               You will know exactly who is accountable.
             </h2>
@@ -72,7 +72,7 @@ export default function Founder() {
                 take hours rather than weeks, and why we can afford to tell you
                 honestly when a piece of work is not worth doing.
               </p>
-              <p className="text-[#0B0B0F]">
+              <p className="text-[#1d1d1f]">
                 If something goes wrong on your project, you will not be routed
                 through an account manager. You will speak to me.
               </p>
@@ -81,7 +81,7 @@ export default function Founder() {
             <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/start-a-project"
-                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
               >
                 Start a project
               </Link>

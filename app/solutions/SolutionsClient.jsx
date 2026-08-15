@@ -678,7 +678,7 @@ export default function SolutionsPage() {
               </p>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0040FF] hover:bg-[#0B0B0F] text-white font-bold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0040FF] hover:bg-black text-white font-bold rounded-xl transition-colors"
               >
                 See the live work
                 <ArrowRight size={18} strokeWidth={2.5} />

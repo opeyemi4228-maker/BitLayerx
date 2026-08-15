@@ -20,9 +20,9 @@ const SUBJECTS = [
 ];
 
 const inputCls =
-  "w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#0B0B0F] placeholder:text-[#9a9aa0] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20";
+  "w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#1d1d1f] placeholder:text-[#9a9aa0] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20";
 
-const labelCls = "block text-[13.5px] font-semibold text-[#0B0B0F] mb-2";
+const labelCls = "block text-[13.5px] font-semibold text-[#1d1d1f] mb-2";
 
 export default function ContactClient() {
   const [status, setStatus] = useState("idle");
@@ -80,13 +80,13 @@ export default function ContactClient() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               href="/portfolio"
-              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F]"
+              className="inline-flex items-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"
             >
               See our work
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center rounded-full border border-black/15 px-7 py-[0.8rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:border-black/40"
+              className="inline-flex items-center rounded-full border border-black/15 px-7 py-[0.8rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
             >
               Read something useful
             </Link>
@@ -112,12 +112,12 @@ export default function ContactClient() {
           <div className="grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-3">
             <a
               href="tel:+2348025401891"
-              className="group bg-white p-8 transition-colors hover:bg-[#fbfbfd]"
+              className="group bg-white p-8 transition-colors hover:bg-[#f5f5f7]"
             >
               <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#0040FF]">
                 Call
               </span>
-              <span className="mt-3 block text-[1.25rem] font-bold tracking-[-0.02em] text-[#0B0B0F] transition-colors group-hover:text-[#0040FF]">
+              <span className="mt-3 block text-[1.25rem] font-bold tracking-[-0.02em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                 +234 802 540 1891
               </span>
               <span className="mt-2 block text-[14.5px] text-[#6e6e73]">
@@ -127,12 +127,12 @@ export default function ContactClient() {
 
             <a
               href="mailto:hello@bitlayerx.com"
-              className="group bg-white p-8 transition-colors hover:bg-[#fbfbfd]"
+              className="group bg-white p-8 transition-colors hover:bg-[#f5f5f7]"
             >
               <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#0040FF]">
                 Email
               </span>
-              <span className="mt-3 block break-all text-[1.25rem] font-bold tracking-[-0.02em] text-[#0B0B0F] transition-colors group-hover:text-[#0040FF]">
+              <span className="mt-3 block break-all text-[1.25rem] font-bold tracking-[-0.02em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
                 hello@bitlayerx.com
               </span>
               <span className="mt-2 block text-[14.5px] text-[#6e6e73]">
@@ -144,7 +144,7 @@ export default function ContactClient() {
               <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#0040FF]">
                 Visit
               </span>
-              <span className="mt-3 block text-[1.25rem] font-bold tracking-[-0.02em] text-[#0B0B0F]">
+              <span className="mt-3 block text-[1.25rem] font-bold tracking-[-0.02em] text-[#1d1d1f]">
                 Gwarinpa, Abuja
               </span>
               <span className="mt-2 block text-[14.5px] text-[#6e6e73]">
@@ -227,7 +227,7 @@ export default function ContactClient() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="mt-7 w-full rounded-full bg-[#0040FF] px-7 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-[#0B0B0F] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="mt-7 w-full rounded-full bg-[#0040FF] px-7 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   {status === "sending" ? "Sending…" : "Send message"}
                 </button>
@@ -240,7 +240,7 @@ export default function ContactClient() {
             </div>
 
             <aside>
-              <h2 className="border-b-2 border-[#0B0B0F] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#0B0B0F]">
+              <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
                 Common questions
               </h2>
               <dl className="mt-6 space-y-6">
@@ -263,7 +263,7 @@ export default function ContactClient() {
                   },
                 ].map((f) => (
                   <div key={f.q}>
-                    <dt className="text-[15.5px] font-bold text-[#0B0B0F]">{f.q}</dt>
+                    <dt className="text-[15.5px] font-bold text-[#1d1d1f]">{f.q}</dt>
                     <dd className="mt-1.5 text-[14.5px] leading-relaxed text-[#6e6e73]">{f.a}</dd>
                   </div>
                 ))}

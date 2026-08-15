@@ -37,7 +37,7 @@ function BitLayerXLogo({ className = "" }) {
         priority
       />
       <span
-        className="font-black text-[17px] sm:text-[20px] text-[#0B0B0F] tracking-[-0.03em] whitespace-nowrap"
+        className="font-black text-[17px] sm:text-[20px] text-[#1d1d1f] tracking-[-0.03em] whitespace-nowrap"
       >
         BitLayerX
       </span>
@@ -50,16 +50,16 @@ function BitLayerXLogo({ className = "" }) {
 // teaches returning visitors that our scarcity claims aren't real.
 function AnnouncementBar({ onClose }) {
   return (
-    <div className="relative bg-[#0040FF]">
+    <div className="relative bg-[#1d1d1f]">
       <div className="relative mx-auto flex max-w-[1600px] items-center justify-center px-10 py-2.5 sm:px-12">
         <Link
           href="/packages"
-          className="group flex min-w-0 items-center gap-2.5 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0040FF]"
+          className="group flex min-w-0 items-center gap-2.5 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d1d1f]"
         >
           {/* A concrete offer beats a slogan. "Websites from ₦500,000" tells a
               visitor in four words whether this company is in their budget,
               which is the question they are actually holding. */}
-          <span className="flex-shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-white">
+          <span className="flex-shrink-0 rounded-full bg-[#0040FF] px-2.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-white">
             Now
           </span>
 
@@ -104,17 +104,17 @@ function NavLink({ item, pathname }) {
       aria-current={isActive ? "page" : undefined}
       className={`
         relative px-3.5 py-2 rounded-lg text-[15px] font-semibold transition-colors duration-150
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2
         ${isActive
-          ? "text-[#0B0B0F]"
-          : "text-black/60 hover:text-[#0B0B0F] hover:bg-[#0B0B0F]/[0.04]"}
+          ? "text-[#1d1d1f]"
+          : "text-black/60 hover:text-[#1d1d1f] hover:bg-black/[0.04]"}
       `}
       style={{ letterSpacing: "-0.01em" }}
     >
       {item.label}
       <span
         aria-hidden="true"
-        className="absolute left-3.5 right-3.5 -bottom-[1px] h-[2px] rounded-full bg-[#0B0B0F] origin-left transition-transform duration-200"
+        className="absolute left-3.5 right-3.5 -bottom-[1px] h-[2px] rounded-full bg-black origin-left transition-transform duration-200"
         style={{ transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
       />
     </Link>
@@ -145,7 +145,7 @@ function MobileDrawer({ open, onClose, pathname }) {
       <div
         aria-hidden="true"
         onClick={onClose}
-        className="fixed inset-0 z-40 bg-[#0B0B0F]/40 backdrop-blur-sm xl:hidden"
+        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm xl:hidden"
         style={{
           opacity: open ? 1 : 0,
           pointerEvents: open ? "auto" : "none",
@@ -197,8 +197,8 @@ function MobileDrawer({ open, onClose, pathname }) {
                 aria-current={isActive ? "page" : undefined}
                 className={`flex items-center justify-between px-4 py-3.5 rounded-xl font-semibold text-[16px] transition-colors ${
                   isActive
-                    ? "text-[#0B0B0F] bg-[#0B0B0F]/[0.06]"
-                    : "text-black/70 hover:text-[#0B0B0F] hover:bg-[#0B0B0F]/[0.04]"
+                    ? "text-[#1d1d1f] bg-black/[0.06]"
+                    : "text-black/70 hover:text-[#1d1d1f] hover:bg-black/[0.04]"
                 }`}
               >
                 {item.label}
@@ -212,7 +212,7 @@ function MobileDrawer({ open, onClose, pathname }) {
           <Link
             href="/start-a-project"
             onClick={onClose}
-            className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-[#0B0B0F] hover:bg-[#0040FF] text-white font-bold text-[15px] rounded-xl transition-colors"
+            className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-black hover:bg-[#0040FF] text-white font-bold text-[15px] rounded-xl transition-colors"
           >
             Start a project
             <ArrowRight size={14} strokeWidth={3} />
@@ -220,7 +220,7 @@ function MobileDrawer({ open, onClose, pathname }) {
           <Link
             href="/contact"
             onClick={onClose}
-            className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-200 text-black/70 hover:text-[#0B0B0F] hover:border-[#0B0B0F]/30 font-semibold text-[15px] rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 w-full px-6 py-3.5 border border-gray-200 text-black/70 hover:text-[#1d1d1f] hover:border-[#1d1d1f]/30 font-semibold text-[15px] rounded-xl transition-all"
           >
             <CalendarCheck size={14} strokeWidth={2} />
             Book a strategy call
@@ -302,7 +302,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between h-[64px] lg:h-[72px]">
               <Link
                 href="/"
-                className="flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+                className="flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
                 aria-label="BitLayerX, back to homepage"
               >
                 <BitLayerXLogo />
@@ -320,7 +320,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/contact"
-                  className="hidden xl:flex items-center gap-1.5 px-4 py-2.5 text-[14.5px] font-semibold text-black/70 hover:text-[#0B0B0F] rounded-xl hover:bg-[#0B0B0F]/[0.04] transition-colors"
+                  className="hidden xl:flex items-center gap-1.5 px-4 py-2.5 text-[14.5px] font-semibold text-black/70 hover:text-[#1d1d1f] rounded-xl hover:bg-black/[0.04] transition-colors"
                 >
                   <CalendarCheck size={14} strokeWidth={2} />
                   Book a call
@@ -328,7 +328,7 @@ export default function Navbar() {
 
                 <Link
                   href="/start-a-project"
-                  className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-[#0B0B0F] hover:bg-[#0040FF] text-white text-[14.5px] font-bold rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0B0F] focus-visible:ring-offset-2"
+                  className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-[#0040FF] text-white text-[14.5px] font-bold rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
                 >
                   Start a project
                   <ArrowRight

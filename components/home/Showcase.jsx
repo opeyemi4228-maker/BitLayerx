@@ -16,7 +16,7 @@ function BrowserFrame({ children, label, className = "" }) {
     <div
       className={`overflow-hidden rounded-xl bg-white shadow-[0_24px_70px_-24px_rgba(0,0,0,0.55)] ring-1 ring-black/10 ${className}`}
     >
-      <div className="flex items-center gap-2 border-b border-black/[0.07] bg-[#fbfbfd] px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-black/[0.07] bg-[#f5f5f7] px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
           <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
@@ -38,7 +38,7 @@ function DashboardArt() {
       <rect width="640" height="380" fill="#ffffff" />
 
       {/* Sidebar */}
-      <rect x="0" y="0" width="132" height="380" fill="#fbfbfd" />
+      <rect x="0" y="0" width="132" height="380" fill="#f5f5f7" />
       <rect x="20" y="26" width="64" height="9" rx="4.5" fill="#0040FF" />
       {[62, 88, 114, 140, 166].map((y, i) => (
         <rect key={y} x="20" y={y} width={i === 0 ? 88 : 74} height="7" rx="3.5" fill="#0B0B0F" opacity={i === 0 ? "0.5" : "0.16"} />
@@ -47,14 +47,14 @@ function DashboardArt() {
       {/* Stat tiles */}
       {[0, 1, 2].map((i) => (
         <g key={i}>
-          <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#fbfbfd" />
+          <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#f5f5f7" />
           <rect x={178 + i * 158} y="48" width="46" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
           <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1, i * 0.28} />
         </g>
       ))}
 
       {/* Chart */}
-      <rect x="162" y="120" width="456" height="150" rx="10" fill="#fbfbfd" />
+      <rect x="162" y="120" width="456" height="150" rx="10" fill="#f5f5f7" />
       <polyline
         points="186,236 244,212 302,222 360,180 418,192 476,152 534,164 592,132"
         fill="none"
@@ -84,7 +84,7 @@ function DashboardArt() {
 /** A phone abstraction, sat over the browser frame for depth. */
 function PhoneArt() {
   return (
-    <div className="overflow-hidden rounded-[1.75rem] bg-[#0B0B0F] p-2 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+    <div className="overflow-hidden rounded-[1.75rem] bg-black p-2 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
       <svg viewBox="0 0 240 460" className="block w-full rounded-[1.35rem]" role="img" aria-label="An abstract representation of a mobile application screen.">
         <rect width="240" height="460" fill="#ffffff" />
         <rect x="0" y="0" width="240" height="132" fill="#0040FF" />
@@ -99,7 +99,7 @@ function PhoneArt() {
 
         {[212, 262, 312, 362].map((y, i) => (
           <g key={y}>
-            <rect x="20" y={y} width="200" height="38" rx="9" fill="#fbfbfd" />
+            <rect x="20" y={y} width="200" height="38" rx="9" fill="#f5f5f7" />
             <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85, i * 0.18} />
             <rect x="62" y={y + 10} width="88" height="7" rx="3.5" fill="#0B0B0F" opacity="0.22" />
             <rect x="62" y={y + 23} width="58" height="6" rx="3" fill="#0B0B0F" opacity="0.11" />
@@ -147,7 +147,7 @@ export default function Showcase() {
         <div className="mt-24 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
           <Link
             href="/portfolio"
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.9rem] text-[1.0625rem] font-medium text-[#0B0B0F] transition-colors hover:bg-white/90"
+            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.9rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
           >
             See live deployments
           </Link>
