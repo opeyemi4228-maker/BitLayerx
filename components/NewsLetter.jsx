@@ -8,15 +8,38 @@ export default function NewsletterSubscription() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  const [error, setError] = useState('');
+
+  /**
+   * This previously waited 1.2 seconds and declared success without sending
+   * the address anywhere, so every subscriber was silently discarded. It now
+   * posts to /api/subscribe and only reports success when the server confirms.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add your newsletter subscription logic here
-    await new Promise(r => setTimeout(r, 1200));
-    setIsSubmitting(false);
-    setSuccess(true);
-    setEmail('');
-    setTimeout(() => setSuccess(false), 5000);
+    setError('');
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data.message || 'Could not subscribe. Please try again.');
+      }
+
+      setSuccess(true);
+      setEmail('');
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,7 +159,12 @@ export default function NewsletterSubscription() {
                     <span className="text-gray-300">•</span>
                     <span>One email a fortnight</span>
                   </motion.div>
-                </form>
+                  {error && (
+                  <p role="alert" className="mt-3 text-[14px] text-red-600">
+                    {error}
+                  </p>
+                )}
+              </form>
               )}
             </motion.div>
           </div>

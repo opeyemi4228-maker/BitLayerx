@@ -1,120 +1,444 @@
 import Link from "next/link";
+import { readAll } from "@/lib/store";
 import { readLeads } from "@/lib/leads";
-import { getAllPosts, CATEGORIES } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 import { MARKETS, PAGES, SITE } from "@/lib/seo";
 import { TESTIMONIALS } from "@/content/testimonials";
+import { locationLabel } from "@/lib/geo";
 import SignOutButton from "./SignOutButton";
+import AdminTabs from "./AdminTabs";
+import {
+  Stat,
+  StatRow,
+  Panel,
+  Ranking,
+  EmptyState,
+  EnquiryTable,
+  formatDateTime,
+} from "./panels";
 
 export const metadata = {
   title: "Admin",
   robots: { index: false, follow: false, nocache: true },
 };
 
-// Always read fresh: an admin looking at enquiries must never see a cached list.
+// Never cache: an operator looking at enquiries must see the current list.
 export const dynamic = "force-dynamic";
 
-function formatDateTime(iso) {
-  try {
-    return new Date(iso).toLocaleString("en-GB", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  } catch {
-    return iso;
-  }
+const DAY = 24 * 60 * 60 * 1000;
+
+/** Count occurrences of a field across rows. */
+function tally(rows, pick) {
+  return rows.reduce((acc, r) => {
+    const key = pick(r) || "Unknown";
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
 }
 
-function Stat({ label, value, sub, href }) {
-  const body = (
-    <>
-      <span className="block text-[12px] font-semibold uppercase tracking-[0.12em] text-[#6e6e73]">
-        {label}
-      </span>
-      <span className="mt-2 block text-[2.25rem] font-extrabold leading-none tracking-[-0.035em] text-[#1d1d1f]">
-        {value}
-      </span>
-      {sub && (
-        <span className="mt-2 block text-[13px] text-[#6e6e73]">{sub}</span>
-      )}
-    </>
-  );
-
-  return href ? (
-    <Link
-      href={href}
-      className="block bg-white p-6 transition-colors hover:bg-[#f5f5f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
-    >
-      {body}
-    </Link>
-  ) : (
-    <div className="bg-white p-6">{body}</div>
-  );
+function within(rows, field, days) {
+  const cutoff = Date.now() - days * DAY;
+  return rows.filter((r) => new Date(r[field]).getTime() >= cutoff);
 }
 
 export default async function AdminDashboard() {
   const leads = readLeads();
+  const subscribers = readAll("subscribers");
+  const views = readAll("pageviews");
   const posts = getAllPosts();
 
-  const now = Date.now();
-  const dayMs = 24 * 60 * 60 * 1000;
-  const leads7 = leads.filter(
-    (l) => now - new Date(l.receivedAt).getTime() < 7 * dayMs
+  // Split enquiries by which form produced them. They are different
+  // conversations: a project brief needs a plan, a contact note needs a reply.
+  const projectLeads = leads.filter(
+    (l) => (l.source || "").includes("start-a-project") || l.budget || l.timeline
   );
-  const leads30 = leads.filter(
-    (l) => now - new Date(l.receivedAt).getTime() < 30 * dayMs
+  const contactLeads = leads.filter((l) => !projectLeads.includes(l));
+
+  const views7 = within(views, "at", 7);
+  const views30 = within(views, "at", 30);
+  const leads30 = within(leads, "receivedAt", 30);
+
+  // Unique-ish visitors. Without a cookie this can only ever be an estimate,
+  // and it is labelled as one rather than dressed up as a headcount.
+  const uniqueish = new Set(views.map((v) => `${v.ip}|${v.device}`)).size;
+
+  const conversion =
+    views.length > 0 ? ((leads.length / views.length) * 100).toFixed(1) : null;
+
+  const routeCount = Object.keys(PAGES).length + posts.length + MARKETS.length + 6;
+
+  // ── Page visitors ───────────────────────────────────────────────────────
+  const visitorsTab = (
+    <>
+      <StatRow>
+        <Stat label="Page views" value={views.length} sub="All time" />
+        <Stat label="Last 7 days" value={views7.length} sub="Page views" />
+        <Stat label="Last 30 days" value={views30.length} sub="Page views" />
+        <Stat label="Visitors" value={uniqueish} sub="Estimate, no cookies used" />
+      </StatRow>
+
+      {views.length === 0 ? (
+        <div className="mt-8">
+          <EmptyState
+            title="No page views recorded yet."
+            body="Every page sends one beacon after it paints. Nothing appears here until somebody visits, and anyone with Do Not Track enabled is never recorded. Bots and admin pages are excluded so the numbers describe customers rather than crawlers. On a serverless host this store cannot persist, so use Google Analytics for durable figures."
+            actions={
+              <Link
+                href="/"
+                className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-black"
+              >
+                Open the site
+              </Link>
+            }
+          />
+        </div>
+      ) : (
+        <>
+          <div className="mt-8 grid gap-8 lg:grid-cols-3">
+            <Panel title="Most visited pages">
+              <Ranking data={tally(views, (v) => v.path)} />
+            </Panel>
+            <Panel title="Countries">
+              <Ranking data={tally(views, (v) => v.countryName || v.country)} />
+            </Panel>
+            <Panel title="Cities">
+              <Ranking data={tally(views, (v) => v.city)} />
+            </Panel>
+          </div>
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-3">
+            <Panel title="How they found us">
+              <Ranking data={tally(views, (v) => v.channel)} />
+            </Panel>
+            <Panel title="Device">
+              <Ranking data={tally(views, (v) => v.device)} />
+            </Panel>
+            <Panel title="Language">
+              <Ranking data={tally(views, (v) => v.language)} />
+            </Panel>
+          </div>
+
+          <div className="mt-8">
+            <Panel title="Recent visits" note="Newest first, most recent 40.">
+              <div className="overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-[14.5px]">
+                    <thead>
+                      <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+                        {["When", "Page", "Location", "IP", "Device", "Came from"].map((h) => (
+                          <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {views.slice(0, 40).map((v) => (
+                        <tr key={v.id} className="border-b border-black/[0.06] last:border-0">
+                          <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#6e6e73]">
+                            {formatDateTime(v.at)}
+                          </td>
+                          <td className="max-w-[240px] px-5 py-3">
+                            <span className="block truncate text-[#1d1d1f]">{v.path}</span>
+                          </td>
+                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                            {locationLabel(v)}
+                          </td>
+                          <td className="whitespace-nowrap px-5 py-3 font-mono text-[12px] text-[#6e6e73]">
+                            {v.ip}
+                          </td>
+                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">{v.device}</td>
+                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">{v.channel}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </Panel>
+          </div>
+        </>
+      )}
+    </>
   );
-  const newLeads = leads.filter((l) => l.status === "new");
 
-  // Which services people actually ask for. This is the single most useful
-  // number on the page: it tells you what to put at the top of the site.
-  const byService = leads.reduce((acc, l) => {
-    const key = l.service || "Not stated";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
-  const serviceRanking = Object.entries(byService).sort((a, b) => b[1] - a[1]);
+  // ── Project briefs ──────────────────────────────────────────────────────
+  const projectsTab = (
+    <>
+      <StatRow>
+        <Stat label="Project briefs" value={projectLeads.length} sub="All time" />
+        <Stat
+          label="New"
+          value={projectLeads.filter((l) => l.status === "new").length}
+          sub="Not yet actioned"
+        />
+        <Stat
+          label="Last 30 days"
+          value={within(projectLeads, "receivedAt", 30).length}
+          sub="Received"
+        />
+        <Stat
+          label="Conversion"
+          value={conversion ? `${conversion}%` : "N/A"}
+          sub="Enquiries per page view"
+        />
+      </StatRow>
 
-  // Where enquiries physically come from. Useful for deciding which location
-  // pages deserve more work, and which markets to price for.
-  const byCountry = leads.reduce((acc, l) => {
-    const key = l.origin?.country || "Unknown";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+      <div className="mt-8">
+        {projectLeads.length === 0 ? (
+          <EmptyState
+            title="No project briefs yet."
+            body="Submissions from the start a project form appear here with budget, timeline, location and the page they came from."
+            actions={
+              <Link
+                href="/start-a-project"
+                className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-black"
+              >
+                Open the form
+              </Link>
+            }
+          />
+        ) : (
+          <EnquiryTable rows={projectLeads} />
+        )}
+      </div>
 
-  const byCity = leads.reduce((acc, l) => {
-    const key = l.origin?.city || "Unknown";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+      {projectLeads.length > 0 && (
+        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+          <Panel title="What they want">
+            <Ranking data={tally(projectLeads, (l) => l.service)} />
+          </Panel>
+          <Panel title="Budgets">
+            <Ranking data={tally(projectLeads, (l) => l.budget)} />
+          </Panel>
+          <Panel title="Timelines">
+            <Ranking data={tally(projectLeads, (l) => l.timeline)} />
+          </Panel>
+        </div>
+      )}
+    </>
+  );
 
-  // Which page the enquiry was sent from. Tells you which page actually sells.
-  const bySource = leads.reduce((acc, l) => {
-    const raw = l.source && l.source !== "direct" ? l.source : null;
-    const key = raw ? raw.replace(/^https?:\/\/[^/]+/, "") || "/" : "Direct";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+  // ── Contact messages ────────────────────────────────────────────────────
+  const contactsTab = (
+    <>
+      <StatRow>
+        <Stat label="Contact messages" value={contactLeads.length} sub="All time" />
+        <Stat
+          label="Last 30 days"
+          value={within(contactLeads, "receivedAt", 30).length}
+          sub="Received"
+        />
+        <Stat label="All enquiries" value={leads.length} sub="Contact plus projects" />
+        <Stat label="Last 30 days" value={leads30.length} sub="All enquiries" />
+      </StatRow>
 
-  const byBudget = leads.reduce((acc, l) => {
-    const key = l.budget || "Not stated";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+      <div className="mt-8">
+        {contactLeads.length === 0 ? (
+          <EmptyState
+            title="No contact messages yet."
+            body="Messages sent from the contact page appear here, with the location and the page they were sent from."
+            actions={
+              <Link
+                href="/contact"
+                className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-black"
+              >
+                Open the contact page
+              </Link>
+            }
+          />
+        ) : (
+          <EnquiryTable rows={contactLeads} />
+        )}
+      </div>
 
-  const routeCount =
-    Object.keys(PAGES).length +
-    posts.length +
-    CATEGORIES.length +
-    MARKETS.length +
-    4;
+      {leads.length > 0 && (
+        <div className="mt-8 grid gap-8 lg:grid-cols-3">
+          <Panel title="Countries">
+            <Ranking data={tally(leads, (l) => l.origin?.countryName || l.origin?.country)} />
+          </Panel>
+          <Panel title="Cities">
+            <Ranking data={tally(leads, (l) => l.origin?.city)} />
+          </Panel>
+          <Panel title="Page they enquired from" note="Which page actually sells.">
+            <Ranking
+              data={tally(leads, (l) =>
+                l.source && l.source !== "direct"
+                  ? l.source.replace(/^https?:\/\/[^/]+/, "") || "/"
+                  : "Direct"
+              )}
+            />
+          </Panel>
+        </div>
+      )}
+    </>
+  );
+
+  // ── Subscribers ─────────────────────────────────────────────────────────
+  const subscribersTab = (
+    <>
+      <StatRow>
+        <Stat label="Subscribers" value={subscribers.length} sub="Active" />
+        <Stat
+          label="Last 7 days"
+          value={within(subscribers, "subscribedAt", 7).length}
+          sub="New signups"
+        />
+        <Stat
+          label="Last 30 days"
+          value={within(subscribers, "subscribedAt", 30).length}
+          sub="New signups"
+        />
+        <Stat
+          label="Signup rate"
+          value={
+            views.length > 0
+              ? `${((subscribers.length / views.length) * 100).toFixed(1)}%`
+              : "N/A"
+          }
+          sub="Per page view"
+        />
+      </StatRow>
+
+      <div className="mt-8">
+        {subscribers.length === 0 ? (
+          <EmptyState
+            title="No subscribers yet."
+            body="Addresses appear here when somebody types one into the newsletter form. There is no other way an address can reach this list."
+          />
+        ) : (
+          <>
+            <div className="overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-[14.5px]">
+                  <thead>
+                    <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+                      {["Subscribed", "Email", "Location", "Device", "From page"].map((h) => (
+                        <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscribers.map((s) => (
+                      <tr key={s.id} className="border-b border-black/[0.06] last:border-0">
+                        <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#6e6e73]">
+                          {formatDateTime(s.subscribedAt)}
+                        </td>
+                        <td className="px-5 py-3">
+                          <a
+                            href={`mailto:${s.email}`}
+                            className="break-all font-medium text-[#0040FF] underline underline-offset-2"
+                          >
+                            {s.email}
+                          </a>
+                        </td>
+                        <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                          {locationLabel(s.origin)}
+                        </td>
+                        <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                          {s.origin?.device || "Unknown"}
+                        </td>
+                        <td className="max-w-[220px] px-5 py-3 text-[12.5px] text-[#6e6e73]">
+                          <span className="block truncate">
+                            {s.source && s.source !== "direct"
+                              ? s.source.replace(/^https?:\/\/[^/]+/, "") || "/"
+                              : "Direct"}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <p className="mt-5 text-[13px] leading-relaxed text-[#6e6e73]">
+              Copy every address:{" "}
+              <span className="select-all break-all font-mono text-[12px] text-[#1d1d1f]">
+                {subscribers.map((s) => s.email).join(", ")}
+              </span>
+            </p>
+          </>
+        )}
+      </div>
+    </>
+  );
+
+  // ── Site ────────────────────────────────────────────────────────────────
+  const siteTab = (
+    <>
+      <StatRow>
+        <Stat label="Live pages" value={routeCount} sub="In the sitemap" />
+        <Stat label="Blog posts" value={posts.length} sub="Published" />
+        <Stat label="Markets" value={MARKETS.length} sub="Location pages" />
+        <Stat
+          label="Testimonials"
+          value={TESTIMONIALS.length}
+          sub={TESTIMONIALS.length === 0 ? "Add real quotes to enable" : "Published"}
+        />
+      </StatRow>
+
+      <div className="mt-8 grid gap-8 lg:grid-cols-2">
+        <Panel title="Blog posts">
+          <ul className="divide-y divide-black/[0.07] overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
+            {posts.map((p) => (
+              <li key={p.slug} className="px-5 py-4">
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="block font-semibold text-[#1d1d1f] hover:text-[#0040FF]"
+                >
+                  {p.title}
+                </Link>
+                <p className="mt-1 text-[13px] text-[#6e6e73]">
+                  {p.published} · {p.readingTime} min · {p.category}
+                  {p.cover ? " · has cover" : " · no cover"}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Panel>
+
+        <Panel
+          title="Configuration"
+          note="Each item is off until the matching variable is set in .env."
+        >
+          <dl className="divide-y divide-black/[0.07] overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
+            {[
+              ["Google Analytics", "NEXT_PUBLIC_GA_ID", process.env.NEXT_PUBLIC_GA_ID],
+              ["Microsoft Clarity", "NEXT_PUBLIC_CLARITY_ID", process.env.NEXT_PUBLIC_CLARITY_ID],
+              ["Meta Pixel", "NEXT_PUBLIC_FB_PIXEL_ID", process.env.NEXT_PUBLIC_FB_PIXEL_ID],
+              [
+                "Search Console",
+                "NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION",
+                process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+              ],
+              ["Lead webhook", "LEAD_WEBHOOK_URL", process.env.LEAD_WEBHOOK_URL],
+              ["GitHub token", "GITHUB_TOKEN", process.env.GITHUB_TOKEN],
+            ].map(([label, key, value]) => (
+              <div key={key} className="flex items-center justify-between gap-4 px-5 py-3.5">
+                <div>
+                  <dt className="text-[14.5px] font-semibold text-[#1d1d1f]">{label}</dt>
+                  <dd className="mt-0.5 font-mono text-[12px] text-[#6e6e73]">{key}</dd>
+                </div>
+                <span
+                  className={`flex-shrink-0 rounded-full px-3 py-1 text-[11.5px] font-bold uppercase tracking-wider ${
+                    value ? "bg-[#0040FF]/10 text-[#0040FF]" : "bg-black/[0.06] text-[#6e6e73]"
+                  }`}
+                >
+                  {value ? "Configured" : "Not set"}
+                </span>
+              </div>
+            ))}
+          </dl>
+        </Panel>
+      </div>
+    </>
+  );
 
   return (
     <div className="min-h-screen bg-[#f5f5f7]">
-      {/* Header */}
       <header className="border-b border-black/[0.07] bg-white">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <div>
@@ -138,277 +462,15 @@ export default async function AdminDashboard() {
       </header>
 
       <main className="mx-auto max-w-[1280px] px-5 py-8 sm:px-8">
-        {/* Numbers */}
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat
-            label="New enquiries"
-            value={newLeads.length}
-            sub={`${leads.length} total, all time`}
-          />
-          <Stat label="Last 7 days" value={leads7.length} sub="Enquiries received" />
-          <Stat label="Last 30 days" value={leads30.length} sub="Enquiries received" />
-          <Stat
-            label="Live pages"
-            value={routeCount}
-            sub="Indexed by the sitemap"
-          />
-        </div>
-
-        <div className="mt-px grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label="Blog posts" value={posts.length} sub="Published" href="/blog" />
-          <Stat label="Markets" value={MARKETS.length} sub="Location pages" href="/locations" />
-          <Stat
-            label="Testimonials"
-            value={TESTIMONIALS.length}
-            sub={TESTIMONIALS.length === 0 ? "Add real quotes to enable" : "Published"}
-          />
-        </div>
-
-        {/* Enquiries */}
-        <section className="mt-10">
-          <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-            Enquiries
-          </h2>
-
-          {leads.length === 0 ? (
-            <div className="mt-6 rounded-2xl border border-black/[0.07] bg-white p-8">
-              <p className="text-[1.0625rem] font-semibold text-[#1d1d1f]">
-                No enquiries captured yet.
-              </p>
-              <p className="mt-2 max-w-[70ch] text-[14.5px] leading-relaxed text-[#6e6e73]">
-                Every submission from the project form and the contact form
-                lands here. Note that serverless hosts have a read only file
-                system, so on Vercel this list stays empty unless you set
-                LEAD_WEBHOOK_URL to forward enquiries somewhere durable. Every
-                enquiry is also written to the server log as a line beginning
-                [LEAD], which your host retains either way.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Link
-                  href="/start-a-project"
-                  className="rounded-full bg-[#0040FF] px-6 py-2.5 text-[14.5px] font-medium text-white transition-colors hover:bg-black"
-                >
-                  Open the project form
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-full border border-black/15 px-6 py-2.5 text-[14.5px] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
-                >
-                  Open the contact form
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div className="mt-6 overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[14.5px]">
-                  <thead>
-                    <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Received</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Name</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Contact</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Wants</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Budget</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Timeline</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Location</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">IP address</th>
-                      <th className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">Came from</th>
-                      <th className="px-5 py-3 font-bold text-[#1d1d1f]">Message</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {leads.map((l) => (
-                      <tr key={l.id} className="border-b border-black/[0.06] align-top last:border-0">
-                        <td className="whitespace-nowrap px-5 py-4 text-[13px] text-[#6e6e73]">
-                          {formatDateTime(l.receivedAt)}
-                        </td>
-                        <td className="px-5 py-4">
-                          <span className="block font-semibold text-[#1d1d1f]">{l.name}</span>
-                          {l.company && (
-                            <span className="mt-0.5 block text-[13px] text-[#6e6e73]">{l.company}</span>
-                          )}
-                        </td>
-                        <td className="px-5 py-4">
-                          <a
-                            href={`mailto:${l.email}`}
-                            className="block break-all font-medium text-[#0040FF] underline underline-offset-2"
-                          >
-                            {l.email}
-                          </a>
-                          {l.phone && (
-                            <a
-                              href={`tel:${l.phone.replace(/\s/g, "")}`}
-                              className="mt-0.5 block text-[13px] text-[#6e6e73]"
-                            >
-                              {l.phone}
-                            </a>
-                          )}
-                        </td>
-                        <td className="px-5 py-4 text-[#1d1d1f]">{l.service || "Not stated"}</td>
-                        <td className="px-5 py-4 text-[#6e6e73]">{l.budget || "Not stated"}</td>
-                        <td className="px-5 py-4 text-[#6e6e73]">{l.timeline || "Not stated"}</td>
-                        <td className="whitespace-nowrap px-5 py-4 text-[#6e6e73]">
-                          {[l.origin?.city, l.origin?.country]
-                            .filter(Boolean)
-                            .join(", ") || "Unknown"}
-                          {l.origin?.timezone && (
-                            <span className="mt-0.5 block text-[12px] text-[#6e6e73]/70">
-                              {l.origin.timezone}
-                            </span>
-                          )}
-                        </td>
-                        <td className="whitespace-nowrap px-5 py-4 font-mono text-[12.5px] text-[#6e6e73]">
-                          {l.origin?.ip || l.ip || "Not recorded"}
-                        </td>
-                        <td className="max-w-[200px] px-5 py-4 text-[12.5px] text-[#6e6e73]">
-                          <span className="block truncate">
-                            {l.source && l.source !== "direct"
-                              ? l.source.replace(/^https?:\/\/[^/]+/, "") || "/"
-                              : "Direct"}
-                          </span>
-                        </td>
-                        <td className="max-w-[420px] px-5 py-4 text-[#6e6e73]">{l.message}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-        </section>
-
-        {/* Demand breakdown */}
-        {leads.length > 0 && (
-          <section className="mt-10 grid gap-8 lg:grid-cols-2">
-            <div>
-              <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-                What people ask for
-              </h2>
-              <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
-                {serviceRanking.map(([service, count]) => (
-                  <div key={service} className="flex items-center justify-between px-5 py-3.5">
-                    <dt className="text-[14.5px] text-[#1d1d1f]">{service}</dt>
-                    <dd className="text-[14.5px] font-bold tabular-nums text-[#0040FF]">{count}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <div>
-              <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-                Budgets stated
-              </h2>
-              <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
-                {Object.entries(byBudget)
-                  .sort((a, b) => b[1] - a[1])
-                  .map(([budget, count]) => (
-                    <div key={budget} className="flex items-center justify-between px-5 py-3.5">
-                      <dt className="text-[14.5px] text-[#1d1d1f]">{budget}</dt>
-                      <dd className="text-[14.5px] font-bold tabular-nums text-[#0040FF]">{count}</dd>
-                    </div>
-                  ))}
-              </dl>
-            </div>
-          </section>
-        )}
-
-        {/* Where enquiries come from */}
-        {leads.length > 0 && (
-          <section className="mt-10 grid gap-8 lg:grid-cols-3">
-            {[
-              ["Countries", byCountry],
-              ["Cities", byCity],
-              ["Page they enquired from", bySource],
-            ].map(([title, data]) => (
-              <div key={title}>
-                <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-                  {title}
-                </h2>
-                <dl className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
-                  {Object.entries(data)
-                    .sort((a, b) => b[1] - a[1])
-                    .slice(0, 10)
-                    .map(([key, count]) => (
-                      <div
-                        key={key}
-                        className="flex items-center justify-between gap-3 px-5 py-3.5"
-                      >
-                        <dt className="min-w-0 truncate text-[14.5px] text-[#1d1d1f]">
-                          {key}
-                        </dt>
-                        <dd className="flex-shrink-0 text-[14.5px] font-bold tabular-nums text-[#0040FF]">
-                          {count}
-                        </dd>
-                      </div>
-                    ))}
-                </dl>
-              </div>
-            ))}
-          </section>
-        )}
-
-        {/* Content */}
-        <section className="mt-10">
-          <div>
-            <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-              Blog posts
-            </h2>
-            <ul className="mt-5 divide-y divide-black/[0.07] rounded-2xl border border-black/[0.07] bg-white">
-              {posts.map((p) => (
-                <li key={p.slug} className="px-5 py-4">
-                  <Link
-                    href={`/blog/${p.slug}`}
-                    className="block font-semibold text-[#1d1d1f] hover:text-[#0040FF]"
-                  >
-                    {p.title}
-                  </Link>
-                  <p className="mt-1 text-[13px] text-[#6e6e73]">
-                    {p.published} · {p.readingTime} min · {p.category}
-                    {p.cover ? " · has cover image" : " · no cover image"}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-</section>
-
-        {/* Configuration health */}
-        <section className="mt-10">
-          <h2 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
-            Configuration
-          </h2>
-          <p className="mt-4 max-w-[70ch] text-[14.5px] leading-relaxed text-[#6e6e73]">
-            Each item below is off until you set the matching variable in .env.
-            Nothing here is required for the site to run, but analytics and the
-            lead webhook are what turn this dashboard from a list into a
-            measurement tool.
-          </p>
-          <dl className="mt-5 divide-y divide-black/[0.07] overflow-hidden rounded-2xl border border-black/[0.07] bg-white">
-            {[
-              ["Google Analytics", "NEXT_PUBLIC_GA_ID", process.env.NEXT_PUBLIC_GA_ID],
-              ["Microsoft Clarity", "NEXT_PUBLIC_CLARITY_ID", process.env.NEXT_PUBLIC_CLARITY_ID],
-              ["Meta Pixel", "NEXT_PUBLIC_FB_PIXEL_ID", process.env.NEXT_PUBLIC_FB_PIXEL_ID],
-              ["Search Console", "NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION", process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION],
-              ["Lead webhook", "LEAD_WEBHOOK_URL", process.env.LEAD_WEBHOOK_URL],
-              ["GitHub token", "GITHUB_TOKEN", process.env.GITHUB_TOKEN],
-            ].map(([label, key, value]) => (
-              <div key={key} className="flex items-center justify-between gap-4 px-5 py-3.5">
-                <div>
-                  <dt className="text-[14.5px] font-semibold text-[#1d1d1f]">{label}</dt>
-                  <dd className="mt-0.5 font-mono text-[12px] text-[#6e6e73]">{key}</dd>
-                </div>
-                <span
-                  className={`flex-shrink-0 rounded-full px-3 py-1 text-[11.5px] font-bold uppercase tracking-wider ${
-                    value ? "bg-[#0040FF]/10 text-[#0040FF]" : "bg-black/[0.06] text-[#6e6e73]"
-                  }`}
-                >
-                  {value ? "Configured" : "Not set"}
-                </span>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <AdminTabs
+          tabs={[
+            { id: "visitors", label: "Page visitors", count: views.length, content: visitorsTab },
+            { id: "projects", label: "Project briefs", count: projectLeads.length, content: projectsTab },
+            { id: "contacts", label: "Contact messages", count: contactLeads.length, content: contactsTab },
+            { id: "subscribers", label: "Subscribers", count: subscribers.length, content: subscribersTab },
+            { id: "site", label: "Site", content: siteTab },
+          ]}
+        />
 
         <p className="mt-10 text-[13px] text-[#6e6e73]">
           {SITE.name} admin. Sessions expire after 12 hours.

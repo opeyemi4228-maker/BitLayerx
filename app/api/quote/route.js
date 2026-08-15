@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { saveLead } from "@/lib/leads";
+import { resolveOrigin } from "@/lib/geo";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,29 +77,9 @@ export async function POST(request) {
     );
   }
 
-  /**
-   * Where the enquiry came from.
-   *
-   * Geo headers are set by the CDN, not guessed from the IP: Vercel provides
-   * x-vercel-ip-*, Cloudflare provides cf-ipcountry. Running locally none of
-   * them exist, which is why every field falls back rather than throwing.
-   *
-   * This is recorded per enquiry, not per visitor. Logging every visitor's
-   * address would be a different thing entirely and would need its own notice.
-   */
-  const h = request.headers;
-  const origin = {
-    ip,
-    country:
-      h.get("x-vercel-ip-country") ?? h.get("cf-ipcountry") ?? null,
-    region: h.get("x-vercel-ip-country-region") ?? null,
-    city: h.get("x-vercel-ip-city")
-      ? decodeURIComponent(h.get("x-vercel-ip-city"))
-      : null,
-    timezone: h.get("x-vercel-ip-timezone") ?? null,
-    userAgent: h.get("user-agent") ?? null,
-    language: h.get("accept-language")?.split(",")[0] ?? null,
-  };
+  // Full origin: address, geography, device and language. Resolved from CDN
+  // headers where present, otherwise looked up, never invented.
+  const origin = await resolveOrigin(request.headers);
 
   const { persisted, forwarded } = await saveLead({
     name,

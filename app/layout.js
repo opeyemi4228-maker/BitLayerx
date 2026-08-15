@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
+import PageViewTracker from "@/components/PageViewTracker";
 import Script from "next/script";
 
 // Poppins, the face the UK Labour Party serves on labour.org.uk (Light through
@@ -453,6 +454,7 @@ export default function RootLayout({ children }) {
 
         {/* ── Toast Notifications ───────────────────────────────────────── */}
         <ToastProvider />
+        <PageViewTracker />
 
         {/* ── App Shell ─────────────────────────────────────────────────── */}
         <div
