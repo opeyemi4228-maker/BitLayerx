@@ -79,23 +79,31 @@ export default function AboutClient() {
 
             <div>
               <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
-                Who runs it
+                The team
               </p>
               <Heading as="h2" size="xl" id="founder-about" className="mt-4">
-                One name on the work.
+                You will meet everyone who touches your project.
               </Heading>
               <div className="mt-7 space-y-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
                 <p>
-                  I started BitLayerX because too many businesses were paying
-                  good money for websites and software that never worked
-                  properly, and had nobody to hold responsible when it did not.
+                  BitLayerX started because too many businesses here were paying
+                  good money for websites and software that were never finished
+                  properly, and had nobody to call when they broke.
                 </p>
                 <p>
-                  We stayed small on purpose. It means decisions take seconds instead of weeks, and it means the team can afford to tell a client honestly when something is not worth building.
+                  We are a small team in Gwarinpa, Abuja, covering design,
+                  engineering, brand, film and marketing between us. Small is a
+                  decision rather than a stage we are trying to grow out of. It
+                  is what keeps the people who scoped your job on the job.
+                </p>
+                <p>
+                  Opeyemi leads the team and sits on every project, so
+                  accountability has a name rather than a department.
                 </p>
                 <p className="text-[#1d1d1f]">
-                  If something goes wrong on your project, you will not be
-                  passed to an account manager. You will speak to me.
+                  We will also say no. If a piece of work will not earn back
+                  what it costs you, we would rather lose that line on the
+                  invoice than watch you regret it.
                 </p>
               </div>
               <div className="mt-9">
@@ -119,7 +127,7 @@ export default function AboutClient() {
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {BELIEFS.map((b) => (
-              <div key={b.n} className="bg-black p-8">
+              <div key={b.title} className="bg-black p-8">
                 <h3 className="text-[1.3rem] font-bold tracking-[-0.025em] text-white">
                   {b.title}
                 </h3>

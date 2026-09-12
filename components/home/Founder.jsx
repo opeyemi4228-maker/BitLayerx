@@ -13,7 +13,7 @@ import { Section, Container, ActionLink } from "@/components/ui/primitives";
  */
 export default function Founder() {
   return (
-    <Section tone="white" labelledBy="founder-heading">
+    <Section tone="white" labelledBy="team-heading">
       <Container width="default">
         <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
           {/* Portrait.
@@ -50,40 +50,46 @@ export default function Founder() {
           {/* Statement */}
           <div>
             <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
-              Who you are hiring
+              The team
             </p>
 
             <h2
-              id="founder-heading"
+              id="team-heading"
               className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#1d1d1f]"
             >
-              You will know who is actually doing the work.
+              Small enough that you meet the whole team.
             </h2>
 
-            {/* Written to be read aloud.
-                The previous version leaned on balanced three part sentences and
-                contrast pairs, which is what makes copy sound generated rather
-                than spoken. Real speech is uneven: it names places, admits a
-                cost, and stops when the point is made. */}
+            {/* Framed around the team, not one person.
+                Earlier drafts were written in the first person singular, which
+                answers one fear and creates another. A buyer commissioning
+                something business critical is afraid of being passed around
+                with nobody accountable, and equally afraid of a supplier who is
+                really one person who might disappear. "I do it all" fixes the
+                first and makes the second worse. A named lead inside a real
+                team answers both at once. */}
             <div className="mt-7 space-y-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
               <p>
-                I am Opeyemi, and I run the team here.
+                We build from a studio in Gwarinpa, Abuja. The same team covers
+                the design, the engineering and the marketing, so nothing falls
+                into the gap between two suppliers who have never spoken to each
+                other.
               </p>
               <p>
-                We work out of Gwarinpa, in Abuja. We have stayed small because
-                I want to be in the projects myself, not managing people who
-                are. So whoever prices your job is one of the people who builds
-                it, and you are never handed to a department you have not met.
+                Opeyemi leads the team and stays on every project, so there is
+                always one person who can answer for the whole of it rather than
+                for one slice. You are never handed to an account manager who
+                was not in the room.
               </p>
               <p>
-                That costs us work sometimes. When we are full, we say we are
-                full. And if you ask us for something that will not earn back
-                what it costs you, I will tell you before you pay for it, not
-                after.
+                We are straight about capacity. When we are full, we say we are
+                full. And when something you have asked for will not earn back
+                what it costs you, we say so before you pay for it.
               </p>
               <p className="text-[#1d1d1f]">
-                On a project of any length something eventually goes wrong.
-                When it does, you ring me.
+                Projects run long enough that something eventually goes wrong.
+                When it does, you get a person on the phone, not a ticket
+                number.
               </p>
             </div>
 
