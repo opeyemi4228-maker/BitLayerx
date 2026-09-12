@@ -7,6 +7,7 @@ authorRole: Team Lead
 published: 2026-08-05
 tags: [engineering, performance, fintech, africa]
 coverAlt: "A payment confirmation screen on a mobile phone."
+cover: /images/blog/building-for-unreliable-networks.jpg
 ---
 
 Western performance guidance optimises for a fast connection that occasionally stutters. Large parts of the world run on a slow connection that occasionally works. Those need different engineering.

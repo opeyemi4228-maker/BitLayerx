@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container, ActionLink } from "@/components/ui/primitives";
 
@@ -64,86 +65,82 @@ export default function Hero() {
 
         {/* Visual band.
 
-            Three frames at different depths: the phone and the brand card sit
-            forward, the desktop sits behind. It reads as "we make the whole
-            thing", which is the argument the headline just made in words. */}
-        <div className="relative mx-auto mt-16 max-w-[900px]">
-          <div className="grid grid-cols-12 items-end gap-3 sm:gap-5">
-            {/* Left: brand card */}
-            <div className="col-span-3 hidden sm:block">
-              <div className="overflow-hidden rounded-xl bg-[#0040FF] shadow-[0_18px_50px_-18px_rgba(0,64,255,0.6)]">
-                <svg viewBox="0 0 200 260" className="block w-full" aria-hidden="true">
-                  <rect width="200" height="260" fill="#0040FF" />
-                  <g
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeWidth="4"
-                    strokeLinejoin="round"
-                    transform="translate(68,58) scale(1.05)"
-                  >
-                    <path d="M32 14 L50 24 L32 34 L14 24 Z" />
-                    <path d="M14 32 L32 42 L50 32" opacity="0.7" />
-                    <path d="M14 40 L32 50 L50 40" opacity="0.45" />
-                  </g>
-                  <rect x="34" y="176" width="132" height="9" rx="4.5" fill="#fff" opacity="0.9" />
-                  <rect x="34" y="196" width="94" height="7" rx="3.5" fill="#fff" opacity="0.5" />
-                  <rect x="34" y="218" width="66" height="7" rx="3.5" fill="#fff" opacity="0.3" />
-                </svg>
-              </div>
-            </div>
+            Three real client sites, not an abstraction of one. The previous
+            version here drew grey rectangles: honest about being a drawing,
+            but it asked a first-time visitor to take the quality of the work
+            on trust at the exact moment they are deciding whether to.
 
-            {/* Centre: desktop */}
-            <div className="col-span-12 sm:col-span-6">
-              <div className="overflow-hidden rounded-xl bg-white shadow-[0_26px_70px_-24px_rgba(0,0,0,0.42)] ring-1 ring-black/[0.08]">
-                <div className="flex items-center gap-1.5 bg-white px-3 py-2">
-                  <span className="h-2 w-2 rounded-full bg-black/15" />
-                  <span className="h-2 w-2 rounded-full bg-black/15" />
-                  <span className="h-2 w-2 rounded-full bg-black/15" />
-                </div>
-                <svg viewBox="0 0 420 280" className="block w-full" aria-hidden="true">
-                  <rect width="420" height="280" fill="#ffffff" />
-                  <rect x="0" y="0" width="420" height="122" fill="#0B0B0F" />
-                  <rect x="28" y="30" width="96" height="8" rx="4" fill="#0040FF" />
-                  <rect x="28" y="52" width="214" height="20" rx="6" fill="#fff" />
-                  <rect x="28" y="82" width="150" height="12" rx="5" fill="#fff" opacity="0.55" />
-                  {[0, 1, 2].map((i) => (
-                    <g key={i}>
-                      <rect x={28 + i * 124} y="146" width="108" height="66" rx="9" fill="#ffffff" />
-                      <rect x={44 + i * 124} y="164" width="46" height="7" rx="3.5" fill="#0B0B0F" opacity="0.18" />
-                      <rect x={44 + i * 124} y="180" width="72" height="12" rx="4" fill="#0040FF" opacity={0.9 - i * 0.26} />
-                    </g>
-                  ))}
-                  <rect x="28" y="232" width="98" height="18" rx="9" fill="#0040FF" />
-                  <rect x="138" y="236" width="70" height="10" rx="5" fill="#0B0B0F" opacity="0.12" />
-                </svg>
-              </div>
+            These are screenshots of live deployments. The centre one leads
+            because it is the strongest piece; the two behind it are angled
+            back so the eye reads them as depth rather than as three equal
+            things competing for attention. */}
+        <div className="relative mx-auto mt-16 min-h-[210px] max-w-[940px] sm:min-h-[330px]">
+          {/* Behind, left */}
+          <figure className="absolute bottom-0 left-0 hidden w-[32%] -rotate-[7deg] sm:block">
+            <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_45px_-20px_rgba(0,0,0,0.4)] ring-1 ring-black/[0.07]">
+              <Image
+                src="/images/work/orrea.jpg"
+                alt="Orréa Bread House, an artisan bakery website and ordering experience built by BitLayerX."
+                width={1200}
+                height={633}
+                sizes="(max-width: 640px) 0px, 300px"
+                className="block h-auto w-full"
+              />
             </div>
+          </figure>
 
-            {/* Right: phone */}
-            <div className="col-span-3 hidden sm:block">
-              <div className="overflow-hidden rounded-[1.25rem] bg-black p-1.5 shadow-[0_22px_55px_-18px_rgba(0,0,0,0.55)]">
-                <svg viewBox="0 0 170 300" className="block w-full rounded-[0.95rem]" aria-hidden="true">
-                  <rect width="170" height="300" fill="#ffffff" />
-                  <rect x="0" y="0" width="170" height="96" fill="#0040FF" />
-                  <rect x="18" y="26" width="52" height="7" rx="3.5" fill="#fff" opacity="0.55" />
-                  <rect x="18" y="44" width="98" height="14" rx="5" fill="#fff" />
-                  <rect x="16" y="82" width="138" height="52" rx="10" fill="#ffffff" stroke="#0B0B0F" strokeOpacity="0.08" />
-                  <rect x="30" y="98" width="44" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
-                  <rect x="30" y="112" width="72" height="12" rx="4" fill="#0040FF" />
-                  {[152, 194, 236].map((y, i) => (
-                    <g key={y}>
-                      <rect x="16" y={y} width="138" height="32" rx="8" fill="#ffffff" />
-                      <circle cx="36" cy={y + 16} r="8" fill="#0040FF" opacity={0.85 - i * 0.2} />
-                      <rect x="52" y={y + 9} width="62" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
-                      <rect x="52" y={y + 20} width="40" height="5" rx="2.5" fill="#0B0B0F" opacity="0.1" />
-                    </g>
-                  ))}
-                  <rect x="16" y="274" width="138" height="14" rx="7" fill="#0B0B0F" />
-                </svg>
-              </div>
+          {/* Behind, right */}
+          <figure className="absolute bottom-0 right-0 hidden w-[32%] rotate-[7deg] sm:block">
+            <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_45px_-20px_rgba(0,0,0,0.4)] ring-1 ring-black/[0.07]">
+              <Image
+                src="/images/work/gcsa-consulting.jpg"
+                alt="GCSA Consulting, a business consultancy website built by BitLayerX."
+                width={1200}
+                height={633}
+                sizes="(max-width: 640px) 0px, 300px"
+                className="block h-auto w-full"
+              />
             </div>
-          </div>
+          </figure>
+
+          {/* Front, centre */}
+          <figure className="relative z-10 mx-auto w-full sm:w-[64%]">
+            <div className="overflow-hidden rounded-xl bg-white shadow-[0_30px_80px_-26px_rgba(0,0,0,0.45)] ring-1 ring-black/[0.09]">
+              {/* Browser chrome: the cue that says "this is a real product",
+                  and it frames the screenshot so it reads as a window rather
+                  than a floating picture. */}
+              <div className="flex items-center gap-1.5 border-b border-black/[0.06] bg-white px-3 py-2">
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
+                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
+                <span className="mx-auto truncate rounded bg-black/[0.04] px-2.5 py-0.5 text-[10.5px] font-medium text-[#6e6e73]">
+                  shop-tznuit-ebon.vercel.app
+                </span>
+              </div>
+              <Image
+                src="/images/work/shop-tznuit.jpg"
+                alt="Tznuit, a fashion house storefront built by BitLayerX."
+                width={1200}
+                height={633}
+                priority
+                sizes="(max-width: 640px) 100vw, 600px"
+                className="block h-auto w-full"
+              />
+            </div>
+          </figure>
         </div>
+
+        {/* Naming the clients turns a picture into a checkable claim. */}
+        <p className="mt-8 text-[13px] text-[#6e6e73]">
+          Live work for Tznuit, Orréa and GCSA Consulting.{" "}
+          <Link
+            href="/portfolio"
+            className="font-medium text-[#0040FF] underline underline-offset-4 hover:text-black"
+          >
+            Open any of them
+          </Link>
+          .
+        </p>
 
         {/* Proof, stated plainly and immediately under the ask. Numbers here
             are facts about how we work, not results we would need a client's

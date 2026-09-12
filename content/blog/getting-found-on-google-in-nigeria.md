@@ -7,6 +7,8 @@ authorRole: Team Lead
 published: 2026-09-08
 featured: true
 tags: [seo, google, nigeria, marketing, growth]
+cover: /images/blog/getting-found-on-google-in-nigeria.jpg
+coverAlt: "A desk with a laptop, a coffee cup and a notepad of handwritten notes."
 ---
 
 Most Nigerian businesses rank for their own company name and nothing else. That is the same as not ranking at all, because the people already searching your name are already your customers.

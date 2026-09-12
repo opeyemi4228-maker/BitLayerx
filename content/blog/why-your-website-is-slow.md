@@ -6,6 +6,8 @@ author: Opeyemi T. Ojurongbe
 authorRole: Team Lead
 published: 2026-08-07
 tags: [performance, seo, engineering]
+cover: /images/blog/why-your-website-is-slow.jpg
+coverAlt: "HTML markup open in a code editor on a dark screen."
 ---
 
 Most people in Nigeria will meet your website on a phone, on mobile data, on a signal that comes and goes. If it takes eight seconds to load, most of them never see it at all.

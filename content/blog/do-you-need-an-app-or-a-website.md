@@ -6,6 +6,8 @@ author: Opeyemi T. Ojurongbe
 authorRole: Team Lead
 published: 2026-07-31
 tags: [strategy, apps, business]
+cover: /images/blog/do-you-need-an-app-or-a-website.jpg
+coverAlt: "A close view of a phone home screen filled with app icons."
 ---
 
 We turn down app projects fairly often. Usually because the client will get everything they want from a good website, for a fraction of the money.

@@ -6,6 +6,8 @@ author: Opeyemi T. Ojurongbe
 authorRole: Team Lead
 published: 2026-09-01
 tags: [design, ux, nigeria, conversion, websites]
+cover: /images/blog/five-things-nigerian-websites-get-wrong.jpg
+coverAlt: "A laptop on a desk showing a website with a grid of images."
 ---
 
 We look at a lot of Nigerian business websites, usually because somebody has asked us why theirs is not bringing in work. The same five things come up almost every time, and none of them are about taste.

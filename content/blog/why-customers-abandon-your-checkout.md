@@ -6,6 +6,8 @@ author: Opeyemi T. Ojurongbe
 authorRole: Team Lead
 published: 2026-09-04
 tags: [payments, conversion, ecommerce, nigeria, growth]
+cover: /images/blog/why-customers-abandon-your-checkout.jpg
+coverAlt: "A customer paying with a phone at a shop counter while the assistant watches."
 ---
 
 Most businesses looking at a poor checkout rate assume the problem is price. Usually it is not. Usually it is that the checkout is frightening, slow, or has quietly failed on somebody before and they told their friends.

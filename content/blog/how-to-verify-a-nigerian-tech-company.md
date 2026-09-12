@@ -7,6 +7,8 @@ authorRole: Team Lead
 published: 2026-09-10
 featured: true
 tags: [nigeria, hiring, cac, procurement, business]
+cover: /images/blog/how-to-verify-a-nigerian-tech-company.jpg
+coverAlt: "People around a table taking notes during a meeting."
 ---
 
 A large amount of money leaves Nigerian businesses every year for websites and software that never arrive. Almost none of it goes to sophisticated fraud. It goes to an Instagram page, a nice deck, a WhatsApp number and a deposit.
