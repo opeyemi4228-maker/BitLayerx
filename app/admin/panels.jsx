@@ -110,7 +110,7 @@ export function EnquiryTable({ rows }) {
       <div className="overflow-x-auto">
         <table className="w-full text-left text-[14.5px]">
           <thead>
-            <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+            <tr className="border-b border-black/[0.09] bg-white">
               {["Received", "Name", "Contact", "Wants", "Budget", "Timeline", "Location", "Device", "From page", "Message"].map((h) => (
                 <th
                   key={h}

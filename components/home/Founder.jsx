@@ -24,7 +24,7 @@ export default function Founder() {
               this section that has to be readable every time. */}
           <figure className="mx-auto w-full max-w-[420px] lg:mx-0">
             <div
-              className="relative overflow-hidden rounded-2xl bg-[#f5f5f7]"
+              className="relative overflow-hidden rounded-2xl bg-white"
               style={{ aspectRatio: "3 / 4" }}
             >
               <Image
@@ -57,24 +57,33 @@ export default function Founder() {
               id="founder-heading"
               className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#1d1d1f]"
             >
-              You will know exactly who is accountable.
+              You will know who is actually doing the work.
             </h2>
 
+            {/* Written to be read aloud.
+                The previous version leaned on balanced three part sentences and
+                contrast pairs, which is what makes copy sound generated rather
+                than spoken. Real speech is uneven: it names places, admits a
+                cost, and stops when the point is made. */}
             <div className="mt-7 space-y-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
               <p>
-                BitLayerX is not a faceless agency with a stock photo of a team
-                that does not exist. I founded it, I am in the work, and my name
-                is on whether it goes well.
+                I am Opeyemi, and I run the team here.
               </p>
               <p>
-                We are deliberately small. Smallness is why the person who
-                scoped your project is the person who builds it, why decisions
-                take hours rather than weeks, and why we can afford to tell you
-                honestly when a piece of work is not worth doing.
+                We work out of Gwarinpa, in Abuja. We have stayed small because
+                I want to be in the projects myself, not managing people who
+                are. So whoever prices your job is one of the people who builds
+                it, and you are never handed to a department you have not met.
+              </p>
+              <p>
+                That costs us work sometimes. When we are full, we say we are
+                full. And if you ask us for something that will not earn back
+                what it costs you, I will tell you before you pay for it, not
+                after.
               </p>
               <p className="text-[#1d1d1f]">
-                If something goes wrong on your project, you will not be routed
-                through an account manager. You will speak to me.
+                On a project of any length something eventually goes wrong.
+                When it does, you ring me.
               </p>
             </div>
 

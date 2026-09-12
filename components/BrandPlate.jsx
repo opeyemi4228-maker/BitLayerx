@@ -35,7 +35,7 @@ export default function BrandPlate({
 
   return (
     <div
-      className={`relative overflow-hidden ${rounded} bg-[#f5f5f7] ${className}`}
+      className={`relative overflow-hidden ${rounded} bg-white ${className}`}
       style={{ aspectRatio: ratio }}
     >
       {src ? (
@@ -48,7 +48,7 @@ export default function BrandPlate({
           role="img"
           aria-label={alt || "Decorative graphic"}
         >
-          <rect width="400" height="300" fill="#f5f5f7" />
+          <rect width="400" height="300" fill="#ffffff" />
 
           <defs>
             <pattern

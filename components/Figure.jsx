@@ -23,7 +23,7 @@ function BrandPlate({ seed = 0, label }) {
 
   return (
     <div
-      className="absolute inset-0 overflow-hidden bg-[#f5f5f7]"
+      className="absolute inset-0 overflow-hidden bg-white"
       aria-hidden="true"
     >
       <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">

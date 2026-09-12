@@ -94,7 +94,7 @@ export default function AccessibilityPage() {
             problems for us than any automated checker.</p>
           </div>
 
-          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-[#f5f5f7] p-7">
+          <div className="mt-12 rounded-2xl border border-black/[0.07] bg-white p-7">
             <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
               We build accessibility into client work for the same reason. If
               that matters for your project,{" "}

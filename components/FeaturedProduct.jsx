@@ -121,7 +121,7 @@ function WhyBitLayerX() {
                 <motion.div
                   key={i}
                   variants={fadeUp}
-                  className="group flex gap-5 p-6 lg:p-7 bg-gray-50 hover:bg-white border border-transparent hover:border-[#0040FF]/10 hover:shadow-xl hover:shadow-[#0040FF]/[0.05] transition-all duration-300"
+                  className="group flex gap-5 p-6 lg:p-7 bg-gray-50 hover:bg-black/[0.02] border border-transparent hover:border-[#0040FF]/10 hover:shadow-xl hover:shadow-[#0040FF]/[0.05] transition-all duration-300"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#0040FF]/[0.07] group-hover:bg-[#0040FF]/[0.12] flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors duration-300">
                     <Icon size={18} strokeWidth={2} className="text-[#0040FF]" />

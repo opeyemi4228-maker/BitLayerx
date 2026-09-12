@@ -37,7 +37,7 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center bg-[#f5f5f7] px-5 py-16">
+    <div className="flex min-h-[70vh] items-center justify-center bg-white px-5 py-16">
       <div className="w-full max-w-[400px]">
         <div className="mb-8 text-center">
           <svg

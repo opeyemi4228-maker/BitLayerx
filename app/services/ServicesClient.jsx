@@ -19,7 +19,6 @@ import {
 
 const SERVICES = [
   {
-    n: "01",
     title: "Websites",
     lede: "A site that loads fast and brings you customers.",
     body: "We build websites that show up on Google, work properly on a phone, and load quickly even on a poor connection. Your team can change the words and pictures without calling us.",
@@ -32,7 +31,6 @@ const SERVICES = [
     href: "/packages",
   },
   {
-    n: "02",
     title: "Apps and software",
     lede: "The tool your business actually runs on.",
     body: "Logins, payments, dashboards, bookings, stock, reporting. We build web and mobile apps that handle real work, and we build them so another team could take over if you ever wanted that.",
@@ -45,7 +43,6 @@ const SERVICES = [
     href: "/solutions",
   },
   {
-    n: "03",
     title: "Design",
     lede: "Screens people understand without being taught.",
     body: "We design what your customers see and use. Our designers and engineers work together from the start, so what gets designed is what actually gets built.",
@@ -58,7 +55,6 @@ const SERVICES = [
     href: "/design",
   },
   {
-    n: "04",
     title: "Branding",
     lede: "A look you can keep using after we finish.",
     body: "Your name, logo, colours and typefaces, plus the rules for using them. Done properly, your team can apply the brand themselves without it drifting.",
@@ -71,7 +67,6 @@ const SERVICES = [
     href: "/design",
   },
   {
-    n: "05",
     title: "Video",
     lede: "Adverts and brand films, shot by our own team.",
     body: "We write, shoot and edit in house. Because the same people built your product, the film matches the thing it is selling.",
@@ -84,7 +79,6 @@ const SERVICES = [
     href: "/marketing",
   },
   {
-    n: "06",
     title: "Marketing",
     lede: "Customers, not just visitors.",
     body: "We bring the right people to your business through Google, paid ads, social media and email. We report on sales and enquiries, not on clicks that lead nowhere.",
@@ -135,15 +129,12 @@ export default function ServicesClient() {
         <Section
           key={s.title}
           tone={i % 2 === 0 ? "white" : "offwhite"}
-          labelledBy={`service-${s.n}`}
+          labelledBy={`service-${s.title.toLowerCase().replace(/\s+/g, "-")}`}
         >
           <Container width="default">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
               <div>
-                <span className="text-[12px] font-bold tabular-nums tracking-[0.14em] text-[#0040FF]">
-                  {s.n}
-                </span>
-                <Heading as="h2" size="xl" id={`service-${s.n}`} className="mt-4">
+                <Heading as="h2" size="xl" id={`service-${s.title.toLowerCase().replace(/\s+/g, "-")}`}>
                   {s.title}
                 </Heading>
                 <p className="mt-5 text-[clamp(1.15rem,1.9vw,1.4rem)] font-medium leading-[1.4] text-[#1d1d1f]">

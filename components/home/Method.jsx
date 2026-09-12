@@ -5,33 +5,34 @@ import { Section, Container, SectionHeader } from "@/components/ui/primitives";
  * How the work runs.
  *
  * This section exists for one psychological reason: the single largest barrier
- * to commissioning agency work is not price, it is fear of the unknown, * "will I be able to see what is happening, and can I get out if it goes
+ * to commissioning agency work is not price, it is fear of the unknown.
+ * "Will I be able to see what is happening, and can I get out if it goes
  * wrong?" Every step below answers that, and the last one answers it hardest.
  */
 
 const STEPS = [
   {
-    n: "01",
+    n: "1",
     title: "We talk for 45 minutes",
     body: "We spend the time on your business, not on slides about us. Bring the problem you think cannot be solved. That is usually the useful part.",
   },
   {
-    n: "02",
+    n: "2",
     title: "You get a written plan in 48 hours",
     body: "What we will build, in what order, how long it takes and what it costs. The plan is yours to keep even if you hire someone else.",
   },
   {
-    n: "03",
+    n: "3",
     title: "We plan on paper before we build",
     body: "Big decisions get made while they are still cheap to change. We do not write code to answer a question a sketch can settle.",
   },
   {
-    n: "04",
+    n: "4",
     title: "You get a link and a daily update",
     body: "You can open the work in progress any time. We send one short written update every day, so you never have to ask how it is going.",
   },
   {
-    n: "05",
+    n: "5",
     title: "You own everything at the end",
     body: "The code, the accounts and the domain are in your name from day one. If you want to bring it in house later, that is fine by us.",
   },
@@ -42,13 +43,14 @@ export default function Method() {
     <Section tone="offwhite" labelledBy="method-heading">
       <Container width="default">
         <SectionHeader
+          align="left"
           id="method-heading"
           eyebrow="How it runs"
           heading="You will always know where it stands."
           lede="Agency work goes wrong in the dark. So the process is built to make the current state visible at every point, including the parts that are behind."
         />
 
-        <ol className="mx-auto mt-14 max-w-[840px]">
+        <ol className="mt-14 max-w-[840px]">
           {STEPS.map((s, i) => (
             <li
               key={s.n}
@@ -56,7 +58,7 @@ export default function Method() {
                 i < STEPS.length - 1 ? "border-b border-black/10" : ""
               }`}
             >
-              <span className="text-[13px] font-bold tabular-nums tracking-[0.1em] text-[#0040FF] sm:pt-1.5">
+              <span className="text-[13px] font-semibold tabular-nums text-[#6e6e73] sm:pt-2">
                 {s.n}
               </span>
               <div>
@@ -71,7 +73,7 @@ export default function Method() {
           ))}
         </ol>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12">
           <Link
             href="/start-a-project"
             className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.9rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black"

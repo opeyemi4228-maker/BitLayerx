@@ -27,7 +27,7 @@ export default function Error({ error, reset }) {
   }, [error]);
 
   return (
-    <section className="bg-[#f5f5f7] py-[clamp(4.5rem,9vw,9rem)]">
+    <section className="bg-white py-[clamp(4.5rem,9vw,9rem)]">
       <div className="mx-auto max-w-[720px] px-5 text-center sm:px-8">
         <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
           Something broke

@@ -284,7 +284,7 @@ export default function BitLayerxAboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="p-8 border-l-4 border-[#0040FF] bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300"
+                className="p-8 border-l-4 border-[#0040FF] bg-gray-50 hover:bg-black/[0.02] hover:shadow-lg transition-all duration-300"
               >
                 <svg className="w-12 h-12 text-[#0040FF] mb-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   {value.icon}

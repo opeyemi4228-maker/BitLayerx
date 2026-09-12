@@ -12,32 +12,26 @@ import {
 
 const BELIEFS = [
   {
-    n: "01",
     title: "Small is the feature",
     body: "The person who plans your project is the person who builds it. Nothing gets lost being passed between departments, because there are no departments.",
   },
   {
-    n: "02",
     title: "You own everything",
     body: "Your code, your accounts, your domain, all in your name from day one. If you want to move to another team next year, you can. We build for that.",
   },
   {
-    n: "03",
     title: "We will say no",
     body: "If a thing you want will not work, we tell you before you pay for it. Saying yes to everything is how agencies keep clients and lose them.",
   },
   {
-    n: "04",
     title: "Plans before code",
     body: "Big decisions get made on paper while they are still cheap to change. It is much more expensive to discover a problem halfway through building.",
   },
   {
-    n: "05",
     title: "You can see the work",
     body: "A link you can open any time, and one short written update every day. You should never have to ask how your project is going.",
   },
   {
-    n: "06",
     title: "Built to keep working",
     body: "Fast on a poor connection, on an old phone, in a place with bad signal. If it works there it works anywhere.",
   },
@@ -62,7 +56,7 @@ export default function AboutClient() {
           <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
             <figure className="mx-auto w-full max-w-[400px] lg:mx-0">
               <div
-                className="relative overflow-hidden rounded-2xl bg-[#f5f5f7]"
+                className="relative overflow-hidden rounded-2xl bg-white"
                 style={{ aspectRatio: "3 / 4" }}
               >
                 <Image
@@ -126,10 +120,7 @@ export default function AboutClient() {
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {BELIEFS.map((b) => (
               <div key={b.n} className="bg-black p-8">
-                <span className="text-[12px] font-bold tabular-nums tracking-[0.14em] text-[#5C86FF]">
-                  {b.n}
-                </span>
-                <h3 className="mt-3 text-[1.3rem] font-bold tracking-[-0.025em] text-white">
+                <h3 className="text-[1.3rem] font-bold tracking-[-0.025em] text-white">
                   {b.title}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-white/60">

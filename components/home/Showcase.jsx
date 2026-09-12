@@ -16,7 +16,7 @@ function BrowserFrame({ children, label, className = "" }) {
     <div
       className={`overflow-hidden rounded-xl bg-white shadow-[0_24px_70px_-24px_rgba(0,0,0,0.55)] ring-1 ring-black/10 ${className}`}
     >
-      <div className="flex items-center gap-2 border-b border-black/[0.07] bg-[#f5f5f7] px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-black/[0.07] bg-white px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">
           <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
           <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
@@ -38,7 +38,7 @@ function DashboardArt() {
       <rect width="640" height="380" fill="#ffffff" />
 
       {/* Sidebar */}
-      <rect x="0" y="0" width="132" height="380" fill="#f5f5f7" />
+      <rect x="0" y="0" width="132" height="380" fill="#ffffff" />
       <rect x="20" y="26" width="64" height="9" rx="4.5" fill="#0040FF" />
       {[62, 88, 114, 140, 166].map((y, i) => (
         <rect key={y} x="20" y={y} width={i === 0 ? 88 : 74} height="7" rx="3.5" fill="#0B0B0F" opacity={i === 0 ? "0.5" : "0.16"} />
@@ -47,14 +47,14 @@ function DashboardArt() {
       {/* Stat tiles */}
       {[0, 1, 2].map((i) => (
         <g key={i}>
-          <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#f5f5f7" />
+          <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#ffffff" />
           <rect x={178 + i * 158} y="48" width="46" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
           <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1, i * 0.28} />
         </g>
       ))}
 
       {/* Chart */}
-      <rect x="162" y="120" width="456" height="150" rx="10" fill="#f5f5f7" />
+      <rect x="162" y="120" width="456" height="150" rx="10" fill="#ffffff" />
       <polyline
         points="186,236 244,212 302,222 360,180 418,192 476,152 534,164 592,132"
         fill="none"
@@ -99,7 +99,7 @@ function PhoneArt() {
 
         {[212, 262, 312, 362].map((y, i) => (
           <g key={y}>
-            <rect x="20" y={y} width="200" height="38" rx="9" fill="#f5f5f7" />
+            <rect x="20" y={y} width="200" height="38" rx="9" fill="#ffffff" />
             <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85, i * 0.18} />
             <rect x="62" y={y + 10} width="88" height="7" rx="3.5" fill="#0B0B0F" opacity="0.22" />
             <rect x="62" y={y + 23} width="58" height="6" rx="3" fill="#0B0B0F" opacity="0.11" />

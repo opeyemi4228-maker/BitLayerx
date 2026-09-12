@@ -112,7 +112,7 @@ export default function ContactClient() {
           <div className="grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-3">
             <a
               href="tel:+2348025401891"
-              className="group bg-white p-8 transition-colors hover:bg-[#f5f5f7]"
+              className="group bg-white p-8 transition-colors hover:bg-black/[0.02]"
             >
               <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#0040FF]">
                 Call
@@ -127,7 +127,7 @@ export default function ContactClient() {
 
             <a
               href="mailto:hello@bitlayerx.com"
-              className="group bg-white p-8 transition-colors hover:bg-[#f5f5f7]"
+              className="group bg-white p-8 transition-colors hover:bg-black/[0.02]"
             >
               <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#0040FF]">
                 Email

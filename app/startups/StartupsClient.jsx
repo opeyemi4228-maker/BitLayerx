@@ -254,8 +254,8 @@ export default function BitLayerxStartupsPage() {
               transition={{ delay: 0.3 }}
               className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             >
-              From <span className="text-[#f5f5f7]">Idea</span> to{' '}
-              <span className="text-[#f5f5f7]">Launch</span> in Weeks
+              From <span className="text-[#ffffff]">Idea</span> to{' '}
+              <span className="text-[#ffffff]">Launch</span> in Weeks
             </motion.h1>
             
             <motion.p

@@ -98,7 +98,7 @@ export default function BitLayerxFooterBottom() {
             <motion.div key={section.title} variants={itemVariants} className="bg-black">
               <Link
                 href={section.link}
-                className="flex flex-col gap-3 p-8 lg:p-10 h-full group hover:bg-white/[0.03] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
+                className="flex flex-col gap-3 p-8 lg:p-10 h-full group hover:bg-white/15[0.03] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
               >
                 <div className="flex items-center gap-3 text-white">
                   <Icon size={18} strokeWidth={2} className="text-blue-400 flex-shrink-0" />

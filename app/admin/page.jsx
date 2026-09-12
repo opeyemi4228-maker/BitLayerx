@@ -124,7 +124,7 @@ export default async function AdminDashboard() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-[14.5px]">
                     <thead>
-                      <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+                      <tr className="border-b border-black/[0.09] bg-white">
                         {["When", "Page", "Location", "IP", "Device", "Came from"].map((h) => (
                           <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
                             {h}
@@ -312,7 +312,7 @@ export default async function AdminDashboard() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-[14.5px]">
                   <thead>
-                    <tr className="border-b border-black/[0.09] bg-[#f5f5f7]">
+                    <tr className="border-b border-black/[0.09] bg-white">
                       {["Subscribed", "Email", "Location", "Device", "From page"].map((h) => (
                         <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
                           {h}
@@ -438,7 +438,7 @@ export default async function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7]">
+    <div className="min-h-screen bg-white">
       <header className="border-b border-black/[0.07] bg-white">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <div>

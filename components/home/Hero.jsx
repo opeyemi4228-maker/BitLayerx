@@ -19,7 +19,7 @@ export default function Hero() {
   // bar's full height above this, so a large pt here stacks on top of it and
   // opens a dead band between the nav and the headline.
   return (
-    <section className="relative overflow-hidden bg-[#f5f5f7] pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3.5rem,7vw,6rem)]">
+    <section className="relative overflow-hidden bg-white pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3.5rem,7vw,6rem)]">
       {/* A single soft light source, well behind the type. Apple uses gradient
           as atmosphere, never as decoration competing with the words. */}
       <div
@@ -95,7 +95,7 @@ export default function Hero() {
             {/* Centre: desktop */}
             <div className="col-span-12 sm:col-span-6">
               <div className="overflow-hidden rounded-xl bg-white shadow-[0_26px_70px_-24px_rgba(0,0,0,0.42)] ring-1 ring-black/[0.08]">
-                <div className="flex items-center gap-1.5 bg-[#f5f5f7] px-3 py-2">
+                <div className="flex items-center gap-1.5 bg-white px-3 py-2">
                   <span className="h-2 w-2 rounded-full bg-black/15" />
                   <span className="h-2 w-2 rounded-full bg-black/15" />
                   <span className="h-2 w-2 rounded-full bg-black/15" />
@@ -108,7 +108,7 @@ export default function Hero() {
                   <rect x="28" y="82" width="150" height="12" rx="5" fill="#fff" opacity="0.55" />
                   {[0, 1, 2].map((i) => (
                     <g key={i}>
-                      <rect x={28 + i * 124} y="146" width="108" height="66" rx="9" fill="#f5f5f7" />
+                      <rect x={28 + i * 124} y="146" width="108" height="66" rx="9" fill="#ffffff" />
                       <rect x={44 + i * 124} y="164" width="46" height="7" rx="3.5" fill="#0B0B0F" opacity="0.18" />
                       <rect x={44 + i * 124} y="180" width="72" height="12" rx="4" fill="#0040FF" opacity={0.9, i * 0.26} />
                     </g>
@@ -132,7 +132,7 @@ export default function Hero() {
                   <rect x="30" y="112" width="72" height="12" rx="4" fill="#0040FF" />
                   {[152, 194, 236].map((y, i) => (
                     <g key={y}>
-                      <rect x="16" y={y} width="138" height="32" rx="8" fill="#f5f5f7" />
+                      <rect x="16" y={y} width="138" height="32" rx="8" fill="#ffffff" />
                       <circle cx="36" cy={y + 16} r="8" fill="#0040FF" opacity={0.85, i * 0.2} />
                       <rect x="52" y={y + 9} width="62" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
                       <rect x="52" y={y + 20} width="40" height="5" rx="2.5" fill="#0B0B0F" opacity="0.1" />

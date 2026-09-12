@@ -455,7 +455,7 @@ export default function SolutionsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-10 py-5 bg-transparent text-white font-bold text-lg rounded-xl border-2 border-white/40 hover:border-white hover:bg-white/10 backdrop-blur-sm transition-all"
+                    className="px-10 py-5 bg-transparent text-white font-bold text-lg rounded-xl border-2 border-white/40 hover:border-white hover:bg-white/15 backdrop-blur-sm transition-all"
                   >
                     Get Custom Quote
                   </motion.button>
@@ -777,7 +777,7 @@ export default function SolutionsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-5 bg-transparent text-white font-bold text-xl rounded-xl border-2 border-white hover:bg-white/10 transition-all"
+                    className="px-12 py-5 bg-transparent text-white font-bold text-xl rounded-xl border-2 border-white hover:bg-white/15 transition-all"
                   >
                     Chat on WhatsApp
                   </motion.button>

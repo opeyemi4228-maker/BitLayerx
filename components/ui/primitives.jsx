@@ -19,12 +19,12 @@ import Link from "next/link";
 // eye reads a tone change as a new chapter more cleanly than a hairline does.
 const TONES = {
   white: "bg-white text-[#1d1d1f]",
-  offwhite: "bg-[#f5f5f7] text-[#1d1d1f]",
+  // Was a grey fill. Grey panels are the cheapest way to separate sections and
+  // they make a site look like a template, because every generated layout
+  // reaches for them. White throughout with a single hairline makes the page
+  // read as one continuous document, which is how a printed publication works.
+  offwhite: "bg-white text-[#1d1d1f] border-t border-black/[0.08]",
   dark: "bg-black text-white",
-  // `brand` is an alias for the black panel on purpose. A full width panel of
-  // saturated blue reads loud and cheap at any size; Apple never fills one.
-  // Blue earns its impact by appearing only at button and link scale, against
-  // white, grey or black. Keeping the name means pages need no edits.
   brand: "bg-black text-white",
 };
 
@@ -272,7 +272,7 @@ export function PageHero({
   children,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#f5f5f7] pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]">
+    <section className="relative overflow-hidden bg-white pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[70%]"
