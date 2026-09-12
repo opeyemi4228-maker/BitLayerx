@@ -142,6 +142,13 @@ export default function BitLayerxFooterBottom() {
                 BitLayerX Technologies · © {new Date().getFullYear()} All rights
                 reserved
               </p>
+              {/* A registered company number is one of the few claims on this
+                  page a visitor can go and check for themselves, which is
+                  precisely why it belongs here rather than buried on a legal
+                  page nobody opens. */}
+              <p className="text-white/50 mt-1">
+                Registered in Nigeria · RC 9834403
+              </p>
               <p className="text-white/40 mt-1">
                 Founded and led by{' '}
                 <a

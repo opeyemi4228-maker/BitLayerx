@@ -49,7 +49,7 @@ function DashboardArt() {
         <g key={i}>
           <rect x={162 + i * 158} y="30" width="140" height="72" rx="10" fill="#ffffff" />
           <rect x={178 + i * 158} y="48" width="46" height="6" rx="3" fill="#0B0B0F" opacity="0.2" />
-          <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1, i * 0.28} />
+          <rect x={178 + i * 158} y="66" width="76" height="14" rx="4" fill="#0040FF" opacity={1 - i * 0.28} />
         </g>
       ))}
 
@@ -74,7 +74,7 @@ function DashboardArt() {
         <g key={y}>
           <rect x="162" y={y} width="200" height="8" rx="4" fill="#0B0B0F" opacity="0.14" />
           <rect x="392" y={y} width="120" height="8" rx="4" fill="#0B0B0F" opacity="0.09" />
-          <rect x="546" y={y} width="72" height="8" rx="4" fill="#0040FF" opacity={0.3, i * 0.07} />
+          <rect x="546" y={y} width="72" height="8" rx="4" fill="#0040FF" opacity={0.3 - i * 0.07} />
         </g>
       ))}
     </svg>
@@ -100,7 +100,7 @@ function PhoneArt() {
         {[212, 262, 312, 362].map((y, i) => (
           <g key={y}>
             <rect x="20" y={y} width="200" height="38" rx="9" fill="#ffffff" />
-            <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85, i * 0.18} />
+            <circle cx="43" cy={y + 19} r="10" fill="#0040FF" opacity={0.85 - i * 0.18} />
             <rect x="62" y={y + 10} width="88" height="7" rx="3.5" fill="#0B0B0F" opacity="0.22" />
             <rect x="62" y={y + 23} width="58" height="6" rx="3" fill="#0B0B0F" opacity="0.11" />
           </g>

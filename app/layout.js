@@ -178,6 +178,14 @@ export default function RootLayout({ children }) {
                   name: "BitLayerX",
                   legalName: "BitLayerX Technologies",
                   alternateName: "BitLayerX Technologies",
+                  // Corporate Affairs Commission number. Google uses company
+                  // identifiers to link an entity to its official record, and
+                  // a visitor can verify it on the CAC public register.
+                  identifier: {
+                    "@type": "PropertyValue",
+                    propertyID: "CAC Registration Number",
+                    value: "9834403",
+                  },
                   url: "https://bitlayerx.com",
                   logo: {
                     "@type": "ImageObject",
