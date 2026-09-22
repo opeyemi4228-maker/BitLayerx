@@ -25,8 +25,8 @@ export default function PrivacyPage() {
     <>
       <Section tone="white" rhythm="tight">
         <Container width="text">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Privacy</span>
           </nav>
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
             We do not sell anything to anyone, and you can have your data
             deleted by sending one email.
           </Lede>
-          <p className="mt-6 text-[14px] text-[#6e6e73]">
+          <p className="mt-6 text-[14px] text-[#5E5E5E]">
             Last updated {LAST_UPDATED}
           </p>
         </Container>
@@ -161,7 +161,7 @@ export default function PrivacyPage() {
           </div>
 
           <div className="mt-12 rounded-2xl border border-black/[0.07] bg-white p-7">
-            <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+            <p className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
               Questions about any of this before you send us a brief? Ask first, that is entirely reasonable.{" "}
               <Link
                 href="/contact"

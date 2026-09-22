@@ -10,6 +10,7 @@ import {
   DollarSign, TrendingDown, Play, Star, Globe,
   Code, Palette, MessageCircle, Search, Mail
 } from 'lucide-react';
+import { PageHero } from "@/components/ui/primitives";
 
 export default function SolutionsPage() {
   const [activeSolution, setActiveSolution] = useState('startups');
@@ -340,7 +341,7 @@ export default function SolutionsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "BitLayerx Solutions, Digital Transformation for Every Industry",
+            "name": "BitLayerX Solutions, Digital Transformation for Every Industry",
             "description": "Industry-specific digital solutions for startups, enterprises, and agencies. From e-commerce to healthcare, we deliver measurable results.",
             "url": "https://bitlayerx.com/solutions",
             "breadcrumb": {
@@ -365,7 +366,7 @@ export default function SolutionsPage() {
               "serviceType": "Digital Transformation Solutions",
               "provider": {
                 "@type": "Organization",
-                "name": "BitLayerx"
+                "name": "BitLayerX"
               },
               "areaServed": {
                 "@type": "Country",
@@ -379,95 +380,18 @@ export default function SolutionsPage() {
       <div className="bg-white">
         
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF] pt-32 md:pt-40 pb-24 md:pb-32 overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.08]">
-              <svg width="100%" height="100%">
-                <defs>
-                  <pattern id="solutions-pattern" x="0" y="0" width="100" height="86.6" patternUnits="userSpaceOnUse">
-                    <path d="M50 0 L93.3 25 L93.3 61.6 L50 86.6 L6.7 61.6 L6.7 25 Z" fill="none" stroke="white" strokeWidth="1.5"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#solutions-pattern)" />
-              </svg>
-            </div>
-
-            <motion.div
-              animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-20 right-[10%] w-[600px] h-[600px] rounded-full"
-              style={{ background: 'radial-gradient(circle, rgba(70, 130, 180, 0.15) 0%, transparent 70%)' }}
-            />
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="max-w-5xl mx-auto text-center">
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/15 backdrop-blur-md text-white text-sm font-bold rounded-full border border-white/25 shadow-lg mb-8"
-              >
-                <Target size={18} className="text-[#0040FF]" strokeWidth={2.5} />
-                <span>Industry-Specific Solutions • Fintech, Logistics, Real Estate &amp; Healthcare</span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.05]"
-              >
-                <span className="block mb-3">Your Industry.</span>
-                <span className="block bg-gradient-to-r from-[#0040FF] via-white to-[#0040FF] bg-clip-text text-transparent">
-                  Our Expertise.
-                </span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-4xl mx-auto mb-12 leading-relaxed"
-              >
-                Tailored digital solutions for <span className="font-bold text-[#0040FF]">startups</span>, <span className="font-bold text-[#0040FF]">enterprises</span>, and every industry in between. <span className="font-bold text-white">Results guaranteed</span>.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <Link href="#solutions">
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-10 py-5 bg-white text-[#0040FF] font-black text-lg rounded-xl shadow-2xl flex items-center gap-2 justify-center"
-                  >
-                    Explore Solutions
-                    <ArrowRight size={20} strokeWidth={3} />
-                  </motion.button>
-                </Link>
-                <Link href="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-10 py-5 bg-transparent text-white font-bold text-lg rounded-xl border-2 border-white/40 hover:border-white hover:bg-white/15 backdrop-blur-sm transition-all"
-                  >
-                    Get Custom Quote
-                  </motion.button>
-                </Link>
-              </motion.div>
-
-            </div>
-          </div>
-        </section>
+        <PageHero
+          eyebrow="Fintech, logistics, real estate and healthcare"
+          before="Your industry."
+          highlight="Our expertise"
+          after="."
+          lede="Tailored digital solutions for startups, enterprises, and every industry in between."
+          primary={{ href: "#solutions", label: "Explore solutions" }}
+          secondary={{ href: "/contact", label: "Get a custom quote" }}
+        />
 
         {/* Solution Categories */}
-        <section id="solutions" className="py-8 bg-gray-50 border-b border-gray-200 sticky top-0 z-40">
+        <section id="solutions" className="py-8 bg-white border-t border-black/[0.08] border-b border-gray-200 sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
             <div className="flex flex-wrap gap-3 justify-center">
               {solutionCategories.map((category) => {
@@ -548,7 +472,7 @@ export default function SolutionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border-2 border-gray-200 text-center"
+              className="bg-white p-8 rounded-2xl border border-black/[0.1] text-center"
             >
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div>
@@ -579,7 +503,7 @@ export default function SolutionsPage() {
         </section>
 
         {/* Industry Solutions */}
-        <section className="py-20 md:py-28 bg-gray-50">
+        <section className="py-20 md:py-28 bg-white border-t border-black/[0.08]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
             
             <motion.div
@@ -612,10 +536,10 @@ export default function SolutionsPage() {
                     whileHover={{ y: -8 }}
                     className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border-2 border-gray-100 hover:border-[#0040FF]"
                   >
-                    <div className={`p-8 bg-gradient-to-br ${industry.color}`}>
-                      <Icon size={48} className="text-white mb-4" strokeWidth={1.5} />
-                      <h3 className="text-2xl font-bold text-white mb-2">{industry.name}</h3>
-                      <p className="text-white/90 text-lg font-semibold">{industry.tagline}</p>
+                    <div className="p-8 border-b border-black/[0.08] bg-white">
+                      <Icon size={40} className="text-[#0040FF] mb-4" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-semibold tracking-[-0.025em] text-[#111111] mb-2">{industry.name}</h3>
+                      <p className="text-[#5E5E5E] text-lg">{industry.tagline}</p>
                     </div>
                     <div className="p-8">
                       <p className="text-black/80 mb-6">{industry.description}</p>
@@ -624,7 +548,7 @@ export default function SolutionsPage() {
                         <p className="text-sm font-bold text-gray-900 mb-3">Key Results:</p>
                         <div className="grid grid-cols-2 gap-3">
                           {Object.entries(industry.results).map(([key, value]) => (
-                            <div key={key} className="text-center p-3 bg-gray-50 rounded-lg">
+                            <div key={key} className="text-center p-3 bg-white ring-1 ring-black/[0.08] rounded-lg">
                               <div className="text-2xl font-black text-[#0040FF]">{value}</div>
                               <div className="text-sm text-black/80 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
                             </div>
@@ -636,7 +560,7 @@ export default function SolutionsPage() {
                         <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-[#0040FF] transition-all flex items-center justify-center gap-2"
+                          className="w-full py-3 bg-[#0040FF] text-white font-semibold rounded-full hover:bg-black transition-all flex items-center justify-center gap-2"
                         >
                           Learn More
                           <ArrowRight size={16} strokeWidth={2.5} />
@@ -689,7 +613,7 @@ export default function SolutionsPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-20 md:py-28 bg-gray-50">
+        <section className="py-20 md:py-28 bg-white border-t border-black/[0.08]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
             
             <motion.div
@@ -747,7 +671,7 @@ export default function SolutionsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF] text-white">
+        <section className="py-20 md:py-28 bg-white border-t border-black/[0.08]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -757,7 +681,7 @@ export default function SolutionsPage() {
               <h2 className="text-4xl md:text-6xl font-black mb-6">
                 Ready to <span className="text-[#0040FF]">Transform</span> Your Business?
               </h2>
-              <p className="text-xl mb-12 text-white/90">
+              <p className="text-xl mb-12 text-[#5E5E5E]">
                 Schedule a free consultation and discover the perfect solution for your industry
               </p>
               
@@ -766,7 +690,7 @@ export default function SolutionsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-5 bg-white text-[#0040FF] font-black text-xl rounded-xl shadow-2xl flex items-center gap-3 justify-center"
+                    className="px-12 py-5 bg-[#0040FF] text-white hover:bg-black font-black text-xl rounded-xl shadow-2xl flex items-center gap-3 justify-center"
                   >
                     Book Free Consultation
                     <ArrowRight size={24} strokeWidth={3} />
@@ -777,14 +701,14 @@ export default function SolutionsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-5 bg-transparent text-white font-bold text-xl rounded-xl border-2 border-white hover:bg-white/15 transition-all"
+                    className="px-12 py-5 bg-transparent text-[#111111] font-bold text-xl rounded-xl border border-black/[0.16] hover:bg-black/15 transition-all"
                   >
                     Chat on WhatsApp
                   </motion.button>
                 </a>
               </div>
 
-              <div className="mt-12 flex items-center justify-center gap-8 text-white/80 flex-wrap">
+              <div className="mt-12 flex items-center justify-center gap-8 text-[#5E5E5E] flex-wrap">
                 <div className="flex items-center gap-2">
                   <CheckCircle size={20} />
                   <span className="text-sm">Free Consultation</span>

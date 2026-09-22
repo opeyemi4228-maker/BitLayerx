@@ -27,7 +27,7 @@ export default function Testimonials() {
 
   return (
     <Section tone="white" labelledBy="testimonials-heading">
-      <Container width="default">
+      <Container width="wide">
         <SectionHeader
           id="testimonials-heading"
           eyebrow="What clients say"
@@ -42,7 +42,7 @@ export default function Testimonials() {
               className="flex flex-col rounded-2xl bg-white p-8 ring-1 ring-black/[0.07]"
             >
               <blockquote className="flex-1">
-                <p className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
+                <p className="text-[1.0625rem] leading-relaxed text-[#111111]">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </blockquote>
@@ -67,11 +67,11 @@ export default function Testimonials() {
 
                 <span className="min-w-0">
                   {t.name && (
-                    <span className="block truncate text-[15px] font-bold text-[#1d1d1f]">
+                    <span className="block truncate text-[15px] font-bold text-[#111111]">
                       {t.name}
                     </span>
                   )}
-                  <span className="block truncate text-[13.5px] text-[#6e6e73]">
+                  <span className="block truncate text-[13.5px] text-[#5E5E5E]">
                     {t.role}
                     {t.role && t.company ? ", " : ""}
                     {t.company}

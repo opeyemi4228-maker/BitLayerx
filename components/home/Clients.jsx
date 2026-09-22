@@ -26,7 +26,7 @@ export default async function Clients() {
       <Container width="default">
         <p
           id="clients-heading"
-          className="text-center text-[13px] font-semibold text-[#6e6e73]"
+          className="text-center text-[13px] font-semibold text-[#5E5E5E]"
         >
           Businesses running on something we built
         </p>
@@ -38,7 +38,7 @@ export default async function Clients() {
                 href={p.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[1.05rem] font-bold tracking-[-0.02em] text-[#1d1d1f]/45 transition-colors hover:text-[#0040FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2 rounded"
+                className="text-[1.05rem] font-bold tracking-[-0.02em] text-[#111111]/45 transition-colors hover:text-[#0040FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2 rounded"
               >
                 {p.title}
               </a>

@@ -5,166 +5,82 @@ import { Container, ActionLink } from "@/components/ui/primitives";
 /**
  * The hero.
  *
- * Apple's opening move is always the same: one enormous centred headline, one
- * quiet line of support, two links, never two competing buttons, and a great
- * deal of empty space. The restraint is the point. A hero that says three
- * things says nothing, because the visitor has to choose what to read and
- * mostly chooses to leave.
+ * Built the way Ventures Platform and BMW open: a large, left-aligned headline
+ * on pure white, the supporting line and the actions beside it, then the
+ * flagship product at full width. The product is real: Poll360, live.
  *
- * The headline states what we make. The subhead states the risk we remove.
- * That pairing is what converts: capability alone is a claim, and removing the
- * buyer's risk is what makes the claim safe to act on.
+ * The headline is the company's promise. The line beside it says what that
+ * promise is made of, and the dream it is building towards.
  */
+
 export default function Hero() {
-  // Top padding is deliberately small. The navbar spacer already reserves the
-  // bar's full height above this, so a large pt here stacks on top of it and
-  // opens a dead band between the nav and the headline.
   return (
-    <section className="relative overflow-hidden bg-white pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3.5rem,7vw,6rem)]">
-      {/* A single soft light source, well behind the type. Apple uses gradient
-          as atmosphere, never as decoration competing with the words. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[70%]"
-        style={{
-          background:
-            "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0,64,255,0.055), transparent 70%)",
-        }}
-      />
-
-      <Container width="narrow" className="relative text-center">
-        <p className="text-[13px] font-semibold tracking-[0.02em] text-[#0040FF]">
-          Websites · Apps · Design · Branding · Video · Marketing
+    <section className="bg-white pt-[clamp(2.5rem,6vw,5.5rem)] pb-[clamp(3.5rem,7vw,6.5rem)]">
+      <Container width="wide">
+        <p className="text-[14px] font-semibold tracking-[-0.005em] text-[#0040FF]">
+          BitLayerX Technologies · Built in Nigeria. Built for Africa.
         </p>
 
-        {/* "Build" carries the whole promise, so it is set larger, heavier and
-            in the brand blue. One emphasised word reads as confidence; two or
-            more reads as shouting and the emphasis stops meaning anything. */}
-        <h1 className="mx-auto mt-6 max-w-[14ch] text-[clamp(3rem,8.6vw,6.4rem)] font-extrabold leading-[0.94] tracking-[-0.045em] text-[#1d1d1f]">
-          We{" "}
-          <span className="text-[1.14em] font-black text-[#0040FF] tracking-[-0.05em]">
-            build
-          </span>{" "}
-          what your business runs on.
-        </h1>
+        <div className="mt-5 grid items-end gap-8 lg:grid-cols-12 lg:gap-12">
+          {/* One accent only: the full stop. */}
+          <h1 className="max-w-[12ch] text-[clamp(3rem,7.6vw,7rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#111111] lg:col-span-8">
+            Your digital growth partner<span className="text-[#0040FF]">.</span>
+          </h1>
 
-        <p className="mx-auto mt-7 max-w-[46ch] text-[clamp(1.1rem,1.9vw,1.5rem)] font-normal leading-[1.45] text-[#6e6e73]">
-          One team for everything digital. Tell us what you need and we will
-          send you a written plan in 48 hours.
-        </p>
+          <div className="lg:col-span-4 lg:pb-4">
+            <p className="max-w-[42ch] text-[clamp(1.08rem,1.45vw,1.25rem)] leading-[1.55] text-[#5E5E5E]">
+              We build the cloud, field intelligence, logistics and digital
+              services African businesses and institutions run on, and the
+              websites, stores and apps that put them online.
+            </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
-          <Link
-            href="/start-a-project"
-            className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
-          >
-            Start a project
-          </Link>
-          <ActionLink href="/portfolio">See work that is live</ActionLink>
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+              <Link
+                href="/start-a-project"
+                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
+              >
+                Start a project
+              </Link>
+              <ActionLink href="#products">Explore our products</ActionLink>
+            </div>
+          </div>
         </div>
 
-        {/* Visual band.
-
-            Three real client sites, not an abstraction of one. The previous
-            version here drew grey rectangles: honest about being a drawing,
-            but it asked a first-time visitor to take the quality of the work
-            on trust at the exact moment they are deciding whether to.
-
-            These are screenshots of live deployments. The centre one leads
-            because it is the strongest piece; the two behind it are angled
-            back so the eye reads them as depth rather than as three equal
-            things competing for attention. */}
-        <div className="relative mx-auto mt-16 min-h-[210px] max-w-[940px] sm:min-h-[330px]">
-          {/* Behind, left */}
-          <figure className="absolute bottom-0 left-0 hidden w-[32%] -rotate-[7deg] sm:block">
-            <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_45px_-20px_rgba(0,0,0,0.4)] ring-1 ring-black/[0.07]">
+        {/* The stage: the flagship product, large, as BMW shows the car. */}
+        <figure className="mt-[clamp(2.5rem,5vw,4.5rem)]">
+          <a
+            href="https://poll-360.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-[20px] ring-1 ring-black/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] sm:rounded-[28px]"
+          >
+            <div className="relative aspect-[1200/633]">
               <Image
-                src="/images/work/orrea.jpg"
-                alt="Orréa Bread House, an artisan bakery website and ordering experience built by BitLayerX."
-                width={1200}
-                height={633}
-                sizes="(max-width: 640px) 0px, 300px"
-                className="block h-auto w-full"
-              />
-            </div>
-          </figure>
-
-          {/* Behind, right */}
-          <figure className="absolute bottom-0 right-0 hidden w-[32%] rotate-[7deg] sm:block">
-            <div className="overflow-hidden rounded-lg bg-white shadow-[0_18px_45px_-20px_rgba(0,0,0,0.4)] ring-1 ring-black/[0.07]">
-              <Image
-                src="/images/work/gcsa-consulting.jpg"
-                alt="GCSA Consulting, a business consultancy website built by BitLayerX."
-                width={1200}
-                height={633}
-                sizes="(max-width: 640px) 0px, 300px"
-                className="block h-auto w-full"
-              />
-            </div>
-          </figure>
-
-          {/* Front, centre */}
-          <figure className="relative z-10 mx-auto w-full sm:w-[64%]">
-            <div className="overflow-hidden rounded-xl bg-white shadow-[0_30px_80px_-26px_rgba(0,0,0,0.45)] ring-1 ring-black/[0.09]">
-              {/* Browser chrome: the cue that says "this is a real product",
-                  and it frames the screenshot so it reads as a window rather
-                  than a floating picture. */}
-              <div className="flex items-center gap-1.5 border-b border-black/[0.06] bg-white px-3 py-2">
-                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
-                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
-                <span aria-hidden="true" className="h-2 w-2 rounded-full bg-black/15" />
-                <span className="mx-auto truncate rounded bg-black/[0.04] px-2.5 py-0.5 text-[10.5px] font-medium text-[#6e6e73]">
-                  shop-tznuit-ebon.vercel.app
-                </span>
-              </div>
-              <Image
-                src="/images/work/shop-tznuit.jpg"
-                alt="Tznuit, a fashion house storefront built by BitLayerX."
-                width={1200}
-                height={633}
+                src="/images/products/poll360.jpg"
+                alt="Poll360 by BitLayerX Technologies: From the booth to the broadcast."
+                fill
                 priority
-                sizes="(max-width: 640px) 100vw, 600px"
-                className="block h-auto w-full"
+                quality={90}
+                sizes="(max-width: 1440px) 100vw, 1360px"
+                className="object-cover object-top transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015]"
               />
             </div>
-          </figure>
-        </div>
-
-        {/* Naming the clients turns a picture into a checkable claim. */}
-        <p className="mt-8 text-[13px] text-[#6e6e73]">
-          Live work for Tznuit, Orréa and GCSA Consulting.{" "}
-          <Link
-            href="/portfolio"
-            className="font-medium text-[#0040FF] underline underline-offset-4 hover:text-black"
-          >
-            Open any of them
-          </Link>
-          .
-        </p>
-
-        {/* Proof, stated plainly and immediately under the ask. Numbers here
-            are facts about how we work, not results we would need a client's
-            permission to publish. */}
-        <dl className="mx-auto mt-16 grid max-w-[720px] grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-4">
-          {[
-            { v: "48hr", l: "To get your plan" },
-            { v: "6", l: "Services, one team" },
-            { v: "13", l: "Cities we serve" },
-            { v: "100%", l: "You own everything" },
-          ].map((s) => (
-            <div key={s.l}>
-              <dt className="sr-only">{s.l}</dt>
-              <dd>
-                <span className="block text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold tracking-[-0.03em] text-[#1d1d1f]">
-                  {s.v}
-                </span>
-                <span className="mt-1 block text-[13px] leading-snug text-[#6e6e73]">
-                  {s.l}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+            <span className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13.5px] font-medium text-[#111111] shadow-[0_6px_24px_rgba(0,0,0,0.14)] transition-colors group-hover:text-[#0040FF] sm:bottom-6 sm:right-6 sm:text-[14.5px]">
+              Open Poll360 <span aria-hidden="true">↗</span>
+            </span>
+          </a>
+          <figcaption className="mt-5 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+            <span className="text-[15px] font-semibold tracking-[-0.01em] text-[#111111]">
+              Poll360{" "}
+              <span className="ml-2 inline-flex items-center gap-1.5 align-middle text-[12.5px] font-medium text-[#0A7D3E]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0A7D3E]" /> Live
+              </span>
+            </span>
+            <span className="text-[14px] text-[#5E5E5E]">
+              The collation engine: every polling unit, one clear picture.
+            </span>
+          </figcaption>
+        </figure>
       </Container>
     </section>
   );

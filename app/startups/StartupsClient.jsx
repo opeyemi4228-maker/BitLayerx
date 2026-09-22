@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { PageHero } from "@/components/ui/primitives";
 
 export default function BitLayerxStartupsPage() {
   const [selectedStage, setSelectedStage] = useState('pre-seed');
@@ -201,104 +202,18 @@ export default function BitLayerxStartupsPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF] py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        {/* Animated elements */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute top-20 right-10 text-6xl opacity-20"
-        >
-          🚀
-        </motion.div>
-        
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [0, -5, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute bottom-20 left-10 text-6xl opacity-20"
-        >
-          💡
-        </motion.div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-wider mb-8"
-            >
-              Built for Startups 🚀
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            >
-              From <span className="text-[#ffffff]">Idea</span> to{' '}
-              <span className="text-[#ffffff]">Launch</span> in Weeks
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-12"
-            >
-              MVP development, brand identity, and growth marketing for founders who move fast. Startup pricing, rapid deployment, built to scale.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link href="#packages">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white text-[#0040FF] text-lg font-bold shadow-xl"
-                >
-                  See Startup Packages
-                </motion.button>
-              </Link>
-              
-              <Link href="#success-stories">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-transparent text-white text-lg font-bold border-2 border-white"
-                >
-                  Startup Success Stories
-                </motion.button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Built for startups"
+        before="From idea to"
+        highlight="launch"
+        after=" in weeks."
+        lede="MVP development, brand identity, and growth marketing for founders who move fast. Startup pricing, rapid deployment, built to scale."
+        primary={{ href: "#packages", label: "See startup packages" }}
+        secondary={{ href: "#success-stories", label: "Startup success stories" }}
+      />
 
       {/* Startup Challenges */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -343,7 +258,7 @@ export default function BitLayerxStartupsPage() {
       </section>
 
       {/* Startup Perks */}
-      <section className="py-20 bg-gradient-to-br from-[#0040FF] to-[#0040FF] text-white">
+      <section className="py-20 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -354,8 +269,8 @@ export default function BitLayerxStartupsPage() {
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Startup Perks & Benefits
             </h2>
-            <p className="text-xl text-white/90">
-              Why 100+ startups choose BitLayerx
+            <p className="text-xl text-[#5E5E5E]">
+              Why 100+ startups choose BitLayerX
             </p>
           </motion.div>
 
@@ -368,11 +283,11 @@ export default function BitLayerxStartupsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-sm p-6 text-center"
+                className="bg-black/10 backdrop-blur-sm p-6 text-center"
               >
                 <div className="text-5xl mb-4">{perk.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{perk.title}</h3>
-                <p className="text-white/80">{perk.description}</p>
+                <p className="text-[#5E5E5E]">{perk.description}</p>
               </motion.div>
             ))}
           </div>
@@ -407,7 +322,7 @@ export default function BitLayerxStartupsPage() {
                 className={`px-8 py-4 font-bold text-lg transition-all duration-300 ${
                   selectedStage === stage.id
                     ? 'bg-[#0040FF] text-white shadow-lg scale-105'
-                    : 'bg-gray-100 text-black/80 hover:bg-gray-200'
+                    : 'bg-white text-[#111111] ring-1 ring-black/[0.12] hover:ring-black/40'
                 }`}
               >
                 {stage.icon} {stage.label}
@@ -423,7 +338,7 @@ export default function BitLayerxStartupsPage() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-[#0040FF] p-10 lg:p-12 shadow-2xl">
+            <div className="bg-white border-2 border-[#0040FF] rounded-[24px] p-10 lg:p-12 shadow-2xl">
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold text-gray-900 mb-2">{selectedPackage.name}</h3>
                 <p className="text-lg text-black/80 mb-6">{selectedPackage.description}</p>
@@ -494,7 +409,7 @@ export default function BitLayerxStartupsPage() {
       </section>
 
       {/* Real work, not testimonials we cannot verify */}
-      <section id="success-stories" className="py-20 lg:py-28 bg-gray-50">
+      <section id="success-stories" className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -530,7 +445,7 @@ export default function BitLayerxStartupsPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -539,7 +454,7 @@ export default function BitLayerxStartupsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold mb-4">Modern Tech Stack</h2>
-            <p className="text-lg text-white/80">Built with the best tools for scalability</p>
+            <p className="text-lg text-[#5E5E5E]">Built with the best tools for scalability</p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -551,7 +466,7 @@ export default function BitLayerxStartupsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.1 }}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 font-semibold"
+                className="px-6 py-3 bg-black/10 backdrop-blur-sm border border-black/10 font-semibold"
               >
                 {tech}
               </motion.div>
@@ -598,10 +513,9 @@ export default function BitLayerxStartupsPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF]" />
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-t border-black/[0.08]">
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#111111]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -625,7 +539,7 @@ export default function BitLayerxStartupsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12 text-white/90"
+            className="text-xl mb-12 text-[#5E5E5E]"
           >
             Let's turn your idea into reality. Book a free founder consultation.
           </motion.p>
@@ -639,9 +553,9 @@ export default function BitLayerxStartupsPage() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-white text-[#0040FF] text-xl font-bold"
+                className="px-12 py-5 bg-[#0040FF] text-white hover:bg-black text-xl font-bold"
               >
                 Book Founder Consultation
               </motion.button>
@@ -651,7 +565,7 @@ export default function BitLayerxStartupsPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-transparent text-white text-xl font-bold border-2 border-white"
+                className="px-12 py-5 bg-transparent text-[#111111] text-xl font-bold border border-black/[0.16]"
               >
                 Chat on WhatsApp
               </motion.button>

@@ -25,6 +25,9 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com", pathname: "**" },
       { protocol: "https", hostname: "raw.githubusercontent.com", pathname: "**" },
+      // The marketing page's service images. Without this entry next/image
+      // throws and /marketing returns a 500.
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "**" },
     ],
   },
 

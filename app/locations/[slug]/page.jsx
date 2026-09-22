@@ -8,6 +8,7 @@ import {
   Lede,
   ActionLink,
   SectionHeader,
+  ClosingCTA,
 } from "@/components/ui/primitives";
 
 export function generateStaticParams() {
@@ -135,13 +136,13 @@ export default async function LocationPage({ params }) {
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <Section tone="white" rhythm="tight">
         <Container width="narrow">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Locations</span>
           </nav>
 
-          <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+          <p className="text-[14px] font-semibold text-[#0040FF]">
             {m.country}
           </p>
           <Heading as="h1" size="xl" className="mt-4">
@@ -179,7 +180,7 @@ export default async function LocationPage({ params }) {
                 href={p.href}
                 className="group bg-white p-7 transition-colors hover:bg-black/[0.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
               >
-                <h3 className="flex items-center gap-1.5 text-[1.0625rem] font-bold text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
+                <h3 className="flex items-center gap-1.5 text-[1.0625rem] font-bold text-[#111111] transition-colors group-hover:text-[#0040FF]">
                   {p.title}
                   <span
                     aria-hidden="true"
@@ -188,7 +189,7 @@ export default async function LocationPage({ params }) {
                     ›
                   </span>
                 </h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-[#6e6e73]">
+                <p className="mt-2 text-[14.5px] leading-relaxed text-[#5E5E5E]">
                   {p.body}
                 </p>
               </Link>
@@ -209,36 +210,36 @@ export default async function LocationPage({ params }) {
 
           <dl className="mt-10 divide-y divide-black/10 border-y border-black/10">
             <div className="grid sm:grid-cols-[180px_1fr] gap-2 sm:gap-8 py-5">
-              <dt className="text-[14px] font-bold text-[#1d1d1f]">Time zone</dt>
-              <dd className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+              <dt className="text-[14px] font-bold text-[#111111]">Time zone</dt>
+              <dd className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
                 Our studio runs on GMT+1. {m.timezone}
               </dd>
             </div>
 
             <div className="grid sm:grid-cols-[180px_1fr] gap-2 sm:gap-8 py-5">
-              <dt className="text-[14px] font-bold text-[#1d1d1f]">Meetings</dt>
-              <dd className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+              <dt className="text-[14px] font-bold text-[#111111]">Meetings</dt>
+              <dd className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
                 {m.meetings}
               </dd>
             </div>
 
             <div className="grid sm:grid-cols-[180px_1fr] gap-2 sm:gap-8 py-5">
-              <dt className="text-[14px] font-bold text-[#1d1d1f]">Contracting</dt>
-              <dd className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+              <dt className="text-[14px] font-bold text-[#111111]">Contracting</dt>
+              <dd className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
                 {m.contracting}
               </dd>
             </div>
 
             <div className="grid sm:grid-cols-[180px_1fr] gap-2 sm:gap-8 py-5">
-              <dt className="text-[14px] font-bold text-[#1d1d1f]">First step</dt>
-              <dd className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+              <dt className="text-[14px] font-bold text-[#111111]">First step</dt>
+              <dd className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
                 One 45-minute session, then a written plan with scope, timeline
                 and price within 48 hours, yours to keep either way.
               </dd>
             </div>
           </dl>
 
-          <p className="mt-8 text-[15.5px] leading-relaxed text-[#6e6e73]">
+          <p className="mt-8 text-[15.5px] leading-relaxed text-[#5E5E5E]">
             More on how we run delivery across time zones in{" "}
             <Link
               href="/blog/delivery-across-time-zones"
@@ -254,7 +255,7 @@ export default async function LocationPage({ params }) {
       {/* ── Other markets ──────────────────────────────────────────────── */}
       <Section tone="offwhite" rhythm="tight">
         <Container width="default">
-          <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-7 border-b-2 border-[#1d1d1f]">
+          <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-7 border-b-2 border-[#111111]">
             We also work with companies in
           </h2>
           <div className="flex flex-wrap gap-3">
@@ -262,7 +263,7 @@ export default async function LocationPage({ params }) {
               <Link
                 key={o.slug}
                 href={`/locations/${o.slug}`}
-                className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-[14.5px] font-medium text-[#1d1d1f] transition-colors hover:border-[#0040FF] hover:text-[#0040FF]"
+                className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-[14.5px] font-medium text-[#111111] transition-colors hover:border-[#0040FF] hover:text-[#0040FF]"
               >
                 {o.city}, {o.country}
               </Link>
@@ -272,25 +273,11 @@ export default async function LocationPage({ params }) {
       </Section>
 
       {/* ── CTA ────────────────────────────────────────────────────────── */}
-      <Section tone="dark">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="lg">
-            Building something in {m.city}?
-          </Heading>
-          <Lede tone="light" className="mt-5 mx-auto max-w-[540px]">
-            Tell us what it is. You will have a written plan within 48 hours,
-            whether or not you go ahead with us.
-          </Lede>
-          <div className="mt-9">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center rounded-full bg-white px-8 py-[0.9rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Request a session
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading={`Building something in ${m.city}?`}
+        lede="Tell us what it is. You will have a written plan within 48 hours, whether or not you go ahead with us."
+        primary={{ href: "/start-a-project", label: "Request a session" }}
+      />
     </>
   );
 }

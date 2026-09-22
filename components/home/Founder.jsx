@@ -14,8 +14,8 @@ import { Section, Container, ActionLink } from "@/components/ui/primitives";
 export default function Founder() {
   return (
     <Section tone="white" labelledBy="team-heading">
-      <Container width="default">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
+      <Container width="wide">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,420px)_minmax(0,600px)] lg:justify-center lg:gap-16 xl:gap-20">
           {/* Portrait.
 
               The caption sits below the frame rather than floating over the
@@ -28,8 +28,8 @@ export default function Founder() {
               style={{ aspectRatio: "3 / 4" }}
             >
               <Image
-                src="/images/founder-opeyemi.jpg"
-                alt="Opeyemi T. Ojurongbe, Team Lead at BitLayerX."
+                src="/images/leadership/opeyemi-ojurongbe-alt.jpg"
+                alt="Opeyemi T. Ojurongbe, CEO of BitLayerX Technologies."
                 fill
                 sizes="(max-width: 1024px) 90vw, 420px"
                 className="object-cover object-[50%_18%]"
@@ -38,26 +38,26 @@ export default function Founder() {
             </div>
 
             <figcaption className="mt-5 border-l-2 border-[#0040FF] pl-4">
-              <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#1d1d1f]">
+              <span className="block text-[1.125rem] font-bold tracking-[-0.02em] text-[#111111]">
                 Opeyemi T. Ojurongbe
               </span>
-              <span className="mt-0.5 block text-[14px] text-[#6e6e73]">
-                Team Lead
+              <span className="mt-0.5 block text-[14px] text-[#5E5E5E]">
+                CEO, BitLayerX Technologies
               </span>
             </figcaption>
           </figure>
 
           {/* Statement */}
           <div>
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
-              The team
+            <p className="text-[14px] font-semibold text-[#0040FF]">
+              How we lead
             </p>
 
             <h2
               id="team-heading"
-              className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.05] tracking-[-0.035em] text-[#1d1d1f]"
+              className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-[#111111]"
             >
-              Small enough that you meet the whole team.
+              Deep expertise. Close to the details.
             </h2>
 
             {/* Framed around the team, not one person.
@@ -68,28 +68,15 @@ export default function Founder() {
                 really one person who might disappear. "I do it all" fixes the
                 first and makes the second worse. A named lead inside a real
                 team answers both at once. */}
-            <div className="mt-7 space-y-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+            <div className="mt-7 space-y-5 text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
               <p>
-                We build from a studio in Gwarinpa, Abuja. The same team covers
-                the design, the engineering and the marketing, so nothing falls
-                into the gap between two suppliers who have never spoken to each
-                other.
+                A team in Gwarinpa, Abuja, organised by discipline, with one
+                accountable owner for every product. Opeyemi leads the company
+                and stays close to the work.
               </p>
-              <p>
-                Opeyemi leads the team and stays on every project, so there is
-                always one person who can answer for the whole of it rather than
-                for one slice. You are never handed to an account manager who
-                was not in the room.
-              </p>
-              <p>
-                We are straight about capacity. When we are full, we say we are
-                full. And when something you have asked for will not earn back
-                what it costs you, we say so before you pay for it.
-              </p>
-              <p className="text-[#1d1d1f]">
-                Projects run long enough that something eventually goes wrong.
-                When it does, you get a person on the phone, not a ticket
-                number.
+              <p className="text-[#111111]">
+                Our quality promise: nothing ships until it works on a basic
+                phone, on a weak network, for a first-time user.
               </p>
             </div>
 

@@ -18,7 +18,7 @@ export const metadata = pageMetadata("/packages");
  * misrepresentation.
  */
 const OFFERS = [
-  { name: "Launchpad", price: "500000", description: "A website of up to five pages, written for your customers and set up so Google can find it." },
+  { name: "Launchpad", price: "800000", description: "A website of up to five pages, written for your customers and set up so Google can find it." },
   { name: "Growth Engine", price: "1500000", description: "Everything in Launchpad, plus monthly search work, paid adverts and email marketing." },
   { name: "Brand Authority", price: "3500000", description: "Full brand identity, a brand guide your team can follow, and a brand film with advert cuts." },
   { name: "Tech Powerhouse", price: "8000000", description: "A custom web or mobile app with logins, payments, dashboards and a proper handover." },

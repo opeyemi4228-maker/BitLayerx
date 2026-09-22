@@ -8,6 +8,7 @@ import {
   Lede,
   ActionLink,
   PageHero,
+  ClosingCTA,
 } from "@/components/ui/primitives";
 import ProjectTile from "@/components/home/ProjectTile";
 
@@ -67,11 +68,11 @@ export default function PortfolioClient({ projects = [] }) {
             </div>
           ) : (
             <>
-              <div className="mb-10 flex items-end justify-between gap-6 border-b-2 border-[#1d1d1f] pb-3">
-                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
+              <div className="mb-10 flex items-end justify-between gap-6 border-b-2 border-[#111111] pb-3">
+                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111]">
                   {withShots.length} live {withShots.length === 1 ? "project" : "projects"}
                 </h2>
-                <p className="text-[13px] text-[#6e6e73]">Updated hourly</p>
+                <p className="text-[13px] text-[#5E5E5E]">Updated hourly</p>
               </div>
 
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -89,29 +90,29 @@ export default function PortfolioClient({ projects = [] }) {
 
                     <div className="mt-4 flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <h3 className="truncate text-[1.15rem] font-bold tracking-[-0.02em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
+                        <h3 className="truncate text-[1.15rem] font-bold tracking-[-0.02em] text-[#111111] transition-colors group-hover:text-[#0040FF]">
                           {p.title}
                         </h3>
-                        <p className="mt-1 truncate text-[13.5px] text-[#6e6e73]">
+                        <p className="mt-1 truncate text-[13.5px] text-[#5E5E5E]">
                           {p.homepage?.replace(/^https?:\/\//, "")}
                         </p>
                       </div>
                       <span
                         aria-hidden="true"
-                        className="mt-1 flex-shrink-0 text-[#6e6e73] transition-all duration-200 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:text-[#0040FF]"
+                        className="mt-1 flex-shrink-0 text-[#5E5E5E] transition-all duration-200 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] group-hover:text-[#0040FF]"
                       >
                         ↗
                       </span>
                     </div>
 
                     {p.description && (
-                      <p className="mt-2 text-[14.5px] leading-relaxed text-[#6e6e73]">
+                      <p className="mt-2 text-[14.5px] leading-relaxed text-[#5E5E5E]">
                         {p.description}
                       </p>
                     )}
 
                     {p.language && (
-                      <span className="mt-3 inline-block rounded-full bg-black/[0.05] px-3 py-1 text-[11.5px] font-medium text-[#6e6e73]">
+                      <span className="mt-3 inline-block rounded-full bg-black/[0.05] px-3 py-1 text-[11.5px] font-medium text-[#5E5E5E]">
                         {p.language}
                       </span>
                     )}
@@ -124,25 +125,11 @@ export default function PortfolioClient({ projects = [] }) {
       </Section>
 
       {/* CTA */}
-      <Section tone="brand">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="xl" className="mx-auto max-w-[16ch]">
-            Yours could be next.
-          </Heading>
-          <Lede tone="light" className="mx-auto mt-6 max-w-[48ch]">
-            Tell us what you need and we will send you a written plan in 48
-            hours, with what it will cost and how long it will take.
-          </Lede>
-          <div className="mt-10">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Start a project
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Yours could be next."
+        lede="Tell us what you need and we will send you a written plan in 48 hours, with what it will cost and how long it will take."
+        primary={{ href: "/start-a-project", label: "Start a project" }}
+      />
     </>
   );
 }

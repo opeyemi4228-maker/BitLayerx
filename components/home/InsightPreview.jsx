@@ -17,21 +17,21 @@ export default function InsightPreview() {
 
   return (
     <Section tone="offwhite" labelledBy="insight-heading">
-      <Container width="default">
+      <Container width="wide">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           {/* Wide enough that the heading sets on two lines rather than three.
               `text-wrap: balance` in globals.css then evens the two out. */}
           <div className="max-w-[760px]">
-            <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+            <p className="text-[14px] font-semibold text-[#0040FF]">
               Insight
             </p>
             <h2
               id="insight-heading"
-              className="mt-4 text-[clamp(2.1rem,5vw,3.9rem)] font-extrabold leading-[1.03] tracking-[-0.035em] text-[#1d1d1f]"
+              className="mt-4 text-[clamp(2.1rem,5vw,3.9rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-[#111111]"
             >
               What we have learned, written down.
             </h2>
-            <p className="mt-5 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+            <p className="mt-5 text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
               Including the things most agencies here will not put in
               writing, like what the work actually costs.
             </p>
@@ -62,13 +62,10 @@ export default function InsightPreview() {
                       {category.name}
                     </span>
                   )}
-                  <h3 className="mt-1.5 text-[1.2rem] font-bold leading-snug tracking-[-0.02em] text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
+                  <h3 className="mt-1.5 text-[1.2rem] font-bold leading-snug tracking-[-0.02em] text-[#111111] transition-colors group-hover:text-[#0040FF]">
                     {post.title}
                   </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-[#6e6e73]">
-                    {post.excerpt}
-                  </p>
-                  <p className="mt-3 text-[13px] text-[#6e6e73]">
+                  <p className="mt-3 text-[13px] text-[#5E5E5E]">
                     {post.readingTime} min read
                   </p>
                 </Link>

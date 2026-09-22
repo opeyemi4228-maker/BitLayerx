@@ -65,7 +65,7 @@ export default function GlobalError({ error, reset }) {
               margin: "1.5rem 0 0",
               fontSize: "1.0625rem",
               lineHeight: 1.55,
-              color: "#6e6e73",
+              color: "#5E5E5E",
             }}
           >
             This one is on us. Reload the page, if it happens again, email{" "}
@@ -79,7 +79,7 @@ export default function GlobalError({ error, reset }) {
           </p>
 
           {error?.digest && (
-            <p style={{ margin: "1.25rem 0 0", fontSize: 13, color: "#6e6e73" }}>
+            <p style={{ margin: "1.25rem 0 0", fontSize: 13, color: "#5E5E5E" }}>
               Reference: <code>{error.digest}</code>
             </p>
           )}

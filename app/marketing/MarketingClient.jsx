@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PageHero } from "@/components/ui/primitives";
 
 export default function BitLayerxMarketingPage() {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -218,81 +219,18 @@ export default function BitLayerxMarketingPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0040FF] mt-[-38] via-[#0040FF] to-[#0040FF] py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-wider mb-8"
-            >
-              Marketing & Advertising
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-light text-white mb-6 leading-tight"
-            >
-              Turn Your Digital Presence Into a{' '}
-              <span className="font-bold">Revenue Engine</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-12"
-            >
-              BitLayerx combines web development, video production, branding, performance marketing, and AI automation to help businesses build authority that compounds instead of resetting every quarter.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link href="#services">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white text-[#0040FF] text-lg font-semibold"
-                >
-                  Explore Services
-                </motion.button>
-              </Link>
-              
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-transparent text-white text-lg font-semibold border-2 border-white"
-                >
-                  Get Free Audit
-                </motion.button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Marketing and advertising"
+        before="Turn your digital presence into a"
+        highlight="revenue engine"
+        after="."
+        lede="BitLayerX combines web development, video production, branding, performance marketing, and AI automation to help businesses build authority that compounds instead of resetting every quarter."
+        primary={{ href: "#services", label: "Explore services" }}
+        secondary={{ href: "/contact", label: "Get a free audit" }}
+      />
 
       {/* Quick Nav */}
-      <section className="bg-gray-50 py-6 sticky top-20 z-40 border-b border-gray-200 shadow-sm">
+      <section className="bg-white border-t border-black/[0.08] py-6 sticky top-20 z-40 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap gap-3 justify-center">
             {marketingServices.map((service) => (
@@ -313,7 +251,7 @@ export default function BitLayerxMarketingPage() {
         <section
           key={service.id}
           id={service.id}
-          className={`py-20 lg:py-28 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+          className={`py-20 lg:py-28 ${index % 2 === 0 ? 'bg-white' : 'bg-white ring-1 ring-black/[0.08]'}`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -464,7 +402,7 @@ export default function BitLayerxMarketingPage() {
       ))}
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -519,10 +457,9 @@ export default function BitLayerxMarketingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF]" />
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-t border-black/[0.08]">
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#111111]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -537,7 +474,7 @@ export default function BitLayerxMarketingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12 text-white/90"
+            className="text-xl mb-12 text-[#5E5E5E]"
           >
             Get a free marketing audit and custom strategy proposal
           </motion.p>
@@ -551,9 +488,9 @@ export default function BitLayerxMarketingPage() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-white text-[#0040FF] text-xl font-bold transition-all duration-300"
+                className="px-12 py-5 bg-[#0040FF] text-white hover:bg-black text-xl font-bold transition-all duration-300"
               >
                 Get Free Marketing Audit
               </motion.button>
@@ -563,7 +500,7 @@ export default function BitLayerxMarketingPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-transparent text-white text-xl font-bold border-2 border-white transition-all duration-300"
+                className="px-12 py-5 bg-transparent text-[#111111] text-xl font-bold border border-black/[0.16] transition-all duration-300"
               >
                 Chat on WhatsApp
               </motion.button>

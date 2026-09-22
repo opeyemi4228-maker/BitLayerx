@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { pageMetadata, SITE } from "@/lib/seo";
 import { getAllPosts, CATEGORIES, categoryBySlug } from "@/lib/blog";
-import { Section, Container, Heading, Lede, ActionLink } from "@/components/ui/primitives";
+import { Section, Container, Heading, Lede, ActionLink, ClosingCTA } from "@/components/ui/primitives";
 import PostCover from "@/components/blog/PostCover";
 
 export const metadata = pageMetadata("/blog");
@@ -34,7 +34,7 @@ function CategoryTag({ slug, className = "" }) {
 
 function Meta({ post, className = "" }) {
   return (
-    <p className={`text-[13px] text-[#6e6e73] ${className}`}>
+    <p className={`text-[13px] text-[#5E5E5E] ${className}`}>
       <time dateTime={post.published}>{formatDate(post.published)}</time>
       <span aria-hidden="true"> · </span>
       {post.readingTime} min read
@@ -50,10 +50,10 @@ function LeadStory({ post }) {
         <PostCover post={post} ratio="16 / 9" priority sizes="(max-width: 1024px) 100vw, 62vw" />
         <div className="mt-6">
           <CategoryTag slug={post.category} />
-          <h2 className="mt-2 text-[clamp(1.9rem,3.4vw,2.9rem)] font-extrabold tracking-[-0.035em] leading-[1.05] text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+          <h2 className="mt-2 text-[clamp(1.9rem,3.4vw,2.9rem)] font-semibold tracking-[-0.035em] leading-[1.05] text-[#111111] group-hover:text-[#0040FF] transition-colors">
             {post.title}
           </h2>
-          <p className="mt-3 text-[1.0625rem] leading-relaxed text-[#6e6e73] max-w-[640px]">
+          <p className="mt-3 text-[1.0625rem] leading-relaxed text-[#5E5E5E] max-w-[640px]">
             {post.excerpt}
           </p>
           <Meta post={post} className="mt-4" />
@@ -69,7 +69,7 @@ function SecondaryStory({ post, showRule = true }) {
     <article className={showRule ? "pb-5 border-b border-black/10" : ""}>
       <Link href={`/blog/${post.slug}`} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2 rounded">
         <CategoryTag slug={post.category} />
-        <h3 className="mt-1.5 text-[1.15rem] font-bold tracking-[-0.02em] leading-snug text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+        <h3 className="mt-1.5 text-[1.15rem] font-bold tracking-[-0.02em] leading-snug text-[#111111] group-hover:text-[#0040FF] transition-colors">
           {post.title}
         </h3>
         <Meta post={post} className="mt-2" />
@@ -86,10 +86,10 @@ function StoryCard({ post }) {
         <PostCover post={post} ratio="16 / 10" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
         <div className="mt-4">
           <CategoryTag slug={post.category} />
-          <h3 className="mt-1.5 text-[1.2rem] font-bold tracking-[-0.02em] leading-snug text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+          <h3 className="mt-1.5 text-[1.2rem] font-bold tracking-[-0.02em] leading-snug text-[#111111] group-hover:text-[#0040FF] transition-colors">
             {post.title}
           </h3>
-          <p className="mt-2 text-[0.95rem] leading-relaxed text-[#6e6e73] line-clamp-3">
+          <p className="mt-2 text-[0.95rem] leading-relaxed text-[#5E5E5E] line-clamp-3">
             {post.excerpt}
           </p>
           <Meta post={post} className="mt-3" />
@@ -172,7 +172,7 @@ export default function BlogIndex() {
               <Link
                 key={c.slug}
                 href={`/blog/category/${c.slug}`}
-                className="whitespace-nowrap pb-3 text-[14.5px] font-semibold text-[#1d1d1f]/70 hover:text-[#1d1d1f] border-b-2 border-transparent hover:border-[#1d1d1f] transition-colors"
+                className="whitespace-nowrap pb-3 text-[14.5px] font-semibold text-[#111111]/70 hover:text-[#111111] border-b-2 border-transparent hover:border-[#111111] transition-colors"
               >
                 {c.name}
               </Link>
@@ -189,7 +189,7 @@ export default function BlogIndex() {
 
             {secondary.length > 0 && (
               <div>
-                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-5 border-b-2 border-[#1d1d1f]">
+                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-5 border-b-2 border-[#111111]">
                   More stories
                 </h2>
                 <div className="space-y-5">
@@ -211,7 +211,7 @@ export default function BlogIndex() {
       {remainder.length > 0 && (
         <Section tone="offwhite">
           <Container width="wide">
-            <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-8 border-b-2 border-[#1d1d1f]">
+            <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-8 border-b-2 border-[#111111]">
               Latest
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -224,28 +224,12 @@ export default function BlogIndex() {
       )}
 
       {/* ── Conversion rail ────────────────────────────────────────────── */}
-      <Section tone="dark" rhythm="default">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="lg">
-            Reading about it is cheaper than learning it the hard way.
-          </Heading>
-          <Lede tone="light" className="mt-5 mx-auto max-w-[560px]">
-            If any of the above described a problem you currently have, the next
-            step is a conversation, and a written plan within 48 hours.
-          </Lede>
-          <div className="mt-9 flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-[0.85rem] text-[1.0625rem] font-medium text-[#1d1d1f] hover:bg-white/90 transition-colors"
-            >
-              Request a session
-            </Link>
-            <ActionLink href="/packages" tone="light" className="px-4">
-              See packages and prices
-            </ActionLink>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Reading about it is cheaper than learning it the hard way."
+        lede="If any of the above described a problem you currently have, the next step is a conversation, and a written plan within 48 hours."
+        primary={{ href: "/start-a-project", label: "Request a session" }}
+        secondary={{ href: "/packages", label: "See packages and prices" }}
+      />
     </>
   );
 }

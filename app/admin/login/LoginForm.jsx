@@ -57,10 +57,10 @@ export default function LoginForm() {
               <path d="M14 40 L32 50 L50 40" opacity="0.44" />
             </g>
           </svg>
-          <h1 className="mt-5 text-[1.75rem] font-extrabold tracking-[-0.03em] text-[#1d1d1f]">
+          <h1 className="mt-5 text-[1.75rem] font-extrabold tracking-[-0.03em] text-[#111111]">
             BitLayerX Admin
           </h1>
-          <p className="mt-2 text-[14.5px] text-[#6e6e73]">
+          <p className="mt-2 text-[14.5px] text-[#5E5E5E]">
             Sign in to see enquiries and site data.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function LoginForm() {
         >
           <label
             htmlFor="password"
-            className="mb-2 block text-[13.5px] font-semibold text-[#1d1d1f]"
+            className="mb-2 block text-[13.5px] font-semibold text-[#111111]"
           >
             Password
           </label>
@@ -82,7 +82,7 @@ export default function LoginForm() {
             required
             autoFocus
             autoComplete="current-password"
-            className="w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#1d1d1f] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20"
+            className="w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#111111] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20"
           />
 
           {error && (
@@ -103,7 +103,7 @@ export default function LoginForm() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-[13px] leading-relaxed text-[#6e6e73]">
+        <p className="mt-6 text-center text-[13px] leading-relaxed text-[#5E5E5E]">
           Set ADMIN_PASSWORD and ADMIN_SESSION_SECRET in your .env file to
           enable access.
         </p>

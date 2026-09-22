@@ -6,6 +6,7 @@ import {
   Heading,
   Lede,
   SectionHeader,
+  ClosingCTA,
 } from "@/components/ui/primitives";
 
 const url = `${SITE.url}/locations`;
@@ -52,7 +53,7 @@ export default function LocationsIndex() {
     <>
       <Section tone="white" rhythm="tight">
         <Container width="narrow">
-          <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+          <p className="text-[14px] font-semibold text-[#0040FF]">
             Where we work
           </p>
           <Heading as="h1" size="xl" className="mt-4">
@@ -80,7 +81,7 @@ export default function LocationsIndex() {
           <div className="mt-12 space-y-12">
             {groups.map(([country, markets]) => (
               <div key={country}>
-                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-6 border-b-2 border-[#1d1d1f]">
+                <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-6 border-b-2 border-[#111111]">
                   {country}
                 </h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/10 rounded-2xl overflow-hidden">
@@ -90,7 +91,7 @@ export default function LocationsIndex() {
                       href={`/locations/${m.slug}`}
                       className="group bg-white p-7 transition-colors hover:bg-black/[0.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
                     >
-                      <h3 className="flex items-center gap-1.5 text-[1.125rem] font-bold text-[#1d1d1f] transition-colors group-hover:text-[#0040FF]">
+                      <h3 className="flex items-center gap-1.5 text-[1.125rem] font-bold text-[#111111] transition-colors group-hover:text-[#0040FF]">
                         {m.city}
                         {m.primary && (
                           <span className="ml-1 rounded-full bg-[#0040FF]/10 px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-wider text-[#0040FF]">
@@ -104,7 +105,7 @@ export default function LocationsIndex() {
                           ›
                         </span>
                       </h3>
-                      <p className="mt-2 text-[14.5px] leading-relaxed text-[#6e6e73]">
+                      <p className="mt-2 text-[14.5px] leading-relaxed text-[#5E5E5E]">
                         {m.blurb}
                       </p>
                     </Link>
@@ -116,24 +117,11 @@ export default function LocationsIndex() {
         </Container>
       </Section>
 
-      <Section tone="dark">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="lg">Not on the list?</Heading>
-          <Lede tone="light" className="mt-5 mx-auto max-w-[520px]">
-            We work with companies well beyond these cities. If you can hold a
-            call between 8am and 6pm GMT+1 at least twice a week, distance is
-            not going to be what stops this.
-          </Lede>
-          <div className="mt-9">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center rounded-full bg-white px-8 py-[0.9rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Request a session
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Not on the list?"
+        lede="We work with companies well beyond these cities. If you can hold a call between 8am and 6pm GMT+1 at least twice a week, distance is not going to be what stops this."
+        primary={{ href: "/start-a-project", label: "Request a session" }}
+      />
     </>
   );
 }

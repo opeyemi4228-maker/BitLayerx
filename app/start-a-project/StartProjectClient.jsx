@@ -54,10 +54,10 @@ const STEPS = [
 ];
 
 const inputCls =
-  "w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#1d1d1f] placeholder:text-[#9a9aa0] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20";
+  "w-full rounded-xl border border-black/[0.14] bg-white px-4 py-3 text-[16px] text-[#111111] placeholder:text-[#9A9A9A] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20";
 
 const labelCls =
-  "block text-[13.5px] font-semibold text-[#1d1d1f] mb-2";
+  "block text-[13.5px] font-semibold text-[#111111] mb-2";
 
 export default function StartProjectClient() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
@@ -123,7 +123,7 @@ export default function StartProjectClient() {
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center rounded-full border border-black/15 px-7 py-[0.8rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
+              className="inline-flex items-center rounded-full border border-black/15 px-7 py-[0.8rem] text-[1.0625rem] font-medium text-[#111111] transition-colors hover:border-black/40"
             >
               Read something useful
             </Link>
@@ -138,7 +138,7 @@ export default function StartProjectClient() {
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <Section tone="white" rhythm="tight">
         <Container width="narrow">
-          <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+          <p className="text-[14px] font-semibold text-[#0040FF]">
             Request a session
           </p>
           <Heading as="h1" size="xl" className="mt-4">
@@ -290,7 +290,7 @@ export default function StartProjectClient() {
                   {status === "sending" ? "Sending…" : "Send this brief"}
                 </button>
 
-                <p className="mt-4 text-[13px] leading-relaxed text-[#6e6e73]">
+                <p className="mt-4 text-[13px] leading-relaxed text-[#5E5E5E]">
                   We reply within one business day. We do not add you to a
                   mailing list, and we do not pass your details to anyone.
                 </p>
@@ -299,7 +299,7 @@ export default function StartProjectClient() {
 
             {/* Reassurance rail */}
             <aside>
-              <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-6 border-b-2 border-[#1d1d1f]">
+              <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-6 border-b-2 border-[#111111]">
                 What happens next
               </h2>
 
@@ -310,10 +310,10 @@ export default function StartProjectClient() {
                       {s.n}
                     </span>
                     <div>
-                      <h3 className="text-[15.5px] font-bold text-[#1d1d1f]">
+                      <h3 className="text-[15.5px] font-bold text-[#111111]">
                         {s.title}
                       </h3>
-                      <p className="mt-1 text-[14.5px] leading-relaxed text-[#6e6e73]">
+                      <p className="mt-1 text-[14.5px] leading-relaxed text-[#5E5E5E]">
                         {s.body}
                       </p>
                     </div>
@@ -321,7 +321,7 @@ export default function StartProjectClient() {
                 ))}
               </ol>
 
-              <div className="mt-9 rounded-2xl bg-[#1d1d1f] p-6 text-white">
+              <div className="mt-9 rounded-2xl bg-[#111111] p-6 text-white">
                 <p className="text-[15px] font-semibold">
                   Would rather just talk?
                 </p>

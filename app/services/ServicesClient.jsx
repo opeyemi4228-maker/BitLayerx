@@ -7,6 +7,7 @@ import {
   ActionLink,
   SectionHeader,
   PageHero,
+  ClosingCTA,
 } from "@/components/ui/primitives";
 
 /**
@@ -137,10 +138,10 @@ export default function ServicesClient() {
                 <Heading as="h2" size="xl" id={`service-${s.title.toLowerCase().replace(/\s+/g, "-")}`}>
                   {s.title}
                 </Heading>
-                <p className="mt-5 text-[clamp(1.15rem,1.9vw,1.4rem)] font-medium leading-[1.4] text-[#1d1d1f]">
+                <p className="mt-5 text-[clamp(1.15rem,1.9vw,1.4rem)] font-medium leading-[1.4] text-[#111111]">
                   {s.lede}
                 </p>
-                <p className="mt-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+                <p className="mt-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
                   {s.body}
                 </p>
                 <div className="mt-7">
@@ -149,7 +150,7 @@ export default function ServicesClient() {
               </div>
 
               <div className="lg:pt-14">
-                <h3 className="border-b-2 border-[#1d1d1f] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f]">
+                <h3 className="border-b-2 border-[#111111] pb-3 text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111]">
                   What you get
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -159,7 +160,7 @@ export default function ServicesClient() {
                         aria-hidden="true"
                         className="mt-[0.45rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
                       />
-                      <span className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
+                      <span className="text-[1.0625rem] leading-relaxed text-[#111111]">
                         {g}
                       </span>
                     </li>
@@ -172,32 +173,31 @@ export default function ServicesClient() {
       ))}
 
       {/* Ways to work together */}
-      <Section tone="dark" labelledBy="ways">
+      <Section tone="offwhite" labelledBy="ways">
         <Container width="default">
           <SectionHeader
             id="ways"
-            tone="light"
             eyebrow="Working together"
             heading="Three ways to hire us."
             lede="Which one is right depends on whether the work has an end. We will tell you honestly which your project is."
           />
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/10 lg:grid-cols-3">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-black/10 lg:grid-cols-3">
             {WAYS.map((w) => (
-              <div key={w.title} className="bg-black p-9">
+              <div key={w.title} className="bg-white p-9">
                 {w.featured && (
-                  <span className="mb-4 inline-block rounded-full bg-[#0040FF] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                  <span className="mb-4 inline-block rounded-full bg-[#0040FF] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#111111]">
                     Most common
                   </span>
                 )}
-                <h3 className="text-[1.5rem] font-bold tracking-[-0.025em] text-white">
+                <h3 className="text-[1.5rem] font-bold tracking-[-0.025em] text-[#111111]">
                   {w.title}
                 </h3>
-                <p className="mt-4 text-[1.0625rem] leading-relaxed text-white/65">
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
                   {w.body}
                 </p>
-                <p className="mt-6 border-t border-white/10 pt-5 text-[14.5px] text-white/45">
-                  <span className="font-semibold text-white/70">Good for:</span>{" "}
+                <p className="mt-6 border-t border-black/10 pt-5 text-[14.5px] text-[#5E5E5E]">
+                  <span className="font-semibold text-[#5E5E5E]">Good for:</span>{" "}
                   {w.fit}
                 </p>
               </div>
@@ -207,26 +207,11 @@ export default function ServicesClient() {
       </Section>
 
       {/* CTA */}
-      <Section tone="brand">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="xl" className="mx-auto max-w-[18ch]">
-            Not sure which you need?
-          </Heading>
-          <Lede tone="light" className="mx-auto mt-6 max-w-[48ch]">
-            That is normal, and it is what the first conversation is for. Tell
-            us the problem and we will tell you what it actually takes to fix
-            it, even if that is less than you expected.
-          </Lede>
-          <div className="mt-10">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Start a project
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Not sure which you need?"
+        lede="That is normal, and it is what the first conversation is for. Tell us the problem and we will tell you what it actually takes to fix it, even if that is less than you expected."
+        primary={{ href: "/start-a-project", label: "Start a project" }}
+      />
     </>
   );
 }

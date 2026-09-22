@@ -60,7 +60,7 @@ export default function BrandPlate({
               <path
                 d="M26 0 L0 0 0 26"
                 fill="none"
-                stroke="#1d1d1f"
+                stroke="#111111"
                 strokeWidth="0.5"
               />
             </pattern>
@@ -70,8 +70,8 @@ export default function BrandPlate({
           {variant === 0 && (
             <g>
               <rect x="48" y="60" width="180" height="12" rx="6" fill="#0040FF" />
-              <rect x="48" y="86" width="250" height="10" rx="5" fill="#1d1d1f" opacity="0.16" />
-              <rect x="48" y="106" width="200" height="10" rx="5" fill="#1d1d1f" opacity="0.1" />
+              <rect x="48" y="86" width="250" height="10" rx="5" fill="#111111" opacity="0.16" />
+              <rect x="48" y="106" width="200" height="10" rx="5" fill="#111111" opacity="0.1" />
               {[0, 1, 2].map((i) => (
                 <rect
                   key={i}
@@ -81,7 +81,7 @@ export default function BrandPlate({
                   height="76"
                   rx="10"
                   fill="#ffffff"
-                  stroke="#1d1d1f"
+                  stroke="#111111"
                   strokeOpacity="0.08"
                 />
               ))}
@@ -127,7 +127,7 @@ export default function BrandPlate({
               {[40, 100, 160, 220, 280, 340].map((x, i) => (
                 <circle key={x} cx={x} cy={[220, 190, 204, 150, 168, 110][i]} r="4" fill="#0040FF" />
               ))}
-              <rect x="40" y="56" width="150" height="11" rx="5.5" fill="#1d1d1f" opacity="0.2" />
+              <rect x="40" y="56" width="150" height="11" rx="5.5" fill="#111111" opacity="0.2" />
               <rect x="40" y="78" width="96" height="9" rx="4.5" fill="#0040FF" />
             </g>
           )}
@@ -135,7 +135,7 @@ export default function BrandPlate({
       )}
 
       {label && (
-        <span className="absolute bottom-4 left-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[#1d1d1f] backdrop-blur-sm">
+        <span className="absolute bottom-4 left-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[#111111] backdrop-blur-sm">
           {label}
         </span>
       )}

@@ -13,14 +13,16 @@ import {
   Lede,
   ActionLink,
   SectionHeader,
+  ClosingCTA,
+  PageHero,
 } from "@/components/ui/primitives";
 
 /**
  * Industries.
  *
- * This page exists to let a buyer recognise themselves in about ten seconds,
- * and to say out loud who we are not for. Refusing work is the most credible
- * thing an agency can do, because everyone else claims everything.
+ * This page exists to let a buyer recognise themselves in about ten seconds.
+ * We work with every business; the industries listed are the ones we know
+ * most deeply, shown so a reader in them sees their own problems named.
  *
  * It used to carry roughly nineteen facts per industry, challenges, how we
  * help, capabilities, metrics and a case study, five times over. Nobody reads
@@ -147,39 +149,29 @@ export default function IndustriesClient() {
       />
 
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <Section tone="offwhite" rhythm="tight">
-        <Container width="narrow" className="text-center">
-          <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
-            Industries
-          </p>
-
-          <Heading as="h1" size="hero" className="mx-auto mt-5 max-w-[16ch]">
-            We don&rsquo;t work with everyone.
-          </Heading>
-
-          <Lede className="mx-auto mt-7 max-w-[54ch]">
-            Five industries, chosen because we have shipped in them and know
-            where the work actually gets hard. If yours is not here, say so
-            plainly and we will tell you honestly whether we are the right team.
-          </Lede>
-
-          {/* Quick nav, self-selection in one glance */}
-          <nav
-            aria-label="Jump to an industry"
-            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
-          >
-            {INDUSTRIES.map((i) => (
-              <a
-                key={i.id}
-                href={`#${i.id}`}
-                className="text-[15px] font-medium text-[#6e6e73] underline-offset-4 transition-colors hover:text-[#0040FF] hover:underline"
-              >
-                {i.label}
-              </a>
-            ))}
-          </nav>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Industries"
+        before="We work with"
+        highlight="every business"
+        after="."
+        lede="From a single shop to a national institution. Below are the industries we know most deeply, where we have shipped and know where the work gets hard. If yours is not listed, we still want to hear from you."
+      >
+        {/* Quick nav, self-selection in one glance */}
+        <nav
+          aria-label="Jump to an industry"
+          className="mt-12 flex flex-wrap items-center gap-2.5 border-t border-black/[0.08] pt-8"
+        >
+          {INDUSTRIES.map((i) => (
+            <a
+              key={i.id}
+              href={`#${i.id}`}
+              className="rounded-full border border-black/[0.14] px-4 py-2 text-[14.5px] font-medium text-[#111111] transition-colors hover:border-[#0040FF] hover:text-[#0040FF]"
+            >
+              {i.label}
+            </a>
+          ))}
+        </nav>
+      </PageHero>
 
       {/* ── The five ───────────────────────────────────────────────────── */}
       <Section tone="white">
@@ -202,7 +194,7 @@ export default function IndustriesClient() {
                       >
                         <Icon size={17} strokeWidth={1.9} className="text-[#0040FF]" />
                       </span>
-                      <span className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+                      <span className="text-[14px] font-semibold text-[#0040FF]">
                         {industry.label}
                       </span>
                     </div>
@@ -214,7 +206,7 @@ export default function IndustriesClient() {
 
                   {/* What we do about it */}
                   <div>
-                    <p className="text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+                    <p className="text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
                       {industry.intro}
                     </p>
 
@@ -225,15 +217,15 @@ export default function IndustriesClient() {
                             aria-hidden="true"
                             className="mt-[0.5rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
                           />
-                          <span className="text-[1.0625rem] leading-relaxed text-[#1d1d1f]">
+                          <span className="text-[1.0625rem] leading-relaxed text-[#111111]">
                             {b}
                           </span>
                         </li>
                       ))}
                     </ul>
 
-                    <p className="mt-7 text-[14px] text-[#6e6e73]">
-                      <span className="font-semibold text-[#1d1d1f]">
+                    <p className="mt-7 text-[14px] text-[#5E5E5E]">
+                      <span className="font-semibold text-[#111111]">
                         Practices involved:
                       </span>{" "}
                       {industry.practices.join(" · ")}
@@ -269,10 +261,10 @@ export default function IndustriesClient() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-3">
             {CONSTANTS.map((c) => (
               <div key={c.title} className="bg-white p-8">
-                <h3 className="text-[1.0625rem] font-bold text-[#1d1d1f]">
+                <h3 className="text-[1.0625rem] font-bold text-[#111111]">
                   {c.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#6e6e73]">
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5E5E5E]">
                   {c.body}
                 </p>
               </div>
@@ -282,30 +274,12 @@ export default function IndustriesClient() {
       </Section>
 
       {/* ── Close ──────────────────────────────────────────────────────── */}
-      <Section tone="brand">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="xl" className="mx-auto max-w-[17ch]">
-            Not on the list?
-          </Heading>
-
-          <Lede tone="light" className="mx-auto mt-6 max-w-[50ch]">
-            Tell us what you are building. If we are the wrong team for it we
-            will say so on the first call, and point you at someone better.
-          </Lede>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Start a project
-            </Link>
-            <ActionLink href="/portfolio" tone="light">
-              See what we have shipped
-            </ActionLink>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Your industry is next."
+        lede="Every business can run on digital. Tell us what you do and what gets in the way, and you will have a written plan within 48 hours."
+        primary={{ href: "/start-a-project", label: "Start a project" }}
+        secondary={{ href: "/portfolio", label: "See what we have shipped" }}
+      />
     </>
   );
 }

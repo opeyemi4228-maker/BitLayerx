@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import BrandMark from '@/components/BrandMark';
+import { COMPANY, PRODUCTS } from '@/content/company';
 import { MessageSquare, CalendarCheck, FolderOpen, Building2 } from 'lucide-react';
 
 // ─── Social ───────────────────────────────────────────────────────────────────
@@ -72,133 +73,141 @@ export default function BitLayerxFooterBottom() {
     { label: 'Accessibility', href: '/accessibility' },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
-  };
+  // Site map. The footer is where a reader who has scrolled the whole page
+  // looks for "what else is here", so every section is one click away.
+  const columns = [
+    {
+      title: 'Products',
+      links: PRODUCTS.map((p) => ({
+        label: p.status === 'live' ? p.name : `${p.name} · 2027`,
+        href: p.url || '/#products',
+        external: Boolean(p.url),
+      })),
+    },
+    {
+      title: 'Services',
+      links: [
+        { label: 'All services', href: '/services' },
+        { label: 'Apps and software', href: '/solutions' },
+        { label: 'Design and branding', href: '/design' },
+        { label: 'Marketing', href: '/marketing' },
+        { label: 'Packages and prices', href: '/packages' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About us', href: '/about' },
+        { label: 'Industries', href: '/industries' },
+        { label: 'Our work', href: '/portfolio' },
+        { label: 'Locations', href: '/locations' },
+        { label: 'Blog', href: '/blog' },
+      ],
+    },
+    {
+      title: 'Get started',
+      links: helpSections.map((h) => ({ label: h.title, href: h.link })).concat([
+        { label: 'Start a project', href: '/start-a-project' },
+      ]).filter((l) => l.label !== 'About BitLayerX' && l.label !== 'Our Work'),
+    },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 18 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const linkCls =
+    'text-[14.5px] text-[#5E5E5E] hover:text-[#0040FF] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] rounded';
 
+  // White, like every page above it. A black footer turned the end of each
+  // page into a dark slab; a hairline and the wordmark close it instead.
   return (
-    <footer className="blx-footer bg-black">
-      {/* Top, the four things people come here to do */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.07]"
-      >
-        {helpSections.map((section) => {
-          const Icon = section.icon;
-          return (
-            <motion.div key={section.title} variants={itemVariants} className="bg-black">
-              <Link
-                href={section.link}
-                className="flex flex-col gap-3 p-8 lg:p-10 h-full group hover:bg-white/15[0.03] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset"
-              >
-                <div className="flex items-center gap-3 text-white">
-                  <Icon size={18} strokeWidth={2} className="text-blue-400 flex-shrink-0" />
-                  <h3 className="text-[15.5px] font-bold tracking-tight">{section.title}</h3>
-                </div>
-                <span className="flex items-center gap-2 text-white/45 text-[14px] pl-[30px] group-hover:text-white/70 transition-colors">
-                  {section.description}
-                  <svg
-                    className="w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                  </svg>
-                </span>
-              </Link>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+    <footer id="site-footer" className="blx-footer border-t border-black/[0.08] bg-white">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10 pt-16 pb-10 lg:pt-20">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Link
+              href="/"
+              aria-label="BitLayerX Technologies, back to homepage"
+              className="inline-flex rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-4"
+            >
+              <BrandMark size="lg" />
+            </Link>
+            <p className="mt-6 text-[1.35rem] font-semibold tracking-[-0.025em] text-[#111111]">
+              {COMPANY.tagline}.
+            </p>
+            <p className="mt-3 max-w-[40ch] text-[15.5px] leading-relaxed text-[#5E5E5E]">
+              Cloud, field intelligence, logistics and digital services for
+              African businesses and institutions. {COMPANY.origin}
+            </p>
+            <Link
+              href="/start-a-project"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.8rem] text-[15px] font-medium text-white transition-colors hover:bg-black"
+            >
+              Start a project
+            </Link>
+          </div>
 
-      {/* Bottom, legal, credit, social */}
-      <div className="bg-black px-6 lg:px-12 py-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <nav
+            aria-label="Footer"
+            className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:col-span-8"
+          >
+            {columns.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-[14px] font-semibold text-[#111111]">{col.title}</h3>
+                <ul className="mt-5 space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      {l.external ? (
+                        <a href={l.href} target="_blank" rel="noopener noreferrer" className={linkCls}>
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link href={l.href} className={linkCls}>
+                          {l.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-6 border-t border-black/[0.08] pt-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className="text-[13.5px] leading-relaxed text-[#5E5E5E]">
+            <p className="font-medium text-[#111111]">
+              © {new Date().getFullYear()} BitLayerX Technologies. All rights reserved.
+            </p>
+            {/* A registered company number is one of the few claims on this
+                page a visitor can go and check for themselves, which is
+                precisely why it belongs here rather than buried on a legal
+                page nobody opens. */}
+            <p className="mt-1">Registered in Nigeria with the Corporate Affairs Commission · RC 9834403</p>
+          </div>
+
+          <div className="flex flex-col gap-5 lg:items-end">
             <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Legal">
               {legalLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-white/70 text-[13.5px] hover:text-white hover:underline underline-offset-4 transition-colors"
-                >
+                <Link key={link.label} href={link.href} className="text-[13.5px] text-[#5E5E5E] hover:text-[#0040FF] transition-colors">
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="text-white/70 text-[13.5px] leading-relaxed lg:text-right">
-              <p>
-                BitLayerX Technologies · © {new Date().getFullYear()} All rights
-                reserved
-              </p>
-              {/* A registered company number is one of the few claims on this
-                  page a visitor can go and check for themselves, which is
-                  precisely why it belongs here rather than buried on a legal
-                  page nobody opens. */}
-              <p className="text-white/50 mt-1">
-                Registered in Nigeria · RC 9834403
-              </p>
-              <p className="text-white/40 mt-1">
-                Founded and led by{' '}
+            <div className="flex gap-2.5">
+              <span className="sr-only">Follow BitLayerX Technologies</span>
+              {SOCIAL.map((social) => (
                 <a
-                  href="https://opeyemiojurongbe.com"
+                  key={social.label}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white underline-offset-4 hover:underline transition-colors"
+                  aria-label={`BitLayerX Technologies on ${social.label}`}
+                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.12] transition-colors hover:border-[#0040FF] hover:bg-[#0040FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
                 >
-                  Opeyemi T. Ojurongbe
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-[#111111] transition-colors group-hover:text-white">
+                    <path d={social.path} />
+                  </svg>
                 </a>
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-7 pt-7 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 text-[13px] text-white/40">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <span>Based in Abuja. Working globally.</span>
-                <span aria-hidden="true" className="text-white/20">•</span>
-                <span>We respond within 48 hours</span>
-                <span aria-hidden="true" className="text-white/20">•</span>
-                <span>Secure &amp; compliant</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <span className="sr-only">Follow BitLayerX</span>
-                <div className="flex gap-2.5">
-                  {SOCIAL.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`BitLayerX on ${social.label}`}
-                      className="w-9 h-9 rounded-full bg-white/[0.06] hover:bg-[#0040FF] flex items-center justify-center transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                    >
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="text-white/55 group-hover:text-white transition-colors"
-                      >
-                        <path d={social.path} />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

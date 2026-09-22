@@ -27,7 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background-color: #ffffff;
-  color: #1d1d1f;
+  color: #111111;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -94,18 +94,18 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 64, 255, 0.18);
+  background: rgba(0, 0, 0, 0.16);
   border: 3px solid #ffffff;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 64, 255, 0.32);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 64, 255, 0.22) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 /* =========================================================
@@ -124,7 +124,7 @@ p {
   /* ── Neutrals ── */
   --black:     #000000;
   --dark:      #000000;
-  --gray-900:  #1d1d1f;
+  --gray-900:  #111111;
   --gray-700:  #424245;
   --gray-500:  #6B7280;
   --gray-300:  #D1D5DB;
@@ -133,7 +133,7 @@ p {
   --white:     #ffffff;
 
   /* ── Semantic ── */
-  --text-primary:   #1d1d1f;
+  --text-primary:   #111111;
   --text-secondary: rgba(0, 0, 0, 0.80);
   --text-muted:     rgba(0, 0, 0, 0.80);
   --border:         #E5E7EB;
@@ -911,7 +911,7 @@ p {
 ========================================================= */
 
 .blx-footer {
-  background: #0B0B0F;
+  background: #ffffff;
 }
 
 .blx-footer-top {
@@ -1219,7 +1219,7 @@ p {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  color: #1d1d1f;
+  color: #111111;
   margin-top: 2.4em;
   margin-bottom: 0.1em;
 }
@@ -1230,7 +1230,7 @@ p {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
-  color: #1d1d1f;
+  color: #111111;
   margin-top: 2em;
   margin-bottom: 0.1em;
 }
@@ -1248,7 +1248,7 @@ p {
 
 .blx-prose strong {
   font-weight: 700;
-  color: #1d1d1f;
+  color: #111111;
 }
 
 .blx-prose ul,
@@ -1310,7 +1310,7 @@ p {
 .blx-prose thead th {
   text-align: left;
   font-weight: 700;
-  color: #1d1d1f;
+  color: #111111;
   padding: 0.6rem 0.9rem 0.6rem 0;
   white-space: nowrap;
 }
@@ -1327,4 +1327,54 @@ p {
 
 .blx-prose img {
   border-radius: 12px;
+}
+
+/* =========================================================
+   HERO STAGE PROGRESS
+   The tab line under the hero's live-work stage. Its animation ending is what
+   advances the stage, so switching the animation off under reduced motion
+   also switches off auto-play.
+========================================================= */
+
+@keyframes blx-stage-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.blx-stage-progress {
+  animation-name: blx-stage-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The global rule above shortens durations rather than removing
+     animations, which would make the stage spin; drop the animation. */
+  .blx-stage-progress {
+    animation-name: none !important;
+    transform: scaleX(1);
+  }
+}
+
+/* Horizontal product rail: scrollable by touch, trackpad and the arrow
+   buttons, without a visible scrollbar under the cards. */
+.blx-rail {
+  scrollbar-width: none;
+  scroll-padding-inline: 1.25rem;
+}
+.blx-rail::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .blx-rail { scroll-padding-inline: 2.5rem; }
+}
+
+/* Product panel swap: a short fade so the change of product reads as one
+   motion rather than a jump. Off under reduced motion via the global rule. */
+@keyframes blx-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.blx-fade-in {
+  animation: blx-fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

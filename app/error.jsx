@@ -29,21 +29,21 @@ export default function Error({ error, reset }) {
   return (
     <section className="bg-white py-[clamp(4.5rem,9vw,9rem)]">
       <div className="mx-auto max-w-[720px] px-5 text-center sm:px-8">
-        <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+        <p className="text-[14px] font-semibold text-[#0040FF]">
           Something broke
         </p>
 
-        <h1 className="mx-auto mt-5 max-w-[16ch] text-[clamp(2.1rem,5vw,3.9rem)] font-extrabold leading-[1.03] tracking-[-0.035em] text-[#1d1d1f]">
+        <h1 className="mx-auto mt-5 max-w-[16ch] text-[clamp(2.1rem,5vw,3.9rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-[#111111]">
           That page didn&rsquo;t load.
         </h1>
 
-        <p className="mx-auto mt-6 max-w-[48ch] text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.5] text-[#6e6e73]">
+        <p className="mx-auto mt-6 max-w-[48ch] text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.5] text-[#5E5E5E]">
           The fault is ours, not yours. Try again, and if it keeps happening,
           tell us and we will fix it properly.
         </p>
 
         {error?.digest && (
-          <p className="mt-5 text-[13px] text-[#6e6e73]">
+          <p className="mt-5 text-[13px] text-[#5E5E5E]">
             Reference:{" "}
             <code className="rounded bg-black/[0.05] px-1.5 py-0.5 font-mono">
               {error.digest}
@@ -60,13 +60,13 @@ export default function Error({ error, reset }) {
           </button>
           <Link
             href="/"
-            className="text-[1.0625rem] font-medium text-[#0040FF] transition-colors hover:text-[#1d1d1f]"
+            className="text-[1.0625rem] font-medium text-[#0040FF] transition-colors hover:text-[#111111]"
           >
             Back to the homepage ›
           </Link>
         </div>
 
-        <p className="mt-12 text-[14px] text-[#6e6e73]">
+        <p className="mt-12 text-[14px] text-[#5E5E5E]">
           Need a person?{" "}
           <Link
             href="/contact"

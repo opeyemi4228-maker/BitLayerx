@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SITE } from "@/lib/seo";
 import { CATEGORIES, categoryBySlug, getPostsByCategory } from "@/lib/blog";
-import { Section, Container, Heading, Lede, ActionLink } from "@/components/ui/primitives";
+import { Section, Container, Heading, Lede, ActionLink, ClosingCTA } from "@/components/ui/primitives";
 import PostCover from "@/components/blog/PostCover";
 
 export function generateStaticParams() {
@@ -50,10 +50,10 @@ export default async function CategoryPage({ params }) {
     <>
       <Section tone="white" rhythm="tight" className="border-b border-black/10">
         <Container width="wide">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
-            <Link href="/blog" className="hover:text-[#1d1d1f]">Insight</Link>
+            <Link href="/blog" className="hover:text-[#111111]">Insight</Link>
           </nav>
 
           <p
@@ -76,8 +76,8 @@ export default async function CategoryPage({ params }) {
                   aria-current={active ? "page" : undefined}
                   className={`whitespace-nowrap pb-3 text-[14.5px] font-semibold border-b-2 transition-colors ${
                     active
-                      ? "text-[#1d1d1f] border-[#1d1d1f]"
-                      : "text-[#1d1d1f]/60 hover:text-[#1d1d1f] border-transparent hover:border-[#1d1d1f]"
+                      ? "text-[#111111] border-[#111111]"
+                      : "text-[#111111]/60 hover:text-[#111111] border-transparent hover:border-[#111111]"
                   }`}
                 >
                   {c.name}
@@ -111,13 +111,13 @@ export default async function CategoryPage({ params }) {
                     className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-4 rounded-xl"
                   >
                     <PostCover post={post} ratio="16 / 10" sizes="(max-width: 640px) 100vw, 33vw" />
-                    <h2 className="mt-4 text-[1.2rem] font-bold tracking-[-0.02em] leading-snug text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+                    <h2 className="mt-4 text-[1.2rem] font-bold tracking-[-0.02em] leading-snug text-[#111111] group-hover:text-[#0040FF] transition-colors">
                       {post.title}
                     </h2>
-                    <p className="mt-2 text-[0.95rem] leading-relaxed text-[#6e6e73]">
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-[#5E5E5E]">
                       {post.excerpt}
                     </p>
-                    <p className="mt-3 text-[13px] text-[#6e6e73]">
+                    <p className="mt-3 text-[13px] text-[#5E5E5E]">
                       {formatDate(post.published)} · {post.readingTime} min read
                     </p>
                   </Link>
@@ -128,22 +128,11 @@ export default async function CategoryPage({ params }) {
         </Container>
       </Section>
 
-      <Section tone="dark" rhythm="tight">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="md">Have a project in mind?</Heading>
-          <div className="mt-7 flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-[0.8rem] text-[1.0625rem] font-medium text-[#1d1d1f] hover:bg-white/90 transition-colors"
-            >
-              Request a session
-            </Link>
-            <ActionLink href="/blog" tone="light" className="px-4">
-              Back to all writing
-            </ActionLink>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Have a project in mind?"
+        primary={{ href: "/start-a-project", label: "Request a session" }}
+        secondary={{ href: "/blog", label: "Back to all writing" }}
+      />
     </>
   );
 }

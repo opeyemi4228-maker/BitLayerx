@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { Check } from "lucide-react";
 import {
   Section,
   Container,
@@ -7,7 +9,9 @@ import {
   ActionLink,
   SectionHeader,
   PageHero,
+  ClosingCTA,
 } from "@/components/ui/primitives";
+import { PACKAGES } from "@/content/packages";
 
 /**
  * Packages.
@@ -19,89 +23,7 @@ import {
  * included, so nobody has to book a call to find out what they are buying.
  */
 
-const PACKAGES = [
-  {
-    name: "Launchpad",
-    price: "₦500,000",
-    pricePrefix: "from",
-    priceNote: "Most launch sites land between ₦500k and ₦1.2m.",
-    tagline: "Get online properly, the first time",
-    who: "New businesses, or anyone whose current site is embarrassing them.",
-    includes: [
-      "A website of up to five pages",
-      "Written for your customers, not for you",
-      "Set up so Google can find it",
-      "Works properly on phones",
-      "Business email set up",
-      "Thirty days of support after launch",
-    ],
-  },
-  {
-    name: "Growth Engine",
-    price: "₦1,500,000",
-    pricePrefix: "from",
-    priceNote: "Plus a monthly marketing retainer from ₦350k.",
-    tagline: "Stop being the best kept secret in your market",
-    who: "Businesses with a site that nobody is finding.",
-    includes: [
-      "Everything in Launchpad",
-      "Up to twelve pages",
-      "Google ranking work, done monthly",
-      "Google and social media adverts",
-      "Email marketing set up and running",
-      "A monthly report on enquiries and sales",
-    ],
-    featured: true,
-  },
-  {
-    name: "Brand Authority",
-    price: "₦3,500,000",
-    pricePrefix: "from",
-    priceNote: "Brand and film together; either alone costs less.",
-    tagline: "Become the name people recognise first",
-    who: "Companies who look smaller than they are.",
-    includes: [
-      "Everything in Growth Engine",
-      "Full brand identity and logo",
-      "A brand guide your team can follow",
-      "A brand film and advert cuts",
-      "Photography direction",
-      "Templates for your team to use",
-    ],
-  },
-  {
-    name: "Tech Powerhouse",
-    price: "₦8,000,000",
-    pricePrefix: "from",
-    priceNote: "Scoped on features. Simple apps start lower.",
-    tagline: "Build the system your business runs on",
-    who: "Businesses who need software, not just a website.",
-    includes: [
-      "A custom web or mobile app",
-      "Logins, payments and dashboards",
-      "Connections to systems you already use",
-      "Built to handle growth",
-      "Security checked before launch",
-      "Handover so your team can take over",
-    ],
-  },
-  {
-    name: "Digital Dominance",
-    price: "₦20,000,000",
-    pricePrefix: "from",
-    priceNote: "Six month engagement, billed monthly.",
-    tagline: "Own your market completely",
-    who: "Companies ready to lead their category.",
-    includes: [
-      "Everything in every package above",
-      "Six months of marketing",
-      "A dedicated account lead",
-      "Priority on everything",
-      "Quarterly strategy sessions",
-      "Ongoing development and support",
-    ],
-  },
-];
+
 
 const FAQS = [
   {
@@ -147,72 +69,81 @@ export default function PackagesClient() {
       {/* Packages */}
       <Section tone="white">
         <Container width="wide">
-          <div className="grid gap-px overflow-hidden rounded-2xl bg-black/10 lg:grid-cols-3">
+          {/* White cards on white, separated by hairlines. The featured tier
+              is marked with a blue outline, not a black slab: on a white
+              page a dark card becomes the heaviest thing on screen and pulls
+              the eye away from the price, which is what the reader came for. */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {PACKAGES.map((p) => (
-              <div
+              <article
                 key={p.name}
-                className={`flex flex-col p-8 ${p.featured ? "bg-black" : "bg-white"}`}
+                id={p.slug}
+                className={`flex scroll-mt-32 flex-col rounded-[24px] bg-white p-8 ${
+                  p.featured ? "ring-2 ring-[#0040FF]" : "ring-1 ring-black/[0.1]"
+                }`}
               >
-                {p.featured && (
-                  <span className="mb-4 inline-block self-start rounded-full bg-[#0040FF] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                    Most popular
-                  </span>
-                )}
+                <a
+                  href={p.example.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative -mx-2 -mt-2 block overflow-hidden rounded-[16px] ring-1 ring-black/[0.08]"
+                  aria-label={`Open ${p.example.name}, an example of ${p.name} work`}
+                >
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={p.example.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 420px"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </a>
+                <p className="mt-3 text-[13px] text-[#5E5E5E]">
+                  Example: {p.example.name}
+                </p>
 
-                <h2
-                  className={`text-[1.6rem] font-bold tracking-[-0.03em] ${p.featured ? "text-white" : "text-[#1d1d1f]"}`}
-                >
-                  {p.name}
-                </h2>
-                <p
-                  className={`mt-2 text-[1.0625rem] leading-snug ${p.featured ? "text-white/70" : "text-[#6e6e73]"}`}
-                >
+                <div className="mt-5 flex items-center gap-3">
+                  <h2 className="text-[1.6rem] font-semibold tracking-[-0.03em] text-[#111111]">
+                    {p.name}
+                  </h2>
+                  {p.featured && (
+                    <span className="rounded-full bg-[#0040FF] px-3 py-1 text-[12px] font-medium text-white">
+                      Most popular
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 text-[1.0625rem] leading-snug text-[#5E5E5E]">
                   {p.tagline}
                 </p>
 
-                <div
-                  className={`mt-6 border-t pt-6 ${p.featured ? "border-white/10" : "border-black/10"}`}
-                >
-                  <span
-                    className={`block text-[12px] font-semibold uppercase tracking-[0.12em] ${p.featured ? "text-white/45" : "text-[#6e6e73]"}`}
-                  >
-                    {p.pricePrefix}
+                <div className="mt-6 border-t border-black/10 pt-6">
+                  <span className="block text-[13px] text-[#5E5E5E]">
+                    Starting {p.pricePrefix}
                   </span>
-                  <span
-                    className={`mt-1 block text-[2rem] font-extrabold tracking-[-0.035em] ${p.featured ? "text-white" : "text-[#1d1d1f]"}`}
-                  >
+                  <span className="mt-1 block text-[2rem] font-semibold tracking-[-0.035em] text-[#111111]">
                     {p.price}
                   </span>
-                  <span
-                    className={`mt-2 block text-[13.5px] leading-relaxed ${p.featured ? "text-white/50" : "text-[#6e6e73]"}`}
-                  >
+                  <span className="mt-2 block text-[13.5px] leading-relaxed text-[#5E5E5E]">
                     {p.priceNote}
                   </span>
                 </div>
 
-                <p
-                  className={`mt-5 border-t pt-5 text-[14.5px] leading-relaxed ${
-                    p.featured
-                      ? "border-white/10 text-white/55"
-                      : "border-black/10 text-[#6e6e73]"
-                  }`}
-                >
-                  <span className={p.featured ? "font-semibold text-white/80" : "font-semibold text-[#1d1d1f]"}>
-                    Good for:
-                  </span>{" "}
+                <p className="mt-5 border-t border-black/10 pt-5 text-[14.5px] leading-relaxed text-[#5E5E5E]">
+                  <span className="font-semibold text-[#111111]">Good for:</span>{" "}
                   {p.who}
                 </p>
 
                 <ul className="mt-6 flex-1 space-y-3">
                   {p.includes.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <span
+                      <Check
+                        size={16}
+                        strokeWidth={2.25}
                         aria-hidden="true"
-                        className="mt-[0.42rem] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0040FF]"
+                        className="mt-[3px] flex-shrink-0 text-[#0040FF]"
                       />
-                      <span
-                        className={`text-[15px] leading-relaxed ${p.featured ? "text-white/80" : "text-[#1d1d1f]"}`}
-                      >
+                      <span className="text-[15px] leading-relaxed text-[#111111]">
                         {item}
                       </span>
                     </li>
@@ -223,17 +154,17 @@ export default function PackagesClient() {
                   href="/start-a-project"
                   className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-[0.8rem] text-[1.0625rem] font-medium transition-colors ${
                     p.featured
-                      ? "bg-white text-[#1d1d1f] hover:bg-white/90"
-                      : "bg-[#0040FF] text-white hover:bg-black"
+                      ? "bg-[#0040FF] text-white hover:bg-black"
+                      : "border border-black/[0.16] text-[#111111] hover:border-black"
                   }`}
                 >
                   Get a price for this
                 </Link>
-              </div>
+              </article>
             ))}
           </div>
 
-          <p className="mt-8 text-center text-[14.5px] leading-relaxed text-[#6e6e73]">
+          <p className="mt-8 text-center text-[14.5px] leading-relaxed text-[#5E5E5E]">
             Prices in naira, excluding VAT. We also quote in GBP, USD and AED
             for clients outside Nigeria.{" "}
             <Link
@@ -261,8 +192,8 @@ export default function PackagesClient() {
           <dl className="mt-12 divide-y divide-black/10 border-y border-black/10">
             {FAQS.map((f) => (
               <div key={f.q} className="grid gap-3 py-7 sm:grid-cols-[1fr_1.4fr] sm:gap-10">
-                <dt className="text-[1.0625rem] font-bold text-[#1d1d1f]">{f.q}</dt>
-                <dd className="text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+                <dt className="text-[1.0625rem] font-bold text-[#111111]">{f.q}</dt>
+                <dd className="text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
                   {f.a}
                   {f.link && (
                     <>
@@ -284,25 +215,11 @@ export default function PackagesClient() {
       </Section>
 
       {/* CTA */}
-      <Section tone="brand">
-        <Container width="narrow" className="text-center">
-          <Heading as="h2" size="xl" className="mx-auto max-w-[16ch]">
-            Get a real price in 48 hours.
-          </Heading>
-          <Lede tone="light" className="mx-auto mt-6 max-w-[48ch]">
-            One conversation, then a written plan with the scope, the timeline
-            and the price. Yours to keep even if you go elsewhere.
-          </Lede>
-          <div className="mt-10">
-            <Link
-              href="/start-a-project"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-[0.95rem] text-[1.0625rem] font-medium text-[#1d1d1f] transition-colors hover:bg-white/90"
-            >
-              Start a project
-            </Link>
-          </div>
-        </Container>
-      </Section>
+      <ClosingCTA
+        heading="Get a real price in 48 hours."
+        lede="One conversation, then a written plan with the scope, the timeline and the price. Yours to keep even if you go elsewhere."
+        primary={{ href: "/start-a-project", label: "Start a project" }}
+      />
     </>
   );
 }

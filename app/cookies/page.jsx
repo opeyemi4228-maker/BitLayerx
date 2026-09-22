@@ -25,8 +25,8 @@ export default function CookiesPage() {
     <>
       <Section tone="white" rhythm="tight">
         <Container width="text">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Cookies</span>
           </nav>
@@ -37,7 +37,7 @@ export default function CookiesPage() {
             other websites. Blocking everything below will not break anything
             here.
           </Lede>
-          <p className="mt-6 text-[14px] text-[#6e6e73]">
+          <p className="mt-6 text-[14px] text-[#5E5E5E]">
             Last updated {LAST_UPDATED}
           </p>
         </Container>

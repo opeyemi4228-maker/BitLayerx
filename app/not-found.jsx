@@ -26,7 +26,7 @@ export default function NotFound() {
   return (
     <Section tone="white">
       <Container width="narrow">
-        <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+        <p className="text-[14px] font-semibold text-[#0040FF]">
           Error 404
         </p>
         <Heading as="h1" size="xl" className="mt-4">
@@ -44,7 +44,7 @@ export default function NotFound() {
               href={d.href}
               className="group bg-white p-6 hover:bg-black/[0.02] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
             >
-              <span className="flex items-center gap-1.5 text-[1.0625rem] font-semibold text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+              <span className="flex items-center gap-1.5 text-[1.0625rem] font-semibold text-[#111111] group-hover:text-[#0040FF] transition-colors">
                 {d.label}
                 <span
                   aria-hidden="true"
@@ -53,14 +53,14 @@ export default function NotFound() {
                   ›
                 </span>
               </span>
-              <span className="mt-1 block text-[14.5px] text-[#6e6e73]">
+              <span className="mt-1 block text-[14.5px] text-[#5E5E5E]">
                 {d.note}
               </span>
             </Link>
           ))}
         </div>
 
-        <p className="mt-10 text-[15px] text-[#6e6e73]">
+        <p className="mt-10 text-[15px] text-[#5E5E5E]">
           Arrived from a link that should work?{" "}
           <Link
             href="/contact"

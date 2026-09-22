@@ -25,8 +25,8 @@ export default function AccessibilityPage() {
     <>
       <Section tone="white" rhythm="tight">
         <Container width="text">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Accessibility</span>
           </nav>
@@ -37,7 +37,7 @@ export default function AccessibilityPage() {
             keyboard only, or a phone on a bad connection. This page says what
             we have done and, more usefully, what we know is still imperfect.
           </Lede>
-          <p className="mt-6 text-[14px] text-[#6e6e73]">
+          <p className="mt-6 text-[14px] text-[#5E5E5E]">
             Last updated {LAST_UPDATED}
           </p>
         </Container>
@@ -95,7 +95,7 @@ export default function AccessibilityPage() {
           </div>
 
           <div className="mt-12 rounded-2xl border border-black/[0.07] bg-white p-7">
-            <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+            <p className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
               We build accessibility into client work for the same reason. If
               that matters for your project,{" "}
               <Link

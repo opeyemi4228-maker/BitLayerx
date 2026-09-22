@@ -25,8 +25,8 @@ export default function TermsPage() {
     <>
       <Section tone="white" rhythm="tight">
         <Container width="text">
-          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
             <span>Terms</span>
           </nav>
@@ -37,7 +37,7 @@ export default function TermsPage() {
             rather than after. A signed contract nobody understood is a dispute
             waiting for a date.
           </Lede>
-          <p className="mt-6 text-[14px] text-[#6e6e73]">
+          <p className="mt-6 text-[14px] text-[#5E5E5E]">
             Last updated {LAST_UPDATED}
           </p>
         </Container>
@@ -140,7 +140,7 @@ export default function TermsPage() {
           </div>
 
           <div className="mt-12 rounded-2xl border border-black/[0.07] bg-white p-7">
-            <p className="text-[15.5px] leading-relaxed text-[#6e6e73]">
+            <p className="text-[15.5px] leading-relaxed text-[#5E5E5E]">
               Want any of this explained before you commit? That is a reasonable
               thing to ask.{" "}
               <Link

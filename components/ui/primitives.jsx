@@ -8,24 +8,22 @@ import Link from "next/link";
  * same product. These components own those decisions now. Pages compose them
  * and do not set padding directly.
  *
- * The structural language is Apple's: full-bleed panels that alternate between
- * white, a very slightly warm off-white and near-black; text measured to a
- * narrow column and centred; oversized display type with tight tracking; and a
- * single blue action link instead of a wall of buttons.
+ * The structural language is pure white throughout. Sections are separated by
+ * a single hairline, never by a tinted or dark panel, so the page reads as one
+ * clean, continuous document. Colour is reserved for the one thing on a
+ * screen that should be acted on.
  */
 
 // ─── Panel tones ──────────────────────────────────────────────────────────────
-// Apple separates sections by background alone, no rules, no borders. The
-// eye reads a tone change as a new chapter more cleanly than a hairline does.
+// Every tone is pure #FFFFFF. Tinted off-whites read as grey or blue next to
+// real white, and dark panels break the page into slabs. "offwhite", "dark"
+// and "brand" are kept as names so existing pages keep compiling, and each
+// one now means "white, with a hairline above it" to mark a new chapter.
 const TONES = {
-  white: "bg-white text-[#1d1d1f]",
-  // Was a grey fill. Grey panels are the cheapest way to separate sections and
-  // they make a site look like a template, because every generated layout
-  // reaches for them. White throughout with a single hairline makes the page
-  // read as one continuous document, which is how a printed publication works.
-  offwhite: "bg-white text-[#1d1d1f] border-t border-black/[0.08]",
-  dark: "bg-black text-white",
-  brand: "bg-black text-white",
+  white: "bg-white text-[#111111]",
+  offwhite: "bg-white text-[#111111] border-t border-black/[0.08]",
+  dark: "bg-white text-[#111111] border-t border-black/[0.08]",
+  brand: "bg-white text-[#111111] border-t border-black/[0.08]",
 };
 
 // Two rhythms, and only two. Every section on the site is one or the other.
@@ -80,9 +78,11 @@ export function Eyebrow({ children, tone = "brand", className = "" }) {
   const colour =
     tone === "light" ? "text-white/60" : "text-[#0040FF]";
 
+  // Sentence case, not tracked capitals: spaced-out uppercase labels are the
+  // commonest tell of a template.
   return (
     <p
-      className={`text-[12px] font-bold tracking-[0.18em] uppercase mb-4 ${colour} ${className}`}
+      className={`text-[14px] font-semibold tracking-[-0.005em] mb-4 ${colour} ${className}`}
     >
       {children}
     </p>
@@ -94,10 +94,10 @@ export function Eyebrow({ children, tone = "brand", className = "" }) {
 // `clamp()` means a heading is never hand-tuned per breakpoint, so two pages
 // cannot drift apart.
 const HEADING_SIZES = {
-  hero: "text-[clamp(2.6rem,7vw,5.2rem)] leading-[0.98]",
-  xl: "text-[clamp(2.1rem,5vw,3.9rem)] leading-[1.03]",
-  lg: "text-[clamp(1.7rem,3.4vw,2.9rem)] leading-[1.08]",
-  md: "text-[clamp(1.35rem,2.2vw,1.9rem)] leading-[1.15]",
+  hero: "text-[clamp(2.6rem,7vw,5.2rem)] leading-[1]",
+  xl: "text-[clamp(2rem,4.6vw,3.6rem)] leading-[1.05]",
+  lg: "text-[clamp(1.7rem,3.2vw,2.7rem)] leading-[1.1]",
+  md: "text-[clamp(1.35rem,2.2vw,1.85rem)] leading-[1.18]",
 };
 
 export function Heading({
@@ -110,7 +110,7 @@ export function Heading({
   return (
     <Tag
       id={id}
-      className={`font-extrabold tracking-[-0.035em] ${HEADING_SIZES[size] ?? HEADING_SIZES.xl} ${className}`}
+      className={`font-semibold tracking-[-0.035em] ${HEADING_SIZES[size] ?? HEADING_SIZES.xl} ${className}`}
     >
       {children}
     </Tag>
@@ -122,7 +122,7 @@ export function Heading({
 // than body copy and in a softer grey; it carries the whole argument for the
 // section, so it earns the size.
 export function Lede({ children, tone = "dark", className = "" }) {
-  const colour = tone === "light" ? "text-white/70" : "text-[#6e6e73]";
+  const colour = tone === "light" ? "text-white/70" : "text-[#5E5E5E]";
   return (
     <p
       className={`text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.5] font-normal ${colour} ${className}`}
@@ -146,7 +146,7 @@ export function ActionLink({
   const colour =
     tone === "light"
       ? "text-[#5C86FF] hover:text-[#8FAEFF]"
-      : "text-[#0040FF] hover:text-[#1d1d1f]";
+      : "text-[#0040FF] hover:text-[#111111]";
 
   const props = external
     ? { href, target: "_blank", rel: "noopener noreferrer" }
@@ -176,9 +176,9 @@ const BUTTON_VARIANTS = {
   primary:
     "bg-[#0040FF] text-white hover:bg-black focus-visible:ring-[#0040FF]",
   onDark:
-    "bg-white text-[#1d1d1f] hover:bg-white/90 focus-visible:ring-white",
+    "bg-white text-[#111111] hover:bg-white/90 focus-visible:ring-white",
   outline:
-    "border border-[#1d1d1f]/20 text-[#1d1d1f] hover:border-[#1d1d1f]/45 focus-visible:ring-[#1d1d1f]",
+    "border border-[#111111]/20 text-[#111111] hover:border-[#111111]/45 focus-visible:ring-[#111111]",
 };
 
 export function Button({
@@ -253,13 +253,13 @@ export function SectionHeader({
 /**
  * The standard hero for every page other than the homepage.
  *
- * It exists so no page invents its own opening. One emphasised word carries
- * the promise, set larger, heavier and in the brand blue, exactly as the
- * homepage does. Emphasising two words cancels both out, so `highlight` takes
- * a single word or short phrase.
+ * Left-aligned and set on pure white: a large headline on the left, and the
+ * supporting line and actions beside it on wide screens, the arrangement
+ * Ventures Platform and BMW open with. Nothing sits behind the type.
  *
- * Pass the headline as three parts: what comes before the emphasised word, the
- * word itself, and what comes after.
+ * `highlight` takes a single word or short phrase, set in the brand blue.
+ * Emphasising two words cancels both out. Pass the headline as three parts:
+ * what comes before the emphasised word, the word itself, and what comes after.
  */
 export function PageHero({
   eyebrow,
@@ -272,60 +272,112 @@ export function PageHero({
   children,
 }) {
   return (
-    <section className="relative overflow-hidden bg-white pt-[clamp(1.75rem,3.5vw,3rem)] pb-[clamp(3rem,6vw,5rem)]">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[70%]"
-        style={{
-          background:
-            "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0,64,255,0.05), transparent 70%)",
-        }}
-      />
-
-      <Container width="narrow" className="relative text-center">
+    <section className="bg-white pt-[clamp(2.5rem,6vw,5.5rem)] pb-[clamp(2.75rem,5.5vw,5rem)]">
+      <Container width="wide">
         {eyebrow && (
-          <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#0040FF]">
+          <p className="text-[14px] font-semibold tracking-[-0.005em] text-[#0040FF]">
             {eyebrow}
           </p>
         )}
 
-        <h1 className="mx-auto mt-6 max-w-[15ch] text-[clamp(2.6rem,7.4vw,5.4rem)] font-extrabold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
-          {before}
-          {highlight && (
-            <>
-              {before ? " " : ""}
-              <span className="text-[1.12em] font-black tracking-[-0.05em] text-[#0040FF]">
-                {highlight}
-              </span>
-              {after ? " " : ""}
-            </>
+        <div className="mt-5 grid items-end gap-8 lg:grid-cols-12 lg:gap-12">
+          <h1 className="max-w-[16ch] text-[clamp(2.6rem,6.4vw,5.6rem)] font-semibold leading-[1] tracking-[-0.045em] text-[#111111] lg:col-span-8">
+            {before}
+            {highlight && (
+              <>
+                {before ? " " : ""}
+                <span className="text-[#0040FF]">{highlight}</span>
+                {after && !/^[.,!?]/.test(after) ? " " : ""}
+              </>
+            )}
+            {after}
+          </h1>
+
+          {(lede || primary || secondary) && (
+            <div className="lg:col-span-4 lg:pb-3">
+              {lede && (
+                <p className="max-w-[46ch] text-[clamp(1.05rem,1.4vw,1.2rem)] leading-[1.55] text-[#5E5E5E]">
+                  {lede}
+                </p>
+              )}
+
+              {(primary || secondary) && (
+                <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+                  {primary && (
+                    <Link
+                      href={primary.href}
+                      className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-7 py-[0.85rem] text-[1rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
+                    >
+                      {primary.label}
+                    </Link>
+                  )}
+                  {secondary && (
+                    <ActionLink href={secondary.href}>{secondary.label}</ActionLink>
+                  )}
+                </div>
+              )}
+            </div>
           )}
-          {after}
-        </h1>
-
-        {lede && (
-          <p className="mx-auto mt-7 max-w-[48ch] text-[clamp(1.05rem,1.8vw,1.4rem)] leading-[1.45] text-[#6e6e73]">
-            {lede}
-          </p>
-        )}
-
-        {(primary || secondary) && (
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
-            {primary && (
-              <Link
-                href={primary.href}
-                className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
-              >
-                {primary.label}
-              </Link>
-            )}
-            {secondary && (
-              <ActionLink href={secondary.href}>{secondary.label}</ActionLink>
-            )}
-          </div>
-        )}
+        </div>
 
         {children}
+      </Container>
+    </section>
+  );
+}
+
+// ─── Closing call to action ───────────────────────────────────────────────────
+/**
+ * The last section of a page: one ask, one alternative, on white.
+ *
+ * It used to be a solid blue or black slab. On a white site that slab is the
+ * heaviest thing on the page, so it outshouted the work above it; a hairline
+ * and a large headline close the page without breaking its tone.
+ */
+export function ClosingCTA({
+  heading,
+  lede,
+  primary = { href: "/start-a-project", label: "Start a project" },
+  secondary,
+  children,
+  id,
+}) {
+  return (
+    <section
+      aria-labelledby={id}
+      className="border-t border-black/[0.08] bg-white py-[clamp(4.5rem,9vw,8rem)]"
+    >
+      <Container width="wide">
+        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
+          <h2
+            id={id}
+            className="max-w-[18ch] text-[clamp(2.2rem,5.2vw,4.4rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[#111111] lg:col-span-7"
+          >
+            {heading}
+          </h2>
+
+          <div className="lg:col-span-5 lg:pb-2">
+            {lede && (
+              <p className="max-w-[50ch] text-[clamp(1.05rem,1.4vw,1.2rem)] leading-[1.55] text-[#5E5E5E]">
+                {lede}
+              </p>
+            )}
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+              {primary && (
+                <Link
+                  href={primary.href}
+                  className="inline-flex items-center justify-center rounded-full bg-[#0040FF] px-8 py-[0.95rem] text-[1.0625rem] font-medium text-white transition-colors hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-2"
+                >
+                  {primary.label}
+                </Link>
+              )}
+              {secondary && (
+                <ActionLink href={secondary.href}>{secondary.label}</ActionLink>
+              )}
+            </div>
+            {children}
+          </div>
+        </div>
       </Container>
     </section>
   );

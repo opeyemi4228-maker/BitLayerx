@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import BrandPlate from "@/components/BrandPlate";
+import { PageHero } from "@/components/ui/primitives";
 
 export default function BitLayerxDesignPage() {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -282,81 +283,18 @@ export default function BitLayerxDesignPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF] py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(30deg, white 12%, transparent 12.5%, transparent 87%, white 87.5%, white), linear-gradient(150deg, white 12%, transparent 12.5%, transparent 87%, white 87.5%, white)',
-            backgroundSize: '80px 140px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-wider mb-8"
-            >
-              Graphics & Branding
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-light text-white mb-6 leading-tight"
-            >
-              Design That{' '}
-              <span className="font-bold">Commands Attention</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-12"
-            >
-              From brand identities that build trust to marketing materials that convert, professional design that elevates your business.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link href="#services">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white text-[#0040FF] text-lg font-semibold"
-                >
-                  View Design Services
-                </motion.button>
-              </Link>
-              
-              <Link href="/portfolio">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-transparent text-white text-lg font-semibold border-2 border-white"
-                >
-                  See Our Work
-                </motion.button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Graphics and branding"
+        before="Design that"
+        highlight="commands attention"
+        after="."
+        lede="From brand identities that build trust to marketing materials that convert, professional design that elevates your business."
+        primary={{ href: "#services", label: "View design services" }}
+        secondary={{ href: "/portfolio", label: "See our work" }}
+      />
 
       {/* Quick Nav */}
-      <section className="bg-gray-50 py-6 sticky top-20 z-40 border-b border-gray-200 shadow-sm">
+      <section className="bg-white border-t border-black/[0.08] py-6 sticky top-20 z-40 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap gap-3 justify-center">
             {designServices.map((service) => (
@@ -377,7 +315,7 @@ export default function BitLayerxDesignPage() {
         <section
           key={service.id}
           id={service.id}
-          className={`py-20 lg:py-28 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+          className={`py-20 lg:py-28 ${index % 2 === 0 ? 'bg-white' : 'bg-white ring-1 ring-black/[0.08]'}`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -519,15 +457,15 @@ export default function BitLayerxDesignPage() {
                   ))}
                 </ul>
 
-                <div className="mt-8 p-6 bg-gradient-to-br from-[#0040FF] to-[#0040FF] text-white">
+                <div className="mt-8 p-6 rounded-2xl bg-white ring-1 ring-[#0040FF]/25 text-[#111111]">
                   <div className="flex items-start gap-3 mb-3">
-                    <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-6 h-6 flex-shrink-0 text-[#0040FF]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
                     <div>
                       <div className="font-bold mb-1">Expected Results:</div>
-                      <p className="text-white/90 text-sm">{service.results}</p>
-                      <div className="mt-2 flex items-center gap-2 text-sm text-white/80">
+                      <p className="text-[#5E5E5E] text-sm">{service.results}</p>
+                      <div className="mt-2 flex items-center gap-2 text-sm text-[#5E5E5E]">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                         </svg>
@@ -543,7 +481,7 @@ export default function BitLayerxDesignPage() {
       ))}
 
       {/* Portfolio Showcase */}
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -554,7 +492,7 @@ export default function BitLayerxDesignPage() {
             <h2 className="text-4xl lg:text-5xl font-light mb-4">
               Recent <span className="font-bold">Design Work</span>
             </h2>
-            <p className="text-lg text-white/80">Real projects from real clients</p>
+            <p className="text-lg text-[#5E5E5E]">Real projects from real clients</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -573,8 +511,8 @@ export default function BitLayerxDesignPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="text-sm text-[#0040FF] font-semibold mb-1">{item.category}</div>
-                <div className="font-bold text-white mb-2">{item.client}</div>
-                <div className="text-sm text-white/70">{item.description}</div>
+                <div className="font-bold text-[#111111] mb-2">{item.client}</div>
+                <div className="text-sm text-[#5E5E5E]">{item.description}</div>
               </motion.div>
             ))}
           </div>
@@ -584,7 +522,7 @@ export default function BitLayerxDesignPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-colors"
+                className="px-10 py-4 bg-[#0040FF] text-white font-semibold hover:bg-black transition-colors"
               >
                 View Full Portfolio
               </motion.button>
@@ -594,7 +532,7 @@ export default function BitLayerxDesignPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -649,10 +587,9 @@ export default function BitLayerxDesignPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF]" />
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-t border-black/[0.08]">
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#111111]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -667,7 +604,7 @@ export default function BitLayerxDesignPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12 text-white/90"
+            className="text-xl mb-12 text-[#5E5E5E]"
           >
             Let's create something exceptional together
           </motion.p>
@@ -681,9 +618,9 @@ export default function BitLayerxDesignPage() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-white text-[#0040FF] text-xl font-bold transition-all duration-300"
+                className="px-12 py-5 bg-[#0040FF] text-white hover:bg-black text-xl font-bold transition-all duration-300"
               >
                 Start Your Project
               </motion.button>
@@ -693,7 +630,7 @@ export default function BitLayerxDesignPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-transparent text-white text-xl font-bold border-2 border-white transition-all duration-300"
+                className="px-12 py-5 bg-transparent text-[#111111] text-xl font-bold border border-black/[0.16] transition-all duration-300"
               >
                 View Portfolio
               </motion.button>

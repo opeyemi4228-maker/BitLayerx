@@ -96,7 +96,7 @@ function WhyBitLayerX() {
             </p>
             <h2
               id="why-heading"
-              className="text-[32px] sm:text-[40px] lg:text-[52px] font-black text-[#1d1d1f] leading-[1] tracking-[-0.035em]"
+              className="text-[32px] sm:text-[40px] lg:text-[52px] font-black text-[#111111] leading-[1] tracking-[-0.035em]"
             >
               Why companies move
               <br />
@@ -127,7 +127,7 @@ function WhyBitLayerX() {
                     <Icon size={18} strokeWidth={2} className="text-[#0040FF]" />
                   </div>
                   <div>
-                    <h3 className="text-[16.5px] font-black text-[#1d1d1f] tracking-tight mb-2">
+                    <h3 className="text-[16.5px] font-black text-[#111111] tracking-tight mb-2">
                       {d.title}
                     </h3>
                     <p className="text-gray-600 text-[15px] leading-relaxed">
@@ -177,7 +177,7 @@ function WhyBitLayerX() {
             <div className="flex items-center gap-3 flex-wrap mt-8">
               <Link
                 href="/start-a-project"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-black hover:bg-[#0040FF] text-white font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-black hover:bg-[#0040FF] text-white font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#111111] focus-visible:ring-offset-2"
               >
                 Start a project
                 <ArrowRight
@@ -188,7 +188,7 @@ function WhyBitLayerX() {
               </Link>
               <Link
                 href="/packages"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#1d1d1f]/20 text-[#1d1d1f] font-bold text-[14.5px] rounded-xl hover:border-[#1d1d1f]/40 hover:bg-black/[0.03] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#111111]/20 text-[#111111] font-bold text-[14.5px] rounded-xl hover:border-[#111111]/40 hover:bg-black/[0.03] transition-all duration-200"
               >
                 See what things cost
               </Link>
@@ -209,7 +209,7 @@ function Mark({ on }) {
         }`}
       >
         {on ? (
-          <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#1d1d1f]" />
+          <CheckCircle2 size={14} strokeWidth={2.5} className="text-[#111111]" />
         ) : (
           <X size={13} strokeWidth={3} className="text-gray-300" />
         )}
@@ -276,7 +276,7 @@ function FounderSection() {
                     Opeyemi T. Ojurongbe
                   </p>
                   <p className="text-white/40 text-[14px] font-medium">
-                    Team Lead · Design engineer · Registered mining
+                    CEO, BitLayerX Technologies · Design engineer · Registered mining
                     engineer (NSE)
                   </p>
                 </div>
@@ -295,7 +295,7 @@ function FounderSection() {
                 href="https://opeyemiojurongbe.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-[#1d1d1f] font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-[#111111] font-bold text-[14.5px] rounded-xl transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]"
               >
                 Read the writing
                 <ArrowRight

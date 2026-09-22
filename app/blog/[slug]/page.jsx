@@ -127,16 +127,16 @@ export default async function ArticlePage({ params }) {
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <Section tone="white" rhythm="tight">
         <Container width="narrow">
-          <nav aria-label="Breadcrumb" className="mb-7 text-[13.5px] text-[#6e6e73]">
-            <Link href="/" className="hover:text-[#1d1d1f]">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-7 text-[13.5px] text-[#5E5E5E]">
+            <Link href="/" className="hover:text-[#111111]">Home</Link>
             <span aria-hidden="true" className="mx-2">›</span>
-            <Link href="/blog" className="hover:text-[#1d1d1f]">Insight</Link>
+            <Link href="/blog" className="hover:text-[#111111]">Insight</Link>
             {category && (
               <>
                 <span aria-hidden="true" className="mx-2">›</span>
                 <Link
                   href={`/blog/category/${category.slug}`}
-                  className="hover:text-[#1d1d1f]"
+                  className="hover:text-[#111111]"
                 >
                   {category.name}
                 </Link>
@@ -159,8 +159,8 @@ export default async function ArticlePage({ params }) {
 
           <Lede className="mt-5">{post.excerpt}</Lede>
 
-          <div className="mt-8 pt-6 border-t border-black/10 flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-[#6e6e73]">
-            <span className="font-semibold text-[#1d1d1f]">{post.author}</span>
+          <div className="mt-8 pt-6 border-t border-black/10 flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-[#5E5E5E]">
+            <span className="font-semibold text-[#111111]">{post.author}</span>
             <span aria-hidden="true">·</span>
             <span>{post.authorRole}</span>
             <span aria-hidden="true">·</span>
@@ -189,7 +189,7 @@ export default async function ArticlePage({ params }) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full bg-black/[0.05] text-[12.5px] font-medium text-[#6e6e73]"
+                  className="px-3 py-1 rounded-full bg-black/[0.05] text-[12.5px] font-medium text-[#5E5E5E]"
                 >
                   {tag}
                 </span>
@@ -206,7 +206,7 @@ export default async function ArticlePage({ params }) {
             <Heading as="h2" size="md">
               Want this handled properly?
             </Heading>
-            <p className="mt-3 text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+            <p className="mt-3 text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
               We do this work for a living, strategy, design, engineering,
               brand, film and growth, from one team. Tell us what you are
               building and you will have a written plan within 48 hours.
@@ -228,7 +228,7 @@ export default async function ArticlePage({ params }) {
       {related.length > 0 && (
         <Section tone="white" rhythm="tight">
           <Container width="wide">
-            <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#1d1d1f] pb-3 mb-8 border-b-2 border-[#1d1d1f]">
+            <h2 className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#111111] pb-3 mb-8 border-b-2 border-[#111111]">
               Read next
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -239,10 +239,10 @@ export default async function ArticlePage({ params }) {
                     className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0040FF] focus-visible:ring-offset-4 rounded-xl"
                   >
                     <PostCover post={r} ratio="16 / 10" sizes="(max-width: 640px) 100vw, 33vw" />
-                    <h3 className="mt-4 text-[1.15rem] font-bold tracking-[-0.02em] leading-snug text-[#1d1d1f] group-hover:text-[#0040FF] transition-colors">
+                    <h3 className="mt-4 text-[1.15rem] font-bold tracking-[-0.02em] leading-snug text-[#111111] group-hover:text-[#0040FF] transition-colors">
                       {r.title}
                     </h3>
-                    <p className="mt-2 text-[13px] text-[#6e6e73]">
+                    <p className="mt-2 text-[13px] text-[#5E5E5E]">
                       {formatDate(r.published)} · {r.readingTime} min read
                     </p>
                   </Link>

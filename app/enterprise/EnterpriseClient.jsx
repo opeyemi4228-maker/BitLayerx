@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import BrandPlate from "@/components/BrandPlate";
+import { PageHero } from "@/components/ui/primitives";
 
 export default function BitLayerxEnterprisePage() {
   const [activeTab, setActiveTab] = useState('features');
@@ -223,80 +224,18 @@ export default function BitLayerxEnterprisePage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF] py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, white, white 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, white, white 1px, transparent 1px, transparent 60px)',
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-wider mb-8"
-            >
-              Enterprise Solutions
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-light text-white mb-6 leading-tight"
-            >
-              Digital Solutions Built for{' '}
-              <span className="font-bold">Enterprise Scale</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl lg:text-2xl text-white/90 leading-relaxed mb-12"
-            >
-              Dedicated teams, enterprise-grade security, and engineering built for organisations where procurement, compliance and legacy systems are all in the room.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link href="#contact-enterprise">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-white text-[#0040FF] text-lg font-semibold"
-                >
-                  Schedule Consultation
-                </motion.button>
-              </Link>
-              
-              <Link href="#case-studies">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-transparent text-white text-lg font-semibold border-2 border-white"
-                >
-                  View Case Studies
-                </motion.button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Enterprise"
+        before="Digital solutions built for"
+        highlight="enterprise scale"
+        after="."
+        lede="Dedicated teams, enterprise-grade security, and engineering built for organisations where procurement, compliance and legacy systems are all in the room."
+        primary={{ href: "#contact-enterprise", label: "Schedule a consultation" }}
+        secondary={{ href: "#case-studies", label: "View case studies" }}
+      />
 
       {/* Stats Bar */}
-      <section className="bg-gray-900 py-16">
+      <section className="py-16 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -308,10 +247,10 @@ export default function BitLayerxEnterprisePage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0040FF] to-white mb-2">
+                <div className="text-5xl lg:text-6xl font-bold text-[#0040FF] mb-2">
                   {stat.value}
                 </div>
-                <div className="text-white font-semibold mb-1">{stat.label}</div>
+                <div className="text-[#111111] font-semibold mb-1">{stat.label}</div>
                 <div className="text-sm text-black/80">{stat.sublabel}</div>
               </motion.div>
             ))}
@@ -345,7 +284,7 @@ export default function BitLayerxEnterprisePage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="p-8 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:border-[#0040FF] transition-all duration-300"
+                className="p-8 bg-white border border-black/[0.1] hover:border-[#0040FF] transition-all duration-300"
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
                 <p className="text-black/80 leading-relaxed">{item.description}</p>
@@ -356,7 +295,7 @@ export default function BitLayerxEnterprisePage() {
       </section>
 
       {/* Enterprise Features */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -450,7 +389,7 @@ export default function BitLayerxEnterprisePage() {
       </section>
 
       {/* Case Studies */}
-      <section id="case-studies" className="py-20 lg:py-28 bg-gray-50">
+      <section id="case-studies" className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -572,7 +511,7 @@ export default function BitLayerxEnterprisePage() {
                     className={`w-full py-4 font-semibold transition-all duration-300 ${
                       plan.popular
                         ? 'bg-gradient-to-r from-[#0040FF] to-[#0040FF] text-white hover:shadow-xl'
-                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                        : 'bg-white text-[#111111] ring-1 ring-black/[0.12] hover:ring-black/40'
                     }`}
                   >
                     Contact Sales
@@ -585,10 +524,9 @@ export default function BitLayerxEnterprisePage() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact-enterprise" className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0040FF] via-[#0040FF] to-[#0040FF]" />
+      <section id="contact-enterprise" className="relative py-20 lg:py-28 overflow-hidden bg-white border-t border-black/[0.08]">
         
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#111111]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -603,7 +541,7 @@ export default function BitLayerxEnterprisePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12 text-white/90"
+            className="text-xl mb-12 text-[#5E5E5E]"
           >
             Schedule a consultation with our enterprise team to discuss your specific needs
           </motion.p>
@@ -617,9 +555,9 @@ export default function BitLayerxEnterprisePage() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-white text-[#0040FF] text-xl font-bold transition-all duration-300"
+                className="px-12 py-5 bg-[#0040FF] text-white hover:bg-black text-xl font-bold transition-all duration-300"
               >
                 Schedule Enterprise Consultation
               </motion.button>
@@ -629,7 +567,7 @@ export default function BitLayerxEnterprisePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-5 bg-transparent text-white text-xl font-bold border-2 border-white transition-all duration-300"
+                className="px-12 py-5 bg-transparent text-[#111111] text-xl font-bold border border-black/[0.16] transition-all duration-300"
               >
                 Email: enterprise@bitlayerx.com
               </motion.button>

@@ -45,16 +45,16 @@ export default function Newsletter() {
 
   return (
     <Section tone="offwhite" rhythm="tight" labelledBy="newsletter-heading">
-      <Container width="default">
+      <Container width="wide">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <h2
               id="newsletter-heading"
-              className="text-[clamp(1.6rem,3vw,2.4rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#1d1d1f]"
+              className="text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[#111111]"
             >
               One email a fortnight.
             </h2>
-            <p className="mt-4 max-w-[46ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
+            <p className="mt-4 max-w-[46ch] text-[1.0625rem] leading-relaxed text-[#5E5E5E]">
               What we are building, and what we learned building it. Written by
               the people doing the work. No campaigns, no filler, and one click
               to stop.
@@ -71,10 +71,10 @@ export default function Newsletter() {
                   ✓
                 </span>
                 <div>
-                  <p className="text-[1.0625rem] font-semibold text-[#1d1d1f]">
+                  <p className="text-[1.0625rem] font-semibold text-[#111111]">
                     You are on the list.
                   </p>
-                  <p className="mt-0.5 text-[14px] text-[#6e6e73]">
+                  <p className="mt-0.5 text-[14px] text-[#5E5E5E]">
                     The next one goes out in a fortnight.
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function Newsletter() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@company.com"
                     disabled={status === "sending"}
-                    className="w-full flex-1 rounded-full border border-black/[0.14] bg-white px-6 py-[0.85rem] text-[16px] text-[#1d1d1f] placeholder:text-[#9a9aa0] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20 disabled:opacity-60"
+                    className="w-full flex-1 rounded-full border border-black/[0.14] bg-white px-6 py-[0.85rem] text-[16px] text-[#111111] placeholder:text-[#9A9A9A] transition-colors focus:border-[#0040FF] focus:outline-none focus:ring-2 focus:ring-[#0040FF]/20 disabled:opacity-60"
                   />
                   <button
                     type="submit"
@@ -123,7 +123,7 @@ export default function Newsletter() {
                   </p>
                 )}
 
-                <p className="mt-3 text-[13px] text-[#6e6e73]">
+                <p className="mt-3 text-[13px] text-[#5E5E5E]">
                   We never sell or share your address.
                 </p>
               </form>

@@ -65,7 +65,7 @@ function BrandPlate({ seed = 0, label }) {
 
       {label && (
         <div className="absolute bottom-4 left-4 right-4">
-          <span className="inline-block px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-sm text-[#1d1d1f]/70 text-[11px] font-black tracking-[0.16em] uppercase border border-[#1d1d1f]/[0.08]">
+          <span className="inline-block px-2.5 py-1 rounded-md bg-white/80 backdrop-blur-sm text-[#111111]/70 text-[11px] font-black tracking-[0.16em] uppercase border border-[#111111]/[0.08]">
             {label}
           </span>
         </div>

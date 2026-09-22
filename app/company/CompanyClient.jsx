@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PageHero } from "@/components/ui/primitives";
 
 export default function BitLayerxAboutPage() {
   const stats = [
@@ -22,9 +23,9 @@ export default function BitLayerxAboutPage() {
   // Add a colleague here only when they exist and have agreed to appear.
   const team = [
     {
-      image: '/images/founder-opeyemi.jpg',
+      image: '/images/leadership/opeyemi-ojurongbe.jpg',
       name: 'Opeyemi T. Ojurongbe',
-      title: 'Team Lead',
+      title: 'CEO, BitLayerX Technologies',
       description:
         'Founded BitLayerX and still works on the projects. Scopes the plan you receive in the first 48 hours, and is who you speak to if something goes wrong.'
     }
@@ -65,7 +66,7 @@ export default function BitLayerxAboutPage() {
     {
       year: '2020',
       label: 'Founded',
-      title: 'BitLayerx Launches',
+      title: 'BitLayerX Launches',
       description: 'Started with a vision to eliminate the chaos of working with multiple digital vendors.'
     },
     {
@@ -91,39 +92,18 @@ export default function BitLayerxAboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[70vh] lg:h-[80vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0040FF]/95 via-[#0040FF]/90 to-[#0040FF]/85" />
-        
-        <div className="relative z-10 h-full max-w-7xl mx-auto px-6 lg:px-12 flex items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl lg:text-7xl font-light text-white mb-8 leading-tight"
-            >
-              About <span className="font-bold">BitLayerx</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl lg:text-2xl text-white/90 leading-relaxed"
-            >
-              We're not just another digital agency. We're your complete growth partner, eliminating vendor chaos and delivering integrated solutions that actually drive revenue.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Company"
+        before="About"
+        highlight="BitLayerX Technologies"
+        after="."
+        lede="We're not just another digital agency. We're your complete growth partner, eliminating vendor chaos and delivering integrated solutions that actually drive revenue."
+        primary={{ href: "/start-a-project", label: "Start a project" }}
+        secondary={{ href: "/portfolio", label: "See the work" }}
+      />
 
       {/* Stats Section */}
-      <section className="bg-gray-50 py-16 lg:py-20 border-b-4 border-[#0040FF]">
+      <section className="bg-white border-t border-black/[0.08] py-16 lg:py-20 border-b-4 border-[#0040FF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-12">
             {stats.map((stat, index) => (
@@ -186,7 +166,7 @@ export default function BitLayerxAboutPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-[#0040FF] to-[#0040FF] p-12 text-white">
+              <div className="rounded-[24px] bg-white p-12 text-[#111111] ring-1 ring-black/[0.1] border-t-4 border-[#0040FF]">
                 <h3 className="text-3xl font-bold mb-8">We Connect For Growth</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -215,7 +195,7 @@ export default function BitLayerxAboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-gray-50 py-20 lg:py-28">
+      <section className="bg-white border-t border-black/[0.08] py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -284,7 +264,7 @@ export default function BitLayerxAboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="p-8 border-l-4 border-[#0040FF] bg-gray-50 hover:bg-black/[0.02] hover:shadow-lg transition-all duration-300"
+                className="p-8 border-l-4 border-[#0040FF] bg-white ring-1 ring-black/[0.08] hover:bg-black/[0.02] hover:shadow-lg transition-all duration-300"
               >
                 <svg className="w-12 h-12 text-[#0040FF] mb-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   {value.icon}
@@ -298,7 +278,7 @@ export default function BitLayerxAboutPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="bg-gradient-to-br from-[#0040FF] to-[#0040FF] py-20 lg:py-28 text-white">
+      <section className="py-20 lg:py-28 bg-white border-t border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -309,8 +289,8 @@ export default function BitLayerxAboutPage() {
             <h2 className="text-4xl lg:text-5xl font-light mb-6">
               Our <span className="font-bold">Journey</span>
             </h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
-              We've been moving businesses forward since 2020. Check out these BitLayerx firsts...
+            <p className="text-lg text-[#5E5E5E] max-w-3xl mx-auto">
+              We've been moving businesses forward since 2020. Check out these BitLayerX firsts...
             </p>
           </motion.div>
 
@@ -325,12 +305,12 @@ export default function BitLayerxAboutPage() {
                 className="grid md:grid-cols-[200px_1fr] gap-8 items-start"
               >
                 <div className="text-right">
-                  <div className="text-6xl font-bold text-white/20">{milestone.year}</div>
+                  <div className="text-6xl font-bold text-[#5E5E5E]">{milestone.year}</div>
                   <div className="text-sm uppercase tracking-wider text-[#0040FF] mt-2">{milestone.label}</div>
                 </div>
-                <div className="border-l-2 border-white/30 pl-8">
+                <div className="border-l-2 border-black/10 pl-8">
                   <h3 className="text-2xl font-bold mb-3">{milestone.title}</h3>
-                  <p className="text-white/80 leading-relaxed">{milestone.description}</p>
+                  <p className="text-[#5E5E5E] leading-relaxed">{milestone.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -339,12 +319,9 @@ export default function BitLayerxAboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0040FF]/95 to-[#0040FF]/90" />
-        </div>
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white border-t border-black/[0.08]">
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#111111]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -359,7 +336,7 @@ export default function BitLayerxAboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12 text-white/90"
+            className="text-xl mb-12 text-[#5E5E5E]"
           >
             Let's build something exceptional together. Get started with a free consultation.
           </motion.p>
@@ -373,9 +350,9 @@ export default function BitLayerxAboutPage() {
           >
             <Link href="/contact">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-white text-[#0040FF] text-lg font-semibold transition-all duration-300"
+                className="px-10 py-4 bg-[#0040FF] text-white hover:bg-black text-lg font-semibold transition-all duration-300"
               >
                 Schedule Consultation
               </motion.button>
@@ -383,9 +360,9 @@ export default function BitLayerxAboutPage() {
             
             <Link href="/packages">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: '#ffffff', color: '#0040FF' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-transparent text-white text-lg font-semibold border-2 border-white transition-all duration-300"
+                className="px-10 py-4 bg-transparent text-[#111111] text-lg font-semibold border border-black/[0.16] transition-all duration-300"
               >
                 View Our Packages
               </motion.button>

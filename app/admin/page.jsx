@@ -126,7 +126,7 @@ export default async function AdminDashboard() {
                     <thead>
                       <tr className="border-b border-black/[0.09] bg-white">
                         {["When", "Page", "Location", "IP", "Device", "Came from"].map((h) => (
-                          <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
+                          <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#111111]">
                             {h}
                           </th>
                         ))}
@@ -135,20 +135,20 @@ export default async function AdminDashboard() {
                     <tbody>
                       {views.slice(0, 40).map((v) => (
                         <tr key={v.id} className="border-b border-black/[0.06] last:border-0">
-                          <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#6e6e73]">
+                          <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#5E5E5E]">
                             {formatDateTime(v.at)}
                           </td>
                           <td className="max-w-[240px] px-5 py-3">
-                            <span className="block truncate text-[#1d1d1f]">{v.path}</span>
+                            <span className="block truncate text-[#111111]">{v.path}</span>
                           </td>
-                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                          <td className="whitespace-nowrap px-5 py-3 text-[#5E5E5E]">
                             {locationLabel(v)}
                           </td>
-                          <td className="whitespace-nowrap px-5 py-3 font-mono text-[12px] text-[#6e6e73]">
+                          <td className="whitespace-nowrap px-5 py-3 font-mono text-[12px] text-[#5E5E5E]">
                             {v.ip}
                           </td>
-                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">{v.device}</td>
-                          <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">{v.channel}</td>
+                          <td className="whitespace-nowrap px-5 py-3 text-[#5E5E5E]">{v.device}</td>
+                          <td className="whitespace-nowrap px-5 py-3 text-[#5E5E5E]">{v.channel}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -314,7 +314,7 @@ export default async function AdminDashboard() {
                   <thead>
                     <tr className="border-b border-black/[0.09] bg-white">
                       {["Subscribed", "Email", "Location", "Device", "From page"].map((h) => (
-                        <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#1d1d1f]">
+                        <th key={h} className="whitespace-nowrap px-5 py-3 font-bold text-[#111111]">
                           {h}
                         </th>
                       ))}
@@ -323,7 +323,7 @@ export default async function AdminDashboard() {
                   <tbody>
                     {subscribers.map((s) => (
                       <tr key={s.id} className="border-b border-black/[0.06] last:border-0">
-                        <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#6e6e73]">
+                        <td className="whitespace-nowrap px-5 py-3 text-[13px] text-[#5E5E5E]">
                           {formatDateTime(s.subscribedAt)}
                         </td>
                         <td className="px-5 py-3">
@@ -334,13 +334,13 @@ export default async function AdminDashboard() {
                             {s.email}
                           </a>
                         </td>
-                        <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                        <td className="whitespace-nowrap px-5 py-3 text-[#5E5E5E]">
                           {locationLabel(s.origin)}
                         </td>
-                        <td className="whitespace-nowrap px-5 py-3 text-[#6e6e73]">
+                        <td className="whitespace-nowrap px-5 py-3 text-[#5E5E5E]">
                           {s.origin?.device || "Unknown"}
                         </td>
-                        <td className="max-w-[220px] px-5 py-3 text-[12.5px] text-[#6e6e73]">
+                        <td className="max-w-[220px] px-5 py-3 text-[12.5px] text-[#5E5E5E]">
                           <span className="block truncate">
                             {s.source && s.source !== "direct"
                               ? s.source.replace(/^https?:\/\/[^/]+/, "") || "/"
@@ -354,9 +354,9 @@ export default async function AdminDashboard() {
               </div>
             </div>
 
-            <p className="mt-5 text-[13px] leading-relaxed text-[#6e6e73]">
+            <p className="mt-5 text-[13px] leading-relaxed text-[#5E5E5E]">
               Copy every address:{" "}
-              <span className="select-all break-all font-mono text-[12px] text-[#1d1d1f]">
+              <span className="select-all break-all font-mono text-[12px] text-[#111111]">
                 {subscribers.map((s) => s.email).join(", ")}
               </span>
             </p>
@@ -387,11 +387,11 @@ export default async function AdminDashboard() {
               <li key={p.slug} className="px-5 py-4">
                 <Link
                   href={`/blog/${p.slug}`}
-                  className="block font-semibold text-[#1d1d1f] hover:text-[#0040FF]"
+                  className="block font-semibold text-[#111111] hover:text-[#0040FF]"
                 >
                   {p.title}
                 </Link>
-                <p className="mt-1 text-[13px] text-[#6e6e73]">
+                <p className="mt-1 text-[13px] text-[#5E5E5E]">
                   {p.published} · {p.readingTime} min · {p.category}
                   {p.cover ? " · has cover" : " · no cover"}
                 </p>
@@ -419,12 +419,12 @@ export default async function AdminDashboard() {
             ].map(([label, key, value]) => (
               <div key={key} className="flex items-center justify-between gap-4 px-5 py-3.5">
                 <div>
-                  <dt className="text-[14.5px] font-semibold text-[#1d1d1f]">{label}</dt>
-                  <dd className="mt-0.5 font-mono text-[12px] text-[#6e6e73]">{key}</dd>
+                  <dt className="text-[14.5px] font-semibold text-[#111111]">{label}</dt>
+                  <dd className="mt-0.5 font-mono text-[12px] text-[#5E5E5E]">{key}</dd>
                 </div>
                 <span
                   className={`flex-shrink-0 rounded-full px-3 py-1 text-[11.5px] font-bold uppercase tracking-wider ${
-                    value ? "bg-[#0040FF]/10 text-[#0040FF]" : "bg-black/[0.06] text-[#6e6e73]"
+                    value ? "bg-[#0040FF]/10 text-[#0040FF]" : "bg-black/[0.06] text-[#5E5E5E]"
                   }`}
                 >
                   {value ? "Configured" : "Not set"}
@@ -442,17 +442,17 @@ export default async function AdminDashboard() {
       <header className="border-b border-black/[0.07] bg-white">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <div>
-            <h1 className="text-[1.5rem] font-extrabold tracking-[-0.03em] text-[#1d1d1f]">
+            <h1 className="text-[1.5rem] font-extrabold tracking-[-0.03em] text-[#111111]">
               Admin
             </h1>
-            <p className="mt-0.5 text-[13.5px] text-[#6e6e73]">
+            <p className="mt-0.5 text-[13.5px] text-[#5E5E5E]">
               Everything the site is collecting, in one place.
             </p>
           </div>
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="rounded-full border border-black/15 px-5 py-2 text-[14.5px] font-medium text-[#1d1d1f] transition-colors hover:border-black/40"
+              className="rounded-full border border-black/15 px-5 py-2 text-[14.5px] font-medium text-[#111111] transition-colors hover:border-black/40"
             >
               View site
             </Link>
@@ -472,7 +472,7 @@ export default async function AdminDashboard() {
           ]}
         />
 
-        <p className="mt-10 text-[13px] text-[#6e6e73]">
+        <p className="mt-10 text-[13px] text-[#5E5E5E]">
           {SITE.name} admin. Sessions expire after 12 hours.
         </p>
       </main>

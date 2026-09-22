@@ -47,7 +47,7 @@ const VERIFICATION = Object.fromEntries(
 );
 
 const CANONICAL_TITLE =
-  "BitLayerX, Digital Products, Brands & Systems Built to Last";
+  "BitLayerX Technologies, Digital Products, Brands & Systems Built to Last";
 
 const CANONICAL_DESCRIPTION =
   "BitLayerX designs and builds the products, brands and systems companies run on. Strategy, design, engineering, brand, film and growth, one team, in Abuja, working globally.";
@@ -57,7 +57,7 @@ export const metadata = {
 
   title: {
     default: CANONICAL_TITLE,
-    template: "%s | BitLayerX",
+    template: "%s | BitLayerX Technologies",
   },
 
   description: CANONICAL_DESCRIPTION,
@@ -68,7 +68,7 @@ export const metadata = {
   creator: "BitLayerX",
   publisher: "BitLayerX",
 
-  applicationName: "BitLayerX",
+  applicationName: "BitLayerX Technologies",
   category: "Technology",
   classification: "Business Services",
 
@@ -76,7 +76,7 @@ export const metadata = {
     type: "website",
     locale: "en_NG",
     url: "https://bitlayerx.com",
-    siteName: "BitLayerX",
+    siteName: "BitLayerX Technologies",
     title: CANONICAL_TITLE,
     description: CANONICAL_DESCRIPTION,
     // A single designed 1200×630 card, a square logo makes a weak link preview.
@@ -175,9 +175,9 @@ export default function RootLayout({ children }) {
                 {
                   "@type": "Organization",
                   "@id": "https://bitlayerx.com/#organization",
-                  name: "BitLayerX",
+                  name: "BitLayerX Technologies",
                   legalName: "BitLayerX Technologies",
-                  alternateName: "BitLayerX Technologies",
+                  alternateName: "BitLayerX",
                   // Corporate Affairs Commission number. Google uses company
                   // identifiers to link an entity to its official record, and
                   // a visitor can verify it on the CAC public register.
@@ -198,7 +198,7 @@ export default function RootLayout({ children }) {
                   founder: {
                     "@type": "Person",
                     name: "Opeyemi T. Ojurongbe",
-                    jobTitle: "Team Lead",
+                    jobTitle: "Chief Executive Officer",
                     url: "https://opeyemiojurongbe.com",
                   },
                   address: {
