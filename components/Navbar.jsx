@@ -254,7 +254,9 @@ export default function Navbar() {
             picks up the colour of whatever scrolls beneath it, which is what
             made the old one look grey-blue instead of white. */}
         <header
-          className="border-b border-black/[0.08] bg-white"
+          // A solid black rule under the bar, not a faint grey one. It reads
+          // as a deliberate edge to the header rather than a soft shadow.
+          className="border-b border-black bg-white"
           style={{
             boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.04)" : "none",
             transition: "box-shadow 0.25s ease",

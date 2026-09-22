@@ -46,5 +46,6 @@ next-env.d.ts
 # Local lead store
 .data/
 
-# Verification builds (see distDir in next.config.mjs)
-/.next-verify/
+# Any build written to an alternate distDir (see next.config.mjs):
+# .next-verify, .next-shot and friends.
+/.next-*/
