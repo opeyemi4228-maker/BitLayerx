@@ -71,7 +71,7 @@ export default function AtAGlance() {
               id="who-heading"
               className="text-[clamp(1.9rem,3.9vw,3.1rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-[#111111]"
             >
-              BitLayerX Technologies is a Nigerian technology company building
+              BitLayerX Technologies is a technology company building
               the digital foundations{" "}
               <span className="text-[#0040FF]">Africa runs on.</span>
             </h2>
