@@ -62,6 +62,9 @@ const nextConfig = {
       { source: "/case-studies", destination: "/portfolio", permanent: true },
       { source: "/pricing", destination: "/packages", permanent: true },
       { source: "/team", destination: "/about", permanent: true },
+      // /company carried an invented timeline and was removed; /about covers
+      // the same ground truthfully.
+      { source: "/company", destination: "/about", permanent: true },
       { source: "/news", destination: "/blog", permanent: true },
       { source: "/articles", destination: "/blog", permanent: true },
       { source: "/insights", destination: "/blog", permanent: true },
