@@ -185,7 +185,7 @@ export const LEADERSHIP = [
   {
     name: "Opeyemi T. Ojurongbe",
     role: "CEO, BitLayerX Technologies",
-    image: "/images/leadership/opeyemi-ojurongbe-alt.jpg",
+    image: "/images/leadership/opeyemi-ojurongbe.jpg",
     bio: "Scopes the plan you receive in the first 48 hours and sits on every project, so there is always a name to call.",
   },
   // {

@@ -28,7 +28,7 @@ export default function Founder() {
               style={{ aspectRatio: "3 / 4" }}
             >
               <Image
-                src="/images/leadership/opeyemi-ojurongbe-alt.jpg"
+                src="/images/leadership/opeyemi-ojurongbe.jpg"
                 alt="Opeyemi T. Ojurongbe, CEO of BitLayerX Technologies."
                 fill
                 sizes="(max-width: 1024px) 90vw, 420px"
