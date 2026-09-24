@@ -198,16 +198,16 @@ export const LEADERSHIP = [
     bio: "Scopes the plan you receive in the first 48 hours and sits on every project, so there is always a name to call.",
   },
   {
-    name: "Awosina Kehinde Johnson",
-    role: "Director of Marketing and Media",
-    image: KehindePortrait,
-    bio: "Owns how the work is found and how it is seen, from search and campaigns through to the films and photography.",
-  },
-  {
     name: "Leah Omolade",
     role: "Chief Analytics Officer",
     image: LeahPortrait,
     bio: "Turns what the products record into the reporting clients read, and holds every engagement to the metrics agreed up front.",
+  },
+  {
+    name: "Awosina Kehinde Johnson",
+    role: "Director of Marketing and Media",
+    image: KehindePortrait,
+    bio: "Owns how the work is found and how it is seen, from search and campaigns through to the films and photography.",
   },
   // {
   //   name: "Full name",
