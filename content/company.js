@@ -1,3 +1,10 @@
+// Imported rather than referenced by path. A bundled import gets a filename
+// containing a hash of the file's contents, so replacing the photograph
+// changes the URL and every browser and CDN fetches the new one. A fixed
+// path like "/images/.../opeyemi-ojurongbe.jpg" never changes, so a swapped
+// photograph keeps serving from cache and looks like nothing happened.
+import OpeyemiPortrait from "../public/images/leadership/opeyemi-ojurongbe.jpg";
+
 /**
  * Company facts shared across the site: the dream, the products, the
  * services and the values.
@@ -185,7 +192,7 @@ export const LEADERSHIP = [
   {
     name: "Opeyemi T. Ojurongbe",
     role: "CEO, BitLayerX Technologies",
-    image: "/images/leadership/opeyemi-ojurongbe.jpg",
+    image: OpeyemiPortrait,
     bio: "Scopes the plan you receive in the first 48 hours and sits on every project, so there is always a name to call.",
   },
   // {

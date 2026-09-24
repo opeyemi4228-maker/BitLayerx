@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section, Container, ActionLink } from "@/components/ui/primitives";
+import { MEDIA } from "@/lib/media";
 
 /**
  * The founder.
@@ -28,8 +29,8 @@ export default function Founder() {
               style={{ aspectRatio: "3 / 4" }}
             >
               <Image
-                src="/images/leadership/opeyemi-ojurongbe.jpg"
-                alt="Opeyemi T. Ojurongbe, CEO of BitLayerX Technologies."
+                src={MEDIA.founder.src}
+                alt={MEDIA.founder.alt}
                 fill
                 sizes="(max-width: 1024px) 90vw, 420px"
                 className="object-cover object-[50%_18%]"
