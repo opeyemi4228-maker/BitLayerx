@@ -23,7 +23,7 @@ export const metadata = pageMetadata("/");
  *
  *   1. What do you promise?       hero, with the flagship product on stage
  *   2. Who are you, really?       who we are, what we do, for whom, where
- *   3. What have you built?       the six products
+ *   3. What have you built?       the seven products
  *   4. Where are you going?       the 30% dream
  *   5. What can you do for me?    services, by who you are
  *   6. What does it cost?         the packages, priced

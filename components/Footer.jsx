@@ -80,7 +80,7 @@ export default function BitLayerxFooterBottom() {
       title: 'Products',
       links: PRODUCTS.map((p) => ({
         label: p.status === 'live' ? p.name : `${p.name} · 2027`,
-        href: p.url || '/#products',
+        href: p.url || p.page || '/#products',
         external: Boolean(p.url),
       })),
     },

@@ -1,22 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/primitives";
-import { PRODUCTS } from "@/content/company";
+import { PRODUCTS, PRODUCT_LOGOS } from "@/content/company";
 import ProductVisual from "./ProductVisuals";
 
 /**
  * The product display.
  *
  * BMW's model finder: a row of names across the top, one model shown large
- * beneath, the details beside it. Six products, grouped as they ship: three
- * live today, three launching in 2027. Each product leads with the one
+ * beneath, the details beside it. Seven products, grouped as they ship:
+ * three live today, four launching in 2027. Each product leads with the one
  * question it answers, because that is how a buyer recognises their problem.
  */
 
 const GROUPS = [
   { key: "live", label: "Available now", sub: "Cloud and field intelligence" },
-  { key: "2027", label: "Launching 2027", sub: "Logistics" },
+  { key: "2027", label: "Launching 2027", sub: "Logistics and intelligence" },
 ];
 
 function StatusPill({ status }) {
@@ -49,7 +51,7 @@ export default function ProductShowcase() {
               id="products-heading"
               className="mt-4 text-[clamp(2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-[#111111]"
             >
-              Six products. One ecosystem.
+              Seven products. One ecosystem.
             </h2>
           </div>
           <p className="max-w-[46ch] text-[clamp(1.05rem,1.4vw,1.2rem)] leading-[1.55] text-[#5E5E5E] lg:col-span-5 lg:pb-2">
@@ -57,6 +59,39 @@ export default function ProductShowcase() {
             single record of what happened, where it is and what it means.
           </p>
         </div>
+
+        {/* The product marks, visible before any tab is opened. A mark tied
+            to a product opens that product below. */}
+        <ul aria-label="Product logos" className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-[24px] bg-black/[0.08] ring-1 ring-black/[0.08] sm:grid-cols-3">
+          {PRODUCT_LOGOS.map((l) => {
+            const img = (
+              <Image
+                src={l.src}
+                alt={l.name}
+                width={l.width}
+                height={l.height}
+                sizes="(max-width: 640px) 70vw, 300px"
+                className="h-[clamp(2.5rem,4vw,3.5rem)] w-auto max-w-full"
+              />
+            );
+            return (
+              <li key={l.name} className="bg-white">
+                {l.product ? (
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(l.product)}
+                    aria-label={`Show ${l.name}`}
+                    className="flex h-full w-full items-center justify-center px-8 py-10 transition-colors hover:bg-black/[0.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0040FF]"
+                  >
+                    {img}
+                  </button>
+                ) : (
+                  <div className="flex h-full items-center justify-center px-8 py-10">{img}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
 
         {/* Selector. Two groups side by side on wide screens, each a row of
             names; the active one is underlined like a tab. */}
@@ -106,8 +141,22 @@ export default function ProductShowcase() {
             <div className="flex flex-wrap items-center gap-3">
               <StatusPill status={p.status} />
             </div>
+            {/* A product with a finished mark shows it; the name stays the
+                heading's accessible text through the image's alt. */}
             <h3 className="mt-5 text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[#111111]">
-              {p.name}
+              {p.logo ? (
+                <Image
+                  key={p.id}
+                  src={p.logo.src}
+                  alt={p.name}
+                  width={p.logo.width}
+                  height={p.logo.height}
+                  sizes="260px"
+                  className="h-[clamp(3.25rem,5vw,4.25rem)] w-auto max-w-full"
+                />
+              ) : (
+                p.name
+              )}
             </h3>
             <p className="mt-3 text-[clamp(1.1rem,1.5vw,1.3rem)] font-medium tracking-[-0.01em] text-[#0040FF]">
               {p.question}
@@ -130,6 +179,15 @@ export default function ProductShowcase() {
               >
                 {p.status === "live" ? "Book a demo" : "Join the launch list"}
               </a>
+              {p.page && (
+                <Link
+                  href={p.page}
+                  className="group inline-flex items-center gap-1 text-[1rem] font-medium text-[#0040FF] hover:text-[#111111]"
+                >
+                  About {p.name}
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-[3px]">›</span>
+                </Link>
+              )}
               {p.url && (
                 <a
                   href={p.url}

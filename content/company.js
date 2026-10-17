@@ -43,8 +43,10 @@ export const VALUES = [
 ];
 
 /**
- * The six products. Each one answers a single question a leader asks.
- * `visual` picks the illustration in components/home/ProductVisuals.jsx.
+ * The seven products. Each one answers a single question a leader asks.
+ * `visual` picks the illustration in components/home/ProductVisuals.jsx, and
+ * `page` links a product to its own page on this site, and `logo` replaces
+ * the plain name in the showcase once a product has a finished mark.
  */
 export const PRODUCTS = [
   {
@@ -79,6 +81,7 @@ export const PRODUCTS = [
     ],
     note: "Poll360 produces an independent count, never an official result. It does not replace INEC.",
     url: "https://poll-360.vercel.app",
+    logo: { src: "/images/products/poll360-logo.png", width: 1720, height: 500 },
     visual: "poll360",
   },
   {
@@ -145,6 +148,33 @@ export const PRODUCTS = [
     ],
     visual: "gotrack",
   },
+  {
+    id: "argus",
+    name: "Argus",
+    status: "2027",
+    division: "BitLayerX Intelligence",
+    question: "What is happening, and what do we do now?",
+    summary:
+      "Sovereign intelligence for governments and critical enterprises. Argus connects an institution’s scattered systems into one live picture, so its people can see what is happening and decide in real time, with data kept in-country.",
+    points: [
+      "Connects the systems an institution already runs, nothing replaced",
+      "One live picture of people, places, assets and events",
+      "AI that shows its sources; people make every consequential decision",
+      "Runs in Nigeria, in your own data centre, or on an isolated network",
+    ],
+    page: "/argus",
+    logo: { src: "/images/products/argus-logo.jpg", width: 900, height: 260 },
+    visual: "argus",
+  },
+];
+
+// The finished product marks, shown as one row in the products section so a
+// visitor sees them without opening a tab. `product` ties a mark to its entry
+// in PRODUCTS; a mark without one is shown on its own.
+export const PRODUCT_LOGOS = [
+  { name: "Poll360", src: "/images/products/poll360-logo.png", width: 1720, height: 500, product: "poll360" },
+  { name: "Argus", src: "/images/products/argus-logo.jpg", width: 900, height: 260, product: "argus" },
+  { name: "Echo", src: "/images/products/echo-logo.jpg", width: 1560, height: 440 },
 ];
 
 // Services, grouped the way buyers arrive: by who they are.

@@ -110,6 +110,30 @@ function Poll360() {
   );
 }
 
+function Argus() {
+  return (
+    <Frame caption="Illustrative live picture. Launching 2027.">
+      <Card className="max-w-[420px] p-5">
+        <div className="flex items-center justify-between">
+          <p className={`text-[15px] font-semibold ${ink}`}>Live picture</p>
+          <span className="flex items-center gap-1.5 text-[12px] text-[#0A7D3E]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0A7D3E]" /> 14 sources connected
+          </span>
+        </div>
+        <div className="mt-3">
+          <Row label="Payments · 3 linked accounts" value="Possible mule network" tag="REVIEW" tone="amber" />
+          <Row label="Pipeline segment 12" value="Pressure drop detected" tag="ALERT" tone="amber" />
+          <Row label="Plant 2 · Line B" value="Bearing wear predicted in 9 days" tag="PLAN" />
+          <Row label="Port of Lagos" value="Berth delays cleared" tag="OK" tone="green" />
+        </div>
+        <p className={`mt-4 border-t border-black/[0.08] pt-3 text-[11.5px] ${muted}`}>
+          Every suggestion shows its sources. A person approves every action.
+        </p>
+      </Card>
+    </Frame>
+  );
+}
+
 function Bubble({ from = "them", children }) {
   const me = from === "me";
   return (
@@ -273,6 +297,7 @@ const VISUALS = {
   quickdrive: QuickDrive,
   relay: Relay,
   gotrack: GoTrack,
+  argus: Argus,
 };
 
 export default function ProductVisual({ kind }) {
